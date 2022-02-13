@@ -1,7 +1,10 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { GameContext } from '../../utils/context'
 
 const NavContainer = styled.nav`
-  padding: 30px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,8 +12,20 @@ const NavContainer = styled.nav`
 `
 
 function Header() {
-  const hasGameStarted = false
-  return <NavContainer>{hasGameStarted ? <p>Accueil</p> :<p>Jeu 1 Jeu 2 Enchères Rolland Gamos</p>}</NavContainer>
+
+  const { games, hasGameStarted } = useContext(GameContext)
+
+  return (
+    <NavContainer>
+      {console.log(hasGameStarted)}
+      {hasGameStarted ? (
+        games.map((item)=>
+        <p key={item}>{item}</p>)
+      ) : (
+        <Link to="/">Accueil</Link>
+      )}
+    </NavContainer>
+  )
 }
 
 export default Header
