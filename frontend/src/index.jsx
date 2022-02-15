@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -13,11 +13,15 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 
 import {GameProvider} from './utils/context/index'
+import {GameContext} from './utils/context/index'
+
+
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <Router>
-      <GameProvider>
+      <GameProvider >     
         <Header />
         <Route exact path="/">
           <Home />

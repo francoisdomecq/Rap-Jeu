@@ -9,20 +9,29 @@ const NavContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: #001c39;
+  color: white;
+`
+const LinkText = styled(Link)`
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: #ffd222;
+  }
 `
 
 function Header() {
-
   const { games, hasGameStarted } = useContext(GameContext)
 
   return (
     <NavContainer>
       {console.log(hasGameStarted)}
       {hasGameStarted ? (
-        games.map((item)=>
-        <p key={item}>{item}</p>)
+        games
+          .slice(0)
+          .reverse()
+          .map((item) => <LinkText key={item}>{item}</LinkText>)
       ) : (
-        <Link to="/">Accueil</Link>
+        <LinkText to="/">Accueil</LinkText>
       )}
     </NavContainer>
   )

@@ -25,9 +25,7 @@ export const GameProvider = ({ children }) => {
   }
 
   function startGame() {
-    console.log(hasGameStarted)
     setStart(!hasGameStarted)
-    console.log(hasGameStarted)
   }
 
   function changeTeams(e, team) {
