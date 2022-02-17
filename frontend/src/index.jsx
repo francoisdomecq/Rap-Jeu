@@ -1,6 +1,6 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import './index.css'
 
@@ -11,31 +11,34 @@ import Game from './pages/Game'
 
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Error from './components/Error'
 
-import {GameProvider} from './utils/context/index'
-import {GameContext} from './utils/context/index'
-
-
+import { GameProvider } from './utils/context/index'
+import { GameContext } from './utils/context/index'
 
 ReactDOM.render(
-  
   <React.StrictMode>
     <Router>
-      <GameProvider >     
+      <GameProvider>
         <Header />
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/teams">
-          <Teams />
-        </Route>
-        <Route exact path="/games">
-          <Games />
-        </Route>
-        <Route exact path="/game">
-          <Game/>
-        </Route>
-        <Footer/>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/teams">
+            <Teams />
+          </Route>
+          <Route exact path="/games">
+            <Games />
+          </Route>
+          <Route exact path="/game">
+            <Game />
+          </Route>
+          <Route>
+            <Error />
+          </Route>
+        </Switch>
+        <Footer />
       </GameProvider>
     </Router>
   </React.StrictMode>,

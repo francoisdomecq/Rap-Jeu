@@ -3,7 +3,7 @@ import Logo from '../../assets/logo_youtube.svg'
 
 const FooterContainer = styled.footer`
   background-color: #ffd222;
-  // position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   width: 100%;

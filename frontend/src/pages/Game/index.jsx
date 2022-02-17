@@ -16,8 +16,7 @@ function Game() {
       if (history.action === 'POP') {
         if (locationKeys[1] === location.key) {
           setLocationKeys(([ _, ...keys ]) => keys)
-  
-          // Handle forward event
+          
   
         } else {
           setLocationKeys((keys) => [ location.key, ...keys ])

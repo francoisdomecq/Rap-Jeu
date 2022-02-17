@@ -9,16 +9,28 @@ export const GameProvider = ({ children }) => {
   const [team2, setTeam2] = useState('')
 
   const selectGames = (value) => {
+    //On regarde si la valeur à ajouter est contenue ou non dans le tableau
     if (!games.includes(value)) {
-      if (games.length < 4) {
-        let newGame = [...games, value]
-        setGames(newGame)
-      } else {
-        console.log('4 jeux sélectionnés')
+      // Si la valeur n'est pas contenu dans le tableau, alors on regarde si la longueur du tableau est inférieure à 4
+      // ou si elle est égale à 4 et qu'elle contient des ''
+      if (games.length < 4 || (games.length === 4 && games.includes(''))) {
+        //Si le tableau contient bien des '', alors on remplace les '' par la valeur à ajouter
+        if (games.includes('')) {
+          const index = games.indexOf('') //position dans le tableau des ''
+          games.splice(index, 1, value) //Remplacement des '' par la valeur à ajouter
+          let newGame = [...games] //Création d'une nouvelle variable pour l'immutabilité du state
+          setGames(newGame)
+        } //Si le tableau ne contient pas de ''
+        else {
+          let newGame = [...games, value]
+          setGames(newGame)
+        }
       }
-    } else {
+    } //Si la valeur est contenue dans la tableau on la supprime 
+    else {
       const index = games.indexOf(value)
-      let newGame = [...games.filter((item) => games.indexOf(item) !== index)]
+      games.splice(index, 1, '')
+      let newGame = [...games] 
       setGames(newGame)
     }
     return games
@@ -42,7 +54,15 @@ export const GameProvider = ({ children }) => {
 
   return (
     <GameContext.Provider
-      value={{ games, hasGameStarted, team1, team2, selectGames, startGame, changeTeams }}
+      value={{
+        games,
+        hasGameStarted,
+        team1,
+        team2,
+        selectGames,
+        startGame,
+        changeTeams,
+      }}
     >
       {children}
     </GameContext.Provider>
