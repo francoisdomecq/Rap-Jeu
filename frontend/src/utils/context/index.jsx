@@ -5,8 +5,8 @@ export const GameContext = createContext()
 export const GameProvider = ({ children }) => {
   const [games, setGames] = useState(['Rolland Gamos', 'Les enchères'])
   const [hasGameStarted, setStart] = useState(false)
-  const [team1, setTeam1] = useState('')
-  const [team2, setTeam2] = useState('')
+  const [team1, setTeam1] = useState('aaa')
+  const [team2, setTeam2] = useState('aaa')
 
   const selectGames = (value) => {
     //On regarde si la valeur à ajouter est contenue ou non dans le tableau
@@ -26,11 +26,11 @@ export const GameProvider = ({ children }) => {
           setGames(newGame)
         }
       }
-    } //Si la valeur est contenue dans la tableau on la supprime 
+    } //Si la valeur est contenue dans la tableau on la supprime
     else {
       const index = games.indexOf(value)
       games.splice(index, 1, '')
-      let newGame = [...games] 
+      let newGame = [...games]
       setGames(newGame)
     }
     return games

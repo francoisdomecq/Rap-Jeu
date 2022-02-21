@@ -30,14 +30,7 @@ function Game() {
   return (
     <div>
       <h1>Jeu n°1</h1>
-      {/* <button
-        name="top 5"
-        onClick={() => selectGames("top 5")}
-      />
-      <button
-        name="chien"
-        onClick={() => selectGames("chien")}
-      /> */}
+      
     </div>
   )
 }
