@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const connect = require('./connect')
 
+const CrossFeaturingRoutes = require('./routes/CrossFeaturing')
+
 const app = express()
 
 app.use((req, res, next) => {
@@ -18,5 +20,7 @@ app.use((req, res, next) => {
 })
 
 app.use(express.json())
+
+app.use('/api/crossfeaturing', CrossFeaturingRoutes)
 
 module.exports = app
