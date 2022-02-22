@@ -2,7 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const connect = require('./connect')
 
-
 const CrossFeaturingRoutes = require('./routes/CrossFeaturing')
 const EnchereRoutes = require('./routes/Enchere')
 //const MythoPasMythoRoutes = require('./routes/MythoPasMytho') Régler problème des fichiers
@@ -29,9 +28,9 @@ app.use(express.json())
 
 app.use('/api/crossfeaturing', CrossFeaturingRoutes)
 app.use('/api/enchere', EnchereRoutes)
+app.use('/api/nomequipe', NomEquipeRoutes)
+app.use('/api/rappeur', RappeurRoutes)
 //app.use('/api/mythopasmytho', MythoPasMythoRoutes)
 //app.use('/api/rapgenieougenant', RapGenieOuGenantRoutes)
-app.use('./api/nomequipe',NomEquipeRoutes)
-app.use('./api/rappeur',RappeurRoutes)
 
 module.exports = app

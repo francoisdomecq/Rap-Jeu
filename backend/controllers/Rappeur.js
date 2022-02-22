@@ -2,13 +2,13 @@ const Rappeur = require('../models/Rappeur')
 
 exports.createRappeur = (req, res, next) => {
   const rappeur = new Rappeur({
-    nom: req.body.nom,
+    nom:req.body.nom,
   })
   rappeur
     .save()
     .then(() => {
       res.status(201).json({
-        message: 'Post saved successfully!',
+        message: `${rappeur.nom} saved succesfully`,
       })
     })
     .catch((error) => {
