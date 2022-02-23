@@ -134,6 +134,8 @@ function Games() {
         </PlayButton>
       </GamesPicked>
       <GameContainer>
+        <p>Maintenant que les équipes sont prêtes et que votre nom d'équipe vous convient ou non, il faut choisir les jeux. N'y passez pas trop de temps, le but c'est quand même de jouer !</p>
+        <p>Vous vous affronterez au cours de 4 épreuves, les deux dernières étant obligatoirement les fameeeeuses enchères et le classique Rolland Gamos!</p>
         <GameCard
           label={'Top 5'}
           rules="4 cartes avec 4 à 8 thèmes par carte. Donne 5 (bonnes ?) réponses à un des thèmes de la carte en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."

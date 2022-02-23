@@ -7,7 +7,8 @@ import './index.css'
 import Teams from './pages/Teams'
 import Home from './pages/Home'
 import Games from './pages/GamesPicking'
-import Game from './pages/Game'
+import Game from './pages/Games'
+import RollandGamos from './pages/Games/RollandGamos'
 
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -33,6 +34,27 @@ ReactDOM.render(
           </Route>
           <Route exact path="/game">
             <Game />
+          </Route>
+          <Route exact path="/Top 5">
+            <Game />
+          </Route>
+          <Route exact path="/Les 3 petits chats">
+            <Game />
+          </Route>
+          <Route exact path="/Le CrossFeaturing">
+            <Game />
+          </Route>
+          <Route exact path="/Le Mytho Pas Mytho">
+            <Game />
+          </Route>
+          <Route exact path="/Rap génie ou rap gênant">
+            <Game />
+          </Route>
+          <Route exact path="/Les enchères">
+            <Game />
+          </Route>
+          <Route exact path="/Rolland Gamos">
+            <RollandGamos />
           </Route>
           <Route>
             <Error />

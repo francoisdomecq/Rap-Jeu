@@ -29,7 +29,7 @@ function Header() {
         games
           .slice(0)
           .reverse()
-          .map((item) => <LinkText key={item}>{item}</LinkText>)
+          .map((item) => <LinkText to={`/${item}`} key={item}>{item}</LinkText>)
       ) : (
         <LinkText to="/">Accueil</LinkText>
       )}

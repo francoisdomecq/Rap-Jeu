@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { GameContext } from '../../utils/context'
 import styled from 'styled-components'
 import Logo from '../../assets/jouer_entier.svg'
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -74,7 +75,8 @@ const Image = styled.img`
 `
 function Teams() {
   const [teamsRegistered, setTeamsRegistered] = useState([])
-  const { team1, team2, changeTeams,questionTeam, changeQuestionTeams } = useContext(GameContext)
+  const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
+    useContext(GameContext)
 
   function checkButton(value) {
     if (teamsRegistered.includes(value)) {
@@ -86,6 +88,10 @@ function Teams() {
       let newTeamsRegistered = [...teamsRegistered, value]
       setTeamsRegistered(newTeamsRegistered)
     }
+  }
+
+  function refreshPage() {
+    window.location.reload(false)
   }
 
   useEffect(() => {
@@ -105,8 +111,22 @@ function Teams() {
   return (
     <Container>
       <h1>Création des équipes</h1>
+      <p>
+        Avant de commencer, il faut bien évidemment commencer par le choix du
+        nom des équipes ! Pour ça, tu vas poser une petite question aux deux
+        équipes. Si la question vous inspire pas, tu peux bien entendu en charger une autre 
+      </p>
+      <p>
+        Et comme tu peux le voir les noms des deux équipes sont déjà pré-remplis
+        comme dans l'émission ! T'as plus qu'à écrire leurs réponses avant ou
+        après en fonction de ce qui sonne le mieux, ou le moins bien si tu
+        préfères..
+      </p>
 
       <QuestionWrapper>{questionTeam}</QuestionWrapper>
+      <div>
+        <button onClick={refreshPage}>Changer de question</button>
+      </div>
 
       <ContainerTeam>
         <TeamWrapper>
