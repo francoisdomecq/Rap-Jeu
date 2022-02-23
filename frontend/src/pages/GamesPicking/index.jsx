@@ -23,14 +23,16 @@ const GamesPicked = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   color: white;
 `
 const GamesPickedTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #db0a40;
   width: 240px;
   height: 50px;
-  text-align: center;
 `
 const GamesPickedTitle = styled.div`
   color: white;
@@ -39,7 +41,9 @@ const GamesPickedTitle = styled.div`
 `
 
 const GamesPickedWrapper = styled.div`
-  text-align: center;
+  display: flex;
+  align-items: ${({ isPicked }) => (isPicked ? 'space-between' : 'center')};
+  justify-content: ${({ isPicked }) => (isPicked ? 'space-between' : 'center')};
   background-color: #ffd222;
   border-radius: 20px;
   width: 200px;
@@ -49,10 +53,12 @@ const GamesPickedWrapper = styled.div`
 `
 
 const PlayButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 240px;
   height: 50px;
-  background-color: #db0a40;
-  text-align: center;
+  background-color: ${({ has4Games }) => (has4Games ? '#db0a40' : 'grey')};
   text-decoration: none;
   color: white;
   font-size: 24px;
@@ -63,7 +69,6 @@ const RemoveButton = styled.button`
   width: 30px;
   background-color: #db0a40;
   border-radius: 70px;
-  text-align: center;
   color: white;
   font-size: 20px;
   &:hover {
@@ -84,7 +89,9 @@ function Games() {
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>
         </GamesPickedTitleWrapper>
         <div>
-          <GamesPickedWrapper>
+          <GamesPickedWrapper
+            isPicked={games.length === 2 && games[2] !== '' ? true : false}
+          >
             {(games.length === 2 && games[2] !== '') ||
             (games.length > 2 && games[2] === '') ? (
               'Jeu n°1'
@@ -99,7 +106,9 @@ function Games() {
           </GamesPickedWrapper>
         </div>
 
-        <GamesPickedWrapper>
+        <GamesPickedWrapper
+          isPicked={games.length === 2 && games[2] !== '' ? true : false}
+        >
           {(games.length >= 3 && games[3] === '') ||
           (games.length < 4 && games[3] !== '') ? (
             'Jeu n°2'
@@ -115,11 +124,14 @@ function Games() {
 
         <GamesPickedWrapper>{games[0]}</GamesPickedWrapper>
         <GamesPickedWrapper>{games[1]}</GamesPickedWrapper>
-        {games.length === 4 && !games.includes('') ? (
-          <PlayButton to="/game" onClick={() => startGame()}>
-            Commencer la partie
-          </PlayButton>
-        ) : null}
+
+        <PlayButton
+          has4Games={games.length === 4 && !games.includes('') ? true : false}
+          to="/game"
+          onClick={() => startGame()}
+        >
+          Commencer la partie
+        </PlayButton>
       </GamesPicked>
       <GameContainer>
         <GameCard

@@ -5,8 +5,9 @@ export const GameContext = createContext()
 export const GameProvider = ({ children }) => {
   const [games, setGames] = useState(['Rolland Gamos', 'Les enchères'])
   const [hasGameStarted, setStart] = useState(false)
-  const [team1, setTeam1] = useState('aaa')
-  const [team2, setTeam2] = useState('aaa')
+  const [team1, setTeam1] = useState('')
+  const [team2, setTeam2] = useState('')
+  const [questionTeam,setQuestion] = useState('')
 
   const selectGames = (value) => {
     //On regarde si la valeur à ajouter est contenue ou non dans le tableau
@@ -40,16 +41,34 @@ export const GameProvider = ({ children }) => {
     setStart(!hasGameStarted)
   }
 
-  function changeTeams(e, team) {
-    if (team === 'team1') {
-      let newTeam = { ...team1 }
-      newTeam = e.target.value
-      setTeam1(newTeam)
-    } else if (team === 'team2') {
-      let newTeam = { ...team2 }
-      newTeam = e.target.value
-      setTeam2(newTeam)
+  function changeTeams(e, team, type) {
+    if (type === 'input') {
+      if (team === 'team1') {
+        let newTeam = { ...team1 }
+        newTeam = e.target.value
+        setTeam1(newTeam)
+      } else if (team === 'team2') {
+        let newTeam = { ...team2 }
+        newTeam = e.target.value
+        setTeam2(newTeam)
+      }
+    } else if (type === 'fetch') {
+      if (team === 'team1') {
+        let newTeam = { ...team1 }
+        newTeam = e
+        setTeam1(newTeam)
+      } else if (team === 'team2') {
+        let newTeam = { ...team2 }
+        newTeam = e
+        setTeam2(newTeam)
+      }
     }
+  }
+
+  function changeQuestionTeams(value){
+    let newQuestion = {...questionTeam}
+    newQuestion=value
+    setQuestion(newQuestion)
   }
 
   return (
@@ -59,9 +78,11 @@ export const GameProvider = ({ children }) => {
         hasGameStarted,
         team1,
         team2,
+        questionTeam,
         selectGames,
         startGame,
         changeTeams,
+        changeQuestionTeams
       }}
     >
       {children}

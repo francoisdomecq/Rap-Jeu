@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { GameContext } from '../../utils/context'
 import styled from 'styled-components'
 import Logo from '../../assets/jouer_entier.svg'
@@ -70,12 +70,11 @@ const ButtonValider = styled.button`
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  opacity:${({ bothTeamsRegistered }) => (bothTeamsRegistered ? '1' : '0.4')};
+  opacity: ${({ bothTeamsRegistered }) => (bothTeamsRegistered ? '1' : '0.4')};
 `
 function Teams() {
   const [teamsRegistered, setTeamsRegistered] = useState([])
-  const { team1, team2, changeTeams } = useContext(GameContext)
-  const question = 'Nom du top album us'
+  const { team1, team2, changeTeams,questionTeam, changeQuestionTeams } = useContext(GameContext)
 
   function checkButton(value) {
     if (teamsRegistered.includes(value)) {
@@ -89,11 +88,25 @@ function Teams() {
     }
   }
 
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/nomequipe`)
+      .then((response) => response.json())
+      .then((requestData) => {
+        if (team1 === '' && team2 === '' && questionTeam === '') {
+          let randomData = Math.floor(Math.random() * 38)
+          changeQuestionTeams(requestData[randomData].question)
+          changeTeams(requestData[randomData].debutNomE1, 'team1', 'fetch')
+          changeTeams(requestData[randomData].debutNomE2, 'team2', 'fetch')
+        }
+      })
+      .catch((error) => console.log(error))
+  }, [])
+
   return (
     <Container>
       <h1>Création des équipes</h1>
 
-      <QuestionWrapper>{question}</QuestionWrapper>
+      <QuestionWrapper>{questionTeam}</QuestionWrapper>
 
       <ContainerTeam>
         <TeamWrapper>
@@ -101,7 +114,7 @@ function Teams() {
           <TeamName
             type="text"
             value={team1}
-            onChange={(event) => changeTeams(event, 'team1')}
+            onChange={(event) => changeTeams(event, 'team1', 'input')}
             disabled={teamsRegistered.includes('team1') ? 'disabled' : null}
           />
           <ButtonValider onClick={() => checkButton('team1')}>
@@ -113,12 +126,12 @@ function Teams() {
           <TeamName
             type="text"
             value={team2}
-            onChange={(event) => changeTeams(event, 'team2')}
+            onChange={(event) => changeTeams(event, 'team2', 'input')}
             disabled={teamsRegistered.includes('team2') ? 'disabled' : null}
           />
-            <ButtonValider onClick={() => checkButton('team2')}>
-              {teamsRegistered.includes('team2') ? 'Modifier' : 'Valider'}
-            </ButtonValider>
+          <ButtonValider onClick={() => checkButton('team2')}>
+            {teamsRegistered.includes('team2') ? 'Modifier' : 'Valider'}
+          </ButtonValider>
         </TeamWrapper>
       </ContainerTeam>
 
