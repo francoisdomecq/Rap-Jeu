@@ -1,18 +1,14 @@
-import { useHistory } from 'react-router-dom'
-import { useState,useEffect,useContext } from 'react'
-
+import { useState, useEffect } from 'react'
 
 function RollandGamos() {
-  const[rappeur,setRappeurs]=useState([])
+  const [rappeur, setRappeurs] = useState([])
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/rappeur`)
       .then((response) => response.json())
       .then((requestData) => {
         console.log(requestData)
-          setRappeurs(requestData)
-         
-        
+        setRappeurs(requestData)
       })
       .catch((error) => console.log(error))
   }, [])
@@ -20,8 +16,9 @@ function RollandGamos() {
   return (
     <div>
       <h1>Rolland Gamos</h1>
-      {rappeur.map((rappeur)=><p key={rappeur._id}>{rappeur.nom}</p>)}
-      
+      {rappeur.map((rappeur) => (
+        <p key={rappeur._id}>{rappeur.nom}</p>
+      ))}
     </div>
   )
 }

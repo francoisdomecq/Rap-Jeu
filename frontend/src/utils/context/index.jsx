@@ -5,9 +5,7 @@ export const GameContext = createContext()
 export const GameProvider = ({ children }) => {
   const [games, setGames] = useState(['Rolland Gamos', 'Les enchères'])
   const [hasGameStarted, setStart] = useState(false)
-  const [team1, setTeam1] = useState('')
-  const [team2, setTeam2] = useState('')
-  const [questionTeam,setQuestion] = useState('')
+  
 
   const selectGames = (value) => {
     //On regarde si la valeur à ajouter est contenue ou non dans le tableau
@@ -41,6 +39,31 @@ export const GameProvider = ({ children }) => {
     setStart(!hasGameStarted)
   }
 
+  return (
+    <GameContext.Provider
+      value={{
+        games,
+        hasGameStarted,
+        selectGames,
+        startGame,
+      }}
+    >
+      {children}
+    </GameContext.Provider>
+  )
+}
+
+export const TeamContext=createContext()
+
+export const TeamProvider=({children})=>{
+  const [team1, setTeam1] = useState('')
+  const [team2, setTeam2] = useState('')
+  const [questionTeam,setQuestion] = useState('')
+
+  
+
+  //Il y a deux manières de changer le nom des équipes. Soit lors de la requête à l'api, 
+  //soit lorsque l'utilisateur les modifie manuellement dans les input
   function changeTeams(e, team, type) {
     if (type === 'input') {
       if (team === 'team1') {
@@ -70,22 +93,19 @@ export const GameProvider = ({ children }) => {
     newQuestion=value
     setQuestion(newQuestion)
   }
-
+  
   return (
-    <GameContext.Provider
+    <TeamContext.Provider
       value={{
-        games,
-        hasGameStarted,
         team1,
         team2,
         questionTeam,
-        selectGames,
-        startGame,
         changeTeams,
         changeQuestionTeams
       }}
     >
       {children}
-    </GameContext.Provider>
+    </TeamContext.Provider>
   )
+
 }

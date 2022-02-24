@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
-import { GameContext } from '../../utils/context'
+import { TeamContext } from '../../utils/context'
 import styled from 'styled-components'
 import Logo from '../../assets/jouer_entier.svg'
 
@@ -76,7 +76,7 @@ const Image = styled.img`
 function Teams() {
   const [teamsRegistered, setTeamsRegistered] = useState([])
   const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
-    useContext(GameContext)
+    useContext(TeamContext)
 
   function checkButton(value) {
     if (teamsRegistered.includes(value)) {
@@ -114,7 +114,8 @@ function Teams() {
       <p>
         Avant de commencer, il faut bien évidemment commencer par le choix du
         nom des équipes ! Pour ça, tu vas poser une petite question aux deux
-        équipes. Si la question vous inspire pas, tu peux bien entendu en charger une autre 
+        équipes. Si la question vous inspire pas, tu peux bien entendu en
+        charger une autre
       </p>
       <p>
         Et comme tu peux le voir les noms des deux équipes sont déjà pré-remplis
