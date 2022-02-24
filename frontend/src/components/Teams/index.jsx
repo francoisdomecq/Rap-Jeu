@@ -48,19 +48,19 @@ const ScoreTeamRight = styled.p`
   font-size:20px;
 `
 function Teams() {
-  const { team1, team2 } = useContext(TeamContext)
+  const { team1, team2,scoreTeam1,scoreTeam2 } = useContext(TeamContext)
 
   return (
     <PageContainer>
       <TeamsContainer>
         <Image src={JouerGauche} alt="jouerGauche" />
         <TeamsNameLeft>{team1}</TeamsNameLeft>
-        <ScoreTeamLeft>20 POINTS</ScoreTeamLeft>
+        <ScoreTeamLeft>{scoreTeam1} POINTS</ScoreTeamLeft>
       </TeamsContainer>
       <TeamsContainer>
         <Image src={JouerDroite} alt="jouerDroite" />
         <TeamsNameRight>{team2}</TeamsNameRight>
-        <ScoreTeamRight>20 points</ScoreTeamRight>
+        <ScoreTeamRight>{scoreTeam2} points</ScoreTeamRight>
       </TeamsContainer>
     </PageContainer>
   )

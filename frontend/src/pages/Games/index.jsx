@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../utils/context/index'
-import Teams from '../../components/Teams'
+import Score from '../../components/Score'
 
 function Game() {
   const [locationKeys, setLocationKeys] = useState([])
@@ -27,7 +27,8 @@ function Game() {
 
   return (
     <div>
-      
+      <Score value={1} team='team1'/>
+      <Score value={1} team='team2'/>
     </div>
   )
 }

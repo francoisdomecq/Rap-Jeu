@@ -5,7 +5,6 @@ export const GameContext = createContext()
 export const GameProvider = ({ children }) => {
   const [games, setGames] = useState(['Rolland Gamos', 'Les enchères'])
   const [hasGameStarted, setStart] = useState(false)
-  
 
   const selectGames = (value) => {
     //On regarde si la valeur à ajouter est contenue ou non dans le tableau
@@ -53,16 +52,16 @@ export const GameProvider = ({ children }) => {
   )
 }
 
-export const TeamContext=createContext()
+export const TeamContext = createContext()
 
-export const TeamProvider=({children})=>{
+export const TeamProvider = ({ children }) => {
   const [team1, setTeam1] = useState('')
   const [team2, setTeam2] = useState('')
-  const [questionTeam,setQuestion] = useState('')
+  const [questionTeam, setQuestion] = useState('')
+  const [scoreTeam1, setScoreTeam1] = useState(0)
+  const [scoreTeam2, setScoreTeam2] = useState(0)
 
-  
-
-  //Il y a deux manières de changer le nom des équipes. Soit lors de la requête à l'api, 
+  //Il y a deux manières de changer le nom des équipes. Soit lors de la requête à l'api,
   //soit lorsque l'utilisateur les modifie manuellement dans les input
   function changeTeams(e, team, type) {
     if (type === 'input') {
@@ -88,24 +87,35 @@ export const TeamProvider=({children})=>{
     }
   }
 
-  function changeQuestionTeams(value){
-    let newQuestion = {...questionTeam}
-    newQuestion=value
+  function changeQuestionTeams(value) {
+    let newQuestion = { ...questionTeam }
+    newQuestion = value
     setQuestion(newQuestion)
   }
-  
+
+  function updateScore(value, team) {
+    if (team === 'team1') {
+      let newScore = scoreTeam1+value
+      setScoreTeam1(newScore)
+    } else if (team === 'team2') {
+      let newScore = scoreTeam2 +value
+      setScoreTeam2(newScore)
+    }
+  }
   return (
     <TeamContext.Provider
       value={{
         team1,
         team2,
         questionTeam,
+        scoreTeam1,
+        scoreTeam2,
         changeTeams,
-        changeQuestionTeams
+        changeQuestionTeams,
+        updateScore
       }}
     >
       {children}
     </TeamContext.Provider>
   )
-
 }
