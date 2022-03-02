@@ -3,6 +3,8 @@ import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
 import styled from 'styled-components'
 import Logo from '../../assets/jouer_entier.svg'
+import Loader from '../../utils/Atoms'
+import Redbull from "../../assets/redbull.png"
 
 const Container = styled.div`
   display: flex;
@@ -67,14 +69,23 @@ const ButtonValider = styled.button`
     cursor: pointer;
   }
 `
-
 const Image = styled.img`
   width: 100%;
   height: 100%;
   opacity: ${({ bothTeamsRegistered }) => (bothTeamsRegistered ? '1' : '0.4')};
 `
+
+const LoaderWrapper = styled.div`
+margin-top:100px;
+margin-bottom:100px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+`
+
 function Teams() {
   const [teamsRegistered, setTeamsRegistered] = useState([])
+  const [isDataLoading, setDataLoading] = useState(true)
   const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
     useContext(TeamContext)
 
@@ -103,12 +114,17 @@ function Teams() {
           changeQuestionTeams(requestData[randomData].question)
           changeTeams(requestData[randomData].debutNomE1, 'team1', 'fetch')
           changeTeams(requestData[randomData].debutNomE2, 'team2', 'fetch')
+          setDataLoading(false)
         }
       })
       .catch((error) => console.log(error))
   }, [])
 
-  return (
+  return isDataLoading ? (
+    <LoaderWrapper>
+      <Loader src={Redbull}/>
+    </LoaderWrapper>
+  ) : (
     <Container>
       <h1>Création des équipes</h1>
       <p>
@@ -157,14 +173,15 @@ function Teams() {
       </ContainerTeam>
 
       <Link to="/games">
-        <Image
+        Jouer
+        {/* <Image
           bothTeamsRegistered={
             teamsRegistered.includes('team1') &&
             teamsRegistered.includes('team2')
           }
           src={Logo}
           alt="Jouer"
-        />
+        /> */}
       </Link>
     </Container>
   )

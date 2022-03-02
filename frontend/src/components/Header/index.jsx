@@ -20,7 +20,7 @@ const LinkText = styled(Link)`
 `
 
 function Header() {
-  const { games, hasGameStarted } = useContext(GameContext)
+  const { games, hasGameStarted,gamesPlayed } = useContext(GameContext)
 
   return (
     <NavContainer>
@@ -29,7 +29,7 @@ function Header() {
         games
           .slice(0)
           .reverse()
-          .map((item) => <LinkText to={`/${item}`} key={item}>{item}</LinkText>)
+          .map((item) => gamesPlayed.includes(item) ? <p>{item}</p> : <LinkText to={`/${item}`} key={item}>{item}</LinkText>)
       ) : (
         <LinkText to="/">Accueil</LinkText>
       )}

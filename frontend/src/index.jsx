@@ -65,6 +65,7 @@ ReactDOM.render(
             </Route>
             <Route exact path="/Rolland Gamos">
             <TeamsContainer />
+            <Game/>
               <RollandGamos />
             </Route>
           </TeamProvider>

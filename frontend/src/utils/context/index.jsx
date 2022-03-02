@@ -4,6 +4,7 @@ export const GameContext = createContext()
 
 export const GameProvider = ({ children }) => {
   const [games, setGames] = useState(['Rolland Gamos', 'Les enchères'])
+  const [gamesPlayed,setGamesPlayed] = useState([])
   const [hasGameStarted, setStart] = useState(false)
 
   const selectGames = (value) => {
@@ -33,6 +34,10 @@ export const GameProvider = ({ children }) => {
     }
     return games
   }
+  const updateGamesPlayed = (value)=>{
+    let newGamesPlayed = [...gamesPlayed,value]
+    setGamesPlayed(newGamesPlayed)
+  }
 
   function startGame() {
     setStart(!hasGameStarted)
@@ -43,8 +48,10 @@ export const GameProvider = ({ children }) => {
       value={{
         games,
         hasGameStarted,
+        gamesPlayed,
         selectGames,
         startGame,
+        updateGamesPlayed
       }}
     >
       {children}
