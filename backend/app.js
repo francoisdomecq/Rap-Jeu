@@ -4,10 +4,12 @@ const connect = require('./connect')
 
 const CrossFeaturingRoutes = require('./routes/CrossFeaturing')
 const EnchereRoutes = require('./routes/Enchere')
-//const MythoPasMythoRoutes = require('./routes/MythoPasMytho') Régler problème des fichiers
-//const RapGenieOuGenantRoutes = require('./routes/RapGenieOuGenant') Régler problème des fichiers
+const MythoPasMythoRoutes = require('./routes/MythoPasMytho')
+const RapGenieOuGenantRoutes = require('./routes/RapGenieOuGenant')
 const NomEquipeRoutes = require('./routes/NomEquipe')
 const RappeurRoutes = require('./routes/Rappeur')
+const Top5Routes = require('./routes/Top5')
+const Top5 = require('./models/Top5')
 
 const app = express()
 
@@ -30,7 +32,8 @@ app.use('/api/crossfeaturing', CrossFeaturingRoutes)
 app.use('/api/enchere', EnchereRoutes)
 app.use('/api/nomequipe', NomEquipeRoutes)
 app.use('/api/rappeur', RappeurRoutes)
-//app.use('/api/mythopasmytho', MythoPasMythoRoutes)
-//app.use('/api/rapgenieougenant', RapGenieOuGenantRoutes)
+app.use('/api/mythopasmytho', MythoPasMythoRoutes)
+app.use('/api/rapgenieougenant', RapGenieOuGenantRoutes)
+app.use('/api/top5', Top5Routes)
 
 module.exports = app
