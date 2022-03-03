@@ -5,6 +5,7 @@ exports.createRapGenieOuGenant = (req, res, next) => {
     question: req.body.question,
     reponse: req.body.reponse,
     illustration: req.body.illustration,
+    type:req.body.type
   })
   rapGenieOuGenant
     .save()

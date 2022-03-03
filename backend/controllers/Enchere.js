@@ -3,6 +3,7 @@ const Enchere = require('../models/Encheres')
 exports.createEnchere = (req, res, next) => {
   const enchere = new Enchere({
     theme: req.body.theme,
+    suggestions:req.body.suggestions
   })
   enchere
     .save()

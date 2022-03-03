@@ -1,8 +1,10 @@
+const { render } = require('../app')
 const Top5 = require('../models/Top5')
 
 exports.createTop5 = (req, res, next) => {
   const top5 = new Top5({
     theme: req.body.theme,
+    suggestions:req.body.suggestions
   })
   top5
     .save()
