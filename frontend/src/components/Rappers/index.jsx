@@ -60,6 +60,7 @@ function RappeurArray() {
             </tr>
           ))}
         </tbody>
+        
       </Table>
     </Container>
   )

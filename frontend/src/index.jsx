@@ -10,6 +10,7 @@ import Games from './pages/GamesPicking'
 import Game from './pages/Games'
 import RollandGamos from './pages/Games/RollandGamos'
 import PetitsChats from './pages/Games/3PetitsChats'
+import RapGenieOuGenant from './pages/Games/RapGenieOuGenant'
 
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -57,7 +58,7 @@ ReactDOM.render(
             </Route>
             <Route exact path="/Rap génie ou rap gênant">
             <TeamsContainer />
-              <Game />
+              <RapGenieOuGenant/>
             </Route>
             <Route exact path="/Les enchères">
             <TeamsContainer />

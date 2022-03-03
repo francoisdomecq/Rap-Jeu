@@ -170,7 +170,10 @@ function Teams() {
             {teamsRegistered.includes('team2') ? 'Modifier' : 'Valider'}
           </ButtonValider>
         </TeamWrapper>
+       
+      
       </ContainerTeam>
+      
 
       <Link to="/games">
         Jouer
