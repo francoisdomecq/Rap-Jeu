@@ -1,25 +1,17 @@
 import { useState, useEffect } from 'react'
+import RappeurArray from '../../../components/Rappers'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 function RollandGamos() {
-  const [rappeur, setRappeurs] = useState([])
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/api/rappeur`)
-      .then((response) => response.json())
-      .then((requestData) => {
-        console.log(requestData)
-        setRappeurs(requestData)
-      })
-      .catch((error) => console.log(error))
-  }, [])
-
   return (
-    <div>
-      <h1>Rolland Gamos</h1>
-      {rappeur.map((rappeur) => (
-        <p key={rappeur._id}>{rappeur.nom}</p>
-      ))}
-    </div>
+    <Container>
+      <RappeurArray />
+    </Container>
   )
 }
 
