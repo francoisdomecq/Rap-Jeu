@@ -11,6 +11,10 @@ import Game from './pages/Games'
 import RollandGamos from './pages/Games/RollandGamos'
 import PetitsChats from './pages/Games/3PetitsChats'
 import RapGenieOuGenant from './pages/Games/RapGenieOuGenant'
+import Enchere from './pages/Games/Encheres'
+import Top5 from './pages/Games/Top5'
+import CrossFeaturing from './pages/Games/CrossFeaturing'
+import MythoPasMytho from './pages/Games/MythoPasMytho'
 
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -41,32 +45,31 @@ ReactDOM.render(
               <Game />
             </Route>
             <Route exact path="/Top 5">
-            <TeamsContainer />
-              <Game />
+              <TeamsContainer />
+              <Top5 />
             </Route>
             <Route exact path="/Les 3 petits chats">
-            <TeamsContainer />
+              <TeamsContainer />
               <PetitsChats />
             </Route>
             <Route exact path="/Le CrossFeaturing">
-            <TeamsContainer />
-              <Game />
+              <TeamsContainer />
+              <CrossFeaturing />
             </Route>
             <Route exact path="/Le Mytho Pas Mytho">
-            <TeamsContainer />
-              <Game />
+              <TeamsContainer />
+              <MythoPasMytho />
             </Route>
             <Route exact path="/Rap génie ou rap gênant">
-            <TeamsContainer />
-              <RapGenieOuGenant/>
+              <TeamsContainer />
+              <RapGenieOuGenant />
             </Route>
             <Route exact path="/Les enchères">
-            <TeamsContainer />
-              <Game />
+              <TeamsContainer />
+              <Enchere />
             </Route>
             <Route exact path="/Rolland Gamos">
-            <TeamsContainer />
-            <Game/>
+              <TeamsContainer />
               <RollandGamos />
             </Route>
           </TeamProvider>
