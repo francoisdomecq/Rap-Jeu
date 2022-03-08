@@ -31,7 +31,7 @@ function MythoPasMytho() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
-              ) : null}
+              ) : <img src={data.illustration} alt=""/>}
             </div>))}
 
     </div>

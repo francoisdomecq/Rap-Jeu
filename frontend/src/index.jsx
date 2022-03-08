@@ -7,7 +7,6 @@ import './index.css'
 import Teams from './pages/TeamsCreation'
 import Home from './pages/Home'
 import Games from './pages/GamesPicking'
-import Game from './pages/Games'
 import RollandGamos from './pages/Games/RollandGamos'
 import PetitsChats from './pages/Games/3PetitsChats'
 import RapGenieOuGenant from './pages/Games/RapGenieOuGenant'
@@ -39,10 +38,6 @@ ReactDOM.render(
             </Route>
             <Route exact path="/games">
               <Games />
-            </Route>
-            <Route exact path="/game">
-              <TeamsContainer />
-              <Game />
             </Route>
             <Route exact path="/Top 5">
               <TeamsContainer />

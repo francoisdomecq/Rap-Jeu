@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
 import styled from 'styled-components'
-import Logo from '../../assets/jouer_entier.svg'
-import Loader from '../../utils/Atoms'
+import colors from '../../utils/styles/colors'
+import Loader from '../../utils/styles/Atoms'
 import Redbull from "../../assets/redbull.png"
 
 const Container = styled.div`
@@ -27,14 +27,14 @@ const QuestionWrapper = styled.div`
   padding-left: 20px;
   height: 50px;
   border-radius: 30px;
-  background-color: #db0a40;
+  background-color: ${colors.red};
   font-size: 20px;
   font-weight: bold;
   color: white;
 `
 const TeamWrapper = styled.div`
   width: 350px;
-  background-color: #001c39;
+  background-color: ${colors.blue};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -52,13 +52,14 @@ const TeamName = styled.input`
   width: 300px;
   height: 40px;
   font-size: 18px;
-  background-color: #ffd222;
+  background-color: ${colors.yellow};
+  color:${colors.blue};
   align-items: center;
   text-center: align;
 `
 
 const ButtonValider = styled.button`
-  background-color: #db0a40;
+  background-color: ${colors.red};
   border-radius: 70px;
   border: none;
   text-align: center;

@@ -39,8 +39,8 @@ export const GameProvider = ({ children }) => {
     setGamesPlayed(newGamesPlayed)
   }
 
-  function startGame() {
-    setStart(!hasGameStarted)
+  function startGame(value) {
+    setStart(value)
   }
 
   return (

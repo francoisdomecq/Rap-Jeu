@@ -8,7 +8,7 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #001c39;
+  background-color: #2704c4;
   color: white;
 `
 const LinkText = styled(Link)`
@@ -20,19 +20,18 @@ const LinkText = styled(Link)`
 `
 
 function Header() {
-  const { games, hasGameStarted,gamesPlayed } = useContext(GameContext)
+  const { games, hasGameStarted, gamesPlayed } = useContext(GameContext)
 
-  return (
+  return hasGameStarted ? (
     <NavContainer>
-      {console.log(hasGameStarted)}
-      {hasGameStarted ? (
-        games
-          .slice(0)
-          .reverse()
-          .map((item) => gamesPlayed.includes(item) ? <p>{item}</p> : <LinkText to={`/${item}`} key={item}>{item}</LinkText>)
-      ) : (
-        <LinkText to="/">Accueil</LinkText>
-      )}
+      {gamesPlayed.includes(games[2]) ?(<p>{games[2]}</p>): (<LinkText to={`/${games[2]}`}>{games[2]}</LinkText>)}
+      {gamesPlayed.includes(games[3]) ? (<p>{games[3]}</p>):(<LinkText to={`/${games[3]}`}>{games[3]}</LinkText>)}
+      {gamesPlayed.includes(games[1]) ? (<p>{games[1]}</p>):(<LinkText to={`/${games[1]}`}>{games[1]}</LinkText>)}
+      {gamesPlayed.includes(games[0]) ?(<p>{games[0]}</p>): (<LinkText to={`/${games[0]}`}>{games[0]}</LinkText>)}
+    </NavContainer>
+  ) : (
+    <NavContainer>
+      <LinkText to="/">Accueil</LinkText>
     </NavContainer>
   )
 }

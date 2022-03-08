@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext,useEffect } from 'react'
 import styled from 'styled-components'
 
 import GameCard from '../../components/GameCard'
@@ -17,58 +17,61 @@ const GameContainer = styled.div`
   flex-wrap: wrap;
 `
 const GamesPicked = styled.div`
-  margin-top: 15px;
-  width: 250px;
-  background-color: #001c39;
+  width: 100%;
+  background-color: #2704c4;
+  // background: linear-gradient(180deg, #2704C4 0%, rgba(13, 120, 232, 0.31) 100%);
+  box-shadow: 5px 5px rgba(0, 0, 255, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: white;
 `
 const GamesPickedTitleWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #db0a40;
-  width: 240px;
-  height: 50px;
+  width: 100%;
+  height: 6%;
 `
 const GamesPickedTitle = styled.div`
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 `
-
 const GamesPickedWrapper = styled.div`
   display: flex;
-  align-items: ${({ isPicked }) => (isPicked ? 'space-between' : 'center')};
-  justify-content: ${({ isPicked }) => (isPicked ? 'space-between' : 'center')};
-  background-color: #ffd222;
+  flex-wrap:wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 255, 0, 1);
+  box-shadow: 5px 5px 2px 1px black;
   border-radius: 20px;
-  width: 200px;
-  height: 40px;
-  padding: 5px;
-  margin-top: 25px;
+  width: 80%;
+  height: 10%;
+  color: #2704c4;
+  text-transform: uppercase;
+  font-weight: bold;
 `
 
 const PlayButton = styled(Link)`
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 240px;
-  height: 50px;
-  background-color: ${({ has4Games }) => (has4Games ? '#db0a40' : 'grey')};
+  align-items: center;
+  width: 100%;
+  height: 6%;
+  background-color: ${({ has4games }) => (has4games === "true" ? '#db0a40' : 'grey')};
   text-decoration: none;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 `
 
 const RemoveButton = styled.button`
   width: 30px;
-  background-color: #db0a40;
-  border-radius: 70px;
+  background: rgba(255, 0, 61, 1);
+  border-radius: 360px;
   color: white;
   font-size: 20px;
   &:hover {
@@ -81,30 +84,32 @@ function Games() {
   function removeGame(label) {
     selectGames(label)
   }
-  console.log(games)
+  
+  useEffect(()=>{
+    startGame(false)
+  })
   return (
     <Container>
       <GamesPicked has4Games={games.length === 4 ? true : false}>
         <GamesPickedTitleWrapper>
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>
         </GamesPickedTitleWrapper>
-        <div>
-          <GamesPickedWrapper
-            isPicked={games.length === 2 && games[2] !== '' ? true : false}
-          >
-            {(games.length === 2 && games[2] !== '') ||
-            (games.length > 2 && games[2] === '') ? (
-              'Jeu n°1'
-            ) : (
-              <div>
-                <span>{games[2]}</span>
-                <RemoveButton onClick={() => removeGame(games[2])}>
-                  -
-                </RemoveButton>
-              </div>
-            )}
-          </GamesPickedWrapper>
-        </div>
+
+        <GamesPickedWrapper
+          isPicked={games.length === 2 && games[2] !== '' ? true : false}
+        >
+          {(games.length === 2 && games[2] !== '') ||
+          (games.length > 2 && games[2] === '') ? (
+            'Jeu n°1'
+          ) : (
+            <div style={{justifyContent:'space-around'}}>
+              <span>{games[2]}</span>
+              <RemoveButton onClick={() => removeGame(games[2])}>
+                -
+              </RemoveButton>
+            </div>
+          )}
+        </GamesPickedWrapper>
 
         <GamesPickedWrapper
           isPicked={games.length === 2 && games[2] !== '' ? true : false}
@@ -122,20 +127,32 @@ function Games() {
           )}
         </GamesPickedWrapper>
 
-        <GamesPickedWrapper>{games[0]}</GamesPickedWrapper>
-        <GamesPickedWrapper>{games[1]}</GamesPickedWrapper>
+        <GamesPickedWrapper isPicked={true}>{games[0]}</GamesPickedWrapper>
+        <GamesPickedWrapper isPicked={true}>{games[1]}</GamesPickedWrapper>
 
         <PlayButton
-          has4Games={games.length === 4 && !games.includes('') ? true : false}
-          to="/game"
-          onClick={() => startGame()}
+          has4games={games.length === 4 && !games.includes('') ? "true" : "false"}
+          to={games.length === 4 && !games.includes('') ? `${games[2]}` : "/games"}
+          onClick={() =>
+            games.length === 4 && games.includes('') === false
+              ? startGame(true)
+              : null
+          }
         >
           Commencer la partie
         </PlayButton>
       </GamesPicked>
       <GameContainer>
-        <p>Maintenant que les équipes sont prêtes et que votre nom d'équipe vous convient ou non, il faut choisir les jeux. N'y passez pas trop de temps, le but c'est quand même de jouer !</p>
-        <p>Vous vous affronterez au cours de 4 épreuves, les deux dernières étant obligatoirement les fameeeeuses enchères et le classique Rolland Gamos!</p>
+        <p>
+          Maintenant que les équipes sont prêtes et que votre nom d'équipe vous
+          convient ou non, il faut choisir les jeux. N'y passez pas trop de
+          temps, le but c'est quand même de jouer !
+        </p>
+        <p>
+          Vous vous affronterez au cours de 4 épreuves, les deux dernières étant
+          obligatoirement les fameeeeuses enchères et le classique Rolland
+          Gamos!
+        </p>
         <GameCard
           label={'Top 5'}
           rules="4 cartes avec 4 à 8 thèmes par carte. Donne 5 (bonnes ?) réponses à un des thèmes de la carte en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."

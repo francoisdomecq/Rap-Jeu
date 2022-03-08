@@ -11,7 +11,6 @@ function PetitsChats() {
     fetch(`http://localhost:3001/api/rappeur`)
       .then((response) => response.json())
       .then((requestData) => {
-        console.log(requestData)
           setRappeurs(requestData)
       })
       .catch((error) => console.log(error))
