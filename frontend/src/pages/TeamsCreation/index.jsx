@@ -4,7 +4,8 @@ import { TeamContext } from '../../utils/context'
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 import Loader from '../../utils/styles/Atoms'
-import Redbull from "../../assets/redbull.png"
+import Redbull from '../../assets/redbull.png'
+import Jouer from '../../assets/jouer.svg'
 
 const Container = styled.div`
   display: flex;
@@ -53,7 +54,7 @@ const TeamName = styled.input`
   height: 40px;
   font-size: 18px;
   background-color: ${colors.yellow};
-  color:${colors.blue};
+  color: ${colors.blue};
   align-items: center;
   text-center: align;
 `
@@ -77,30 +78,21 @@ const Image = styled.img`
 `
 
 const LoaderWrapper = styled.div`
-margin-top:100px;
-margin-bottom:100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 `
 
+const LogoJouer = styled.img`
+  width: 100%;
+  height: 100%;
+`
 function Teams() {
-  const [teamsRegistered, setTeamsRegistered] = useState([])
   const [isDataLoading, setDataLoading] = useState(true)
   const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
     useContext(TeamContext)
-
-  function checkButton(value) {
-    if (teamsRegistered.includes(value)) {
-      const index = teamsRegistered.indexOf(value)
-      teamsRegistered.splice(index, 1)
-      let newTeamsRegistered = [...teamsRegistered]
-      setTeamsRegistered(newTeamsRegistered)
-    } else {
-      let newTeamsRegistered = [...teamsRegistered, value]
-      setTeamsRegistered(newTeamsRegistered)
-    }
-  }
 
   function refreshPage() {
     window.location.reload(false)
@@ -111,7 +103,7 @@ function Teams() {
       .then((response) => response.json())
       .then((requestData) => {
         if (team1 === '' && team2 === '' && questionTeam === '') {
-          let randomData = Math.floor(Math.random() * 38)
+          let randomData = Math.floor(Math.random() * requestData.length)
           changeQuestionTeams(requestData[randomData].question)
           changeTeams(requestData[randomData].debutNomE1, 'team1', 'fetch')
           changeTeams(requestData[randomData].debutNomE2, 'team2', 'fetch')
@@ -119,14 +111,16 @@ function Teams() {
         }
       })
       .catch((error) => console.log(error))
-  }, [])
+  })
+ 
 
   return isDataLoading ? (
     <LoaderWrapper>
-      <Loader src={Redbull}/>
+      <Loader src={Redbull} />
     </LoaderWrapper>
   ) : (
     <Container>
+       {console.log(questionTeam)}
       <h1>Création des équipes</h1>
       <p>
         Avant de commencer, il faut bien évidemment commencer par le choix du
@@ -148,44 +142,25 @@ function Teams() {
 
       <ContainerTeam>
         <TeamWrapper>
-          <p>{teamsRegistered.includes('team1') ? team1 : 'Equipe 1'} </p>
+          <p>EQUIPE 1</p>
           <TeamName
             type="text"
             value={team1}
             onChange={(event) => changeTeams(event, 'team1', 'input')}
-            disabled={teamsRegistered.includes('team1') ? 'disabled' : null}
           />
-          <ButtonValider onClick={() => checkButton('team1')}>
-            {teamsRegistered.includes('team1') ? 'Modifier' : 'Valider'}
-          </ButtonValider>
         </TeamWrapper>
-        <TeamWrapper teamRegistered={teamsRegistered.includes('team2')}>
-          <p>{teamsRegistered.includes('team2') ? team2 : 'Equipe 2'} </p>
+        <TeamWrapper>
+          <p>EQUIPE 2</p>
           <TeamName
             type="text"
             value={team2}
             onChange={(event) => changeTeams(event, 'team2', 'input')}
-            disabled={teamsRegistered.includes('team2') ? 'disabled' : null}
           />
-          <ButtonValider onClick={() => checkButton('team2')}>
-            {teamsRegistered.includes('team2') ? 'Modifier' : 'Valider'}
-          </ButtonValider>
         </TeamWrapper>
-       
-      
       </ContainerTeam>
-      
 
       <Link to="/games">
-        Jouer
-        {/* <Image
-          bothTeamsRegistered={
-            teamsRegistered.includes('team1') &&
-            teamsRegistered.includes('team2')
-          }
-          src={Logo}
-          alt="Jouer"
-        /> */}
+        <LogoJouer src={Jouer} alt="jouer" />
       </Link>
     </Container>
   )

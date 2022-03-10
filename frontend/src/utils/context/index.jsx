@@ -102,10 +102,10 @@ export const TeamProvider = ({ children }) => {
 
   function updateScore(value, team) {
     if (team === 'team1') {
-      let newScore = scoreTeam1+value
+      let newScore = scoreTeam1 + parseInt(value)
       setScoreTeam1(newScore)
     } else if (team === 'team2') {
-      let newScore = scoreTeam2 +value
+      let newScore = scoreTeam2 +parseInt(value)
       setScoreTeam2(newScore)
     }
   }

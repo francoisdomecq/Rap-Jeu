@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { TeamContext } from '../../utils/context'
 import JouerGauche from '../../assets/jauge_gauche.svg'

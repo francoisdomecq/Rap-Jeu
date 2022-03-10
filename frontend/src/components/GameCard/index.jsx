@@ -23,7 +23,7 @@ const CardWrapper = styled.div`
 
 const CardTitleWrapper = styled.div`
   background: ${colors.red};
-  box-shadow: 2px 5px 2px 1px black;
+  box-shadow: 2px 5px 2px 1px  black;
   width: 100%;
   padding:1%;
   border-radius: 20px;
