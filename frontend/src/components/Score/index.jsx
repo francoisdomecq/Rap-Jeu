@@ -1,24 +1,23 @@
-import styled from 'styled-components'
 import { useContext } from 'react'
 import { TeamContext } from '../../utils/context'
-import colors from '../../utils/styles/colors'
+import { ContainerScore, ButtonScore } from './styles'
 
-const ButtonScore = styled.input`
-  width: 100%;
-  background-color: ${colors.blue};
-`
 function Score({ value, team }) {
   const { updateScore } = useContext(TeamContext)
 
-  const handleKeyPress = (e,team)=>{
-    if(e.key==='Enter'){
-      updateScore(e.target.value,team)
+  const handleKeyPress = (e, team) => {
+    if (e.key === 'Enter') {
+      updateScore(e.target.value, team)
+      e.target.value = 0
     }
   }
   return (
-    <div>
-      <ButtonScore type="text" onKeyPress={(event) => handleKeyPress(event,team)}/>
-    </div>
+    <ContainerScore>
+      <ButtonScore
+        type="text"
+        onKeyPress={(event) => handleKeyPress(event, team)}
+      />
+    </ContainerScore>
   )
 }
 

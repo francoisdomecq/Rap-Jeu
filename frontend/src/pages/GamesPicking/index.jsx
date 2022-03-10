@@ -1,91 +1,25 @@
-import { Link } from 'react-router-dom'
-import { useContext,useEffect } from 'react'
-import styled from 'styled-components'
-
+import { useContext, useEffect } from 'react'
 import GameCard from '../../components/GameCard'
-
 import { GameContext } from '../../utils/context'
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-const GameContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-`
-const GamesPicked = styled.div`
-  width: 100%;
-  background-color: #2704c4;
-  // background: linear-gradient(180deg, #2704C4 0%, rgba(13, 120, 232, 0.31) 100%);
-  box-shadow: 5px 5px rgba(0, 0, 255, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-`
-const GamesPickedTitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #db0a40;
-  width: 100%;
-  height: 6%;
-`
-const GamesPickedTitle = styled.div`
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-`
-const GamesPickedWrapper = styled.div`
-  display: flex;
-  flex-wrap:wrap;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background: rgba(250, 255, 0, 1);
-  box-shadow: 5px 5px 2px 1px black;
-  border-radius: 20px;
-  width: 80%;
-  height: 10%;
-  color: #2704c4;
-  text-transform: uppercase;
-  font-weight: bold;
-`
-
-const PlayButton = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 6%;
-  background-color: ${({ has4games }) => (has4games === "true" ? '#db0a40' : 'grey')};
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-`
-
-const RemoveButton = styled.button`
-  width: 30px;
-  background: rgba(255, 0, 61, 1);
-  border-radius: 360px;
-  color: white;
-  font-size: 20px;
-  &:hover {
-    cursor: pointer;
-  }
-`
+import {
+  Container,
+  GamesPicked,
+  GamesPickedWrapper,
+  GamesPickedTitleWrapper,
+  GamesPickedTitle,
+  GameContainer,
+  RemoveButton,
+  PlayButton,
+  ExplainContainer,
+} from './styles'
 
 function Games() {
   const { games, selectGames, startGame } = useContext(GameContext)
   function removeGame(label) {
     selectGames(label)
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     startGame(false)
   })
   return (
@@ -102,7 +36,7 @@ function Games() {
           (games.length > 2 && games[2] === '') ? (
             'Jeu n°1'
           ) : (
-            <div style={{justifyContent:'space-around'}}>
+            <div style={{ justifyContent: 'space-around' }}>
               <span>{games[2]}</span>
               <RemoveButton onClick={() => removeGame(games[2])}>
                 -
@@ -131,8 +65,12 @@ function Games() {
         <GamesPickedWrapper isPicked={true}>{games[1]}</GamesPickedWrapper>
 
         <PlayButton
-          has4games={games.length === 4 && !games.includes('') ? "true" : "false"}
-          to={games.length === 4 && !games.includes('') ? `${games[2]}` : "/games"}
+          has4games={
+            games.length === 4 && !games.includes('') ? 'true' : 'false'
+          }
+          to={
+            games.length === 4 && !games.includes('') ? `${games[2]}` : '/games'
+          }
           onClick={() =>
             games.length === 4 && games.includes('') === false
               ? startGame(true)
@@ -143,16 +81,16 @@ function Games() {
         </PlayButton>
       </GamesPicked>
       <GameContainer>
-        <p>
-          Maintenant que les équipes sont prêtes et que votre nom d'équipe vous
-          convient ou non, il faut choisir les jeux. N'y passez pas trop de
-          temps, le but c'est quand même de jouer !
-        </p>
-        <p>
-          Vous vous affronterez au cours de 4 épreuves, les deux dernières étant
-          obligatoirement les fameeeeuses enchères et le classique Rolland
-          Gamos!
-        </p>
+        <ExplainContainer>
+          <h1 style={{ textAlign: 'center' }}>Choix des jeux</h1>
+          <p>
+            Maintenant que les équipes sont prêtes et que votre nom d'équipe
+            vous convient ou non, il faut choisir les jeux. N'y passez pas trop
+            de temps, le but c'est quand même de jouer ! Vous vous affronterez
+            au cours de 4 épreuves, les deux dernières étant obligatoirement les
+            fameeeeuses enchères et le classique Rolland Gamos!
+          </p>
+        </ExplainContainer>
         <GameCard
           label={'Top 5'}
           rules="4 cartes avec 4 à 8 thèmes par carte. Donne 5 (bonnes ?) réponses à un des thèmes de la carte en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."

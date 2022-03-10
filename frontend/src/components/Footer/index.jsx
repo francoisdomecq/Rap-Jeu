@@ -1,19 +1,5 @@
-import styled from 'styled-components'
 import Logo from '../../assets/logo_youtube.svg'
-
-const FooterContainer = styled.footer`
-  background-color: #ffd222;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-`
-
-const FooterText = styled.p`
-  color: white;
-  font-size: 12px;
-  text-align: center;
-`
+import { FooterContainer, FooterText } from './styles'
 
 function Footer() {
   return (

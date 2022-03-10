@@ -1,38 +1,37 @@
 import { useState, useEffect } from 'react'
 import RappeurArray from '../../../components/Rappers'
 import Score from '../../../components/Score'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
+import { Container } from './styles'
 
 function RollandGamos() {
-  const[rappeur,setRappeur]=useState('')
-  const [count,setCount] = useState(0)
-  
-  function selectRappeur(rappeur){
+  const [rappeur, setRappeur] = useState('')
+  const [count, setCount] = useState(0)
+
+  function selectRappeur(rappeur) {
     setRappeur(rappeur)
   }
 
-  function newRappeur(){
+  function newRappeur() {
     setRappeur('')
-    setCount(count+1)
+    setCount(count + 1)
   }
 
-  return (
-    count < 3 ? (
+  return count < 3 ? (
     <Container>
-      <Score value={1} team={"team1"}/>
-      
-      {rappeur ? <div><p>{rappeur}</p><button onClick={()=>newRappeur()}/></div>
-       : <RappeurArray selectRappeur={selectRappeur}/>}
-       <Score value={1} team={"team2"}/>
-    </Container>):
+      <Score team={'team1'} />
+      {rappeur ? (
+        <div>
+          <p>{rappeur}</p>
+          <button onClick={() => newRappeur()} />
+        </div>
+      ) : (
+        <RappeurArray selectRappeur={selectRappeur} />
+      )}
+      <Score team={'team2'} />
+    </Container>
+  ) : (
     <Container>
-     <p>Bien joué equipe 1 </p> 
+      <p>Bien joué equipe 1 </p>
     </Container>
   )
 }
