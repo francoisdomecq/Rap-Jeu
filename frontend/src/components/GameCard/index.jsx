@@ -8,7 +8,7 @@ import {
   CardRules,
 } from './styles'
 
-function GameCard({ label, rules, picture }) {
+function GameCard({ label, rules, manches }) {
   const { games, selectGames } = useContext(GameContext)
 
   function clickGameCard(label) {
@@ -24,7 +24,10 @@ function GameCard({ label, rules, picture }) {
         <CardTitle>{label}</CardTitle>
       </CardTitleWrapper>
       <CardRulesWrapper>
-        <CardRules>{rules}</CardRules>
+        <CardRules>
+          <h3>{manches}</h3>
+          <p>{rules}</p>
+        </CardRules>
       </CardRulesWrapper>
     </CardWrapper>
   )

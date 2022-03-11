@@ -43,7 +43,9 @@ function Home() {
             la partie. La première étape va être de créer le nom des équipes.
             Une fois que c'est fait, vous allez pouvoir choisir les épreuves
             auxquelles vous voulez jouer. Bien entendu, la partie se termine par
-            les imprésentables enchères et l'inégalable Roland Gamos.{' '}
+            les imprésentables enchères et l'inégalable Roland Gamos. Le maître
+            du jeu a tous les droits au cours de la partie, et peut ajouter
+            autant que de points qu'il souhaite mais aussi en enlever
           </p>
         </Explications>
       </ExplicationsContainer>

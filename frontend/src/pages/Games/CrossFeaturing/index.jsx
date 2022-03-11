@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
+import Score from '../../../components/Score'
 
 function CrossFeaturing() {
   const [crossFeaturingData, setData] = useState([])
@@ -15,11 +16,14 @@ function CrossFeaturing() {
 
   return (
     <div>
-      <h1>Lesc enchères</h1>
+      <h1>CrossFeaturing</h1>
+      <Score team={'team1'} value={5} />
       {crossFeaturingData.map((item) => (
-        <p key={item._id}>{item.rappeur1} {item.rappeur2}</p>
-
+        <p key={item._id}>
+          {item.rappeur1} {item.rappeur2}
+        </p>
       ))}
+      <Score team={'team2'} value={5}/>
     </div>
   )
 }

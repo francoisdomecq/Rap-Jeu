@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 import GameCard from '../../components/GameCard'
-import { GameContext } from '../../utils/context'
+import { GameContext, TeamContext } from '../../utils/context'
 import {
   Container,
   GamesPicked,
@@ -15,12 +15,15 @@ import {
 
 function Games() {
   const { games, selectGames, startGame } = useContext(GameContext)
+  const { updateScore, scoreTeam1, scoreTeam2 } = useContext(TeamContext)
   function removeGame(label) {
     selectGames(label)
   }
 
   useEffect(() => {
     startGame(false)
+    updateScore(-scoreTeam1, 'team1')
+    updateScore(-scoreTeam2, 'team2')
   })
   return (
     <Container>
@@ -61,8 +64,8 @@ function Games() {
           )}
         </GamesPickedWrapper>
 
-        <GamesPickedWrapper isPicked={true}>{games[0]}</GamesPickedWrapper>
         <GamesPickedWrapper isPicked={true}>{games[1]}</GamesPickedWrapper>
+        <GamesPickedWrapper isPicked={true}>{games[0]}</GamesPickedWrapper>
 
         <PlayButton
           has4games={
@@ -93,23 +96,28 @@ function Games() {
         </ExplainContainer>
         <GameCard
           label={'Top 5'}
-          rules="4 cartes avec 4 à 8 thèmes par carte. Donne 5 (bonnes ?) réponses à un des thèmes de la carte en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
+          manches="4 manches - 5 points par manche"
+          rules="Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
         />
         <GameCard
           label={'Les 3 petits chats'}
-          rules="3 manches de 15 points chacune. Le maître de jeu tire une carte rappeur et lance un trois petits r(c)chats. L’équipe adverse doit reprendre la dernière syllabe du premier nom cité, et ainsi de suite en répétant tous les noms depuis le début, jusqu’à ce qu’une équipe se trompe."
+          manches="3 manches - 10 points par manche"
+          rules="Le maître de jeu choisit un rappeur et lance un trois petits r(c)chats. L’équipe adverse doit reprendre la dernière syllabe du premier nom cité, et ainsi de suite en répétant tous les noms depuis le début, jusqu’à ce qu’une équipe se trompe."
         />
         <GameCard
           label={'Le CrossFeaturing'}
-          rules="3 manches de 5 points chacune. Le maître du jeu tire une carte et choisit deux noms. Trouve le chemin le plus court qui lie les deux artistes en citant des featurings, et vole les points à l’autre équipe si tu trouves plus court."
+          manches="3 manches - 5 points par manche"
+          rules="Le maître du jeu choisit deux rappeurs. Trouve le chemin le plus court qui lie les deux artistes en citant des featurings, et vole les points à l’autre équipe si tu trouves plus court."
         />
         <GameCard
           label={'Le Mytho Pas Mytho'}
-          rules="20 cartes de 2 à 4 questions. Trouve si ces anecdotes sur le rap sont ou non des mythos."
+          manches="4 manches - 5 points par manche"
+          rules="Trouve si ces anecdotes sur le rap sont ou non des mythos."
         />
         <GameCard
           label={'Rap génie ou rap gênant'}
-          rules="19 cartes de 2 à 4 questions. 2 points par bonne réponse. Un extrait de rap, ou pas.. à toi de deviner si c’est du génie ou si c’est juste gênant"
+          manches="4 manches - 5 points par manche"
+          rules="Un extrait de rap, ou pas.. à toi de deviner si c’est du génie ou si c’est juste gênant"
         />
       </GameContainer>
     </Container>

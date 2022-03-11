@@ -38,7 +38,9 @@ function Teams() {
       })
       .catch((error) => console.log(error))
   })
-
+  function makeAlert() {
+    setDataLoading(false)
+  }
   return isDataLoading ? (
     <LoaderWrapper>
       <Loader src={Redbull} />

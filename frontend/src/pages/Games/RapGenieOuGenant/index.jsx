@@ -1,15 +1,14 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
-import {generateRandomNumber} from '../../../utils/functions/random'
-
+import { generateRandomNumber } from '../../../utils/functions/random'
+import Score from '../../../components/Score'
 
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
 
-  
-  const updateData = (value1,value2,value3,value4) => {
+  const updateData = (value1, value2, value3, value4) => {
     let newData = [...questionData]
-    newData.push(value1,value2,value3,value4)
+    newData.push(value1, value2, value3, value4)
     setData(newData)
   }
 
@@ -26,8 +25,8 @@ function RapGenieOuGenant() {
 
   return (
     <div>
-      {console.log(questionData)}
       <h1>Rap génie ou gênant</h1>
+      <Score team={'team1'} value={5} />
       {questionData.map((data) => (
         <div>
           <p>{data.question}</p>
@@ -42,9 +41,10 @@ function RapGenieOuGenant() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          ) : null }
+          ) : null}
         </div>
       ))}
+      <Score team={'team2'}  value={5}/>
     </div>
   )
 }

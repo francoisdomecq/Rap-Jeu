@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import RappeurArray from '../../../components/Rappers'
 import Score from '../../../components/Score'
 import { Container } from './styles'
@@ -18,7 +18,7 @@ function RollandGamos() {
 
   return count < 3 ? (
     <Container>
-      <Score team={'team1'} />
+      <Score team={'team1'} value="--" />
       {rappeur ? (
         <div>
           <p>{rappeur}</p>
@@ -27,7 +27,7 @@ function RollandGamos() {
       ) : (
         <RappeurArray selectRappeur={selectRappeur} />
       )}
-      <Score team={'team2'} />
+      <Score team={'team2'} value="--" />
     </Container>
   ) : (
     <Container>

@@ -19,4 +19,7 @@ export const ButtonScore = styled.input`
   text-align: center;
   font-size: 30px;
   font-weight: bold;
+  ::placeholder{
+    color:white;
+  }
 `
