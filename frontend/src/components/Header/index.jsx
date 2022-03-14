@@ -7,7 +7,17 @@ function Header() {
 
   return hasGameStarted ? (
     <NavContainer>
-      {gamesPlayed.includes(games[2]) ? (
+      {console.log(games)}
+      {games.map((item) =>
+        gamesPlayed.includes(item) ? (
+          <p key={item}>{item}</p>
+        ) : (
+          <LinkText key={item} to={`/${item}`}>
+            {item}
+          </LinkText>
+        )
+      )}
+      {/* {gamesPlayed.includes(games[2]) ? (
         <p>{games[2]}</p>
       ) : (
         <LinkText to={`/${games[2]}`}>{games[2]}</LinkText>
@@ -26,7 +36,7 @@ function Header() {
         <p>{games[0]}</p>
       ) : (
         <LinkText to={`/${games[0]}`}>{games[0]}</LinkText>
-      )}
+      )} */}
     </NavContainer>
   ) : (
     <NavContainer>

@@ -3,7 +3,9 @@ import { GameContext } from '../../../utils/context'
 import Score from '../../../components/Score'
 
 function CrossFeaturing() {
+  const [nombreReponses, updateNombreReponses] = useState(0)
   const [crossFeaturingData, setData] = useState([])
+  const { updateGamesPlayed } = useContext(GameContext)
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/crossfeaturing`)
@@ -14,6 +16,10 @@ function CrossFeaturing() {
       .catch((error) => console.log(error))
   }, [])
 
+  const updateNombreAnswers = () => {
+    updateGamesPlayed('Le CrossFeaturing', nombreReponses, updateNombreReponses)
+  }
+
   return (
     <div>
       <h1>CrossFeaturing</h1>
@@ -23,7 +29,8 @@ function CrossFeaturing() {
           {item.rappeur1} {item.rappeur2}
         </p>
       ))}
-      <Score team={'team2'} value={5}/>
+      <Score team={'team2'} value={5} />
+      <button onClick={() => updateNombreAnswers()} />
     </div>
   )
 }

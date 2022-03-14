@@ -4,6 +4,8 @@ import Score from '../../../components/Score'
 
 function Enchere() {
   const [enchere, setEncheres] = useState([])
+  const [nombreReponses, updateNombreReponses] = useState(0)
+  const { updateGamesPlayed } = useContext(GameContext)
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/enchere`)
@@ -14,6 +16,10 @@ function Enchere() {
       .catch((error) => console.log(error))
   }, [])
 
+  const updateNombreAnswers = () => {
+    updateGamesPlayed('Les enchères', nombreReponses, updateNombreReponses)
+  }
+  
   return (
     <div>
       <h1>Lesc enchères</h1>
@@ -24,6 +30,7 @@ function Enchere() {
         </p>
       ))}
       <Score team={'team2'} value="--" />
+      <button onClick={() => updateNombreAnswers()} />
     </div>
   )
 }

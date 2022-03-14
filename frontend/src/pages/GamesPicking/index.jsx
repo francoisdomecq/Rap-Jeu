@@ -27,14 +27,23 @@ function Games() {
   })
   return (
     <Container>
+      {console.log(games)}
       <GamesPicked has4Games={games.length === 4 ? true : false}>
         <GamesPickedTitleWrapper>
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>
         </GamesPickedTitleWrapper>
-
-        <GamesPickedWrapper
-          isPicked={games.length === 2 && games[2] !== '' ? true : false}
-        >
+        {games.map((item) => (
+          <GamesPickedWrapper key={item}>
+            <div style={{ justifyContent: 'space-around' }}>
+              <span>{item}</span>
+              {(item !== 'Jeu 1' && games.indexOf(item) === 0) ||
+              (item !== 'Jeu 2' && games.indexOf(item) === 1) ? (
+                <RemoveButton onClick={() => removeGame(item)}>-</RemoveButton>
+              ) : null}
+            </div>
+          </GamesPickedWrapper>
+        ))}
+        {/* <GamesPickedWrapper>
           {(games.length === 2 && games[2] !== '') ||
           (games.length > 2 && games[2] === '') ? (
             'Jeu n°1'
@@ -48,9 +57,7 @@ function Games() {
           )}
         </GamesPickedWrapper>
 
-        <GamesPickedWrapper
-          isPicked={games.length === 2 && games[2] !== '' ? true : false}
-        >
+        <GamesPickedWrapper>
           {(games.length >= 3 && games[3] === '') ||
           (games.length < 4 && games[3] !== '') ? (
             'Jeu n°2'
@@ -64,8 +71,8 @@ function Games() {
           )}
         </GamesPickedWrapper>
 
-        <GamesPickedWrapper isPicked={true}>{games[1]}</GamesPickedWrapper>
-        <GamesPickedWrapper isPicked={true}>{games[0]}</GamesPickedWrapper>
+        <GamesPickedWrapper>{games[1]}</GamesPickedWrapper>
+        <GamesPickedWrapper>{games[0]}</GamesPickedWrapper> */}
 
         <PlayButton
           has4games={
@@ -96,12 +103,12 @@ function Games() {
         </ExplainContainer>
         <GameCard
           label={'Top 5'}
-          manches="4 manches - 5 points par manche"
+          manches="2 manches - 15 points par manche"
           rules="Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
         />
         <GameCard
           label={'Les 3 petits chats'}
-          manches="3 manches - 10 points par manche"
+          manches="2 manches - 10 points par manche"
           rules="Le maître de jeu choisit un rappeur et lance un trois petits r(c)chats. L’équipe adverse doit reprendre la dernière syllabe du premier nom cité, et ainsi de suite en répétant tous les noms depuis le début, jusqu’à ce qu’une équipe se trompe."
         />
         <GameCard

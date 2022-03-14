@@ -5,6 +5,8 @@ import Score from '../../../components/Score'
 
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
+  const { updateGamesPlayed } = useContext(GameContext)
+  const [nombreReponses, updateNombreReponses] = useState(0)
 
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...questionData]
@@ -12,6 +14,13 @@ function RapGenieOuGenant() {
     setData(newData)
   }
 
+  const updateNombreAnswers = () => {
+    updateGamesPlayed(
+      'Rap génie ou rap gênant',
+      nombreReponses,
+      updateNombreReponses
+    )
+  }
   useEffect(() => {
     fetch(`http://localhost:3001/api/rapgenieougenant`)
       .then((response) => response.json())
@@ -44,7 +53,8 @@ function RapGenieOuGenant() {
           ) : null}
         </div>
       ))}
-      <Score team={'team2'}  value={5}/>
+      <Score team={'team2'} value={5} />
+      <button onClick={() => updateNombreAnswers()} />
     </div>
   )
 }
