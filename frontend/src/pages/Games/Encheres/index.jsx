@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import Score from '../../../components/Score'
+import { Link } from 'react-router-dom'
 
 function Enchere() {
   const [enchere, setEncheres] = useState([])
   const [nombreReponses, updateNombreReponses] = useState(0)
-  const { updateGamesPlayed } = useContext(GameContext)
+  const { updateGamesPlayed, games } = useContext(GameContext)
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/enchere`)
@@ -19,7 +20,7 @@ function Enchere() {
   const updateNombreAnswers = () => {
     updateGamesPlayed('Les enchères', nombreReponses, updateNombreReponses)
   }
-  
+
   return (
     <div>
       <h1>Lesc enchères</h1>
@@ -30,7 +31,14 @@ function Enchere() {
         </p>
       ))}
       <Score team={'team2'} value="--" />
-      <button onClick={() => updateNombreAnswers()} />
+      <div style={{ width: 50, height: 50 }}>
+        <Link
+          to={`/${games[games.indexOf('Les enchères') + 1]}`}
+          onClick={() => updateNombreAnswers()}
+        >
+          Valider
+        </Link>
+      </div>
     </div>
   )
 }

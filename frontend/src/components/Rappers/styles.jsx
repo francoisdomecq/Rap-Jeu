@@ -12,10 +12,13 @@ export const Table = styled.table`
   justify-content: center;
   align-items: center;
   width: 100%;
-  heigth: 100%;
+  height: 100%;
   background-color: ${colors.blue};
   color: ${colors.yellow};
   border-radius: 20px;
+  :hover {
+    cursor: pointer;
+  }
 `
 
 export const TableHead = styled.thead`

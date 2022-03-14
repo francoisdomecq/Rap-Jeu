@@ -2,12 +2,13 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
+import {Link} from 'react-router-dom'
 
 function MythoPasMytho() {
   const [mythoPasMythoData, setData] = useState([])
   const [nombreReponses, updateNombreReponses] = useState(0)
   const [isDataLoaded, setDataLoad] = useState(false)
-  const { updateGamesPlayed } = useContext(GameContext)
+  const { updateGamesPlayed ,games} = useContext(GameContext)
 
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...mythoPasMythoData]
@@ -15,7 +16,7 @@ function MythoPasMytho() {
     setData(newData)
   }
 
-  const updateNombreAnswers = () => {
+  function updateNombreAnswers() {
     updateGamesPlayed(
       'Le Mytho Pas Mytho',
       nombreReponses,
@@ -64,7 +65,18 @@ function MythoPasMytho() {
       )}
 
       <Score team={'team2'} value={5} />
-      <button onClick={() => updateNombreAnswers()} />
+      <div style={{ width: 50, height: 50 }}>
+        {nombreReponses < 3 ? (
+          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        ) : (
+          <Link
+            to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
+            onClick={() => updateNombreAnswers()}
+          >
+            Valider
+          </Link>
+        )}
+      </div>
     </div>
   ) : null
 }

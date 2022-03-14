@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
+import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
 
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
-  const { updateGamesPlayed } = useContext(GameContext)
+  const { games, updateGamesPlayed } = useContext(GameContext)
   const [nombreReponses, updateNombreReponses] = useState(0)
 
   const updateData = (value1, value2, value3, value4) => {
@@ -54,7 +55,18 @@ function RapGenieOuGenant() {
         </div>
       ))}
       <Score team={'team2'} value={5} />
-      <button onClick={() => updateNombreAnswers()} />
+      <div style={{ width: 50, height: 50 }}>
+        {nombreReponses < 3 ? (
+          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        ) : (
+          <Link
+            to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
+            onClick={() => updateNombreAnswers()}
+          >
+            Passer au jeu suivant
+          </Link>
+        )}
+      </div>
     </div>
   )
 }

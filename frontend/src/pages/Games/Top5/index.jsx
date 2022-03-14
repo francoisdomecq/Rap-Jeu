@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Top5() {
   const [top5, setTop5] = useState([])
   const [nombreReponses, updateNombreReponses] = useState(0)
-  const { games,gamesPlayed, updateGamesPlayed } = useContext(GameContext)
+  const { games, gamesPlayed, updateGamesPlayed } = useContext(GameContext)
 
   const updateNombreAnswers = () => {
     updateGamesPlayed('Top 5', nombreReponses, updateNombreReponses)
@@ -22,7 +22,7 @@ function Top5() {
 
   return (
     <div>
-      {console.log(nombreReponses)}
+      {console.log("Nombre réponses" ,nombreReponses)}
       <h1>Le top 5 </h1>
       <Score team={'team1'} value={5} />
       {top5.map((top5) => (
@@ -35,7 +35,12 @@ function Top5() {
         {nombreReponses < 1 ? (
           <button onClick={() => updateNombreAnswers()}>Valider</button>
         ) : (
-          <Link to={`/${games[1]}`}>Valider</Link>
+          <Link
+            to={`/${games[games.indexOf('Top 5') + 1]}`}
+            onClick={() => updateNombreAnswers()}
+          >
+            Valider
+          </Link>
         )}
       </div>
     </div>

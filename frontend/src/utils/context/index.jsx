@@ -6,8 +6,8 @@ export const GameProvider = ({ children }) => {
   const [games, setGames] = useState([
     'Jeu 1',
     'Jeu 2',
-    'Rolland Gamos',
     'Les enchères',
+    'Rolland Gamos',
   ])
   const [gamesPlayed, setGamesPlayed] = useState([])
   const [hasGameStarted, setStart] = useState(false)
@@ -41,53 +41,64 @@ export const GameProvider = ({ children }) => {
     } //Si la valeur est contenue dans la tableau on la supprime
     else {
       const index = games.indexOf(value)
-      games.splice(index, 1, `Jeu ${index + 1}`)
+      //Si le jeu à supprimer est en position jeu 1
+      if (index === 0 && games[1] !== 'Jeu 2') {
+        //On récupère le jeu en position jeu 2
+        let game2 = games[1]
+        //On remplace le jeu 1 par le jeu 2
+        games.splice(index, 1, game2)
+        //On remplace le jeu 2 par 'Jeu 2'
+        games.splice(index + 1, 1, 'Jeu 2')
+      } else {
+        games.splice(index, 1, `Jeu ${index + 1}`)
+      }
       let newGame = [...games]
       setGames(newGame)
     }
     return games
   }
+
   const updateGamesPlayed = (game, value, updateNombreReponses) => {
     let newGamesPlayed = [...gamesPlayed]
     switch (game) {
       case 'Les 3 petits chats':
         updateNombreReponses(value + 1)
-        if (value >= 3) {
+        if (value >= 1) {
           newGamesPlayed.push('Les 3 petits chats')
         }
         break
       case 'Le CrossFeaturing':
         updateNombreReponses(value + 1)
-        if (value >= 3) {
+        if (value >= 2) {
           newGamesPlayed.push('Le CrossFeaturing')
         }
         break
       case 'Les enchères':
         updateNombreReponses(value + 1)
-        if (value >= 1) {
+        if (value >= 0) {
           newGamesPlayed.push('Les enchères')
         }
         break
       case 'Le Mytho Pas Mytho':
         updateNombreReponses(value + 1)
-        if (value >= 4) {
+        if (value >= 3) {
           newGamesPlayed.push('Le Mytho Pas Mytho')
         }
         break
       case 'Rap génie ou rap gênant':
         updateNombreReponses(value + 1)
-        if (value >= 4) {
+        if (value >= 3) {
           newGamesPlayed.push('Rap génie ou rap gênant')
         }
         break
       case 'Top 5':
         updateNombreReponses(value + 1)
-        if (value >= 2) {
+        if (value >= 1) {
           newGamesPlayed.push('Top 5')
         }
         break
       case 'Rolland Gamos':
-        if (value >= 3) newGamesPlayed.push('Rolland Gamos')
+        if (value >= 2) newGamesPlayed.push('Rolland Gamos')
         break
       default:
         return gamesPlayed

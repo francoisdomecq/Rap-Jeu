@@ -7,7 +7,7 @@ function Header() {
 
   return hasGameStarted ? (
     <NavContainer>
-      {console.log(games)}
+      {console.log(gamesPlayed)}
       {games.map((item) =>
         gamesPlayed.includes(item) ? (
           <p key={item}>{item}</p>

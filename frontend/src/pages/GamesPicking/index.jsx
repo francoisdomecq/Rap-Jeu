@@ -43,43 +43,12 @@ function Games() {
             </div>
           </GamesPickedWrapper>
         ))}
-        {/* <GamesPickedWrapper>
-          {(games.length === 2 && games[2] !== '') ||
-          (games.length > 2 && games[2] === '') ? (
-            'Jeu n°1'
-          ) : (
-            <div style={{ justifyContent: 'space-around' }}>
-              <span>{games[2]}</span>
-              <RemoveButton onClick={() => removeGame(games[2])}>
-                -
-              </RemoveButton>
-            </div>
-          )}
-        </GamesPickedWrapper>
-
-        <GamesPickedWrapper>
-          {(games.length >= 3 && games[3] === '') ||
-          (games.length < 4 && games[3] !== '') ? (
-            'Jeu n°2'
-          ) : (
-            <div>
-              <span>{games[3]}</span>
-              <RemoveButton onClick={() => removeGame(games[3])}>
-                -
-              </RemoveButton>
-            </div>
-          )}
-        </GamesPickedWrapper>
-
-        <GamesPickedWrapper>{games[1]}</GamesPickedWrapper>
-        <GamesPickedWrapper>{games[0]}</GamesPickedWrapper> */}
-
         <PlayButton
           has4games={
             games.length === 4 && !games.includes('') ? 'true' : 'false'
           }
           to={
-            games.length === 4 && !games.includes('') ? `${games[2]}` : '/games'
+            games.length === 4 && !games.includes('') ? `${games[0]}` : '/games'
           }
           onClick={() =>
             games.length === 4 && games.includes('') === false
