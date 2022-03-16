@@ -12,6 +12,7 @@ function RappeurArray({ selectRappeur }) {
       })
       .catch((error) => console.log(error))
   }, [])
+  
   return (
     <Container>
       <Table>
