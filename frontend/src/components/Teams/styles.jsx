@@ -5,6 +5,8 @@ import JouerDroite from '../../assets/jauge_droite.svg'
 export const PageContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 100%;
+  width: 100%;
 `
 
 export const LeftTeamContainer = styled.div`

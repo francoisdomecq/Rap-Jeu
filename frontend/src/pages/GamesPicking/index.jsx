@@ -34,11 +34,15 @@ function Games() {
         </GamesPickedTitleWrapper>
         {games.map((item) => (
           <GamesPickedWrapper key={item}>
-            <div style={{ justifyContent: 'space-around' }}>
+            <div>
               <span>{item}</span>
               {(item !== 'Jeu 1' && games.indexOf(item) === 0) ||
               (item !== 'Jeu 2' && games.indexOf(item) === 1) ? (
-                <RemoveButton onClick={() => removeGame(item)}>-</RemoveButton>
+                <div>
+                  <RemoveButton onClick={() => removeGame(item)}>
+                    X
+                  </RemoveButton>
+                </div>
               ) : null}
             </div>
           </GamesPickedWrapper>
@@ -48,7 +52,9 @@ function Games() {
             games.length === 4 && !games.includes('') ? 'true' : 'false'
           }
           to={
-            games.length === 4 && !games.includes('') ? `${games[0]}` : '/games'
+            games.length === 4 && !games.includes('')
+              ? `/${games[0]}`
+              : '/games'
           }
           onClick={() =>
             games.length === 4 && games.includes('') === false

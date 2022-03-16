@@ -1,4 +1,5 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { GameContext } from '../../utils/context'
 import { NavContainer, LinkText } from './styles'
 
@@ -7,36 +8,26 @@ function Header() {
 
   return hasGameStarted ? (
     <NavContainer>
-      {console.log(gamesPlayed)}
-      {games.map((item) =>
-        gamesPlayed.includes(item) ? (
-          <p key={item}>{item}</p>
-        ) : (
-          <LinkText key={item} to={`/${item}`}>
-            {item}
-          </LinkText>
-        )
-      )}
-      {/* {gamesPlayed.includes(games[2]) ? (
-        <p>{games[2]}</p>
+      {gamesPlayed.length === 0 ? (
+        <p style={{ color: 'red' }}>{games[0]}</p>
       ) : (
-        <LinkText to={`/${games[2]}`}>{games[2]}</LinkText>
-      )}
-      {gamesPlayed.includes(games[3]) ? (
-        <p>{games[3]}</p>
-      ) : (
-        <LinkText to={`/${games[3]}`}>{games[3]}</LinkText>
-      )}
-      {gamesPlayed.includes(games[1]) ? (
-        <p>{games[1]}</p>
-      ) : (
-        <LinkText to={`/${games[1]}`}>{games[1]}</LinkText>
-      )}
-      {gamesPlayed.includes(games[0]) ? (
         <p>{games[0]}</p>
+      )}
+      {gamesPlayed.length === 1 ? (
+        <p style={{ color: 'red' }}>{games[1]}</p>
       ) : (
-        <LinkText to={`/${games[0]}`}>{games[0]}</LinkText>
-      )} */}
+        <p>{games[1]}</p>
+      )}
+      {gamesPlayed.length === 2 ? (
+        <p style={{ color: 'red' }}>{games[2]}</p>
+      ) : (
+        <p>{games[2]}</p>
+      )}
+      {gamesPlayed.length === 3 ? (
+        <p style={{ color: 'red' }}>{games[3]}</p>
+      ) : (
+        <p>{games[3]}</p>
+      )}
     </NavContainer>
   ) : (
     <NavContainer>

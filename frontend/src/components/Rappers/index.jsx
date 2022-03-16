@@ -1,9 +1,31 @@
 import { useState, useEffect } from 'react'
-import { Container, Table, TableHead } from './styles'
-
+import {
+  Container,
+  Table,
+  TableHead,
+  TableBody,
+  Line,
+  LineSeparator,
+  LineContainer,
+} from './styles'
 
 function RappeurArray({ selectRappeur }) {
   const [rappeur, setRappeurs] = useState([])
+
+  function displayRappeurs() {
+    rappeur.sort((a, b) => a.nom.localeCompare(b.nom))
+    return rappeur.map((rappeur) => (
+      <LineContainer>
+        <Line>
+          <p key={rappeur._id} onClick={() => selectRappeur(rappeur.nom)}>
+            {rappeur.nom}
+          </p>
+        </Line>
+      </LineContainer>
+      
+    ))
+  }
+
   useEffect(() => {
     fetch(`http://localhost:3001/api/rappeur`)
       .then((response) => response.json())
@@ -12,25 +34,15 @@ function RappeurArray({ selectRappeur }) {
       })
       .catch((error) => console.log(error))
   }, [])
-  
+
   return (
     <Container>
+      {console.log(rappeur)}
       <Table>
         <TableHead>
-          <tr>
-            <th>Choisir un rappeur</th>
-          </tr>
+          <th>Choisir un rappeur</th>
         </TableHead>
-        <tbody>
-          {rappeur.map((rappeur) => (
-            <tr>
-              <p key={rappeur.nom} onClick={() => selectRappeur(rappeur.nom)}>
-                {rappeur.nom}
-              </p>
-              <hr />
-            </tr>
-          ))}
-        </tbody>
+        <TableBody>{displayRappeurs()}</TableBody>
       </Table>
     </Container>
   )

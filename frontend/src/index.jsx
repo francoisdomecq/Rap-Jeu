@@ -43,27 +43,27 @@ ReactDOM.render(
               <TeamsContainer />
               <Top5 />
             </Route>
-            <Route exact path="/Les 3 petits chats">
+            <Route path="/Les 3 petits chats">
               <TeamsContainer />
               <PetitsChats />
             </Route>
-            <Route exact path="/Le CrossFeaturing">
+            <Route path="/Le CrossFeaturing">
               <TeamsContainer />
               <CrossFeaturing />
             </Route>
-            <Route exact path="/Le Mytho Pas Mytho">
+            <Route path="/Le Mytho Pas Mytho">
               <TeamsContainer />
               <MythoPasMytho />
             </Route>
-            <Route exact path="/Rap génie ou rap gênant">
+            <Route path="/Rap génie ou rap gênant">
               <TeamsContainer />
               <RapGenieOuGenant />
             </Route>
-            <Route exact path="/Les enchères">
+            <Route path="/Les enchères">
               <TeamsContainer />
               <Enchere />
             </Route>
-            <Route exact path="/Rolland Gamos">
+            <Route path="/Rolland Gamos">
               <TeamsContainer />
               <RollandGamos />
             </Route>
