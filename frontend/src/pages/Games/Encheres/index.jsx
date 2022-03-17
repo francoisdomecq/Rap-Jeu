@@ -23,6 +23,9 @@ function Enchere() {
 
   return (
     <div>
+      {/* Choisir le thème et choisir le nombre de points
+      Valider, lance le chrono
+      Chrono fini, l'équipe a t-elle réussi ?  */}
       <h1>Lesc enchères</h1>
       <Score team={'team1'} value="--" />
       {enchere.map((enchere) => (

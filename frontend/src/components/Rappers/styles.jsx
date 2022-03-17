@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 
 export const Container = styled.div`
-  width: 30%;
+  width: 100%;
   max-height: 350px;
   overflow-y: scroll;
 `

@@ -6,6 +6,7 @@ import {
   RappeurContainer,
   SecondContainer,
   InputContainer,
+  SearchContainer,
 } from './styles'
 import MusicBrainzLogo from '../../../assets/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../../assets/YoutubeLogo.svg'
@@ -30,11 +31,14 @@ function RollandGamos() {
 
   return count < 3 ? (
     <Container>
-      <Score team={'team1'} value="--" />
+      <Score team={'team1'} placeHolder="---" value={null} />
       {rappeur ? (
         <SecondContainer>
           <RappeurContainer>
-            <p>{rappeur}</p>
+            <p style={{ color: 'white', fontWeight: 'bold' }}>Rappeur choisi</p>
+            <p style={{ color: 'white', textTransform: 'uppercase' }}>
+              {rappeur}
+            </p>
           </RappeurContainer>
           <InputContainer>
             <input
@@ -48,7 +52,7 @@ function RollandGamos() {
               onChange={(e) => setRappeur2Search(e.target.value)}
             />
           </InputContainer>
-          <div>
+          <SearchContainer>
             <a
               rel="noreferrer"
               href={`https://www.youtube.com/results?search_query=${rappeur1Search}+${rappeur2Search}`}
@@ -78,13 +82,18 @@ function RollandGamos() {
                 alt="Chercher sur RapGenius"
               />
             </a>
-          </div>
-          <button onClick={() => newRappeur()} />
+          </SearchContainer>
+          <button onClick={() => newRappeur()}>
+            Passer à la manche suivante
+          </button>
         </SecondContainer>
       ) : (
-        <RappeurArray selectRappeur={selectRappeur} />
+        <SecondContainer>
+          <p>Manche n°{count + 1}</p>
+          <RappeurArray selectRappeur={selectRappeur} />
+        </SecondContainer>
       )}
-      <Score team={'team2'} value="--" />
+      <Score team={'team2'} placeHolder="---" value={null} />
     </Container>
   ) : (
     <Container>

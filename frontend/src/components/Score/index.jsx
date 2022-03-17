@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { TeamContext } from '../../utils/context'
 import { ContainerScore, ButtonScore } from './styles'
 
-function Score({ value, team }) {
+function Score({ value, team, placeHolder}) {
   const { updateScore } = useContext(TeamContext)
 
   const handleKeyPress = (e, team) => {
@@ -14,7 +14,8 @@ function Score({ value, team }) {
   return (
     <ContainerScore>
       <ButtonScore
-        type="text"
+        type="number"
+        placeholder={placeHolder}
         defaultValue={value}
         onKeyPress={(event) => handleKeyPress(event, team)}
       />

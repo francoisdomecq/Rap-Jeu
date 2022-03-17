@@ -11,28 +11,55 @@ export const PageContainer = styled.div`
 
 export const LeftTeamContainer = styled.div`
   display: flex;
-  height: 20%;
-  width: 50%;
+  align-items: flex-start;
+  width: 40%;
+  padding: 0.5% 0% 0% 1%;
   flex-direction: column;
-  justify-content: space-between;
   background-image: url(${JouerGauche});
   background-size: contain;
   background-repeat: no-repeat;
 `
-export const TeamsNameLeft = styled.p``
-export const ScoreTeamLeft = styled.p``
+export const TeamsNameLeft = styled.p`
+  height: 0%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+`
+export const ScoreTeamLeft = styled.p`
+  width: 20%;
+  height: 20%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+`
 
 export const RightTeamContainer = styled.div`
   display: flex;
-  height: 10%;
-  width: 40%;
-  flex-direction: column;
   align-items: flex-end;
-  justify-content: space-evenly;
+  width: 40%;
+  padding: 0.5% 1% 0% 0%;
+  flex-direction: column;
   background-image: url(${JouerDroite});
   background-size: contain;
   background-repeat: no-repeat;
+  /* display: flex;
+  width: 40%;
+  padding: 0.5% 0% 0% 1%;
+  flex-direction: column;
+  background-image: url(${JouerGauche});
+  background-size: contain;
+  background-repeat: no-repeat;*/
 `
 
-export const TeamsNameRight = styled.p``
-export const ScoreTeamRight = styled.p``
+export const TeamsNameRight = styled.p`
+  height: 0%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+`
+export const ScoreTeamRight = styled.p`
+  height: 20%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+`

@@ -2,13 +2,13 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function MythoPasMytho() {
   const [mythoPasMythoData, setData] = useState([])
   const [nombreReponses, updateNombreReponses] = useState(0)
   const [isDataLoaded, setDataLoad] = useState(false)
-  const { updateGamesPlayed ,games} = useContext(GameContext)
+  const { updateGamesPlayed, games } = useContext(GameContext)
 
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...mythoPasMythoData]
@@ -43,7 +43,6 @@ function MythoPasMytho() {
     <div>
       <h1>Le Mytho pas Mytho</h1>
       <Score team={'team1'} value={5} />
-
       <p>{nombreReponses.question}</p>
       <p>{nombreReponses.reponse}</p>
       {nombreReponses.type === 'video' ? (
@@ -64,7 +63,7 @@ function MythoPasMytho() {
         </a>
       )}
 
-      <Score team={'team2'} value={5} />
+      <Score team={'team2'} value={5} placeHolder={5} />
       <div style={{ width: 50, height: 50 }}>
         {nombreReponses < 3 ? (
           <button onClick={() => updateNombreAnswers()}>Valider</button>
