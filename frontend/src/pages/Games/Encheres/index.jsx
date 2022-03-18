@@ -2,37 +2,43 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
+import Theme from '../../../components/theme'
+import { Container, SecondContainer } from './styles'
 
 function Enchere() {
-  const [enchere, setEncheres] = useState([])
+  const [enchere, setEncheres] = useState()
   const [nombreReponses, updateNombreReponses] = useState(0)
   const { updateGamesPlayed, games } = useContext(GameContext)
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/api/enchere`)
-      .then((response) => response.json())
-      .then((requestData) => {
-        setEncheres(requestData)
-      })
-      .catch((error) => console.log(error))
-  }, [])
+  function selectTheme(theme) {
+    setEncheres(theme)
+  }
 
   const updateNombreAnswers = () => {
     updateGamesPlayed('Les enchères', nombreReponses, updateNombreReponses)
   }
 
+
+
   return (
-    <div>
+    <Container>
       {/* Choisir le thème et choisir le nombre de points
       Valider, lance le chrono
       Chrono fini, l'équipe a t-elle réussi ?  */}
-      <h1>Lesc enchères</h1>
+
       <Score team={'team1'} value="--" />
-      {enchere.map((enchere) => (
-        <p key={enchere._id}>
-          {enchere.theme} {enchere.suggestions}
-        </p>
-      ))}
+
+      {enchere ? (
+        <div>
+          <p>{enchere.theme}</p>
+          <p>{enchere.suggestions}</p>
+        </div>
+      ) : (
+        <SecondContainer>
+          <Theme page="enchere" selectTheme={selectTheme} />
+        </SecondContainer>
+      )}
+
       <Score team={'team2'} value="--" />
       <div style={{ width: 50, height: 50 }}>
         <Link
@@ -42,7 +48,7 @@ function Enchere() {
           Valider
         </Link>
       </div>
-    </div>
+    </Container>
   )
 }
 
