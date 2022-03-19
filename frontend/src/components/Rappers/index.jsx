@@ -5,20 +5,19 @@ import {
   TableHead,
   TableBody,
   Line,
-  LineSeparator,
   LineContainer,
 } from './styles'
 
-function RappeurArray({ selectRappeur }) {
-  const [rappeur, setRappeurs] = useState([])
+function RapperArray({ selectRapper }) {
+  const [rapper, setRappers] = useState([])
 
-  function displayRappeurs() {
-    rappeur.sort((a, b) => a.nom.localeCompare(b.nom))
-    return rappeur.map((rappeur) => (
+  function displayrappers() {
+    rapper.sort((a, b) => a.nom.localeCompare(b.nom))
+    return rapper.map((rapper) => (
       <LineContainer>
         <Line>
-          <p key={rappeur._id} onClick={() => selectRappeur(rappeur.nom)}>
-            {rappeur.nom}
+          <p key={rapper._id} onClick={() => selectRapper(rapper.nom)}>
+            {rapper.nom}
           </p>
         </Line>
       </LineContainer>
@@ -30,22 +29,21 @@ function RappeurArray({ selectRappeur }) {
     fetch(`http://localhost:3001/api/rappeur`)
       .then((response) => response.json())
       .then((requestData) => {
-        setRappeurs(requestData)
+        setRappers(requestData)
       })
       .catch((error) => console.log(error))
   }, [])
 
   return (
     <Container>
-      {console.log(rappeur)}
       <Table>
         <TableHead>
           <th>Choisir un rappeur</th>
         </TableHead>
-        <TableBody>{displayRappeurs()}</TableBody>
+        <TableBody>{displayrappers()}</TableBody>
       </Table>
     </Container>
   )
 }
 
-export default RappeurArray
+export default RapperArray

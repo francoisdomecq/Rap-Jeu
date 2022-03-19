@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { TeamContext } from '../../utils/context'
 import { ContainerScore, ButtonScore } from './styles'
 

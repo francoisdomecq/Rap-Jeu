@@ -3,6 +3,7 @@ import { GameContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
@@ -21,6 +22,7 @@ function RapGenieOuGenant() {
       nombreReponses,
       updateNombreReponses
     )
+    setData()
   }
   useEffect(() => {
     fetch(`http://localhost:3001/api/rapgenieougenant`)
@@ -32,6 +34,8 @@ function RapGenieOuGenant() {
       })
       .catch((error) => console.log(error))
   }, [])
+
+  HasGameStarted()
 
   return (
     <div>

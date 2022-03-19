@@ -4,22 +4,22 @@ import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
 import Theme from '../../../components/theme'
 import { Container, SecondContainer } from './styles'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function Enchere() {
   const [enchere, setEncheres] = useState()
-  const [nombreReponses, updateNombreReponses] = useState(0)
+  const [answerNumber, updateAnswerNumber] = useState(0)
   const { updateGamesPlayed, games } = useContext(GameContext)
 
   function selectTheme(theme) {
     setEncheres(theme)
   }
 
-  const updateNombreAnswers = () => {
-    updateGamesPlayed('Les enchères', nombreReponses, updateNombreReponses)
+  const updateAnswer = () => {
+    updateGamesPlayed('Les enchères', answerNumber, updateAnswerNumber)
   }
 
-
-
+  HasGameStarted()
   return (
     <Container>
       {/* Choisir le thème et choisir le nombre de points
@@ -43,7 +43,7 @@ function Enchere() {
       <div style={{ width: 50, height: 50 }}>
         <Link
           to={`/${games[games.indexOf('Les enchères') + 1]}`}
-          onClick={() => updateNombreAnswers()}
+          onClick={() => updateAnswer()}
         >
           Valider
         </Link>

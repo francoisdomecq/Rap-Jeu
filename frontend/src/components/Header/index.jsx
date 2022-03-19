@@ -1,5 +1,4 @@
-import { useContext, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useContext} from 'react'
 import { GameContext } from '../../utils/context'
 import { NavContainer, LinkText } from './styles'
 

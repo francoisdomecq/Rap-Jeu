@@ -20,8 +20,7 @@ import Header from './components/Header'
 import Error from './components/Error'
 import TeamsContainer from './components/Teams'
 
-import { GameProvider } from './utils/context/index'
-import { TeamProvider } from './utils/context/index'
+import { GameProvider, TeamProvider } from './utils/context/index'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -68,7 +67,7 @@ ReactDOM.render(
               <RollandGamos />
             </Route>
           </TeamProvider>
-          <Route>
+          <Route path="*">
             <Error />
           </Route>
         </Switch>

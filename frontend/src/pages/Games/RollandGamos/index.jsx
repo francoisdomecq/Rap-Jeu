@@ -12,6 +12,7 @@ import MusicBrainzLogo from '../../../assets/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../../assets/YoutubeLogo.svg'
 import RapGeniusLogo from '../../../assets/RapGenius_Logo.png'
 import { TeamContext } from '../../../utils/context'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
@@ -19,7 +20,7 @@ function RollandGamos() {
   const [rappeur1Search, setRappeur1Search] = useState('')
   const [rappeur2Search, setRappeur2Search] = useState('')
   const { scoreTeam1, scoreTeam2 } = useContext(TeamContext)
-
+  
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
   }
@@ -28,6 +29,8 @@ function RollandGamos() {
     setRappeur('')
     setCount(count + 1)
   }
+
+  HasGameStarted()
 
   return count < 3 ? (
     <Container>
@@ -90,7 +93,7 @@ function RollandGamos() {
       ) : (
         <SecondContainer>
           <p>Manche n°{count + 1}</p>
-          <RappeurArray selectRappeur={selectRappeur} />
+          <RappeurArray selectRapper={selectRappeur}/>
         </SecondContainer>
       )}
       <Score team={'team2'} placeHolder="---" value={null} />

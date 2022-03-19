@@ -4,6 +4,7 @@ import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
 import { Container, SecondContainer } from './styles'
 import Theme from '../../../components/theme'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function Top5() {
   const [top5, setTop5] = useState()
@@ -11,6 +12,7 @@ function Top5() {
   const { games, gamesPlayed, updateGamesPlayed } = useContext(GameContext)
 
   const updateNombreAnswers = () => {
+    setTop5()
     updateGamesPlayed('Top 5', nombreReponses, updateNombreReponses)
   }
 
@@ -18,6 +20,7 @@ function Top5() {
     setTop5(theme)
   }
 
+  HasGameStarted()
   return (
     <Container>
       {/* Choisir le thème et choisir le nombre de points
@@ -39,12 +42,16 @@ function Top5() {
 
       <Score team={'team2'} value="--" />
       <div style={{ width: 50, height: 50 }}>
-        <Link
-          to={`/${games[games.indexOf('Les enchères') + 1]}`}
-          onClick={() => updateNombreAnswers()}
-        >
-          Valider
-        </Link>
+        {nombreReponses < 1 ? (
+          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        ) : (
+          <Link
+            to={`/${games[games.indexOf('Top 5') + 1]}`}
+            onClick={() => updateNombreAnswers()}
+          >
+            Valider
+          </Link>
+        )}
       </div>
     </Container>
   )

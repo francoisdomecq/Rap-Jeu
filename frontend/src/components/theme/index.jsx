@@ -5,12 +5,11 @@ import {
   TableHead,
   TableBody,
   Line,
-  LineSeparator,
   LineContainer,
 } from './styles'
 
 function Theme({ selectTheme,page }) {
-  const [theme, setThemes] = useState([])
+  const [theme, setTheme] = useState([])
 
   function displayThemes() {
     return theme.map((theme) => (
@@ -21,7 +20,6 @@ function Theme({ selectTheme,page }) {
           </p>
         </Line>
       </LineContainer>
-      
     ))
   }
 
@@ -29,7 +27,7 @@ function Theme({ selectTheme,page }) {
     fetch(`http://localhost:3001/api/${page}`)
       .then((response) => response.json())
       .then((requestData) => {
-        setThemes(requestData)
+        setTheme(requestData)
       })
       .catch((error) => console.log(error))
   }, [])

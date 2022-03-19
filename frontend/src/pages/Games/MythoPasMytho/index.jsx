@@ -3,6 +3,7 @@ import { GameContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function MythoPasMytho() {
   const [mythoPasMythoData, setData] = useState([])
@@ -23,7 +24,7 @@ function MythoPasMytho() {
       updateNombreReponses
     )
   }
-
+  HasGameStarted()
   useEffect(() => {
     fetch(`http://localhost:3001/api/mythopasmytho`)
       .then((response) => response.json())
@@ -43,23 +44,27 @@ function MythoPasMytho() {
     <div>
       <h1>Le Mytho pas Mytho</h1>
       <Score team={'team1'} value={5} />
-      <p>{nombreReponses.question}</p>
-      <p>{nombreReponses.reponse}</p>
-      {nombreReponses.type === 'video' ? (
+      <p>{mythoPasMythoData[nombreReponses].question}</p>
+      <p>{mythoPasMythoData[nombreReponses].reponse}</p>
+      {mythoPasMythoData[nombreReponses].type === 'video' ? (
         <iframe
           width="560"
           height="315"
-          src={nombreReponses.illustration}
+          src={mythoPasMythoData[nombreReponses].illustration}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-      ) : nombreReponses.type === 'image' ? (
-        <img src={nombreReponses.illustration} alt="" />
+      ) : mythoPasMythoData[nombreReponses].type === 'image' ? (
+        <img src={mythoPasMythoData[nombreReponses].illustration} alt="" />
       ) : (
-        <a rel="noreferrer" href={nombreReponses.illustration} target="_blank">
-          {nombreReponses.illustration}
+        <a
+          rel="noreferrer"
+          href={mythoPasMythoData[nombreReponses].illustration}
+          target="_blank"
+        >
+          {mythoPasMythoData[nombreReponses].illustration}
         </a>
       )}
 

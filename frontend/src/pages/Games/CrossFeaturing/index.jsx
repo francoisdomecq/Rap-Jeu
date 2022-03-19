@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import Score from '../../../components/Score'
-import {Link} from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
 function CrossFeaturing() {
-  const [nombreReponses, updateNombreReponses] = useState(0)
+  const [answerNumber, updateAnswerNumber] = useState(0)
   const [crossFeaturingData, setData] = useState([])
-  const { games,updateGamesPlayed } = useContext(GameContext)
+  const { games, updateGamesPlayed } = useContext(GameContext)
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/crossfeaturing`)
@@ -17,10 +17,10 @@ function CrossFeaturing() {
       .catch((error) => console.log(error))
   }, [])
 
-  const updateNombreAnswers = () => {
-    updateGamesPlayed('Le CrossFeaturing', nombreReponses, updateNombreReponses)
+  const updateAnswer = () => {
+    updateGamesPlayed('Le CrossFeaturing', answerNumber, updateAnswerNumber)
   }
-
+HasGameStarted()
   return (
     <div>
       <h1>CrossFeaturing</h1>
@@ -32,12 +32,12 @@ function CrossFeaturing() {
       ))}
       <Score team={'team2'} value={5} />
       <div style={{ width: 50, height: 50 }}>
-        {nombreReponses < 2 ? (
-          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        {answerNumber < 2 ? (
+          <button onClick={() => updateAnswer()}>Valider</button>
         ) : (
           <Link
             to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}`}
-            onClick={() => updateNombreAnswers()}
+            onClick={() => updateAnswer()}
           >
             Valider
           </Link>
