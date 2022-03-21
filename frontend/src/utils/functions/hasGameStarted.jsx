@@ -8,7 +8,7 @@ export default function HasGameStarted() {
   useEffect(() => {
     window.scrollTo(0, 0)
     if (hasGameStarted === false) {
-      history.push('/Error')
+      history.push('/*')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, hasGameStarted])

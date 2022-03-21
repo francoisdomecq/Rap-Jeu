@@ -67,7 +67,7 @@ ReactDOM.render(
               <RollandGamos />
             </Route>
           </TeamProvider>
-          <Route path="*">
+          <Route path="/Top 5">
             <Error />
           </Route>
         </Switch>

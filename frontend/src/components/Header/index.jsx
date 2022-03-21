@@ -1,6 +1,6 @@
-import { useContext} from 'react'
+import { useContext } from 'react'
 import { GameContext } from '../../utils/context'
-import { NavContainer, LinkText } from './styles'
+import { NavContainer, LinkText, PageText, PageTextBis } from './styles'
 
 function Header() {
   const { games, hasGameStarted, gamesPlayed } = useContext(GameContext)
@@ -8,24 +8,24 @@ function Header() {
   return hasGameStarted ? (
     <NavContainer>
       {gamesPlayed.length === 0 ? (
-        <p style={{ color: 'red' }}>{games[0]}</p>
+        <PageTextBis>{games[0]}</PageTextBis>
       ) : (
-        <p>{games[0]}</p>
+        <PageText>{games[0]}</PageText>
       )}
       {gamesPlayed.length === 1 ? (
-        <p style={{ color: 'red' }}>{games[1]}</p>
+        <PageTextBis>{games[1]}</PageTextBis>
       ) : (
-        <p>{games[1]}</p>
+        <PageText>{games[1]}</PageText>
       )}
       {gamesPlayed.length === 2 ? (
-        <p style={{ color: 'red' }}>{games[2]}</p>
+        <PageTextBis>{games[2]}</PageTextBis>
       ) : (
-        <p>{games[2]}</p>
+        <PageText>{games[2]}</PageText>
       )}
       {gamesPlayed.length === 3 ? (
-        <p style={{ color: 'red' }}>{games[3]}</p>
+        <PageTextBis>{games[3]}</PageTextBis>
       ) : (
-        <p>{games[3]}</p>
+        <PageText>{games[3]}</PageText>
       )}
     </NavContainer>
   ) : (

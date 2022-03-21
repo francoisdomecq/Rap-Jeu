@@ -20,7 +20,7 @@ function RollandGamos() {
   const [rappeur1Search, setRappeur1Search] = useState('')
   const [rappeur2Search, setRappeur2Search] = useState('')
   const { scoreTeam1, scoreTeam2 } = useContext(TeamContext)
-  
+
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
   }
@@ -93,7 +93,7 @@ function RollandGamos() {
       ) : (
         <SecondContainer>
           <p>Manche n°{count + 1}</p>
-          <RappeurArray selectRapper={selectRappeur}/>
+          <RappeurArray selectRapper={selectRappeur} />
         </SecondContainer>
       )}
       <Score team={'team2'} placeHolder="---" value={null} />

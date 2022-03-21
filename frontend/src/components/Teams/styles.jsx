@@ -13,25 +13,36 @@ export const LeftTeamContainer = styled.div`
   display: flex;
   align-items: flex-start;
   width: 40%;
-  padding: 0.5% 0% 0% 1%;
+  padding: 0% 0% 0% 1%;
   flex-direction: column;
   background-image: url(${JouerGauche});
   background-size: contain;
   background-repeat: no-repeat;
 `
 export const TeamsNameLeft = styled.p`
-  height: 0%;
+  padding-bottom: 1px;
+  margin-left: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: red;
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: black;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 36%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
 `
-export const ScoreTeamLeft = styled.p`
-  width: 20%;
-  height: 20%;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
-`
+export const ScoreTeamLeft = styled.p``
 
 export const RightTeamContainer = styled.div`
   display: flex;
@@ -42,24 +53,46 @@ export const RightTeamContainer = styled.div`
   background-image: url(${JouerDroite});
   background-size: contain;
   background-repeat: no-repeat;
-  /* display: flex;
-  width: 40%;
-  padding: 0.5% 0% 0% 1%;
-  flex-direction: column;
-  background-image: url(${JouerGauche});
-  background-size: contain;
-  background-repeat: no-repeat;*/
 `
 
 export const TeamsNameRight = styled.p`
-  height: 0%;
+  margin-top: 17.9px;
+  height: 42px;
+  padding-bottom: 1px;
+  margin-left: 12px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: red;
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: black;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 36%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
 `
 export const ScoreTeamRight = styled.p`
-  height: 20%;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 22px;
+
+  background: linear-gradient(180deg, #fefbeb 0%, #bdbaa2 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `

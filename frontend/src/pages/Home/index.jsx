@@ -6,6 +6,7 @@ import {
   Explications,
   JouerContainer,
   LogoJouer,
+  P
 } from './styles'
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
     <Container>
       <ExplicationsContainer>
         <Explications>
+          <P>Jouer</P>
           <h1
             style={{
               textAlign: 'center',

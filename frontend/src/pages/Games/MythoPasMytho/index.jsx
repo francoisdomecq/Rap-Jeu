@@ -7,7 +7,7 @@ import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function MythoPasMytho() {
   const [mythoPasMythoData, setData] = useState([])
-  const [nombreReponses, updateNombreReponses] = useState(0)
+  const [answerNumber, updateAnswerNumber] = useState(0)
   const [isDataLoaded, setDataLoad] = useState(false)
   const { updateGamesPlayed, games } = useContext(GameContext)
 
@@ -17,14 +17,14 @@ function MythoPasMytho() {
     setData(newData)
   }
 
-  function updateNombreAnswers() {
+  function updateAnswer() {
     updateGamesPlayed(
       'Le Mytho Pas Mytho',
-      nombreReponses,
-      updateNombreReponses
+      answerNumber,
+      updateAnswerNumber
     )
   }
-  HasGameStarted()
+  
   useEffect(() => {
     fetch(`http://localhost:3001/api/mythopasmytho`)
       .then((response) => response.json())
@@ -40,42 +40,45 @@ function MythoPasMytho() {
       })
       .catch((error) => console.log(error))
   }, [])
+
+  HasGameStarted()
+
   return isDataLoaded ? (
     <div>
       <h1>Le Mytho pas Mytho</h1>
       <Score team={'team1'} value={5} />
-      <p>{mythoPasMythoData[nombreReponses].question}</p>
-      <p>{mythoPasMythoData[nombreReponses].reponse}</p>
-      {mythoPasMythoData[nombreReponses].type === 'video' ? (
+      <p>{mythoPasMythoData[answerNumber].question}</p>
+      <p>{mythoPasMythoData[answerNumber].reponse}</p>
+      {mythoPasMythoData[answerNumber].type === 'video' ? (
         <iframe
           width="560"
           height="315"
-          src={mythoPasMythoData[nombreReponses].illustration}
+          src={mythoPasMythoData[answerNumber].illustration}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-      ) : mythoPasMythoData[nombreReponses].type === 'image' ? (
-        <img src={mythoPasMythoData[nombreReponses].illustration} alt="" />
+      ) : mythoPasMythoData[answerNumber].type === 'image' ? (
+        <img src={mythoPasMythoData[answerNumber].illustration} alt="" />
       ) : (
         <a
           rel="noreferrer"
-          href={mythoPasMythoData[nombreReponses].illustration}
+          href={mythoPasMythoData[answerNumber].illustration}
           target="_blank"
         >
-          {mythoPasMythoData[nombreReponses].illustration}
+          {mythoPasMythoData[answerNumber].illustration}
         </a>
       )}
 
       <Score team={'team2'} value={5} placeHolder={5} />
       <div style={{ width: 50, height: 50 }}>
-        {nombreReponses < 3 ? (
-          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        {answerNumber < 3 ? (
+          <button onClick={() => updateAnswer()}>Valider</button>
         ) : (
           <Link
             to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
-            onClick={() => updateNombreAnswers()}
+            onClick={() => updateAnswer()}
           >
             Valider
           </Link>

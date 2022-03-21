@@ -30,3 +30,26 @@ export const Explications = styled.div`
   background-repeat: no-repeat;
   color: white;
 `
+export const P = styled.p`
+/* 0 points */
+
+
+
+
+text-transform: uppercase;
+
+font-weight: 700;
+font-size: 50px;
+
+
+/* identical to box height */
+
+
+background: linear-gradient(180deg, #FEFBEB 0%, #BDBAA2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+
+-webkit-text-stroke: 1px #000000;
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);`

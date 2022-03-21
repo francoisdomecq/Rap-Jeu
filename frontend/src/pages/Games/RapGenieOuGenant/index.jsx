@@ -8,7 +8,7 @@ import HasGameStarted from '../../../utils/functions/hasGameStarted'
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
   const { games, updateGamesPlayed } = useContext(GameContext)
-  const [nombreReponses, updateNombreReponses] = useState(0)
+  const [answerNumber, updateAnswerNumber] = useState(0)
 
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...questionData]
@@ -16,11 +16,11 @@ function RapGenieOuGenant() {
     setData(newData)
   }
 
-  const updateNombreAnswers = () => {
+  const updateAnswer = () => {
     updateGamesPlayed(
       'Rap génie ou rap gênant',
-      nombreReponses,
-      updateNombreReponses
+      answerNumber,
+      updateAnswerNumber
     )
     setData()
   }
@@ -60,12 +60,12 @@ function RapGenieOuGenant() {
       ))}
       <Score team={'team2'} value={5} />
       <div style={{ width: 50, height: 50 }}>
-        {nombreReponses < 3 ? (
-          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        {answerNumber < 3 ? (
+          <button onClick={() => updateAnswer()}>Valider</button>
         ) : (
           <Link
             to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
-            onClick={() => updateNombreAnswers()}
+            onClick={() => updateAnswer()}
           >
             Passer au jeu suivant
           </Link>
