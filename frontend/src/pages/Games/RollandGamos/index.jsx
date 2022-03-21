@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import RappeurArray from '../../../components/Rappers'
-import Search from '../../../components/Search'
+import Search from '../../../components/Rappers/Search'
 import Score from '../../../components/Score'
 import {
   Container,
@@ -100,7 +100,7 @@ function RollandGamos() {
         ) : (
           <SecondContainer>
             <p>Manche n°{count + 1}</p>
-            <RappeurArray selectRapper={selectRappeur} />
+            <RappeurArray page="rappeur" selectRapper={selectRappeur} />
           </SecondContainer>
         )}
         <Score team={'team2'} placeHolder="---" value={null} />

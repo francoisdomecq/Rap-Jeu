@@ -2,23 +2,23 @@ import { useState, useEffect } from 'react'
 import { Container } from './styles'
 import Search from './Search/index'
 
-function RapperArray({ selectRapper }) {
-  const [rapper, setRappers] = useState([])
+function CrossFeaturingArray({ selectCrossFeaturing }) {
+  const [crossFeaturing, setCrossFeaturing] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/rappeur`)
+    fetch(`http://localhost:3001/api/crossfeaturing`)
       .then((response) => response.json())
       .then((requestData) => {
-        setRappers(requestData)
+        setCrossFeaturing(requestData)
       })
       .catch((error) => console.log(error))
   }, [])
 
   return (
     <Container>
-      <Search data={rapper} selectRapper={selectRapper} />
+      <Search data={crossFeaturing} selectCrossFeaturing={selectCrossFeaturing} />
     </Container>
   )
 }
 
-export default RapperArray
+export default CrossFeaturingArray
