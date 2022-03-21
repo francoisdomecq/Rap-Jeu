@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { TeamContext } from '../../utils/context'
 import { ContainerScore, ButtonScore } from './styles'
 
+
 function Score({ value, team, placeHolder}) {
   const { updateScore } = useContext(TeamContext)
 

@@ -11,21 +11,10 @@ import {
   RapperName,
 } from './styles'
 
+import Search from '../Search/index'
+
 function RapperArray({ selectRapper }) {
   const [rapper, setRappers] = useState([])
-
-  function displayrappers() {
-    rapper.sort((a, b) => a.nom.localeCompare(b.nom))
-    return rapper.map((rapper) => (
-      <LineContainer>
-        <Line>
-          <RapperName key={rapper._id} onClick={() => selectRapper(rapper.nom)}>
-            {rapper.nom}
-          </RapperName>
-        </Line>
-      </LineContainer>
-    ))
-  }
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/rappeur`)
@@ -38,17 +27,7 @@ function RapperArray({ selectRapper }) {
 
   return (
     <Container>
-      <TableHead>
-        <th>Choisir un rappeur</th>
-      </TableHead>
-      <TableContainer>
-        <Table>
-          <TableBody>{displayrappers()}</TableBody>
-        </Table>
-      </TableContainer>
-      <TableBottom>
-        <br />
-      </TableBottom>
+      <Search data={rapper} selectRapper={selectRapper} type="rapper" />
     </Container>
   )
 }

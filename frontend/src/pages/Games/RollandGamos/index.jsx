@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 import RappeurArray from '../../../components/Rappers'
+import Search from '../../../components/Search'
 import Score from '../../../components/Score'
 import {
   Container,
