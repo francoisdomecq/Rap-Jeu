@@ -52,7 +52,7 @@ function Games() {
             games.length === 4 && !games.includes('') ? 'true' : 'false'
           }
           to={
-            games.length === 4 && !games.includes('')
+            games.length === 4 && !games.includes('Jeu 2')
               ? `/${games[0]}`
               : '/games'
           }

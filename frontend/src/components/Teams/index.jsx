@@ -25,6 +25,7 @@ function Teams() {
       <RightTeamContainer imgUrl="../../assets/jauge_droite.svg">
         <TeamsNameRight>
           {team2}
+          <br />
           <ScoreTeamRight>{scoreTeam2} points</ScoreTeamRight>
         </TeamsNameRight>
       </RightTeamContainer>
