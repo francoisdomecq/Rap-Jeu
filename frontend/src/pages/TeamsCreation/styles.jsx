@@ -50,7 +50,6 @@ export const TeamName = styled.input`
   background-color: ${colors.yellow};
   color: ${colors.blue};
   align-items: center;
-  text-center: align;
 `
 
 export const LoaderWrapper = styled.div`

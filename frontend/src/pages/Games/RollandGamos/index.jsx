@@ -7,7 +7,9 @@ import {
   SecondContainer,
   InputContainer,
   SearchContainer,
+  FirstContainer,
 } from './styles'
+import { PageTitle } from '../../../utils/styles/balises'
 import MusicBrainzLogo from '../../../assets/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../../assets/YoutubeLogo.svg'
 import RapGeniusLogo from '../../../assets/RapGenius_Logo.png'
@@ -30,74 +32,79 @@ function RollandGamos() {
     setCount(count + 1)
   }
 
-  HasGameStarted()
+  // HasGameStarted()
 
   return count < 3 ? (
-    <Container>
-      <Score team={'team1'} placeHolder="---" value={null} />
-      {rappeur ? (
-        <SecondContainer>
-          <RappeurContainer>
-            <p style={{ color: 'white', fontWeight: 'bold' }}>Rappeur choisi</p>
-            <p style={{ color: 'white', textTransform: 'uppercase' }}>
-              {rappeur}
-            </p>
-          </RappeurContainer>
-          <InputContainer>
-            <input
-              type="text"
-              placeholder="rappeur 1"
-              onChange={(e) => setRappeur1Search(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="rappeur 2"
-              onChange={(e) => setRappeur2Search(e.target.value)}
-            />
-          </InputContainer>
-          <SearchContainer>
-            <a
-              rel="noreferrer"
-              href={`https://www.youtube.com/results?search_query=${rappeur1Search}+${rappeur2Search}`}
-              target="_blank"
-            >
-              <img src={YoutubeLogo} alt="Chercher sur youtube" />
-            </a>
-            <a
-              rel="noreferrer"
-              href={`https://musicbrainz.org/search?query=${rappeur1Search}%20feat.%20${rappeur2Search}&type=recording&limit=5&method=advanced`}
-              target="_blank"
-            >
-              <img
-                src={MusicBrainzLogo}
-                style={{ width: 96, heigth: 96 }}
-                alt="Chercher sur MusicBrainz"
+    <FirstContainer>
+      <PageTitle>Rolland Gamos</PageTitle>
+      <Container>
+        <Score team={'team1'} placeHolder="---" value={null} />
+        {rappeur ? (
+          <SecondContainer>
+            <RappeurContainer>
+              <p style={{ color: 'white', fontWeight: 'bold' }}>
+                Rappeur choisi
+              </p>
+              <p style={{ color: 'white', textTransform: 'uppercase' }}>
+                {rappeur}
+              </p>
+            </RappeurContainer>
+            <InputContainer>
+              <input
+                type="text"
+                placeholder="rappeur 1"
+                onChange={(e) => setRappeur1Search(e.target.value)}
               />
-            </a>
-            <a
-              rel="noreferrer"
-              href={`https://genius.com/search?q=${rappeur1Search}%20${rappeur2Search}`}
-              target="_blank"
-            >
-              <img
-                src={RapGeniusLogo}
-                style={{ width: 96, heigth: 96 }}
-                alt="Chercher sur RapGenius"
+              <input
+                type="text"
+                placeholder="rappeur 2"
+                onChange={(e) => setRappeur2Search(e.target.value)}
               />
-            </a>
-          </SearchContainer>
-          <button onClick={() => newRappeur()}>
-            Passer à la manche suivante
-          </button>
-        </SecondContainer>
-      ) : (
-        <SecondContainer>
-          <p>Manche n°{count + 1}</p>
-          <RappeurArray selectRapper={selectRappeur} />
-        </SecondContainer>
-      )}
-      <Score team={'team2'} placeHolder="---" value={null} />
-    </Container>
+            </InputContainer>
+            <SearchContainer>
+              <a
+                rel="noreferrer"
+                href={`https://www.youtube.com/results?search_query=${rappeur1Search}+${rappeur2Search}`}
+                target="_blank"
+              >
+                <img src={YoutubeLogo} alt="Chercher sur youtube" />
+              </a>
+              <a
+                rel="noreferrer"
+                href={`https://musicbrainz.org/search?query=${rappeur1Search}%20feat.%20${rappeur2Search}&type=recording&limit=5&method=advanced`}
+                target="_blank"
+              >
+                <img
+                  src={MusicBrainzLogo}
+                  style={{ width: 96, heigth: 96 }}
+                  alt="Chercher sur MusicBrainz"
+                />
+              </a>
+              <a
+                rel="noreferrer"
+                href={`https://genius.com/search?q=${rappeur1Search}%20${rappeur2Search}`}
+                target="_blank"
+              >
+                <img
+                  src={RapGeniusLogo}
+                  style={{ width: 96, heigth: 96 }}
+                  alt="Chercher sur RapGenius"
+                />
+              </a>
+            </SearchContainer>
+            <button onClick={() => newRappeur()}>
+              Passer à la manche suivante
+            </button>
+          </SecondContainer>
+        ) : (
+          <SecondContainer>
+            <p>Manche n°{count + 1}</p>
+            <RappeurArray selectRapper={selectRappeur} />
+          </SecondContainer>
+        )}
+        <Score team={'team2'} placeHolder="---" value={null} />
+      </Container>
+    </FirstContainer>
   ) : (
     <Container>
       <p>Bien joué équipe {scoreTeam1 < scoreTeam2 ? '2' : '1'} </p>

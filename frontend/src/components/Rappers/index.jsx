@@ -6,6 +6,9 @@ import {
   TableBody,
   Line,
   LineContainer,
+  TableContainer,
+  TableBottom,
+  RapperName,
 } from './styles'
 
 function RapperArray({ selectRapper }) {
@@ -16,12 +19,11 @@ function RapperArray({ selectRapper }) {
     return rapper.map((rapper) => (
       <LineContainer>
         <Line>
-          <p key={rapper._id} onClick={() => selectRapper(rapper.nom)}>
+          <RapperName key={rapper._id} onClick={() => selectRapper(rapper.nom)}>
             {rapper.nom}
-          </p>
+          </RapperName>
         </Line>
       </LineContainer>
-      
     ))
   }
 
@@ -36,12 +38,17 @@ function RapperArray({ selectRapper }) {
 
   return (
     <Container>
-      <Table>
-        <TableHead>
-          <th>Choisir un rappeur</th>
-        </TableHead>
-        <TableBody>{displayrappers()}</TableBody>
-      </Table>
+      <TableHead>
+        <th>Choisir un rappeur</th>
+      </TableHead>
+      <TableContainer>
+        <Table>
+          <TableBody>{displayrappers()}</TableBody>
+        </Table>
+      </TableContainer>
+      <TableBottom>
+        <br />
+      </TableBottom>
     </Container>
   )
 }

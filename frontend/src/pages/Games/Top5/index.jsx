@@ -27,7 +27,7 @@ function Top5() {
       Valider, lance le chrono
       Chrono fini, l'équipe a t-elle réussi ?  */}
 
-      <Score team={'team1'} value="--" />
+      <Score team={'team1'} value="--" placeHolder={+15} />
 
       {top5 ? (
         <div>
@@ -40,7 +40,7 @@ function Top5() {
         </SecondContainer>
       )}
 
-      <Score team={'team2'} value="--" />
+      <Score team={'team2'} value="--" placeHolder={"+15"} />
       <div style={{ width: 50, height: 50 }}>
         {nombreReponses < 1 ? (
           <button onClick={() => updateNombreAnswers()}>Valider</button>
