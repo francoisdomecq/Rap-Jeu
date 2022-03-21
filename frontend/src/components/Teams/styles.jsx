@@ -4,27 +4,30 @@ import JouerDroite from '../../assets/jauge_droite.svg'
 
 export const PageContainer = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  height: 100%;
   width: 100%;
 `
 
 export const LeftTeamContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  width: 40%;
-  padding: 0% 0% 0% 1%;
-  flex-direction: column;
   background-image: url(${JouerGauche});
-  background-size: contain;
+  width: 44%;
+  height: 100px;
   background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `
 export const TeamsNameLeft = styled.p`
-  padding-bottom: 1px;
-  margin-left: 12px;
+  margin-top: 8px;
+  margin-left: 50px;
+  height: 42px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 40px;
   background-color: red;
   -webkit-text-stroke-width: 1.3px;
   -webkit-text-stroke-color: black;
@@ -40,29 +43,49 @@ export const TeamsNameLeft = styled.p`
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
   background-clip: text;
-  text-transform: uppercase;
 `
-export const ScoreTeamLeft = styled.p``
+export const ScoreTeamLeft = styled.p`
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 5px;
+  margin-left: 15px;
+  padding-bottom: 5px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 36%,
+    rgb(255, 255, 255) 100%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+`
 
 export const RightTeamContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-  width: 40%;
-  padding: 0.5% 1% 0% 0%;
-  flex-direction: column;
   background-image: url(${JouerDroite});
-  background-size: contain;
+  width: 44%;
+  height: 100px;
   background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 `
 
 export const TeamsNameRight = styled.p`
-  margin-top: 17.9px;
+  margin-top: 8px;
+  margin-right: 50px;
   height: 42px;
-  padding-bottom: 1px;
-  margin-left: 12px;
+  padding-bottom: 10px;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 40px;
   background-color: red;
   -webkit-text-stroke-width: 1.3px;
   -webkit-text-stroke-color: black;
@@ -81,18 +104,24 @@ export const TeamsNameRight = styled.p`
   text-transform: uppercase;
 `
 export const ScoreTeamRight = styled.p`
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  line-height: 22px;
-
-  background: linear-gradient(180deg, #fefbeb 0%, #bdbaa2 100%);
+  margin-top: 5px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 36%,
+    rgb(255, 255, 255) 100%
+  );
   background-size: 100%;
+  background-repeat: repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
   background-clip: text;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -moz-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
 `

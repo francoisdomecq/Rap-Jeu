@@ -23,8 +23,16 @@ export const PageText = styled.span`
 `
 
 export const PageTextBis = styled.span`
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-family: 'Montserrat';
   font-weight: 700;
-  color: ${colors.yellow};
+  font-size: 24px;
+  line-height: 22px;
+  background: linear-gradient(180deg, #fefbeb 0%, #bdbaa2 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `

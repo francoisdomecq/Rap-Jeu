@@ -15,16 +15,19 @@ function Teams() {
 
   return (
     <PageContainer>
-
-        <LeftTeamContainer imgUrl="../../assets/jauge_gauche.svg">
-          <TeamsNameLeft>{team1}</TeamsNameLeft>
+      <LeftTeamContainer imgUrl="../../assets/jauge_gauche.svg">
+        <TeamsNameLeft>
+          {team1}
+          <br />
           <ScoreTeamLeft>{scoreTeam1} points</ScoreTeamLeft>
-        </LeftTeamContainer>
-        <RightTeamContainer imgUrl="../../assets/jauge_droite.svg">
-          <TeamsNameRight>{team2}</TeamsNameRight>
+        </TeamsNameLeft>
+      </LeftTeamContainer>
+      <RightTeamContainer imgUrl="../../assets/jauge_droite.svg">
+        <TeamsNameRight>
+          {team2}
           <ScoreTeamRight>{scoreTeam2} points</ScoreTeamRight>
-        </RightTeamContainer>
-
+        </TeamsNameRight>
+      </RightTeamContainer>
     </PageContainer>
   )
 }
