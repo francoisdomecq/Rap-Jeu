@@ -23,33 +23,21 @@ export const ExplicationsContainer = styled.div`
 `
 export const Explications = styled.div`
   width: 589px;
-  height: 343px;
+  height: 370px;
   padding: 20px;
   background-size: contain;
   background-image: url(${Rectangle});
   background-repeat: no-repeat;
   color: white;
 `
-export const P = styled.p`
-/* 0 points */
 
+export const Text = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 500;
+`
 
-
-
-text-transform: uppercase;
-
-font-weight: 700;
-font-size: 50px;
-
-
-/* identical to box height */
-
-
-background: linear-gradient(180deg, #FEFBEB 0%, #BDBAA2 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-
--webkit-text-stroke: 1px #000000;
-
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);`
+export const TextH1 = styled.h1`
+  font-family: 'Montserrat';
+  text-align: center;
+  
+`

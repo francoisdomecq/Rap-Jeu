@@ -6,6 +6,7 @@ import {
   CardTitle,
   CardRulesWrapper,
   CardRules,
+  CardRound,
 } from './styles'
 
 function GameCard({ label, rules, manches }) {
@@ -25,8 +26,8 @@ function GameCard({ label, rules, manches }) {
       </CardTitleWrapper>
       <CardRulesWrapper>
         <CardRules>
-          <h3>{manches}</h3>
-          <p>{rules}</p>
+          <CardRound>{manches}</CardRound>
+          {rules}
         </CardRules>
       </CardRulesWrapper>
     </CardWrapper>

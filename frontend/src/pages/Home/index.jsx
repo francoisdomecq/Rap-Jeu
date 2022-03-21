@@ -6,7 +6,8 @@ import {
   Explications,
   JouerContainer,
   LogoJouer,
-  P
+  TextH1,
+  Text,
 } from './styles'
 
 function Home() {
@@ -14,33 +15,16 @@ function Home() {
     <Container>
       <ExplicationsContainer>
         <Explications>
-          <P>Jouer</P>
-          <h1
-            style={{
-              textAlign: 'center',
-              fontFamily: 'Montserrat, sans-serif',
-            }}
-          >
+          <TextH1 >
             Bienvenue sur Rap Jeu
-          </h1>
-          <p
-            style={{
-              textAlign: 'center',
-              fontFamily: 'Montserrat',
-            }}
-          >
+          </TextH1>
+          <Text>
             Salut la famille, tu es sur le point de te lancer dans une partie de
             Rap Jeu. J'espère que t'es pas tout seul car tu risquerais de
             t'ennuyer.
-          </p>
-          <h2
-            style={{
-              textAlign: 'center',
-            }}
-          >
-            But du jeu
-          </h2>
-          <p>
+          </Text>
+          <TextH1>But du jeu</TextH1>
+          <Text>
             Vous allez d'abord devoir désigner un maître de jeu pour la suite de
             la partie. La première étape va être de créer le nom des équipes.
             Une fois que c'est fait, vous allez pouvoir choisir les épreuves
@@ -48,7 +32,7 @@ function Home() {
             les imprésentables enchères et l'inégalable Roland Gamos. Le maître
             du jeu a tous les droits au cours de la partie, et peut ajouter
             autant que de points qu'il souhaite mais aussi en enlever
-          </p>
+          </Text>
         </Explications>
       </ExplicationsContainer>
       <JouerContainer>

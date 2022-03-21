@@ -11,6 +11,7 @@ export const CardWrapper = styled.div`
   width: 28%;
   border-radius: 30px;
   background-color: ${colors.blue};
+  
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.6);
   opacity: ${({ isFavorite }) => (isFavorite ? '0.4' : '1')};
   &:hover {
@@ -30,8 +31,9 @@ export const CardTitleWrapper = styled.div`
 `
 export const CardTitle = styled.span`
   color: white;
+  font-family: 'Montserrat';
+  font-weight: 700;
   font-size: 30px;
-  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
 `
@@ -41,15 +43,23 @@ export const CardRulesWrapper = styled.div`
   box-shadow: 5px 5px 2px 1px black;
   font-size: 22px;
   width: 95%;
-  align-items: center;
+
   border-radius: 30px;
   padding: 10px;
   margin-top: 20px;
 `
 
-export const CardRules = styled.span`
+export const CardRules = styled.p`
   color: #2704c4;
   font-size: 16px;
-  font-weight: bold;
+  font-family: 'Montserrat';
+  font-size: '20px';
+  font-weight: 500;
+`
+export const CardRound = styled.p`
+  color: #2704c4;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Montserrat';
   text-align: center;
 `

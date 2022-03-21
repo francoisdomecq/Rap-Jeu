@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import colors from '../../utils/styles/colors'
 
 export const Container = styled.div`
   display: flex;
@@ -15,7 +16,6 @@ export const GameContainer = styled.div`
 export const GamesPicked = styled.div`
   width: 100%;
   background-color: #2704c4;
-  // background: linear-gradient(180deg, #2704C4 0%, rgba(13, 120, 232, 0.31) 100%);
   box-shadow: 5px 5px rgba(0, 0, 255, 0.2);
   display: flex;
   flex-direction: column;
@@ -29,6 +29,8 @@ export const GamesPickedTitleWrapper = styled.div`
   background-color: #db0a40;
   width: 100%;
   height: 6%;
+  font-family: 'Montserrat';
+  font-weight: 700;
 `
 export const GamesPickedTitle = styled.div`
   color: white;
@@ -49,6 +51,7 @@ export const GamesPickedWrapper = styled.div`
   color: #2704c4;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: 'Montserrat';
 `
 
 export const PlayButton = styled(Link)`
@@ -62,7 +65,8 @@ export const PlayButton = styled(Link)`
   text-decoration: none;
   color: white;
   font-size: 20px;
-  font-weight: bold;
+  font-family: 'Montserrat';
+  font-weight: 700;
 `
 
 export const RemoveButton = styled.button`
@@ -80,4 +84,14 @@ export const ExplainContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 75%;
+  font-family: 'Montserrat';
+`
+export const PageTitle = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-align: center;
+  font-size: 60px;
+  line-height: 0px;
+  color: ${colors.red};
+  text-transform: uppercase;
 `

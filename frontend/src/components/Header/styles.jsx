@@ -18,11 +18,13 @@ export const LinkText = styled(Link)`
 `
 export const PageText = styled.span`
   font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-size: 18px;
 `
 
 export const PageTextBis = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
+  font-weight: 700;
   color: ${colors.yellow};
 `

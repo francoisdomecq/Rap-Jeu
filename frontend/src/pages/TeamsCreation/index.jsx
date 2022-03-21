@@ -13,6 +13,7 @@ import {
   TeamWrapper,
   TeamName,
   LogoJouer,
+  PageTitle
 } from './styles'
 
 function Teams() {
@@ -47,7 +48,7 @@ function Teams() {
     </LoaderWrapper>
   ) : (
     <Container>
-      <h1>Création des équipes</h1>
+      <PageTitle>Création des équipes</PageTitle>
       <ExplainContainer>
         <p>
           Avant de commencer, il faut bien évidemment commencer par le choix du

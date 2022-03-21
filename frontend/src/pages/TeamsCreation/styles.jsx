@@ -68,7 +68,18 @@ export const LogoJouer = styled.img`
 `
 
 export const ExplainContainer = styled.div`
-  display: flex;
+   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 75%;
+  font-family: 'Montserrat';
+`
+
+export const PageTitle = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  text-align: center;
+  font-size: 60px;
+  line-height: 0px;
+  color: ${colors.red};
+  text-transform: uppercase;
 `

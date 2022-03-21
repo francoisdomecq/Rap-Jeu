@@ -11,6 +11,7 @@ import {
   RemoveButton,
   PlayButton,
   ExplainContainer,
+  PageTitle,
 } from './styles'
 
 function Games() {
@@ -27,7 +28,6 @@ function Games() {
   })
   return (
     <Container>
-      {console.log(games)}
       <GamesPicked has4Games={games.length === 4 ? true : false}>
         <GamesPickedTitleWrapper>
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>
@@ -67,7 +67,7 @@ function Games() {
       </GamesPicked>
       <GameContainer>
         <ExplainContainer>
-          <h1 style={{ textAlign: 'center' }}>Choix des jeux</h1>
+          <PageTitle style={{ textAlign: 'center' }}>Choix des jeux</PageTitle>
           <p>
             Maintenant que les équipes sont prêtes et que votre nom d'équipe
             vous convient ou non, il faut choisir les jeux. N'y passez pas trop
