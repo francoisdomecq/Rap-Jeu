@@ -60,14 +60,8 @@ export const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-export const LogoJouer = styled.img`
-  width: 100%;
-  height: 100%;
-  margin-top: 50px;
-`
-
 export const ExplainContainer = styled.div`
-   display: flex;
+  display: flex;
   flex-direction: column;
   width: 75%;
   font-family: 'Montserrat';

@@ -13,7 +13,8 @@ import {
   Text,
   SecondContainer,
 } from './styles'
-import '../../utils/animations/jouerBouncing.css'
+import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
+import '../../utils/animations/Bouncing/animationBouncing.css'
 function Home() {
   return (
     <Container>
@@ -61,12 +62,12 @@ function Home() {
 
       <Link style={{ textDecoration: 'none' }} to="/teams">
         <Container>
-          <div class="bouncing-text">
-            <div class="j">J</div>
-            <div class="o">O</div>
-            <div class="u">U</div>
-            <div class="e">E</div>
-            <div class="r">R</div>
+          <div className="bouncing-text">
+            <div className="j">J</div>
+            <div className="o">O</div>
+            <div className="u">U</div>
+            <div className="e">E</div>
+            <div className="r">R</div>
           </div>
         </Container>
       </Link>

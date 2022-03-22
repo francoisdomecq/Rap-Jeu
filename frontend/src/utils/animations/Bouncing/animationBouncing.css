@@ -4,15 +4,7 @@
   font-size: 70px;
   font-family: 'Montserrat' black;
   font-weight: 700;
-}
-
-.j,
-.o,
-.u,
-.e,
-.r {
-  color: #2704c4;
-  text-shadow: 0 3px #000000, 0 5px #000000, 0 7px #000000;
+  text-transform: uppercase;
 }
 
 @keyframes bounce {
@@ -37,26 +29,6 @@
   100% {
     transform: scale(1, 1) translateY(0);
   }
-}
-
-.j {
-  animation: bounce 3s ease infinite;
-}
-
-.o {
-  animation: bounce 3s ease infinite 0.1s;
-}
-
-.u {
-  animation: bounce 3s ease infinite 0.2s;
-}
-
-.e {
-  animation: bounce 3s ease infinite 0.3s;
-}
-
-.r {
-  animation: bounce 3s ease infinite 0.4s;
 }
 
 .bouncing-text:before {

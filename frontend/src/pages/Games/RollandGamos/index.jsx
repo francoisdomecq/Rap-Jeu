@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
+import { TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
-import Search from '../../../components/Rappers/Search'
 import Score from '../../../components/Score'
 import {
   Container,
@@ -10,11 +10,12 @@ import {
   SearchContainer,
   FirstContainer,
 } from './styles'
-import { PageTitle } from '../../../utils/styles/balises'
+
 import MusicBrainzLogo from '../../../assets/PNG/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../../assets/icons8-youtube.svg'
 import RapGeniusLogo from '../../../assets/PNG/RapGenius_Logo.png'
-import { TeamContext } from '../../../utils/context'
+import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
+import '../../../utils/animations/Bouncing/animationBouncing.css'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function RollandGamos() {
@@ -37,7 +38,21 @@ function RollandGamos() {
 
   return count < 3 ? (
     <FirstContainer>
-      <PageTitle>Rolland Gamos</PageTitle>
+      <div class="bouncing-text">
+        <div class="r-RG">R</div>
+        <div class="o-RG">O</div>
+        <div class="l-RG">L</div>
+        <div class="l2-RG">L</div>
+        <div class="a-RG">A</div>
+        <div class="n-RG">N</div>
+        <div class="d-RG">D</div>
+        <p style={{ color: 'transparent',lineHeight:0}}>''</p>
+        <div class="g-RG">G</div>
+        <div class="a2-RG">A</div>
+        <div class="m-RG">M</div>
+        <div class="o2-RG">O</div>
+        <div class="s-RG">S</div>
+      </div>
       <Container>
         <Score team={'team1'} placeHolder="---" value={null} />
         {rappeur ? (
@@ -50,6 +65,7 @@ function RollandGamos() {
                 {rappeur}
               </p>
             </RappeurContainer>
+            <p>Un doute sur le featuring ? </p>
             <InputContainer>
               <input
                 type="text"

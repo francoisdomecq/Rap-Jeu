@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
 import Loader from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
-import Jouer from '../../assets/jouer.svg'
+
 import {
   LoaderWrapper,
   Container,
@@ -14,7 +14,8 @@ import {
   TeamName,
   PageTitle,
 } from './styles'
-import '../../utils/animations/jouerBouncing.css'
+import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
+import '../../utils/animations/Bouncing/animationBouncing.css'
 function Teams() {
   const [isDataLoading, setDataLoading] = useState(true)
   const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
