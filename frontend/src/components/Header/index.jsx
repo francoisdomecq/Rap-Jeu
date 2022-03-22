@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { GameContext } from '../../utils/context'
 import { NavContainer, LinkText, PageText, PageTextBis, Logo } from './styles'
-import RedbullLogo from '../../assets/redbull.png'
+import RedbullLogo from '../../assets/PNG/redbull.png'
 
 function Header() {
   const { games, hasGameStarted, gamesPlayed } = useContext(GameContext)
