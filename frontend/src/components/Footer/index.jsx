@@ -4,14 +4,14 @@ import { FooterContainer, FooterText } from './styles'
 function Footer() {
   return (
     <FooterContainer>
+      <FooterText>Jeu crée par François Domecq</FooterText> 
       <FooterText>
-        Jeu crée par François Domecq
         <a
-          href="https://youtube.com/playlist?list=PLLkvlAQ5R3l8zLZWcwcjkMQ1pU4BQlAcp"
-          target="_blank"
+          href="https://github.com/francoisdomecq/Rap-Jeu"
           rel="noreferrer"
+          target="_blank"
         >
-          <img src={Logo} alt="Logo" />
+          Accéder au dépôt GitHub
         </a>
       </FooterText>
     </FooterContainer>
