@@ -27,18 +27,29 @@ export const Table = styled.table`
 
 export const TableHead = styled.thead`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding-bottom: 2%;
   width: 100%;
-  background-color: ${colors.red};
   color: white;
+  font-family: 'Montserrat';
+  font-size: 18px;
+  font-weight: 700;
   text-transform: uppercase;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  background-color: ${colors.red};
+`
+export const TableSearch = styled.input`
+  border-radius: 20px;
+  text-align: center;
 `
 
 export const TableBottom = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2% 0% 2% 0%;
   height: 10%;
   width: 100%;
   background-color: ${colors.red};

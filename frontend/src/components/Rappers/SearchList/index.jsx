@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Container,
   Table,
@@ -9,10 +9,13 @@ import {
   TableContainer,
   TableBottom,
   RapperName,
+  TableSearch,
 } from './styles'
 
-function SearchList({ filteredRapper, selectRapper }) {
+function SearchList({ filteredRapper, selectRapper, search }) {
+  const [rapperInput, setRapperInput] = useState('')
   filteredRapper.sort((a, b) => a.nom.localeCompare(b.nom))
+
   const filteredData = filteredRapper.map((rapper) => (
     <LineContainer>
       <Line>
@@ -22,10 +25,16 @@ function SearchList({ filteredRapper, selectRapper }) {
       </Line>
     </LineContainer>
   ))
+
   return (
     <Container>
       <TableHead>
-        <th>Choisir un rappeur</th>
+        <p>Choisir un rappeur</p>
+        <TableSearch
+          type="search"
+          placeholder="Chercher un rappeur"
+          onChange={(e) => search(e)}
+        />
       </TableHead>
       <TableContainer>
         <Table>
@@ -33,7 +42,12 @@ function SearchList({ filteredRapper, selectRapper }) {
         </Table>
       </TableContainer>
       <TableBottom>
-        <br />
+        {/* <input
+          type="text"
+          placeholder="Choisir un autre rappeur"
+          onChange={(e) => setRapperInput(e.target.value)}
+        />
+        <button onClick={() => selectRapper(rapperInput)} /> */}
       </TableBottom>
     </Container>
   )
