@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
 import Loader from '../../utils/styles/Atoms'
-import Redbull from '../../assets/redbull.png'
+import Redbull from '../../assets/PNG/redbull.png'
 import Jouer from '../../assets/jouer.svg'
 import {
   LoaderWrapper,
@@ -12,7 +12,6 @@ import {
   ContainerTeam,
   TeamWrapper,
   TeamName,
-  LogoJouer,
   PageTitle,
 } from './styles'
 import '../../utils/animations/jouerBouncing.css'
