@@ -29,8 +29,13 @@ function RapGenieOuGenant() {
       .then((response) => response.json())
       .then((requestData) => {
         console.log(requestData)
-        // const [n1, n2, n3, n4] = generateRandomNumber(requestData.length)
-        // updateData(requestData[n1],requestData[n2],requestData[n3],requestData[n4])
+        const [n1, n2, n3, n4] = generateRandomNumber(requestData.length)
+        updateData(
+          requestData[n1],
+          requestData[n2],
+          requestData[n3],
+          requestData[n4]
+        )
       })
       .catch((error) => console.log(error))
   }, [])

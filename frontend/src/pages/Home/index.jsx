@@ -9,15 +9,13 @@ import {
   TextH1,
   Text,
 } from './styles'
-
+import '../../utils/animations/jouerBouncing.css'
 function Home() {
   return (
     <Container>
       <ExplicationsContainer>
         <Explications>
-          <TextH1 >
-            Bienvenue sur Rap Jeu
-          </TextH1>
+          <TextH1>Bienvenue sur Rap Jeu</TextH1>
           <Text>
             Salut la famille, tu es sur le point de te lancer dans une partie de
             Rap Jeu. J'espère que t'es pas tout seul car tu risquerais de
@@ -35,11 +33,18 @@ function Home() {
           </Text>
         </Explications>
       </ExplicationsContainer>
-      <JouerContainer>
-        <Link to="/teams">
-          <LogoJouer src={Jouer} alt="jouer" />
-        </Link>
-      </JouerContainer>
+
+      <Link style={{ textDecoration: 'none' }} to="/teams">
+        <Container>
+          <div class="bouncing-text">
+            <div class="j">J</div>
+            <div class="o">O</div>
+            <div class="u">U</div>
+            <div class="e">E</div>
+            <div class="r">R</div>
+          </div>
+        </Container>
+      </Link>
     </Container>
   )
 }

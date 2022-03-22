@@ -13,9 +13,9 @@ import {
   TeamWrapper,
   TeamName,
   LogoJouer,
-  PageTitle
+  PageTitle,
 } from './styles'
-
+import '../../utils/animations/jouerBouncing.css'
 function Teams() {
   const [isDataLoading, setDataLoading] = useState(true)
   const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
@@ -85,8 +85,16 @@ function Teams() {
         </TeamWrapper>
       </ContainerTeam>
 
-      <Link to="/games">
-        <LogoJouer src={Jouer} alt="jouer" />
+      <Link style={{ textDecoration: 'none' }} to="/games">
+        <Container>
+          <div class="bouncing-text">
+            <div class="j">J</div>
+            <div class="o">O</div>
+            <div class="u">U</div>
+            <div class="e">E</div>
+            <div class="r">R</div>
+          </div>
+        </Container>
       </Link>
     </Container>
   )

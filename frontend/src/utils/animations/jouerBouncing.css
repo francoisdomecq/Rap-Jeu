@@ -1,0 +1,88 @@
+.bouncing-text {
+  position: relative;
+  display: flex;
+  font-size: 70px;
+  font-family: 'Montserrat' black;
+  font-weight: 700;
+}
+
+.j,
+.o,
+.u,
+.e,
+.r {
+  color: #2704c4;
+  text-shadow: 0 3px #000000, 0 5px #000000, 0 7px #000000;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-55px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  58% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  65% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.j {
+  animation: bounce 3s ease infinite;
+}
+
+.o {
+  animation: bounce 3s ease infinite 0.1s;
+}
+
+.u {
+  animation: bounce 3s ease infinite 0.2s;
+}
+
+.e {
+  animation: bounce 3s ease infinite 0.3s;
+}
+
+.r {
+  animation: bounce 3s ease infinite 0.4s;
+}
+
+.bouncing-text:before {
+  left: 0;
+  animation: scale 1s linear infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: scaleX(1);
+  }
+  25% {
+    transform: scaleX(0.4);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  75% {
+    transform: scaleX(0.9);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.bouncing-text:after {
+  left: 57px;
+  animation: scale 1s linear infinite 0.1s;
+}

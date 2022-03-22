@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const TableContainer = styled.div`
   display: flex;
   width: 100%;
-  max-height: 350px;
+  max-height: 380px;
   overflow-y: scroll;
 `
 export const Table = styled.table`
@@ -27,22 +27,41 @@ export const Table = styled.table`
 
 export const TableHead = styled.thead`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   padding-bottom: 2%;
+  padding-right: 2%;
   width: 100%;
   color: white;
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+
   background-color: ${colors.red};
 `
 export const TableSearch = styled.input`
-  border-radius: 20px;
+  outline: none;
+  padding-top: 4%;
   text-align: center;
+  border: 0px solid #000000;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 24px;
+  font-weight: 700;
+  ::placeholder {
+    text-align: 'center';
+    color: white;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 24px;
+    font-weight: 700;
+    width: 100%;
+    text-decoration: underline black;
+  }
+  width: 100%;
 `
 
 export const TableBottom = styled.div`
@@ -53,8 +72,6 @@ export const TableBottom = styled.div`
   height: 10%;
   width: 100%;
   background-color: ${colors.red};
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 `
 export const TableBody = styled.tbody`
   width: 99%;
@@ -84,4 +101,11 @@ export const RapperName = styled.p`
 export const LineSeparator = styled.hr`
   height: 1px;
   width: 100%;
+`
+
+export const SearchDiv = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
