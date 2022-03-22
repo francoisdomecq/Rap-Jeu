@@ -1,9 +1,15 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
-import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
+import Score from '../../../components/Score'
 import CrossFeaturingArray from '../../../components/CrossFeaturing'
+import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
+import { Container, FirstContainer } from '../../../utils/styles/balises'
+import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
+import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
@@ -17,25 +23,44 @@ function CrossFeaturing() {
   }
   // HasGameStarted()
   return (
-    <div>
-      {console.log(crossFeaturing)}
-      <h1>CrossFeaturing</h1>
-      <Score team={'team1'} value={5} />
-      <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
-      <Score team={'team2'} value={5} />
-      <div style={{ width: 50, height: 50 }}>
-        {answerNumber < 2 ? (
-          <button onClick={() => updateAnswer()}>Valider</button>
-        ) : (
-          <Link
-            to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}`}
-            onClick={() => updateAnswer()}
-          >
-            Valider
-          </Link>
-        )}
+    <FirstContainer>
+      <div className="bouncing-text">
+        <div className="l-cf">l</div>
+        <div className="e-cf">e</div>
+        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div className="c-cf">c</div>
+        <div className="r-cf">r</div>
+        <div className="o-cf">o</div>
+        <div className="s-cf">s</div>
+        <div className="s1-cf">s</div>
+        <div className="f-cf">f</div>
+        <div className="e1-cf">e</div>
+        <div className="a-cf">a</div>
+        <div className="t-cf">t</div>
+        <div className="u-cf">u</div>
+        <div className="r1-cf">r</div>
+        <div className="i-cf">i</div>
+        <div className="n-cf">n</div>
+        <div className="g-cf">g</div>
       </div>
-    </div>
+      <Container>
+        <Score team={'team1'} value={5} />
+        <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
+        <Score team={'team2'} value={5} />
+        <Container style={{ width: 50, height: 50 }}>
+          {answerNumber < 2 ? (
+            <button onClick={() => updateAnswer()}>Valider</button>
+          ) : (
+            <Link
+              to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}`}
+              onClick={() => updateAnswer()}
+            >
+              Valider
+            </Link>
+          )}
+        </Container>
+      </Container>
+    </FirstContainer>
   )
 }
 

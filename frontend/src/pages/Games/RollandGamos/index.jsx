@@ -3,19 +3,20 @@ import { TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
 import Score from '../../../components/Score'
 import {
-  Container,
   RappeurContainer,
   SecondContainer,
   InputContainer,
   SearchContainer,
-  FirstContainer,
 } from './styles'
+import { FirstContainer, Container } from '../../../utils/styles/balises'
 
 import MusicBrainzLogo from '../../../assets/PNG/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../../assets/icons8-youtube.svg'
 import RapGeniusLogo from '../../../assets/PNG/RapGenius_Logo.png'
+
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function RollandGamos() {
@@ -38,20 +39,20 @@ function RollandGamos() {
 
   return count < 3 ? (
     <FirstContainer>
-      <div class="bouncing-text">
-        <div class="r-RG">R</div>
-        <div class="o-RG">O</div>
-        <div class="l-RG">L</div>
-        <div class="l2-RG">L</div>
-        <div class="a-RG">A</div>
-        <div class="n-RG">N</div>
-        <div class="d-RG">D</div>
-        <p style={{ color: 'transparent',lineHeight:0}}>''</p>
-        <div class="g-RG">G</div>
-        <div class="a2-RG">A</div>
-        <div class="m-RG">M</div>
-        <div class="o2-RG">O</div>
-        <div class="s-RG">S</div>
+      <div className="bouncing-text">
+        <div className="r-RG">R</div>
+        <div className="o-RG">O</div>
+        <div className="l-RG">L</div>
+        <div className="l2-RG">L</div>
+        <div className="a-RG">A</div>
+        <div className="n-RG">N</div>
+        <div className="d-RG">D</div>
+        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div className="g-RG">G</div>
+        <div className="a2-RG">A</div>
+        <div className="m-RG">M</div>
+        <div className="o2-RG">O</div>
+        <div className="s-RG">S</div>
       </div>
       <Container>
         <Score team={'team1'} placeHolder="---" value={null} />

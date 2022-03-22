@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import Score from '../../../components/Score'
 import Theme from '../../../components/theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { FirstContainer, Container, SecondContainer } from './styles'
+import { SecondContainer } from './styles'
+import { Container, FirstContainer } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
@@ -24,19 +25,19 @@ function Enchere() {
   HasGameStarted()
   return (
     <FirstContainer>
-      <div class="bouncing-text">
-        <div class="l-enc">l</div>
-        <div class="e-enc">e</div>
-        <div class="s-enc">s</div>
+      <div className="bouncing-text">
+        <div className="l-enc">l</div>
+        <div className="e-enc">e</div>
+        <div className="s-enc">s</div>
         <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
-        <div class="e1-enc">e</div>
-        <div class="n-enc">n</div>
-        <div class="c-enc">c</div>
-        <div class="h-enc">h</div>
-        <div class="e2-enc">è</div>
-        <div class="r-enc">r</div>
-        <div class="e3-enc">e</div>
-        <div class="s1-enc">s</div>
+        <div className="e1-enc">e</div>
+        <div className="n-enc">n</div>
+        <div className="c-enc">c</div>
+        <div className="h-enc">h</div>
+        <div className="e2-enc">è</div>
+        <div className="r-enc">r</div>
+        <div className="e3-enc">e</div>
+        <div className="s1-enc">s</div>
       </div>
       <Container>
         {/* Choisir le thème et choisir le nombre de points

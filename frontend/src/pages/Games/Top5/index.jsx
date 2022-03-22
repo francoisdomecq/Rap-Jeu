@@ -1,10 +1,15 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
-import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
-import { Container, SecondContainer } from './styles'
+
+import Score from '../../../components/Score'
 import Theme from '../../../components/theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
+import { Container, SecondContainer } from './styles'
+import { FirstContainer } from '../../../utils/styles/balises'
+import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
+import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
   const [top5, setTop5] = useState()
@@ -22,38 +27,47 @@ function Top5() {
 
   HasGameStarted()
   return (
-    <Container>
-      {/* Choisir le thème et choisir le nombre de points
+    <FirstContainer>
+      <div className="bouncing-text">
+        <div className="t-top5">t</div>
+        <div className="o-top5">o</div>
+        <div className="p-top5">p</div>
+        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div className="five-top5">5</div>
+      </div>
+      <Container>
+        {/* Choisir le thème et choisir le nombre de points
       Valider, lance le chrono
       Chrono fini, l'équipe a t-elle réussi ?  */}
 
-      <Score team={'team1'} value="--" placeHolder={+15} />
+        <Score team={'team1'} value="--" placeHolder={+15} />
 
-      {top5 ? (
-        <div>
-          <p>{top5.theme}</p>
-          <p>{top5.suggestions}</p>
-        </div>
-      ) : (
-        <SecondContainer>
-          <Theme page="top5" selectTheme={selectTheme} />
-        </SecondContainer>
-      )}
-
-      <Score team={'team2'} value="--" placeHolder={"+15"} />
-      <div style={{ width: 50, height: 50 }}>
-        {nombreReponses < 1 ? (
-          <button onClick={() => updateNombreAnswers()}>Valider</button>
+        {top5 ? (
+          <div>
+            <p>{top5.theme}</p>
+            <p>{top5.suggestions}</p>
+          </div>
         ) : (
-          <Link
-            to={`/${games[games.indexOf('Top 5') + 1]}`}
-            onClick={() => updateNombreAnswers()}
-          >
-            Valider
-          </Link>
+          <SecondContainer>
+            <Theme page="top5" selectTheme={selectTheme} />
+          </SecondContainer>
         )}
-      </div>
-    </Container>
+
+        <Score team={'team2'} value="--" placeHolder={'+15'} />
+        <div style={{ width: 50, height: 50 }}>
+          {nombreReponses < 1 ? (
+            <button onClick={() => updateNombreAnswers()}>Valider</button>
+          ) : (
+            <Link
+              to={`/${games[games.indexOf('Top 5') + 1]}`}
+              onClick={() => updateNombreAnswers()}
+            >
+              Valider
+            </Link>
+          )}
+        </div>
+      </Container>
+    </FirstContainer>
   )
 }
 export default Top5

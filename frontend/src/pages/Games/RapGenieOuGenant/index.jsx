@@ -5,6 +5,10 @@ import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
+import { Container, FirstContainer } from '../../../utils/styles/balises'
+import '../../../utils/animations/Bouncing/rapGenieOuGenantBouncingLetters.css'
+import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
   const { games, updateGamesPlayed } = useContext(GameContext)
@@ -43,27 +47,49 @@ function RapGenieOuGenant() {
   HasGameStarted()
 
   return (
-    <div>
-      <h1>Rap génie ou gênant</h1>
-      <Score team={'team1'} value={5} />
-      {questionData.map((data) => (
-        <div>
-          <p>{data.question}</p>
-          <p>{data.reponse}</p>
-          {data.type === 'video' ? (
-            <iframe
-              width="560"
-              height="315"
-              src={data.illustration}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          ) : null}
-        </div>
-      ))}
-      <Score team={'team2'} value={5} />
+    <FirstContainer>
+      <div className="bouncing-text">
+        <div className="r-rgog">r</div>
+        <div className="a-rgog">a</div>
+        <div className="p-rgog">p</div>
+        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div className="g-rgog">g</div>
+        <div className="e-rgog">e</div>
+        <div className="n-rgog">n</div>
+        <div className="i-rgog">i</div>
+        <div className="e1-rgog">e</div>
+        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div className="o-rgog">o</div>
+        <div className="u-rgog">u</div>
+        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div className="g1-rgog">g</div>
+        <div className="e2-rgog">e</div>
+        <div className="n1-rgog">n</div>
+        <div className="a1-rgog">a</div>
+        <div className="n2-rgog">n</div>
+        <div className="t-rgog">t</div>
+      </div>
+      <Container>
+        <Score team={'team1'} value={5} />
+        {questionData.map((data) => (
+          <div>
+            <p>{data.question}</p>
+            <p>{data.reponse}</p>
+            {data.type === 'video' ? (
+              <iframe
+                width="560"
+                height="315"
+                src={data.illustration}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            ) : null}
+          </div>
+        ))}
+        <Score team={'team2'} value={5} />
+      </Container>
       <div style={{ width: 50, height: 50 }}>
         {answerNumber < 3 ? (
           <button onClick={() => updateAnswer()}>Valider</button>
@@ -76,7 +102,7 @@ function RapGenieOuGenant() {
           </Link>
         )}
       </div>
-    </div>
+    </FirstContainer>
   )
 }
 

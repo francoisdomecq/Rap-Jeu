@@ -1,0 +1,78 @@
+.l-cf,
+.e-cf,
+.c-cf,
+.r-cf,
+.o-cf,
+.s-cf,
+.s1-cf,
+.f-cf,
+.e1-cf,
+.a-cf,
+.t-cf,
+.u-cf,
+.r1-cf,
+.i-cf,
+.n-cf,
+.g-cf {
+  color: rgba(255, 0, 61, 1);
+  text-shadow: 0 3px #000000, 0 5px #000000, 0 7px #000000;
+}
+
+.l-cf {
+  animation: bounce 1s ease 1 0s;
+}
+
+.e-cf {
+  animation: bounce 1s ease 1 0.1s;
+}
+
+.c-cf {
+  animation: bounce 1s ease 1 0.2s;
+}
+
+.r-cf {
+  animation: bounce 1s ease 1 0.3s;
+}
+
+.o-cf {
+  animation: bounce 1s ease 1 0.4s;
+}
+.s-cf {
+  animation: bounce 1s ease 1 0.5s;
+}
+
+.s1-cf {
+  animation: bounce 1s ease 1 0.6s;
+}
+
+.f-cf {
+  animation: bounce 1s ease 1 0.7s;
+}
+
+.e1-cf {
+  animation: bounce 1s ease 1 0.8s;
+}
+
+.a-cf {
+  animation: bounce 1s ease 1 0.9s;
+}
+.t-cf {
+  animation: bounce 1s ease 1 1s;
+}
+
+.u-cf {
+  animation: bounce 1s ease 1 1.2s;
+}
+
+.r1-cf {
+  animation: bounce 1s ease 1 1.3s;
+}
+.i-cf {
+  animation: bounce 1s ease 1 1.4s;
+}
+.n-cf {
+  animation: bounce 1s ease 1 1.5s;
+}
+.g-cf {
+  animation: bounce 1s ease 1 1.6s;
+}
