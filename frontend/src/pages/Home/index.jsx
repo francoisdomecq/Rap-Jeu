@@ -1,18 +1,43 @@
 import { Link } from 'react-router-dom'
 import Jouer from '../../assets/jouer.svg'
+import RedBullLogo from '../../assets/PNG/redbull.png'
+import RapJeuLogo from '../../assets/RapJeuLogo.svg'
+import YoutubeLogo from '../../assets/icons8-youtube.svg'
 import {
   Container,
   ExplicationsContainer,
   Explications,
-  JouerContainer,
-  LogoJouer,
+  Logo,
+  LinkImage,
   TextH1,
   Text,
+  SecondContainer,
 } from './styles'
 import '../../utils/animations/jouerBouncing.css'
 function Home() {
   return (
     <Container>
+      <SecondContainer>
+        <LinkImage
+          href="https://www.redbull.com/fr-fr/collections/redbinks"
+          target="_blank"
+        >
+          <Logo src={RedBullLogo} alt="redbull" />
+        </LinkImage>
+
+        <Logo
+          style={{ width: '15%', height: '15%' }}
+          src={RapJeuLogo}
+          alt="rapjeu"
+        />
+
+        <LinkImage
+          href="https://www.youtube.com/playlist?list=PLLkvlAQ5R3l8zLZWcwcjkMQ1pU4BQlAcp"
+          target="_blank"
+        >
+          <Logo src={YoutubeLogo} alt="youtube" />
+        </LinkImage>
+      </SecondContainer>
       <ExplicationsContainer>
         <Explications>
           <TextH1>Bienvenue sur Rap Jeu</TextH1>

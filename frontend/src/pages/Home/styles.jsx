@@ -7,6 +7,17 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const SecondContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1%;
+`
+export const LinkImage = styled.a`
+  width: 15%;
+  height: 15%;
+`
 export const JouerContainer = styled.div`
   display: flex;
   align-items: center;
@@ -14,7 +25,7 @@ export const JouerContainer = styled.div`
   width: 40%;
   height: 30%;
 `
-export const LogoJouer = styled.img`
+export const Logo = styled.img`
   width: 100%;
   height: 100%;
 `
@@ -39,5 +50,4 @@ export const Text = styled.p`
 export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
-  
 `
