@@ -12,7 +12,7 @@ import {
   TableSearch,
   SearchDiv,
 } from './styles'
-import IconSearch from '../../../assets/ICON_Search.svg'
+import IconSearch from '../../../assets/icons8-chercher.svg'
 
 function SearchList({ filteredRapper, selectRapper, search }) {
   const [rapperInput, setRapperInput] = useState('')
@@ -48,6 +48,13 @@ function SearchList({ filteredRapper, selectRapper, search }) {
             type="search"
             placeholder="Chercher un rappeur"
             onChange={(e) => search(e)}
+          />
+          <img
+            style={{ marginTop: '2%' }}
+            src={IconSearch}
+            width="50"
+            height="50"
+            alt="search"
           />
         </SearchDiv>
       </TableHead>

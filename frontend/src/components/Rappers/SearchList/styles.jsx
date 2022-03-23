@@ -19,6 +19,7 @@ export const Table = styled.table`
   align-items: center;
   width: 100%;
   height: 100%;
+
   background-color: ${colors.blue};
   :hover {
     cursor: pointer;
@@ -32,7 +33,8 @@ export const TableHead = styled.thead`
   justify-content: space-around;
   padding-bottom: 2%;
   padding-right: 2%;
-  width: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   color: white;
   font-family: 'Montserrat';
   font-size: 18px;
@@ -53,15 +55,19 @@ export const TableSearch = styled.input`
   font-size: 24px;
   font-weight: 700;
   ::placeholder {
-    text-align: 'center';
     color: white;
+    text-align: 'center';
     font-family: 'Montserrat', 'sans-serif';
     font-size: 24px;
     font-weight: 700;
     width: 100%;
-    text-decoration: underline black;
+    text-transform: none;
   }
-  width: 100%;
+  &:hover {
+    text-underline-position: below;
+    text-decoration: underline;
+  }
+  width: 75%;
 `
 
 export const TableBottom = styled.div`
@@ -71,6 +77,8 @@ export const TableBottom = styled.div`
   padding: 2% 0% 2% 0%;
   height: 10%;
   width: 100%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
   background-color: ${colors.red};
 `
 export const TableBody = styled.tbody`
