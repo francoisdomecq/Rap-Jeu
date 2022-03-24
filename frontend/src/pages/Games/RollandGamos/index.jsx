@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
 import Score from '../../../components/Score'
@@ -7,6 +8,10 @@ import {
   SecondContainer,
   InputContainer,
   SearchContainer,
+  Text,
+  RapperInput,
+  SearchInput,
+  NextRoundButton,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 
@@ -61,24 +66,23 @@ function RollandGamos() {
           {rappeur ? (
             <SecondContainer>
               <RappeurContainer>
-                <input
-                  placeHolder={rappeur1Search}
+                <Text style={{ color: 'white' }}>Dernier rappeur cité</Text>
+                <RapperInput
+                  type="search"
+                  placeholder={rappeur1Search}
                   onChange={(e) => setRappeur1Search(e.target.value)}
                 />
-                <p style={{ color: 'white', textTransform: 'uppercase' }}>
-                  {rappeur1Search}
-                </p>
               </RappeurContainer>
-              <p>Un doute sur le featuring ? </p>
+              <Text>Un doute sur un featuring ? </Text>
               <InputContainer>
-                <input
-                  type="text"
+                <SearchInput
+                  type="search"
                   placeholder={rappeur1Search}
                   value={rappeur1Search}
                   onChange={(e) => setRappeur1Search(e.target.value)}
                 />
-                <input
-                  type="text"
+                <SearchInput
+                  type="search"
                   placeholder="rappeur 2"
                   onChange={(e) => setRappeur2Search(e.target.value)}
                 />
@@ -118,13 +122,15 @@ function RollandGamos() {
                   />
                 </a>
               </SearchContainer>
-              <button onClick={() => newRappeur()}>
-                Passer à la manche suivante
-              </button>
+              <ContainerRow style={{ marginTop: '5%' }}>
+                <NextRoundButton onClick={() => newRappeur()}>
+                  Continuer
+                </NextRoundButton>
+              </ContainerRow>
             </SecondContainer>
           ) : (
             <SecondContainer>
-              <p>Manche n°{count + 1}</p>
+              <Text>Manche n°{count + 1}</Text>
               <RappeurArray page="rappeur" selectRapper={selectRappeur} />
             </SecondContainer>
           )}
@@ -133,9 +139,10 @@ function RollandGamos() {
       </ContainerColumn>
     </ContainerRow>
   ) : (
-    <ContainerRow>
+    <ContainerColumn>
       <p>Bien joué équipe {scoreTeam1 < scoreTeam2 ? '2' : '1'} </p>
-    </ContainerRow>
+      <Link to="/">Recommencer une partie</Link>
+    </ContainerColumn>
   )
 }
 

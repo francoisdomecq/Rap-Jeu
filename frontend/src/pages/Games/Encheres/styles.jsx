@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 
-
-
-
 export const SecondContainer = styled.div`
   display: flex;
   flex-direction: column;

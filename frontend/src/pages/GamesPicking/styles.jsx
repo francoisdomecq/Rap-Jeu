@@ -50,7 +50,8 @@ export const GamesPickedWrapper = styled.div`
   height: 10%;
   color: #2704c4;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 16px;
   font-family: 'Montserrat';
 `
 

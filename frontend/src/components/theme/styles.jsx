@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const TableContainer = styled.div`
   display: flex;
   width: 100%;
-  max-height: 350px;
+  max-height: 380px;
   overflow-y: scroll;
 `
 export const Table = styled.table`

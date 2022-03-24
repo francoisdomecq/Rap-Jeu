@@ -19,7 +19,6 @@ export const Table = styled.table`
   align-items: center;
   width: 100%;
   height: 100%;
-
   background-color: ${colors.blue};
   :hover {
     cursor: pointer;
@@ -65,6 +64,10 @@ export const TableSearch = styled.input`
   &:hover {
     text-underline-position: below;
     text-decoration: underline;
+  }
+  ::-webkit-search-cancel-button {
+    position: relative;
+    right: 15px;
   }
   width: 75%;
 `
