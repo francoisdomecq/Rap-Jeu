@@ -92,10 +92,11 @@ export const Line = styled.tr`
   display: flex;
   justify-content: center;
   width: 100%;
-  color: white;
   font-size: 18px;
+  color: ${({ isChosen }) => (isChosen ? `${colors.red}` : 'white')};
   &:hover {
-    color: ${colors.yellow};
+    color: ${({ isChosen }) =>
+      isChosen ? `${colors.red}` : `${colors.yellow}`};
     font-size: 24px;
   }
 `

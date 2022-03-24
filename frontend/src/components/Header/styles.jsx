@@ -14,7 +14,6 @@ export const PageText = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 18px;
-
 `
 
 export const PageTextBis = styled.span`

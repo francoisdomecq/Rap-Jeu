@@ -11,13 +11,13 @@ import {
   TableBottom,
 } from './styles'
 
-function Theme({ selectTheme, page }) {
+function Theme({ selectTheme, page, chosenTheme }) {
   const [theme, setTheme] = useState([])
 
   function displayThemes() {
     return theme.map((theme) => (
-      <LineContainer>
-        <Line>
+      <LineContainer >
+        <Line isChosen={theme === chosenTheme ? true : false}>
           <RapperName key={theme._id} onClick={() => selectTheme(theme)}>
             {theme.theme}
           </RapperName>
