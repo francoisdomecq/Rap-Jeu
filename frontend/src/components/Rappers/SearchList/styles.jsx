@@ -102,7 +102,6 @@ export const Line = styled.tr`
   font-size: 18px;
   &:hover {
     color: ${colors.yellow};
-    font-size: 24px;
   }
 `
 

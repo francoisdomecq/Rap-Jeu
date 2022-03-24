@@ -11,19 +11,10 @@ export const SecondContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
+  width: 50%;
   height: 100%;
 `
 
-export const RappeurContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 40%;
-  border-radius: 20px;
-  background-color: ${colors.red};
-`
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;

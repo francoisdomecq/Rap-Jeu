@@ -7,13 +7,22 @@ import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import Theme from '../../../components/theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
-import { Container, SecondContainer } from './styles'
+import {
+  ContainerSuggestions,
+  SuggestionsText,
+  ContainerTheme,
+  ThemeText,
+  SecondContainer,
+  ContainerButton,
+  Text,
+} from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
   const [top5, setTop5] = useState()
+  const [answerGiven, setAnswerGiven] = useState(0)
   const [nombreReponses, updateNombreReponses] = useState(0)
   const { games, gamesPlayed, updateGamesPlayed } = useContext(GameContext)
 
@@ -45,10 +54,29 @@ function Top5() {
           <ScoreTeam2 value={15} />
 
           {top5 ? (
-            <div>
-              <p>{top5.theme}</p>
-              <p>{top5.suggestions}</p>
-            </div>
+            <ContainerColumn>
+              <Text>Nombre de bonne réponses : {answerGiven}</Text>
+              <ContainerRow style={{ justifyContent: 'between', width: '20%' }}>
+                <ContainerButton
+                  onClick={() => setAnswerGiven(answerGiven - 1)}
+                >
+                  <Text style={{ color: 'white' }}>-1</Text>
+                </ContainerButton>
+                <ContainerButton
+                  onClick={() => setAnswerGiven(answerGiven + 1)}
+                >
+                  <Text style={{ color: 'white' }}>+1</Text>
+                </ContainerButton>
+              </ContainerRow>
+              <ContainerTheme style={{ marginTop: '2%' }}>
+                <ThemeText>{top5.theme}</ThemeText>
+              </ContainerTheme>
+              <ContainerSuggestions>
+                <ContainerColumn>
+                  <SuggestionsText>{top5.suggestions}...</SuggestionsText>
+                </ContainerColumn>
+              </ContainerSuggestions>
+            </ContainerColumn>
           ) : (
             <SecondContainer>
               <Theme page="top5" selectTheme={selectTheme} />

@@ -76,9 +76,7 @@ function Enchere() {
         <div className="s1-enc">s</div>
       </div>
       <ContainerColumn>
-        {/* Choisir le thème et choisir le nombre de points
-      Valider, lance le chrono
-      Chrono fini, l'équipe a t-elle réussi ?  */}
+        {/* Rajouter bouton valider pour commencer le timer */}
         <ContainerRow>
           <ScoreTeam1 value={points} />
           <ScoreTeam2 value={points} />

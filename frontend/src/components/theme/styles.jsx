@@ -97,7 +97,7 @@ export const Line = styled.tr`
   &:hover {
     color: ${({ isChosen }) =>
       isChosen ? `${colors.red}` : `${colors.yellow}`};
-    font-size: 24px;
+   
   }
 `
 
