@@ -5,7 +5,7 @@ import Score from '../../../components/Score'
 import Theme from '../../../components/theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import { SecondContainer } from './styles'
-import { Container, FirstContainer } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
@@ -24,7 +24,7 @@ function Enchere() {
 
   HasGameStarted()
   return (
-    <FirstContainer>
+    <ContainerRow>
       <div className="bouncing-text">
         <div className="l-enc">l</div>
         <div className="e-enc">e</div>
@@ -39,25 +39,26 @@ function Enchere() {
         <div className="e3-enc">e</div>
         <div className="s1-enc">s</div>
       </div>
-      <Container>
+      <ContainerColumn>
         {/* Choisir le thème et choisir le nombre de points
       Valider, lance le chrono
       Chrono fini, l'équipe a t-elle réussi ?  */}
+        <ContainerRow>
+          <Score team={'team1'} value="--" />
 
-        <Score team={'team1'} value="--" />
+          {enchere ? (
+            <div>
+              <p>{enchere.theme}</p>
+              <p>{enchere.suggestions}</p>
+            </div>
+          ) : (
+            <SecondContainer>
+              <Theme page="enchere" selectTheme={selectTheme} />
+            </SecondContainer>
+          )}
 
-        {enchere ? (
-          <div>
-            <p>{enchere.theme}</p>
-            <p>{enchere.suggestions}</p>
-          </div>
-        ) : (
-          <SecondContainer>
-            <Theme page="enchere" selectTheme={selectTheme} />
-          </SecondContainer>
-        )}
-
-        <Score team={'team2'} value="--" />
+          <Score team={'team2'} value="--" />
+        </ContainerRow>
         <div style={{ width: 50, height: 50 }}>
           <Link
             to={`/${games[games.indexOf('Les enchères') + 1]}`}
@@ -66,8 +67,8 @@ function Enchere() {
             Valider
           </Link>
         </div>
-      </Container>
-    </FirstContainer>
+      </ContainerColumn>
+    </ContainerRow>
   )
 }
 

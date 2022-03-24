@@ -4,8 +4,7 @@ import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
 import { Link } from 'react-router-dom'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-
-import { Container, FirstContainer } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/mythoPasMythoBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
@@ -44,7 +43,7 @@ function MythoPasMytho() {
   HasGameStarted()
 
   return isDataLoaded ? (
-    <FirstContainer>
+    <ContainerRow>
       <div className="bouncing-text">
         <div className="m-mpm">m</div>
         <div className="y-mpm">y</div>
@@ -62,34 +61,37 @@ function MythoPasMytho() {
         <div className="h1-mpm">h</div>
         <div className="o1-mpm">o</div>
       </div>
-      <Container>
-        <Score team={'team1'} value={5} />
-        <p>{mythoPasMythoData[answerNumber].question}</p>
-        <p>{mythoPasMythoData[answerNumber].reponse}</p>
-        {mythoPasMythoData[answerNumber].type === 'video' ? (
-          <iframe
-            width="560"
-            height="315"
-            src={mythoPasMythoData[answerNumber].illustration}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        ) : mythoPasMythoData[answerNumber].type === 'image' ? (
-          <img src={mythoPasMythoData[answerNumber].illustration} alt="" />
-        ) : (
-          <a
-            rel="noreferrer"
-            href={mythoPasMythoData[answerNumber].illustration}
-            target="_blank"
-          >
-            {mythoPasMythoData[answerNumber].illustration}
-          </a>
-        )}
-      </Container>
-      <Score team={'team2'} value={5} placeHolder={5} />
-      <Container>
+      <ContainerColumn>
+        <ContainerRow>
+          <Score team={'team1'} value={5} />
+          <p>{mythoPasMythoData[answerNumber].question}</p>
+          <p>{mythoPasMythoData[answerNumber].reponse}</p>
+          {mythoPasMythoData[answerNumber].type === 'video' ? (
+            <iframe
+              width="560"
+              height="315"
+              src={mythoPasMythoData[answerNumber].illustration}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          ) : mythoPasMythoData[answerNumber].type === 'image' ? (
+            <img src={mythoPasMythoData[answerNumber].illustration} alt="" />
+          ) : (
+            <a
+              rel="noreferrer"
+              href={mythoPasMythoData[answerNumber].illustration}
+              target="_blank"
+            >
+              {mythoPasMythoData[answerNumber].illustration}
+            </a>
+          )}
+
+          <Score team={'team2'} value={5} placeHolder={5} />
+        </ContainerRow>
+      </ContainerColumn>
+      <ContainerColumn>
         {answerNumber < 3 ? (
           <button onClick={() => updateAnswer()}>Valider</button>
         ) : (
@@ -100,8 +102,8 @@ function MythoPasMytho() {
             Valider
           </Link>
         )}
-      </Container>
-    </FirstContainer>
+      </ContainerColumn>
+    </ContainerRow>
   ) : null
 }
 

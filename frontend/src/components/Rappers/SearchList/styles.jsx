@@ -40,7 +40,6 @@ export const TableHead = styled.thead`
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-
   background-color: ${colors.red};
 `
 export const TableSearch = styled.input`

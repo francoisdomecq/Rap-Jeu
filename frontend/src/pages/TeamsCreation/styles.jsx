@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-`
+
 export const ContainerTeam = styled.div`
   display: flex;
   width: 1000px;
@@ -50,6 +45,9 @@ export const TeamName = styled.input`
   background-color: ${colors.yellow};
   color: ${colors.blue};
   align-items: center;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 24px;
 `
 
 export const LoaderWrapper = styled.div`

@@ -9,9 +9,12 @@ import {
   TableContainer,
   TableBottom,
   RapperName,
+  TableSearch,
+  SearchDiv,
 } from './styles'
+import IconSearch from '../../../assets/icons8-chercher.svg'
 
-function SearchList({ filteredCrossFeaturing, selectCrossFeaturing }) {
+function SearchList({ filteredCrossFeaturing, selectCrossFeaturing, search }) {
   const filteredData = filteredCrossFeaturing.map((crossFeaturing) => (
     <LineContainer>
       <Line>
@@ -27,16 +30,27 @@ function SearchList({ filteredCrossFeaturing, selectCrossFeaturing }) {
   return (
     <Container>
       <TableHead>
-        <th>Choisir un crossFeaturing</th>
+        <SearchDiv>
+          <TableSearch
+            type="search"
+            placeholder="Chercher un featuring"
+            onChange={(e) => search(e)}
+          />
+          <img
+            style={{ marginTop: '2%' }}
+            src={IconSearch}
+            width="50"
+            height="50"
+            alt="search"
+          />
+        </SearchDiv>
       </TableHead>
       <TableContainer>
         <Table>
           <TableBody>{filteredData}</TableBody>
         </Table>
       </TableContainer>
-      <TableBottom>
-        <br />
-      </TableBottom>
+      <TableBottom></TableBottom>
     </Container>
   )
 }

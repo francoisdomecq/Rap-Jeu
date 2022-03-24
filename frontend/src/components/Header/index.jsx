@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { GameContext } from '../../utils/context'
-import { NavContainer, LinkText, PageText, PageTextBis, Logo } from './styles'
+import { Link } from 'react-router-dom'
+import { NavContainer, PageText, PageTextBis, Logo } from './styles'
 import RedbullLogo from '../../assets/PNG/redbull.png'
 
 function Header() {
@@ -28,13 +29,13 @@ function Header() {
       ) : (
         <PageText>{games[3]}</PageText>
       )}
-      <Logo src={RedbullLogo} alt="logo">
-
-      </Logo>
+      <Logo src={RedbullLogo} alt="logo"></Logo>
     </NavContainer>
   ) : (
     <NavContainer>
-      <LinkText to="/">Accueil</LinkText>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <PageTextBis>Accueil</PageTextBis>
+      </Link>
     </NavContainer>
   )
 }

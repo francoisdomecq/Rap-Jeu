@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 import Score from '../../../components/Score'
 import RapperArray from '../../../components/Rappers'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-
-import { FirstContainer, Container } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
+import { SecondContainer } from './styles'
 
 function PetitsChats() {
   const [answerNumber, updateAnswerNumber] = useState(0)
@@ -25,7 +25,7 @@ function PetitsChats() {
 
   HasGameStarted()
   return (
-    <FirstContainer>
+    <ContainerRow>
       <div className="bouncing-text">
         <div className="three-3pc">3</div>
         <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
@@ -42,12 +42,20 @@ function PetitsChats() {
         <div className="t2-3pc">T</div>
         <div className="s1-3pc">S</div>
       </div>
-      <Container>
-        <Score team="team1" value={10} />
-        {rapper ? <p>{rapper}</p> : <RapperArray selectRapper={selectRapper} />}
-        <Score team="team2" value={10} />
-      </Container>
-      <Container>
+      <ContainerColumn>
+        <ContainerRow>
+          <Score team="team1" value={10} />
+          {rapper ? (
+            <p>{rapper}</p>
+          ) : (
+            <SecondContainer>
+              <RapperArray selectRapper={selectRapper} />
+            </SecondContainer>
+          )}
+          <Score team="team2" value={10} />
+        </ContainerRow>
+      </ContainerColumn>
+      <ContainerColumn>
         {answerNumber < 1 ? (
           <button onClick={() => updateAnswer()}>Valider</button>
         ) : (
@@ -58,8 +66,8 @@ function PetitsChats() {
             Valider
           </Link>
         )}
-      </Container>
-    </FirstContainer>
+      </ContainerColumn>
+    </ContainerRow>
   )
 }
 

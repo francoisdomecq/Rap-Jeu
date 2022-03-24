@@ -5,7 +5,7 @@ import { generateRandomNumber } from '../../../utils/functions/random'
 import Score from '../../../components/Score'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
-import { Container, FirstContainer } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/rapGenieOuGenantBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
@@ -47,7 +47,7 @@ function RapGenieOuGenant() {
   HasGameStarted()
 
   return (
-    <FirstContainer>
+    <ContainerRow>
       <div className="bouncing-text">
         <div className="r-rgog">r</div>
         <div className="a-rgog">a</div>
@@ -69,27 +69,29 @@ function RapGenieOuGenant() {
         <div className="n2-rgog">n</div>
         <div className="t-rgog">t</div>
       </div>
-      <Container>
-        <Score team={'team1'} value={5} />
-        {questionData.map((data) => (
-          <div>
-            <p>{data.question}</p>
-            <p>{data.reponse}</p>
-            {data.type === 'video' ? (
-              <iframe
-                width="560"
-                height="315"
-                src={data.illustration}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            ) : null}
-          </div>
-        ))}
-        <Score team={'team2'} value={5} />
-      </Container>
+      <ContainerColumn>
+        <ContainerRow>
+          <Score team={'team1'} value={5} />
+          {questionData.map((data) => (
+            <div>
+              <p>{data.question}</p>
+              <p>{data.reponse}</p>
+              {data.type === 'video' ? (
+                <iframe
+                  width="560"
+                  height="315"
+                  src={data.illustration}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              ) : null}
+            </div>
+          ))}
+          <Score team={'team2'} value={5} />
+        </ContainerRow>
+      </ContainerColumn>
       <div style={{ width: 50, height: 50 }}>
         {answerNumber < 3 ? (
           <button onClick={() => updateAnswer()}>Valider</button>
@@ -102,7 +104,7 @@ function RapGenieOuGenant() {
           </Link>
         )}
       </div>
-    </FirstContainer>
+    </ContainerRow>
   )
 }
 

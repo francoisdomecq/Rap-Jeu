@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 
-const hauteur = window.innerHeight
-console.log(hauteur)
-
 export const Container = styled.div`
   display: flex;
   align-items: center;

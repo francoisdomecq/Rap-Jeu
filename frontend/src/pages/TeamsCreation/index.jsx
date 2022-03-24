@@ -4,9 +4,9 @@ import { TeamContext } from '../../utils/context'
 import Loader from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
 
+import { ContainerRow, ContainerColumn } from '../../utils/styles/balises'
 import {
   LoaderWrapper,
-  Container,
   ExplainContainer,
   QuestionWrapper,
   ContainerTeam,
@@ -47,7 +47,7 @@ function Teams() {
       <Loader src={Redbull} />
     </LoaderWrapper>
   ) : (
-    <Container>
+    <ContainerRow>
       <PageTitle>Création des équipes</PageTitle>
       <ExplainContainer>
         <p>
@@ -60,33 +60,33 @@ function Teams() {
           le moins bien si tu préfères..
         </p>
       </ExplainContainer>
+      <ContainerRow>
+        <QuestionWrapper>{questionTeam}</QuestionWrapper>
+        <ContainerColumn>
+          <button onClick={refreshPage}>Changer de question</button>
+        </ContainerColumn>
 
-      <QuestionWrapper>{questionTeam}</QuestionWrapper>
-      <div>
-        <button onClick={refreshPage}>Changer de question</button>
-      </div>
-
-      <ContainerTeam>
-        <TeamWrapper>
-          <p>EQUIPE 1</p>
-          <TeamName
-            type="text"
-            value={team1}
-            onChange={(event) => changeTeams(event, 'team1', 'input')}
-          />
-        </TeamWrapper>
-        <TeamWrapper>
-          <p>EQUIPE 2</p>
-          <TeamName
-            type="text"
-            value={team2}
-            onChange={(event) => changeTeams(event, 'team2', 'input')}
-          />
-        </TeamWrapper>
-      </ContainerTeam>
-
+        <ContainerTeam>
+          <TeamWrapper>
+            <p>EQUIPE 1</p>
+            <TeamName
+              type="text"
+              value={team1}
+              onChange={(event) => changeTeams(event, 'team1', 'input')}
+            />
+          </TeamWrapper>
+          <TeamWrapper>
+            <p>EQUIPE 2</p>
+            <TeamName
+              type="text"
+              value={team2}
+              onChange={(event) => changeTeams(event, 'team2', 'input')}
+            />
+          </TeamWrapper>
+        </ContainerTeam>
+      </ContainerRow>
       <Link style={{ textDecoration: 'none' }} to="/games">
-        <Container>
+        <ContainerColumn>
           <div class="bouncing-text">
             <div class="j">J</div>
             <div class="o">O</div>
@@ -94,9 +94,9 @@ function Teams() {
             <div class="e">E</div>
             <div class="r">R</div>
           </div>
-        </Container>
+        </ContainerColumn>
       </Link>
-    </Container>
+    </ContainerRow>
   )
 }
 

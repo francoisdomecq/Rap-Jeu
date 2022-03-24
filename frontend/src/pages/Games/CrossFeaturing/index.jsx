@@ -6,7 +6,8 @@ import Score from '../../../components/Score'
 import CrossFeaturingArray from '../../../components/CrossFeaturing'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
-import { Container, FirstContainer } from '../../../utils/styles/balises'
+import { SecondContainer } from './styles'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
@@ -23,7 +24,7 @@ function CrossFeaturing() {
   }
   // HasGameStarted()
   return (
-    <FirstContainer>
+    <ContainerRow>
       <div className="bouncing-text">
         <div className="l-cf">l</div>
         <div className="e-cf">e</div>
@@ -43,11 +44,15 @@ function CrossFeaturing() {
         <div className="n-cf">n</div>
         <div className="g-cf">g</div>
       </div>
-      <Container>
-        <Score team={'team1'} value={5} />
-        <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
-        <Score team={'team2'} value={5} />
-        <Container style={{ width: 50, height: 50 }}>
+      <ContainerColumn>
+        <ContainerRow>
+          <Score team={'team1'} value={5} />
+          <SecondContainer>
+            <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
+          </SecondContainer>
+          <Score team={'team2'} value={5} />
+        </ContainerRow>
+        <ContainerColumn style={{ width: 50, height: 50 }}>
           {answerNumber < 2 ? (
             <button onClick={() => updateAnswer()}>Valider</button>
           ) : (
@@ -58,9 +63,9 @@ function CrossFeaturing() {
               Valider
             </Link>
           )}
-        </Container>
-      </Container>
-    </FirstContainer>
+        </ContainerColumn>
+      </ContainerColumn>
+    </ContainerRow>
   )
 }
 

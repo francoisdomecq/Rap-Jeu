@@ -10,13 +10,6 @@ export const NavContainer = styled.nav`
   background-color: #2704c4;
   color: white;
 `
-export const LinkText = styled(Link)`
-  color: white;
-  text-decoration: none;
-  &:hover {
-    color: #ffd222;
-  }
-`
 export const PageText = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
