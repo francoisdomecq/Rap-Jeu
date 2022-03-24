@@ -16,7 +16,7 @@ export const Table = styled.table`
   text-align: center;
   width: 100%;
   height: 100%;
-  background-color: ${colors.blue};
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   :hover {
     cursor: pointer;
   }
@@ -36,7 +36,7 @@ export const TableHead = styled.thead`
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: ${colors.red};
+  background-color: ${colors.yellow};
 `
 export const TableSearch = styled.input`
   outline: none;
@@ -78,7 +78,7 @@ export const TableBottom = styled.div`
   width: 100%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: ${colors.red};
+  background-color: ${colors.yellow};
 `
 export const TableBody = styled.tbody`
   width: 99%;
