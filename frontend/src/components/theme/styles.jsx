@@ -13,10 +13,7 @@ export const TableContainer = styled.div`
   overflow-y: scroll;
 `
 export const Table = styled.table`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   width: 100%;
   height: 100%;
   background-color: ${colors.blue};
@@ -27,22 +24,49 @@ export const Table = styled.table`
 
 export const TableHead = styled.thead`
   display: flex;
-   flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   padding-bottom: 2%;
-  width: 100%;
+  padding-right: 2%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   color: white;
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   background-color: ${colors.red};
 `
 export const TableSearch = styled.input`
-  border-radius: 20px;
+  outline: none;
+  padding-top: 4%;
   text-align: center;
+  border: 0px solid #000000;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 24px;
+  font-weight: 700;
+  ::placeholder {
+    color: white;
+    text-align: 'center';
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 24px;
+    font-weight: 700;
+    width: 100%;
+    text-transform: none;
+  }
+  &:hover {
+    text-underline-position: below;
+    text-decoration: underline;
+  }
+  ::-webkit-search-cancel-button {
+    position: relative;
+    right: 15px;
+  }
+  width: 75%;
 `
 
 export const TableBottom = styled.div`
@@ -52,9 +76,9 @@ export const TableBottom = styled.div`
   padding: 2% 0% 2% 0%;
   height: 10%;
   width: 100%;
-  background-color: ${colors.red};
-  border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: ${colors.red};
 `
 export const TableBody = styled.tbody`
   width: 99%;
@@ -84,4 +108,10 @@ export const RapperName = styled.p`
 export const LineSeparator = styled.hr`
   height: 1px;
   width: 100%;
+`
+export const SearchDiv = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

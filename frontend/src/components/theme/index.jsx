@@ -6,18 +6,21 @@ import {
   TableBody,
   Line,
   LineContainer,
+  RapperName,
+  TableContainer,
+  TableBottom,
 } from './styles'
 
-function Theme({ selectTheme,page }) {
+function Theme({ selectTheme, page }) {
   const [theme, setTheme] = useState([])
 
   function displayThemes() {
     return theme.map((theme) => (
       <LineContainer>
         <Line>
-          <p key={theme._id} onClick={() => selectTheme(theme)}>
+          <RapperName key={theme._id} onClick={() => selectTheme(theme)}>
             {theme.theme}
-          </p>
+          </RapperName>
         </Line>
       </LineContainer>
     ))
@@ -34,12 +37,15 @@ function Theme({ selectTheme,page }) {
 
   return (
     <Container>
-      <Table>
-        <TableHead>
-          <th>Choisir un theme</th>
-        </TableHead>
-        <TableBody>{displayThemes()}</TableBody>
-      </Table>
+      <TableHead>
+        <th>Choisir un theme</th>
+      </TableHead>
+      <TableContainer>
+        <Table>
+          <TableBody>{displayThemes()}</TableBody>
+        </Table>
+      </TableContainer>
+      <TableBottom />
     </Container>
   )
 }
