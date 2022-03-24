@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from 'react'
 import { GameContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import Theme from '../../../components/theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import {
@@ -79,7 +80,8 @@ function Enchere() {
       Valider, lance le chrono
       Chrono fini, l'équipe a t-elle réussi ?  */}
         <ContainerRow>
-          <Score team={'team1'} value={points} />
+          <ScoreTeam1 value={points} />
+          <ScoreTeam2 value={points} />
           {enchere && points ? (
             <div>
               {counter > 0 ? (
@@ -106,7 +108,10 @@ function Enchere() {
                         <Text style={{ color: 'white' }}>+1</Text>
                       </ContainerButton>
                     </ContainerRow>
-                    <ContainerStopTimer style={{ marginTop: '2%' }} onClick={() => endTimer()}>
+                    <ContainerStopTimer
+                      style={{ marginTop: '2%' }}
+                      onClick={() => endTimer()}
+                    >
                       <Text style={{ color: 'white' }}>Stopper le chrono</Text>
                     </ContainerStopTimer>
                   </ContainerColumn>
@@ -116,7 +121,7 @@ function Enchere() {
                   </ContainerTheme>
                   <ContainerSuggestions>
                     <ContainerColumn>
-                      <SuggestionsText>{enchere.suggestions}</SuggestionsText>
+                      <SuggestionsText>{enchere.suggestions}...</SuggestionsText>
                     </ContainerColumn>
                   </ContainerSuggestions>
                 </ContainerColumn>
@@ -156,8 +161,6 @@ function Enchere() {
               </ContainerColumn>
             </SecondContainer>
           )}
-
-          <Score team={'team2'} value={points} />
         </ContainerRow>
       </ContainerColumn>
     </ContainerRow>

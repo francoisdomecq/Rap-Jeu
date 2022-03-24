@@ -1,9 +1,8 @@
 import { useContext } from 'react'
 import { TeamContext } from '../../utils/context'
-import { ContainerScore, ButtonScore } from './styles'
+import { ContainerScoreTeam2, ButtonScore } from './styles'
 
-
-function Score({ value, team, placeHolder}) {
+function ScoreTeam2({ value, placeHolder }) {
   const { updateScore } = useContext(TeamContext)
 
   const handleKeyPress = (e, team) => {
@@ -13,15 +12,15 @@ function Score({ value, team, placeHolder}) {
     }
   }
   return (
-    <ContainerScore>
+    <ContainerScoreTeam2>
       <ButtonScore
         type="number"
         placeholder={placeHolder}
         defaultValue={value}
-        onKeyPress={(event) => handleKeyPress(event, team)}
+        onKeyPress={(event) => handleKeyPress(event, 'team2')}
       />
-    </ContainerScore>
+    </ContainerScoreTeam2>
   )
 }
 
-export default Score
+export default ScoreTeam2

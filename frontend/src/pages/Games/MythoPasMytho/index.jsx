@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import { Link } from 'react-router-dom'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
@@ -63,7 +64,8 @@ function MythoPasMytho() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <Score team={'team1'} value={5} />
+          <ScoreTeam1 value={5} />
+          <ScoreTeam2 value={5} />
           <p>{mythoPasMythoData[answerNumber].question}</p>
           <p>{mythoPasMythoData[answerNumber].reponse}</p>
           {mythoPasMythoData[answerNumber].type === 'video' ? (
@@ -87,8 +89,6 @@ function MythoPasMytho() {
               {mythoPasMythoData[answerNumber].illustration}
             </a>
           )}
-
-          <Score team={'team2'} value={5} placeHolder={5} />
         </ContainerRow>
       </ContainerColumn>
       <ContainerColumn>

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import rectangle from '../../../assets/rectangle.svg'
-import timer from '../../../assets/timer.svg'
-import theme from '../../../assets/theme.svg'
-import suggestions from '../../../assets/suggestions.svg'
-import button from '../../../assets/button+1.svg'
-import buttonTimer from '../../../assets/buttonTimer.svg'
+import timer from '../../../assets/encheres/timer.svg'
+import theme from '../../../assets/encheres/theme.svg'
+import suggestions from '../../../assets/encheres/suggestions.svg'
+import button from '../../../assets/encheres/button+1.svg'
+import buttonTimer from '../../../assets/encheres/buttonTimer.svg'
 export const SecondContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@ export const Text = styled.p`
 
 export const ContainerTimer = styled.div`
   position: absolute;
-  top: 8.5%;
+  top: 10.3%;
   display: flex;
   justify-content: flex-start;
   width: 215px;

@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import CrossFeaturingArray from '../../../components/CrossFeaturing'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
@@ -46,11 +47,11 @@ function CrossFeaturing() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <Score team={'team1'} value={5} />
+          <ScoreTeam1 value={5} />
+          <ScoreTeam2 value={5} />
           <SecondContainer>
             <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
           </SecondContainer>
-          <Score team={'team2'} value={5} />
         </ContainerRow>
         <ContainerColumn style={{ width: 50, height: 50 }}>
           {answerNumber < 2 ? (

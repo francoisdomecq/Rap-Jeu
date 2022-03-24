@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
@@ -71,7 +72,8 @@ function RapGenieOuGenant() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <Score team={'team1'} value={5} />
+          <ScoreTeam1 value={5} />
+          <ScoreTeam2 value={5} />
           {questionData.map((data) => (
             <div>
               <p>{data.question}</p>
@@ -89,7 +91,6 @@ function RapGenieOuGenant() {
               ) : null}
             </div>
           ))}
-          <Score team={'team2'} value={5} />
         </ContainerRow>
       </ContainerColumn>
       <div style={{ width: 50, height: 50 }}>

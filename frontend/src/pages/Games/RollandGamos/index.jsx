@@ -2,7 +2,8 @@ import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import {
   RappeurContainer,
   SecondContainer,
@@ -62,7 +63,9 @@ function RollandGamos() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <Score team={'team1'} placeHolder="---" value={null} />
+        
+          <ScoreTeam1 placeHolder="---" value={null}  />
+          <ScoreTeam2 placeHolder="---" value={null}  />
           {rappeur ? (
             <SecondContainer>
               <RappeurContainer>
@@ -134,7 +137,6 @@ function RollandGamos() {
               <RappeurArray page="rappeur" selectRapper={selectRappeur} />
             </SecondContainer>
           )}
-          <Score team={'team2'} placeHolder="---" value={null} />
         </ContainerRow>
       </ContainerColumn>
     </ContainerRow>

@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import RapperArray from '../../../components/Rappers'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
@@ -44,7 +45,8 @@ function PetitsChats() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <Score team="team1" value={10} />
+          <ScoreTeam1 value={10} />
+          <ScoreTeam2 value={10} />
           {rapper ? (
             <p>{rapper}</p>
           ) : (
@@ -52,7 +54,6 @@ function PetitsChats() {
               <RapperArray selectRapper={selectRapper} />
             </SecondContainer>
           )}
-          <Score team="team2" value={10} />
         </ContainerRow>
       </ContainerColumn>
       <ContainerColumn>

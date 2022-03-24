@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
-import Score from '../../../components/Score'
+import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
+import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import Theme from '../../../components/theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
@@ -40,7 +41,8 @@ function Top5() {
       Valider, lance le chrono
       Chrono fini, l'équipe a t-elle réussi ?  */}
         <ContainerRow>
-          <Score team={'team1'} value="--" placeHolder={+15} />
+          <ScoreTeam1 value={15} />
+          <ScoreTeam2 value={15} />
 
           {top5 ? (
             <div>
@@ -52,8 +54,6 @@ function Top5() {
               <Theme page="top5" selectTheme={selectTheme} />
             </SecondContainer>
           )}
-
-          <Score team={'team2'} value="--" placeHolder={'+15'} />
         </ContainerRow>
         <div style={{ width: 50, height: 50 }}>
           {nombreReponses < 1 ? (
