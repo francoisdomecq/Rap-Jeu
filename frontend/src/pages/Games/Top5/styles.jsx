@@ -131,7 +131,7 @@ export const Text = styled.p`
   font-weight: 700;
   font-size: 24px;
 `
-export const ContainerStopTimer = styled.div`
+export const ContainerTeam = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,6 +140,7 @@ export const ContainerStopTimer = styled.div`
   background-size: contain;
   background-image: url(${buttonTimer});
   background-repeat: no-repeat;
+  opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
   &:hover {
     cursor: pointer;
   }

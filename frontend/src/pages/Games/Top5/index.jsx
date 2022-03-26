@@ -17,7 +17,7 @@ import {
   SecondContainer,
   ContainerButton,
   Text,
-  ContainerStopTimer,
+  ContainerTeam,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
@@ -31,12 +31,13 @@ function Top5() {
   const [answerGiven, setAnswerGiven] = useState(0)
   const [trialNumber, setTrialNumber] = useState(0)
   const [nombreReponses, updateNombreReponses] = useState(0)
-  const { games, gamesPlayed, updateGamesPlayed } = useContext(GameContext)
+  const { games, updateGamesPlayed } = useContext(GameContext)
   const { team1, team2 } = useContext(TeamContext)
 
   const updateNombreAnswers = () => {
     setTop5()
-    setTeamAnswering()
+    if (teamAnswering === team1) setTeamAnswering(team2)
+    else setTeamAnswering(team1)
     setStartCount(false)
     setCounter(20)
     setAnswerGiven(0)
@@ -44,12 +45,13 @@ function Top5() {
     updateGamesPlayed('Top 5', nombreReponses, updateNombreReponses)
   }
 
-  function endTimer() {
-    setCounter(0)
+  function selectTheme(theme) {
+    if (theme === top5) setTop5()
+    else setTop5(theme)
   }
 
-  function selectTheme(theme) {
-    setTop5(theme)
+  function startGame() {
+    if (top5 && teamAnswering) setStartCount(true)
   }
 
   useEffect(() => {
@@ -64,12 +66,19 @@ function Top5() {
       }
       return () => clearInterval(timer)
     }
-  }, [counter, startCounter, teamAnswering])
+  }, [
+    startCounter,
+    counter,
+    answerGiven,
+    trialNumber,
+    teamAnswering,
+    team1,
+    team2,
+  ])
 
   HasGameStarted()
   return (
     <ContainerRow>
-      {console.log(teamAnswering)}
       <div className="bouncing-text">
         <div className="t-top5">t</div>
         <div className="o-top5">o</div>
@@ -78,13 +87,9 @@ function Top5() {
         <div className="five-top5">5</div>
       </div>
       <ContainerColumn>
-        {/* Choisir le thème et choisir le nombre de points
-      Valider, lance le chrono
-      Chrono fini, l'équipe a t-elle réussi ?  */}
         <ContainerRow>
           <ScoreTeam1 value={15} />
           <ScoreTeam2 value={15} />
-
           {top5 && teamAnswering && startCounter ? (
             <div>
               {counter > 0 && answerGiven < 5 ? (
@@ -99,7 +104,7 @@ function Top5() {
                   <Text>Nombre de bonne réponses : {answerGiven}</Text>
                   <ContainerColumn>
                     <ContainerRow
-                      style={{ justifyContent: 'between', width: '20%' }}
+                      style={{ justifyContent: '', width: '20%' }}
                     >
                       <ContainerButton
                         onClick={() => setAnswerGiven(answerGiven - 1)}
@@ -151,13 +156,23 @@ function Top5() {
           ) : (
             <SecondContainer>
               <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
+              <Text>Choisir l'équipe qui répond</Text>
               <ContainerRow>
-                <button onClick={() => setTeamAnswering(team1)}>{team1}</button>
-                <button onClick={() => setTeamAnswering(team2)}>{team2}</button>
+                <ContainerTeam
+                  isSelected={teamAnswering === team1}
+                  onClick={() => setTeamAnswering(team1)}
+                >
+                  <Text style={{ color: 'white', fontSize: 18 }}>{team1}</Text>
+                </ContainerTeam>
+                <ContainerTeam
+                  isSelected={teamAnswering === team2}
+                  onClick={() => setTeamAnswering(team2)}
+                >
+                  <Text style={{ color: 'white', fontSize: 18 }}>{team2}</Text>
+                </ContainerTeam>
               </ContainerRow>
-              <button onClick={() => setStartCount(true)}>
-                Commencer la manche
-              </button>
+              {/*Changer le boutton dessous*/}
+              <ContainerTeam style={{marginTop:'2%'}} onClick={() => startGame()}><Text style={{color:'white'}}>Commencer la manche</Text></ContainerTeam>
             </SecondContainer>
           )}
         </ContainerRow>
