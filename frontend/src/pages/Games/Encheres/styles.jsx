@@ -160,3 +160,17 @@ export const ContainerStopTimer = styled.div`
     cursor: pointer;
   }
 `
+export const ContainerTeam = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 325px;
+  height: 56px;
+  background-size: contain;
+  background-image: url(${buttonTimer});
+  background-repeat: no-repeat;
+  opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
+  &:hover {
+    cursor: pointer;
+  }
+`

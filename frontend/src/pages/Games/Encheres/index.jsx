@@ -18,6 +18,7 @@ import {
   SuggestionsText,
   ContainerButton,
   SuggestionsTextDiv,
+  ContainerTeam,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
@@ -43,11 +44,16 @@ function Enchere() {
   }, [counter, startCounter])
 
   function selectTheme(theme) {
-    setEncheres(theme)
+    if (theme === enchere) setEncheres()
+    else setEncheres(theme)
   }
 
   const updateAnswer = () => {
     updateGamesPlayed('Les enchères', answerNumber, updateAnswerNumber)
+  }
+
+  function startGame() {
+    if (enchere && teamAnswering && points) setStartCount(true)
   }
 
   // HasGameStarted()
@@ -68,7 +74,6 @@ function Enchere() {
         <div className="s1-enc">s</div>
       </div>
       <ContainerColumn>
-        {/* Rajouter bouton valider pour commencer le timer */}
         <ContainerRow>
           <ScoreTeam1 value={points} />
           <ScoreTeam2 value={points} />
@@ -116,11 +121,22 @@ function Enchere() {
                 </ContainerColumn>
               ) : (
                 <ContainerColumn>
-                  <p>Attends avant de passer au jeu suivant !</p>
-                  <p>
-                    Si l'équipe a bien réussi l'épreuve, accorde leurs leurs
-                    points sinon donne les à l'équipe adverse
-                  </p>
+                  {answerGiven >= points ? (
+                    <ContainerColumn>
+                      <Text>Félicitations {teamAnswering}</Text>
+                      <Text>
+                        Tu peux accorder leurs points à l'équipe {teamAnswering}
+                      </Text>
+                    </ContainerColumn>
+                  ) : (
+                    <ContainerColumn>
+                      <Text>Dommage {teamAnswering}</Text>
+                      <Text>
+                        Tu peux accorder leurs points à l'équipe{' '}
+                        {teamAnswering === team1 ? team2 : team1}
+                      </Text>
+                    </ContainerColumn>
+                  )}
                   <div style={{ width: 50, height: 50 }}>
                     <Link
                       to={`/${games[games.indexOf('Les enchères') + 1]}`}
@@ -144,17 +160,26 @@ function Enchere() {
                 <ContainerScore>
                   <ButtonScore
                     type="number"
-                    onChange={(e) => setPoints(e.target.values)}
+                    onChange={(e) => setPoints(e.target.value)}
                   />
                 </ContainerScore>
               </ContainerColumn>
+              <Text>Choisir l'équipe qui répond</Text>
               <ContainerRow>
-                <button onClick={() => setTeamAnswering(team1)}>{team1}</button>
-                <button onClick={() => setTeamAnswering(team2)}>{team2}</button>
+                <ContainerTeam
+                  isSelected={teamAnswering === team1}
+                  onClick={() => setTeamAnswering(team1)}
+                >
+                  <Text style={{ color: 'white', fontSize: 18 }}>{team1}</Text>
+                </ContainerTeam>
+                <ContainerTeam
+                  isSelected={teamAnswering === team2}
+                  onClick={() => setTeamAnswering(team2)}
+                >
+                  <Text style={{ color: 'white', fontSize: 18 }}>{team2}</Text>
+                </ContainerTeam>
               </ContainerRow>
-              <button onClick={() => setStartCount(true)}>
-                Commencer la manche
-              </button>
+              <button onClick={() => startGame()}>Commencer la manche</button>
             </SecondContainer>
           )}
         </ContainerRow>
