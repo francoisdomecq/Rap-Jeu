@@ -1,20 +1,23 @@
 import { useState, useEffect, useContext } from 'react'
-import { GameContext } from '../../../utils/context'
+import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
 import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
-import Theme from '../../../components/theme'
+import Theme from '../../../components/Theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 import {
   ContainerSuggestions,
+  ContainerTimer,
+  Timer,
   SuggestionsText,
   ContainerTheme,
   ThemeText,
   SecondContainer,
   ContainerButton,
   Text,
+  ContainerStopTimer,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
@@ -22,22 +25,51 @@ import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
   const [top5, setTop5] = useState()
+  const [teamAnswering, setTeamAnswering] = useState()
+  const [startCounter, setStartCount] = useState(false)
+  const [counter, setCounter] = useState(20)
   const [answerGiven, setAnswerGiven] = useState(0)
+  const [trialNumber, setTrialNumber] = useState(0)
   const [nombreReponses, updateNombreReponses] = useState(0)
   const { games, gamesPlayed, updateGamesPlayed } = useContext(GameContext)
+  const { team1, team2 } = useContext(TeamContext)
 
   const updateNombreAnswers = () => {
     setTop5()
+    setTeamAnswering()
+    setStartCount(false)
+    setCounter(20)
+    setAnswerGiven(0)
+    setTrialNumber(0)
     updateGamesPlayed('Top 5', nombreReponses, updateNombreReponses)
+  }
+
+  function endTimer() {
+    setCounter(0)
   }
 
   function selectTheme(theme) {
     setTop5(theme)
   }
 
+  useEffect(() => {
+    if (startCounter === true) {
+      const timer =
+        counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
+      if (counter === 0 && answerGiven < 5 && trialNumber === 0) {
+        if (teamAnswering === team1) setTeamAnswering(team2)
+        else setTeamAnswering(team1)
+        setCounter(10)
+        setTrialNumber(1)
+      }
+      return () => clearInterval(timer)
+    }
+  }, [counter, startCounter, teamAnswering])
+
   HasGameStarted()
   return (
     <ContainerRow>
+      {console.log(teamAnswering)}
       <div className="bouncing-text">
         <div className="t-top5">t</div>
         <div className="o-top5">o</div>
@@ -53,48 +85,82 @@ function Top5() {
           <ScoreTeam1 value={15} />
           <ScoreTeam2 value={15} />
 
-          {top5 ? (
-            <ContainerColumn>
-              <Text>Nombre de bonne réponses : {answerGiven}</Text>
-              <ContainerRow style={{ justifyContent: 'between', width: '20%' }}>
-                <ContainerButton
-                  onClick={() => setAnswerGiven(answerGiven - 1)}
-                >
-                  <Text style={{ color: 'white' }}>-1</Text>
-                </ContainerButton>
-                <ContainerButton
-                  onClick={() => setAnswerGiven(answerGiven + 1)}
-                >
-                  <Text style={{ color: 'white' }}>+1</Text>
-                </ContainerButton>
-              </ContainerRow>
-              <ContainerTheme style={{ marginTop: '2%' }}>
-                <ThemeText>{top5.theme}</ThemeText>
-              </ContainerTheme>
-              <ContainerSuggestions>
+          {top5 && teamAnswering && startCounter ? (
+            <div>
+              {counter > 0 && answerGiven < 5 ? (
                 <ContainerColumn>
-                  <SuggestionsText>{top5.suggestions}...</SuggestionsText>
+                  <ContainerTimer>
+                    <Timer>
+                      00:{counter < 10 ? '0' : null}
+                      {counter}
+                    </Timer>
+                  </ContainerTimer>
+                  <Text>{teamAnswering}, à vous de jouer !</Text>
+                  <Text>Nombre de bonne réponses : {answerGiven}</Text>
+                  <ContainerColumn>
+                    <ContainerRow
+                      style={{ justifyContent: 'between', width: '20%' }}
+                    >
+                      <ContainerButton
+                        onClick={() => setAnswerGiven(answerGiven - 1)}
+                      >
+                        <Text style={{ color: 'white' }}>-1</Text>
+                      </ContainerButton>
+                      <ContainerButton
+                        onClick={() => setAnswerGiven(answerGiven + 1)}
+                      >
+                        <Text style={{ color: 'white' }}>+1</Text>
+                      </ContainerButton>
+                    </ContainerRow>
+                  </ContainerColumn>
+                  <ContainerTheme style={{ marginTop: '2%' }}>
+                    <ThemeText>{top5.theme}</ThemeText>
+                  </ContainerTheme>
+                  <ContainerSuggestions>
+                    <ContainerColumn>
+                      <SuggestionsText>{top5.suggestions}...</SuggestionsText>
+                    </ContainerColumn>
+                  </ContainerSuggestions>
                 </ContainerColumn>
-              </ContainerSuggestions>
-            </ContainerColumn>
+              ) : (
+                <ContainerRow>
+                  <ContainerColumn>
+                    {answerGiven >= 5 ? (
+                      <Text>Félicitations {teamAnswering}</Text>
+                    ) : (
+                      <Text>Aucune des deux équipes ne gagne de points..</Text>
+                    )}
+                    <div style={{ width: 50, height: 50 }}>
+                      {nombreReponses < 1 ? (
+                        <button onClick={() => updateNombreAnswers()}>
+                          Valider
+                        </button>
+                      ) : (
+                        <Link
+                          to={`/${games[games.indexOf('Top 5') + 1]}`}
+                          onClick={() => updateNombreAnswers()}
+                        >
+                          Valider
+                        </Link>
+                      )}
+                    </div>
+                  </ContainerColumn>
+                </ContainerRow>
+              )}
+            </div>
           ) : (
             <SecondContainer>
-              <Theme page="top5" selectTheme={selectTheme} />
+              <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
+              <ContainerRow>
+                <button onClick={() => setTeamAnswering(team1)}>{team1}</button>
+                <button onClick={() => setTeamAnswering(team2)}>{team2}</button>
+              </ContainerRow>
+              <button onClick={() => setStartCount(true)}>
+                Commencer la manche
+              </button>
             </SecondContainer>
           )}
         </ContainerRow>
-        <div style={{ width: 50, height: 50 }}>
-          {nombreReponses < 1 ? (
-            <button onClick={() => updateNombreAnswers()}>Valider</button>
-          ) : (
-            <Link
-              to={`/${games[games.indexOf('Top 5') + 1]}`}
-              onClick={() => updateNombreAnswers()}
-            >
-              Valider
-            </Link>
-          )}
-        </div>
       </ContainerColumn>
     </ContainerRow>
   )

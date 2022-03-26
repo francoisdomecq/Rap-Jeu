@@ -108,6 +108,8 @@ export const ThemeText = styled.p`
 `
 export const ContainerSuggestions = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   width: 963px;
   height: 50px;
@@ -115,9 +117,16 @@ export const ContainerSuggestions = styled.div`
   background-image: url(${suggestions});
   background-repeat: no-repeat;
 `
+export const SuggestionsTextDiv = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+  height: 50%;
+`
 
 export const SuggestionsText = styled.p`
-  font-size: 14px;
+  font-size: 0.8em;
   color: black;
   font-family: 'Montserrat';
   font-weight: 700;

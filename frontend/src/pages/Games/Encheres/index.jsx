@@ -1,9 +1,9 @@
 import { useState, useContext, useEffect } from 'react'
-import { GameContext } from '../../../utils/context'
+import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
-import Theme from '../../../components/theme'
+import Theme from '../../../components/Theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import {
   SecondContainer,
@@ -17,7 +17,7 @@ import {
   ThemeText,
   SuggestionsText,
   ContainerButton,
-  ContainerStopTimer,
+  SuggestionsTextDiv,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
@@ -26,11 +26,13 @@ import '../../../utils/animations/Bouncing/animationBouncing.css'
 function Enchere() {
   const [enchere, setEncheres] = useState()
   const [points, setPoints] = useState()
+  const [teamAnswering, setTeamAnswering] = useState()
   const [startCounter, setStartCount] = useState(false)
   const [counter, setCounter] = useState(60)
   const [answerGiven, setAnswerGiven] = useState(0)
   const [answerNumber, updateAnswerNumber] = useState(0)
   const { updateGamesPlayed, games } = useContext(GameContext)
+  const { team1, team2 } = useContext(TeamContext)
 
   useEffect(() => {
     if (startCounter === true) {
@@ -44,18 +46,8 @@ function Enchere() {
     setEncheres(theme)
   }
 
-  function endTimer() {
-    setCounter(0)
-  }
   const updateAnswer = () => {
     updateGamesPlayed('Les enchères', answerNumber, updateAnswerNumber)
-  }
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      setPoints(e.target.value)
-      setStartCount(true)
-    }
   }
 
   // HasGameStarted()
@@ -80,9 +72,9 @@ function Enchere() {
         <ContainerRow>
           <ScoreTeam1 value={points} />
           <ScoreTeam2 value={points} />
-          {enchere && points ? (
+          {enchere && points && teamAnswering && startCounter ? (
             <div>
-              {counter > 0 ? (
+              {counter > 0 && answerGiven < points ? (
                 <ContainerColumn>
                   <ContainerTimer>
                     <Timer>
@@ -91,6 +83,7 @@ function Enchere() {
                     </Timer>
                   </ContainerTimer>
                   <ContainerColumn>
+                    <Text>{teamAnswering}, à vous de jouer !</Text>
                     <Text>Nombre de bonne réponses : {answerGiven}</Text>
                     <ContainerRow
                       style={{ justifyContent: 'between', width: '20%' }}
@@ -106,12 +99,6 @@ function Enchere() {
                         <Text style={{ color: 'white' }}>+1</Text>
                       </ContainerButton>
                     </ContainerRow>
-                    <ContainerStopTimer
-                      style={{ marginTop: '2%' }}
-                      onClick={() => endTimer()}
-                    >
-                      <Text style={{ color: 'white' }}>Stopper le chrono</Text>
-                    </ContainerStopTimer>
                   </ContainerColumn>
 
                   <ContainerTheme style={{ marginTop: '2%' }}>
@@ -119,7 +106,11 @@ function Enchere() {
                   </ContainerTheme>
                   <ContainerSuggestions>
                     <ContainerColumn>
-                      <SuggestionsText>{enchere.suggestions}...</SuggestionsText>
+                      <SuggestionsTextDiv>
+                        <SuggestionsText>
+                          {enchere.suggestions}...
+                        </SuggestionsText>
+                      </SuggestionsTextDiv>
                     </ContainerColumn>
                   </ContainerSuggestions>
                 </ContainerColumn>
@@ -153,10 +144,17 @@ function Enchere() {
                 <ContainerScore>
                   <ButtonScore
                     type="number"
-                    onKeyPress={(e) => handleKeyPress(e)}
+                    onChange={(e) => setPoints(e.target.values)}
                   />
                 </ContainerScore>
               </ContainerColumn>
+              <ContainerRow>
+                <button onClick={() => setTeamAnswering(team1)}>{team1}</button>
+                <button onClick={() => setTeamAnswering(team2)}>{team2}</button>
+              </ContainerRow>
+              <button onClick={() => setStartCount(true)}>
+                Commencer la manche
+              </button>
             </SecondContainer>
           )}
         </ContainerRow>

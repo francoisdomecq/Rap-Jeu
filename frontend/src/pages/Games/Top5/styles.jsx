@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
+import timer from '../../../assets/encheres/timer.svg'
 import theme from '../../../assets/encheres/theme.svg'
 import suggestions from '../../../assets/encheres/suggestions.svg'
 import button from '../../../assets/encheres/button+1.svg'
+import buttonTimer from '../../../assets/encheres/buttonTimer.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -43,6 +45,39 @@ export const SearchContainer = styled.div`
   margin-top: 10%;
   width: 100%;
 `
+export const ContainerTimer = styled.div`
+  position: absolute;
+  top: 10.3%;
+  display: flex;
+  justify-content: flex-start;
+  width: 215px;
+  height: 75px;
+  background-size: contain;
+  background-image: url(${timer});
+  background-repeat: no-repeat;
+`
+
+export const Timer = styled.p`
+  font-size: 40px;
+  font-family: 'Orbitron';
+  font-weight: 700;
+  height: 75px;
+  margin-top: 8px;
+  margin-left: 40px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 36%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  background-clip: text;
+`
+
 export const ContainerTheme = styled.div`
   display: flex;
   justify-content: center;
@@ -95,4 +130,17 @@ export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
+`
+export const ContainerStopTimer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 325px;
+  height: 56px;
+  background-size: contain;
+  background-image: url(${buttonTimer});
+  background-repeat: no-repeat;
+  &:hover {
+    cursor: pointer;
+  }
 `
