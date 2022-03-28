@@ -36,8 +36,9 @@ function Top5() {
 
   const updateNombreAnswers = () => {
     setTop5()
-    if (teamAnswering === team1) setTeamAnswering(team2)
-    else setTeamAnswering(team1)
+    if (trialNumber===0)
+      if (teamAnswering === team1) setTeamAnswering(team2)
+      else setTeamAnswering(team1)
     setStartCount(false)
     setCounter(20)
     setAnswerGiven(0)

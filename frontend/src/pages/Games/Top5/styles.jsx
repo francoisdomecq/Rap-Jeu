@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
-import timer from '../../../assets/encheres/timer.svg'
-import theme from '../../../assets/encheres/theme.svg'
-import suggestions from '../../../assets/encheres/suggestions.svg'
-import button from '../../../assets/encheres/button+1.svg'
-import buttonTimer from '../../../assets/encheres/buttonTimer.svg'
+import timer from '../../../assets/enchere_top5/timer.svg'
+import theme from '../../../assets/enchere_top5/theme.svg'
+import suggestions from '../../../assets/enchere_top5/suggestions.svg'
+import button from '../../../assets/enchere_top5/button+1.svg'
+import buttonTimer from '../../../assets/enchere_top5/buttonTeam.svg'
 
 export const Container = styled.div`
   display: flex;
