@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Jouer from '../../assets/jouer.svg'
 import RedBullLogo from '../../assets/PNG/redbull.png'
 import RapJeuLogo from '../../assets/RapJeuLogo.svg'
-import YoutubeLogo from '../../assets/icons8-youtube.svg'
+import YoutubeLogo from '../../assets/rollandgamos/icons8-youtube.svg'
 import {
   Container,
   ExplicationsContainer,

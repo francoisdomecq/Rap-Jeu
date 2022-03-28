@@ -16,9 +16,9 @@ import {
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 
-import MusicBrainzLogo from '../../../assets/PNG/MusicBrainz_Logo.png'
-import YoutubeLogo from '../../../assets/icons8-youtube.svg'
-import RapGeniusLogo from '../../../assets/PNG/RapGenius_Logo.png'
+import MusicBrainzLogo from '../../../assets/rollandgamos/MusicBrainz_Logo.png'
+import YoutubeLogo from '../../../assets/rollandgamos/icons8-youtube.svg'
+import RapGeniusLogo from '../../../assets/rollandgamos/RapGenius_Logo.png'
 
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'

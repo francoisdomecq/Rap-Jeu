@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
+import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
+import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -21,11 +23,11 @@ export const RappeurContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 60%;
-  border-radius: 20px;
-  background-color: ${colors.yellow};
-  padding: 2%;
-  margin-bottom: 5%;
+  width: 300px;
+  height: 150px;
+  background-size: contain;
+  background-image: url(${RapperContainerBG});
+  background-repeat: no-repeat;
 `
 export const InputContainer = styled.div`
   display: flex;
@@ -74,12 +76,9 @@ export const RapperInput = styled.input`
 `
 export const SearchInput = styled.input`
   text-align: center;
-  outline: none;
-  padding-top: 2%;
   background-color: ${colors.yellow};
   border: 0px solid #000000;
   border-radius: 20px;
-  text-transform: uppercase;
   font-family: 'Montserrat', 'sans-serif';
   font-size: 24px;
   font-weight: 700;
@@ -102,7 +101,11 @@ export const SearchInput = styled.input`
     right: 15px;
     top: 50%;
   }
-  width: 45%;
+  width: 200px;
+  height: 60px;
+  background-size: contain;
+  background-image: url(${RapperInputBG});
+  background-repeat: no-repeat;
 `
 
 export const NextRoundButton = styled.button`
