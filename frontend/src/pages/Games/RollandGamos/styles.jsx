@@ -54,7 +54,6 @@ export const RapperInput = styled.input`
   text-align: center;
   border: 0px solid #000000;
   background-color: transparent;
-  text-transform: uppercase;
   color: white;
   font-family: 'Montserrat', 'sans-serif';
   font-size: 24px;
@@ -71,6 +70,11 @@ export const RapperInput = styled.input`
   &:hover {
     text-underline-position: below;
     text-decoration: underline;
+  }
+  ::-webkit-search-cancel-button {
+    position: relative;
+    right: 15px;
+    top: 50%;
   }
   width: 100%;
 `

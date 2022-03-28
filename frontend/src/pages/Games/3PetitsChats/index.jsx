@@ -9,19 +9,36 @@ import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
-import { SecondContainer } from './styles'
+import {
+  RappersContainer,
+  SecondContainer,
+  Header,
+  TableBottom,
+  RapperInput,
+  Text,
+} from './styles'
 
 function PetitsChats() {
   const [answerNumber, updateAnswerNumber] = useState(0)
   const [rapper, setRapper] = useState('')
+  const [rappers, setRappers] = useState([])
   const { games, updateGamesPlayed } = useContext(GameContext)
 
+  function addRappers(e) {
+    if (e.key === 'Enter') {
+      rappers.push(e.target.value)
+      const newRapper = [...rappers]
+      setRappers(newRapper)
+      e.target.value = ''
+    }
+  }
   function selectRapper(rapper) {
     setRapper(rapper)
   }
   function updateAnswer() {
     updateGamesPlayed('Les 3 petits chats', answerNumber, updateAnswerNumber)
     setRapper('')
+    setRappers([])
   }
 
   HasGameStarted()
@@ -48,7 +65,20 @@ function PetitsChats() {
           <ScoreTeam1 value={10} />
           <ScoreTeam2 value={10} />
           {rapper ? (
-            <p>{rapper}</p>
+            <ContainerColumn>
+              <Header>Rappeurs cités</Header>
+              <RappersContainer>
+                <p>{rapper}</p>
+                {rappers.map((rapper) => (
+                  <p>{rapper}</p>
+                ))}
+              </RappersContainer>
+              <TableBottom />
+              <ContainerColumn>
+                <Text>Nouveau rappeur</Text>
+                <RapperInput type="search" onKeyPress={(e) => addRappers(e)} />
+              </ContainerColumn>
+            </ContainerColumn>
           ) : (
             <SecondContainer>
               <RapperArray selectRapper={selectRapper} />
