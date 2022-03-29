@@ -4,6 +4,7 @@ export const RulesData = [
     manches: '2 manches - 15 points par manche',
     rules:
       'Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes.',
+    video: 'https://www.youtube.com/embed/0V9VOU2QQaA',
   },
   {
     game: 'Les 3 petits chats',

@@ -83,6 +83,7 @@ export const ModalDiv = styled.div`
   margin: auto;
   border-radius: 5px;
   max-width: 500px;
+  min-height: 250px;
   width: 100%;
   padding: 1rem;
 `
@@ -112,4 +113,30 @@ export const ModalTitle = styled.p`
   font-family: 'Montserrat';
   text-transform: uppercase;
   color: ${colors.blue};
+`
+export const ModalBody = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`
+export const ModalRound = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Montserrat';
+`
+export const ModalRules = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Montserrat';
 `
