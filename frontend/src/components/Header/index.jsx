@@ -2,17 +2,17 @@ import { useContext } from 'react'
 import { GameContext } from '../../utils/context'
 import { Link } from 'react-router-dom'
 import { NavContainer, PageText, PageTextBis, Logo } from './styles'
-import RedbullLogo from '../../assets/PNG/redbull.png'
+import IconInformation from '../../assets/icons8-info.svg'
 import useModal from '../../utils/modal/useModal'
 import Modal from '../../utils/modal/modal'
 
 function Header() {
   const { games, hasGameStarted, gamesPlayed } = useContext(GameContext)
-  const { isShowing: isLoginFormShowed, toggle: toggleLoginForm } = useModal()
-  const queryString = window.location.search;
- 
-  const urlParams = new URLSearchParams(queryString);
-  const game=urlParams.get('game')
+  const { isShowing, toggle } = useModal()
+  const queryString = window.location.search
+
+  const urlParams = new URLSearchParams(queryString)
+  const game = urlParams.get('game')
   return hasGameStarted ? (
     <NavContainer>
       {console.log(game)}
@@ -36,8 +36,8 @@ function Header() {
       ) : (
         <PageText>{games[3]}</PageText>
       )}
-      <Logo src={RedbullLogo}  onClick={toggleLoginForm}  alt="logo"></Logo>
-      <Modal isShowing={isLoginFormShowed} hide={toggleLoginForm} title="Login">
+      <Logo src={IconInformation} onClick={toggle} alt="logo"></Logo>
+      <Modal isShowing={isShowing} hide={toggle} title={game}>
         <p>Maison</p>
       </Modal>
     </NavContainer>
@@ -47,7 +47,6 @@ function Header() {
         <PageTextBis>Accueil</PageTextBis>
       </Link>
     </NavContainer>
-    
   )
 }
 

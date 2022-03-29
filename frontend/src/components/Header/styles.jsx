@@ -31,5 +31,9 @@ export const PageTextBis = styled.span`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 export const Logo = styled.img`
-  width: 5%;
+  width: 36px;
+  height:36px;
+  &:hover{
+    cursor:pointer
+  }
 `
