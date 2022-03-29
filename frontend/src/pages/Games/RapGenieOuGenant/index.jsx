@@ -1,19 +1,28 @@
 import { useState, useEffect, useContext } from 'react'
-import { GameContext } from '../../../utils/context'
+import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-
+import {
+  Text,
+  ContainerQuestion,
+  ContainerAnswer,
+  ButtonAnswer,
+} from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/rapGenieOuGenantBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function RapGenieOuGenant() {
   const [questionData, setData] = useState([])
-  const { games, updateGamesPlayed } = useContext(GameContext)
+  const [teamAnswering, setTeamAnswering] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
+  const [answerGiven, setAnswerGiven] = useState(null)
+  const [isDataLoaded, setDataLoad] = useState(false)
+  const { games, updateGamesPlayed } = useContext(GameContext)
+  const { team1, team2, updateScore } = useContext(TeamContext)
 
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...questionData]
@@ -27,27 +36,47 @@ function RapGenieOuGenant() {
       answerNumber,
       updateAnswerNumber
     )
-    setData()
+    setAnswerGiven(null)
+    if (teamAnswering === team1) setTeamAnswering(team2)
+    else setTeamAnswering(team1)
   }
+  function answer(answer) {
+    setAnswerGiven(answer)
+    if (
+      (answer === true &&
+        questionData[answerNumber].reponse.includes('Rap génie')) ||
+      (answer === false &&
+        questionData[answerNumber].reponse.includes('Rap gênant'))
+    ) {
+      updateScore(5, 'team1')
+    }
+  }
+
   useEffect(() => {
     fetch(`http://localhost:3001/api/rapgenieougenant`)
       .then((response) => response.json())
       .then((requestData) => {
-        console.log(requestData)
-        const [n1, n2, n3, n4] = generateRandomNumber(requestData.length)
+        const [n1, n2, n3, n4] = generateRandomNumber(requestData.length - 1)
+        console.log(n1,n2,n3,n4)
+        console.log(requestData[n1])
+        console.log(requestData[n2])
+        console.log(requestData[n3])
+        console.log(requestData[n4])
         updateData(
           requestData[n1],
           requestData[n2],
           requestData[n3],
           requestData[n4]
         )
+        setDataLoad(true)
+        setTeamAnswering(team1)
       })
       .catch((error) => console.log(error))
   }, [])
 
   HasGameStarted()
 
-  return (
+  return isDataLoaded ? (
     <ContainerRow>
       <div className="bouncing-text">
         <div className="r-rgog">r</div>
@@ -74,28 +103,78 @@ function RapGenieOuGenant() {
         <ContainerRow>
           <ScoreTeam1 value={5} />
           <ScoreTeam2 value={5} />
-          {questionData.map((data) => (
-            <div>
-              <p>{data.question}</p>
-              <p>{data.reponse}</p>
-              {data.type === 'video' ? (
-                <iframe
-                  width="560"
-                  height="315"
-                  src={data.illustration}
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              ) : null}
-            </div>
-          ))}
+          <ContainerColumn style={{ marginTop: '2%' }}>
+            <Text>{teamAnswering}</Text>
+            {answerGiven === null ? (
+              <ContainerRow style={{ width: '30%' }}>
+                <ButtonAnswer onClick={() => answer(true)}>
+                  <Text style={{ color: 'white' }}>Rap génie</Text>
+                </ButtonAnswer>
+                <ButtonAnswer onClick={() => answer(false)}>
+                  <Text style={{ color: 'white' }}>Rap gênant</Text>
+                </ButtonAnswer>
+              </ContainerRow>
+            ) : null}
+            {answerGiven !== null ? (
+              <ContainerColumn>
+                <ContainerAnswer>
+                  <ContainerRow style={{ width: '90%' }}>
+                    <Text style={{ color: 'white' }}>
+                      {questionData[answerNumber].reponse.includes(
+                        'Rap génie'
+                      ) ? (
+                        <div style={{ textAlign: 'center' }}>
+                          <p>Rap génie</p>
+                          <Text style={{ fontSize: 16 }}>
+                            {questionData[answerNumber].reponse.substring(
+                              12,
+                              questionData[answerNumber].reponse.length
+                            )}
+                          </Text>
+                        </div>
+                      ) : (
+                        <div style={{ textAlign: 'center' }}>
+                          <p>Rap gênant</p>
+                          <Text style={{ fontSize: 16 }}>
+                            {questionData[answerNumber].reponse.substring(
+                              13,
+                              questionData[answerNumber].reponse.length
+                            )}
+                          </Text>
+                        </div>
+                      )}
+                    </Text>
+                  </ContainerRow>
+                </ContainerAnswer>
+                {questionData[answerNumber].type === 'video' ? (
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={questionData[answerNumber].illustration}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : questionData[answerNumber].type === 'image' ? (
+                  <img src={questionData[answerNumber].illustration} alt="" />
+                ) : (
+                  <a
+                    rel="noreferrer"
+                    href={questionData[answerNumber].illustration}
+                    target="_blank"
+                  >
+                    {questionData[answerNumber].illustration}
+                  </a>
+                )}
+              </ContainerColumn>
+            ) : null}
+          </ContainerColumn>
         </ContainerRow>
       </ContainerColumn>
-      <div style={{ width: 50, height: 50 }}>
+      <ContainerColumn>
         {answerNumber < 3 ? (
-          <button onClick={() => updateAnswer()}>Valider</button>
+          <button onClick={() => updateAnswer()}>Question suivante</button>
         ) : (
           <Link
             to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
@@ -104,9 +183,16 @@ function RapGenieOuGenant() {
             Passer au jeu suivant
           </Link>
         )}
-      </div>
+      </ContainerColumn>
+      <ContainerQuestion>
+        <ContainerRow style={{ width: '85%', textAlign: 'center' }}>
+          <Text style={{ color: 'white', fontSize: '1.4em' }}>
+          {questionData[answerNumber].question}
+          </Text>
+        </ContainerRow>
+      </ContainerQuestion>
     </ContainerRow>
-  )
-}
+  ): null
+} 
 
 export default RapGenieOuGenant

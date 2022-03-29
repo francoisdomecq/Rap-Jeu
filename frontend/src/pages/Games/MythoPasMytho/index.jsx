@@ -69,7 +69,6 @@ function MythoPasMytho() {
 
   return isDataLoaded ? (
     <ContainerRow>
-      {console.log(mythoPasMythoData)}
       <div className="bouncing-text">
         <div className="m-mpm">m</div>
         <div className="y-mpm">y</div>
@@ -95,10 +94,10 @@ function MythoPasMytho() {
           {answerGiven === null ? (
             <ContainerRow style={{ width: '30%' }}>
               <ButtonAnswer onClick={() => answer(true)}>
-                <Text style={{ color: 'white' }}>Vrai</Text>
+                <Text style={{ color: 'white' }}>Pas mytho</Text>
               </ButtonAnswer>
               <ButtonAnswer onClick={() => answer(false)}>
-                <Text style={{ color: 'white' }}>Faux</Text>
+                <Text style={{ color: 'white' }}>Mytho</Text>
               </ButtonAnswer>
             </ContainerRow>
           ) : null}
