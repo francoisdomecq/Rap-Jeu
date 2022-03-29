@@ -5,7 +5,12 @@ import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import { Link } from 'react-router-dom'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { Text, ContainerQuestion, ContainerAnswer } from './styles'
+import {
+  Text,
+  ContainerQuestion,
+  ContainerAnswer,
+  ButtonAnswer,
+} from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
 import '../../../utils/animations/Bouncing/mythoPasMythoBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
@@ -89,17 +94,47 @@ function MythoPasMytho() {
           <Text>{teamAnswering}</Text>
           {answerGiven === null ? (
             <ContainerRow style={{ width: '30%' }}>
-              <ContainerAnswer onClick={() => answer(true)}>
+              <ButtonAnswer onClick={() => answer(true)}>
                 <Text style={{ color: 'white' }}>Vrai</Text>
-              </ContainerAnswer>
-              <ContainerAnswer onClick={() => answer(false)}>
+              </ButtonAnswer>
+              <ButtonAnswer onClick={() => answer(false)}>
                 <Text style={{ color: 'white' }}>Faux</Text>
-              </ContainerAnswer>
+              </ButtonAnswer>
             </ContainerRow>
           ) : null}
           {answerGiven !== null ? (
             <ContainerColumn>
-              <p>{mythoPasMythoData[answerNumber].reponse}</p>
+              <ContainerAnswer>
+                <ContainerRow style={{ width: '90%' }}>
+                  <Text style={{ color: 'white' }}>
+                    {mythoPasMythoData[answerNumber].reponse.includes(
+                      'Pas mytho'
+                    ) ? (
+                      <div style={{textAlign:'center'}}>
+                        
+                      <p>Pas Mytho</p>
+                      <Text style={{ fontSize: 16 }}>
+                        {mythoPasMythoData[answerNumber].reponse.substring(
+                          12,
+                          mythoPasMythoData[answerNumber].reponse.length
+                        )}
+                      </Text>
+                    </div>
+                    ) : (
+                      <div style={{textAlign:'center'}}>
+                        
+                        <p>Mytho</p>
+                        <Text style={{ fontSize: 16 }}>
+                          {mythoPasMythoData[answerNumber].reponse.substring(
+                            8,
+                            mythoPasMythoData[answerNumber].reponse.length
+                          )}
+                        </Text>
+                      </div>
+                    )}
+                  </Text>
+                </ContainerRow>
+              </ContainerAnswer>
               {mythoPasMythoData[answerNumber].type === 'video' ? (
                 <iframe
                   width="560"
