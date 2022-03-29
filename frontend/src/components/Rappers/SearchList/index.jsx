@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Table,
   TableHead,
@@ -10,8 +10,9 @@ import {
   RapperName,
   TableSearch,
   SearchDiv,
+  Container,
 } from '../../../utils/styles/Tables'
-import { ContainerColumn } from '../../../utils/styles/Containers'
+
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
 function SearchList({ filteredRapper, selectRapper, search }) {
@@ -40,7 +41,7 @@ function SearchList({ filteredRapper, selectRapper, search }) {
     )
 
   return (
-    <ContainerColumn>
+    <Container>
       <TableHead>
         <SearchDiv>
           <TableSearch
@@ -70,7 +71,7 @@ function SearchList({ filteredRapper, selectRapper, search }) {
         />
         <button onClick={() => selectRapper(rapperInput)} /> */}
       </TableBottom>
-    </ContainerColumn>
+    </Container>
   )
 }
 

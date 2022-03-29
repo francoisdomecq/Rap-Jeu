@@ -85,8 +85,4 @@ export const RapperInput = styled.input`
   background-repeat: no-repeat;
 `
 
-export const Text = styled.p`
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 24px;
-`
+

@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
 import {
+  Container,
   Table,
   TableHead,
   TableBody,
   Line,
   LineContainer,
-  QuestionTheme,
+  QuestionTheme ,
   TableContainer,
   TableBottom,
 } from './styles'
-import { ContainerColumn } from '../../utils/styles/Containers'
+
 
 function Theme({ selectTheme, page, chosenTheme }) {
   const [theme, setTheme] = useState([])
@@ -36,7 +37,7 @@ function Theme({ selectTheme, page, chosenTheme }) {
   }, [])
 
   return (
-    <ContainerColumn>
+    <Container>
       <TableHead>
         <th>
           <p>Choisir un theme</p>
@@ -48,7 +49,7 @@ function Theme({ selectTheme, page, chosenTheme }) {
         </Table>
       </TableContainer>
       <TableBottom />
-    </ContainerColumn>
+    </Container>
   )
 }
 

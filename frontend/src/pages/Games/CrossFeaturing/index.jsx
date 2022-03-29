@@ -194,7 +194,9 @@ function CrossFeaturing() {
             <button onClick={() => updateAnswer()}>Valider</button>
           ) : (
             <Link
-              to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}`}
+              to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}?game=${
+                games[games.indexOf('Le CrossFeaturing') + 1]
+              }`}
               onClick={() => updateAnswer()}
             >
               Valider

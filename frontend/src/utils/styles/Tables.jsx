@@ -20,6 +20,12 @@ export const Table = styled.table`
   }
 `
 export const TableHead = styled.thead`
+display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  display:flex;
+  justify-content: center;
   padding-bottom: 2%;
   padding-right: 2%;
   border-top-right-radius: 20px;

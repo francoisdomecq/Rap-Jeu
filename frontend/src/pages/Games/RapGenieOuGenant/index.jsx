@@ -177,7 +177,7 @@ function RapGenieOuGenant() {
           <button onClick={() => updateAnswer()}>Question suivante</button>
         ) : (
           <Link
-            to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
+            to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}?game=${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
             onClick={() => updateAnswer()}
           >
             Passer au jeu suivant

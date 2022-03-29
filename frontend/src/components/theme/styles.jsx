@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
 export const TableHead = styled.thead`
-  display:flex;
+  display: flex;
   justify-content: center;
   padding-right: 2%;
   border-top-right-radius: 20px;

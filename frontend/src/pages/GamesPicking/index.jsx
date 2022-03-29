@@ -53,7 +53,7 @@ function Games() {
           }
           to={
             games.length === 4 && !games.includes('Jeu 2')
-              ? `/${games[0]}`
+              ? `/${games[0]}/?game=${games[0]}`
               : '/games'
           }
           onClick={() =>

@@ -167,7 +167,7 @@ function MythoPasMytho() {
           <button onClick={() => updateAnswer()}>Question suivante</button>
         ) : (
           <Link
-            to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
+            to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}?game=${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
             onClick={() => updateAnswer()}
           >
             Valider

@@ -36,7 +36,7 @@ function Top5() {
 
   const updateNombreAnswers = () => {
     setTop5()
-    if (trialNumber===0)
+    if (trialNumber === 0)
       if (teamAnswering === team1) setTeamAnswering(team2)
       else setTeamAnswering(team1)
     setStartCount(false)
@@ -104,9 +104,7 @@ function Top5() {
                   <Text>{teamAnswering}, à vous de jouer !</Text>
                   <Text>Nombre de bonne réponses : {answerGiven}</Text>
                   <ContainerColumn>
-                    <ContainerRow
-                      style={{ justifyContent: '', width: '20%' }}
-                    >
+                    <ContainerRow style={{ justifyContent: '', width: '20%' }}>
                       <ContainerButton
                         onClick={() => setAnswerGiven(answerGiven - 1)}
                       >
@@ -143,7 +141,9 @@ function Top5() {
                         </button>
                       ) : (
                         <Link
-                          to={`/${games[games.indexOf('Top 5') + 1]}`}
+                          to={`/${games[games.indexOf('Top 5') + 1]}/?game=${
+                            games[games.indexOf('Top 5') + 1]
+                          }`}
                           onClick={() => updateNombreAnswers()}
                         >
                           Valider
@@ -173,7 +173,12 @@ function Top5() {
                 </ContainerTeam>
               </ContainerRow>
               {/*Changer le boutton dessous*/}
-              <ContainerTeam style={{marginTop:'2%'}} onClick={() => startGame()}><Text style={{color:'white'}}>Commencer la manche</Text></ContainerTeam>
+              <ContainerTeam
+                style={{ marginTop: '2%' }}
+                onClick={() => startGame()}
+              >
+                <Text style={{ color: 'white' }}>Commencer la manche</Text>
+              </ContainerTeam>
             </SecondContainer>
           )}
         </ContainerRow>

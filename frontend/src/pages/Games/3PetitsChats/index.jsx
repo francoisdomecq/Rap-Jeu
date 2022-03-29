@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import RapperArray from '../../../components/Rappers'
+
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
+import { TextBlack, TextWhite } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import {
@@ -15,7 +17,6 @@ import {
   Header,
   TableBottom,
   RapperInput,
-  Text,
 } from './styles'
 
 function PetitsChats() {
@@ -75,7 +76,7 @@ function PetitsChats() {
               </RappersContainer>
               <TableBottom />
               <ContainerColumn>
-                <Text>Nouveau rappeur</Text>
+                <TextBlack>Nouveau rappeur</TextBlack>
                 <RapperInput type="search" onKeyPress={(e) => addRappers(e)} />
               </ContainerColumn>
             </ContainerColumn>
@@ -91,7 +92,9 @@ function PetitsChats() {
           <button onClick={() => updateAnswer()}>Valider</button>
         ) : (
           <Link
-            to={`/${games[games.indexOf('Les 3 petits chats') + 1]}`}
+            to={`/${games[games.indexOf('Les 3 petits chats') + 1]}/?game=${
+              games[games.indexOf('Les 3 petits chats') + 1]
+            }`}
             onClick={() => updateAnswer()}
           >
             Valider

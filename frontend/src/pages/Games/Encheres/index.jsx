@@ -139,7 +139,7 @@ function Enchere() {
                   )}
                   <div style={{ width: 50, height: 50 }}>
                     <Link
-                      to={`/${games[games.indexOf('Les enchères') + 1]}`}
+                      to={`/${games[games.indexOf('Les enchères') + 1]}?game=${games[games.indexOf('Les enchères') + 1]}`}
                       onClick={() => updateAnswer()}
                     >
                       Valider
