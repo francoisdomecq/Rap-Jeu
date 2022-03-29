@@ -4,7 +4,7 @@ import { TeamContext } from '../../utils/context'
 import Loader from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
 
-import { ContainerRow, ContainerColumn } from '../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 import {
   LoaderWrapper,
   ExplainContainer,

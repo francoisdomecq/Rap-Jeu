@@ -20,7 +20,7 @@ import {
   SuggestionsTextDiv,
   ContainerTeam,
 } from './styles'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 

@@ -14,7 +14,7 @@ import {
   SearchInput,
   NextRoundButton,
 } from './styles'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
 import MusicBrainzLogo from '../../../assets/rollandgamos/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../../assets/rollandgamos/icons8-youtube.svg'

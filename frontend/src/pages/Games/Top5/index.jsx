@@ -19,7 +19,7 @@ import {
   Text,
   ContainerTeam,
 } from './styles'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 

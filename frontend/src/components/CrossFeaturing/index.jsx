@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ContainerColumn } from '../../utils/styles/balises'
+import { ContainerColumn } from '../../utils/styles/Containers'
 import Search from './Search/index'
 
 function CrossFeaturingArray({ selectCrossFeaturing }) {

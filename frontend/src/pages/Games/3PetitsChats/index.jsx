@@ -6,7 +6,7 @@ import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import RapperArray from '../../../components/Rappers'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/balises'
+import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import {

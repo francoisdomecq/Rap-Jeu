@@ -11,7 +11,7 @@ import {
   TableSearch,
   SearchDiv,
 } from '../../../utils/styles/Tables'
-import {ContainerColumn} from'../../../utils/styles/balises'
+import { ContainerColumn } from '../../../utils/styles/Containers'
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
 function SearchList({ filteredRapper, selectRapper, search }) {
