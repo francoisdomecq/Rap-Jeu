@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container } from './styles'
+import { ContainerColumn } from '../../utils/styles/balises'
 import Search from './Search/index'
 
 function RapperArray({ selectRapper }) {
@@ -15,9 +15,9 @@ function RapperArray({ selectRapper }) {
   }, [])
 
   return (
-    <Container>
+    <ContainerColumn>
       <Search data={rapper} selectRapper={selectRapper} />
-    </Container>
+    </ContainerColumn>
   )
 }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from '../../../utils/styles/colors'
+import colors from './colors'
 
 export const Container = styled.div`
   display: flex;
@@ -7,30 +7,19 @@ export const Container = styled.div`
   width: 100%;
 `
 export const TableContainer = styled.div`
-  display: flex;
   width: 100%;
   max-height: 380px;
   overflow-y: scroll;
 `
 export const Table = styled.table`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
-
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   :hover {
     cursor: pointer;
   }
 `
-
 export const TableHead = styled.thead`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
   padding-bottom: 2%;
   padding-right: 2%;
   border-top-right-radius: 20px;
@@ -39,41 +28,43 @@ export const TableHead = styled.thead`
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: 700;
-  text-transform: uppercase;
   background-color: ${colors.yellow};
 `
-
 export const TableSearch = styled.input`
-  outline: none;
-  padding-top: 4%;
+  width: 75%;
   text-align: center;
-  border: 0px solid #000000;
-  background-color: transparent;
-  text-transform: uppercase;
   color: white;
+  text-transform: uppercase;
   font-family: 'Montserrat', 'sans-serif';
   font-size: 24px;
   font-weight: 700;
+  padding-top: 4%;
+  outline: none;
+  border: 0px solid #000000;
+  background-color: transparent;
+
   ::placeholder {
-    color: white;
+    width: 100%;
     text-align: 'center';
+    color: white;
     font-family: 'Montserrat', 'sans-serif';
     font-size: 24px;
     font-weight: 700;
-    width: 100%;
     text-transform: none;
   }
+
   &:hover {
     text-underline-position: below;
     text-decoration: underline;
   }
-  width: 75%;
+
+  ::-webkit-search-cancel-button {
+    position: relative;
+    right: 15px;
+  }
 `
 
 export const TableBottom = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2% 0% 2% 0%;
   height: 10%;
   width: 100%;
@@ -99,15 +90,10 @@ export const Line = styled.tr`
     color: ${colors.yellow};
   }
 `
-
 export const RapperName = styled.p`
   text-transform: uppercase;
   font-family: 'Montserrat', 'sans-serif';
   font-weight: 700;
-`
-export const LineSeparator = styled.hr`
-  height: 1px;
-  width: 100%;
 `
 export const SearchDiv = styled.div`
   width: 100%;

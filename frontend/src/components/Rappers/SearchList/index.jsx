@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import {
-  Container,
   Table,
   TableHead,
   TableBody,
@@ -11,11 +10,11 @@ import {
   RapperName,
   TableSearch,
   SearchDiv,
-} from './styles'
+} from '../../../utils/styles/Tables'
+import {ContainerColumn} from'../../../utils/styles/balises'
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
 function SearchList({ filteredRapper, selectRapper, search }) {
-  const [rapperInput, setRapperInput] = useState('')
   filteredRapper.sort((a, b) => a.nom.localeCompare(b.nom))
 
   const filteredData =
@@ -41,7 +40,7 @@ function SearchList({ filteredRapper, selectRapper, search }) {
     )
 
   return (
-    <Container>
+    <ContainerColumn>
       <TableHead>
         <SearchDiv>
           <TableSearch
@@ -71,7 +70,7 @@ function SearchList({ filteredRapper, selectRapper, search }) {
         />
         <button onClick={() => selectRapper(rapperInput)} /> */}
       </TableBottom>
-    </Container>
+    </ContainerColumn>
   )
 }
 

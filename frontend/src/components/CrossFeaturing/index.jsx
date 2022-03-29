@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container } from './styles'
+import { ContainerColumn } from '../../utils/styles/balises'
 import Search from './Search/index'
 
 function CrossFeaturingArray({ selectCrossFeaturing }) {
@@ -15,9 +15,9 @@ function CrossFeaturingArray({ selectCrossFeaturing }) {
   }, [])
 
   return (
-    <Container>
+    <ContainerColumn>
       <Search data={crossFeaturing} selectCrossFeaturing={selectCrossFeaturing} />
-    </Container>
+    </ContainerColumn>
   )
 }
 

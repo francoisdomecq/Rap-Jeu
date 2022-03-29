@@ -129,8 +129,8 @@ export const GameProvider = ({ children }) => {
 export const TeamContext = createContext()
 
 export const TeamProvider = ({ children }) => {
-  const [team1, setTeam1] = useState('team1')
-  const [team2, setTeam2] = useState('team2')
+  const [team1, setTeam1] = useState('')
+  const [team2, setTeam2] = useState('')
   const [questionTeam, setQuestion] = useState('')
   const [scoreTeam1, setScoreTeam1] = useState(0)
   const [scoreTeam2, setScoreTeam2] = useState(0)

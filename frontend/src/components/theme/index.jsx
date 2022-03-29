@@ -6,7 +6,7 @@ import {
   TableBody,
   Line,
   LineContainer,
-  RapperName,
+  QuestionTheme ,
   TableContainer,
   TableBottom,
 } from './styles'
@@ -16,11 +16,11 @@ function Theme({ selectTheme, page, chosenTheme }) {
 
   function displayThemes() {
     return theme.map((theme) => (
-      <LineContainer >
+      <LineContainer>
         <Line isChosen={theme === chosenTheme ? true : false}>
-          <RapperName key={theme._id} onClick={() => selectTheme(theme)}>
+          <QuestionTheme key={theme._id} onClick={() => selectTheme(theme)}>
             {theme.theme}
-          </RapperName>
+          </QuestionTheme>
         </Line>
       </LineContainer>
     ))
@@ -38,7 +38,9 @@ function Theme({ selectTheme, page, chosenTheme }) {
   return (
     <Container>
       <TableHead>
-        <th>Choisir un theme</th>
+        <th>
+          <p>Choisir un theme</p>
+        </th>
       </TableHead>
       <TableContainer>
         <Table>

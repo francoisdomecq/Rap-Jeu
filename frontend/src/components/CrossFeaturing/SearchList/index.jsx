@@ -11,7 +11,7 @@ import {
   RapperName,
   TableSearch,
   SearchDiv,
-} from './styles'
+} from '../../../utils/styles/Tables'
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
 function SearchList({ filteredCrossFeaturing, selectCrossFeaturing, search }) {
