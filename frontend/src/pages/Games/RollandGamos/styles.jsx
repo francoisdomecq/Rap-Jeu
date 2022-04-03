@@ -73,8 +73,7 @@ export const RapperInput = styled.input`
   }
   ::-webkit-search-cancel-button {
     position: relative;
-    right: 15px;
-    top: 50%;
+    right: 500px;
   }
   width: 100%;
 `

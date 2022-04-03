@@ -44,7 +44,7 @@ function PetitsChats() {
 
   HasGameStarted()
   return (
-    <ContainerRow>
+    <ContainerRow style={{ marginBottom: '1%' }}>
       <div className="bouncing-text">
         <div className="three-3pc">3</div>
         <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>

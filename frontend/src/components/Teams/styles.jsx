@@ -108,8 +108,9 @@ export const ScoreTeamRight = styled.p`
   font-weight: 700;
   font-size: 24px;
   margin-top: 5px;
+  width: 23%;
   position: absolute;
-  right: 64px;
+  left: 84%;
   padding-bottom: 5px;
   background-image: linear-gradient(
     180deg,
@@ -125,4 +126,14 @@ export const ScoreTeamRight = styled.p`
   -moz-text-fill-color: transparent;
   -webkit-text-stroke-width: 0px;
   -webkit-text-stroke-color: rgb(255, 255, 255);
+`
+export const ScoreInput = styled.input`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 16px;
+  width: 10%;
+  color: black;
+  background: transparent;
+  margin-top: 0;
+  border: 2px solid white;
 `
