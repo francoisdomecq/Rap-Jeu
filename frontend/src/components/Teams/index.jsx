@@ -31,7 +31,7 @@ function Teams() {
             <ScoreInput
               type="number"
               placeholder="±"
-              onKeyPress={(e) => updateScoreTeam(e, 'team1')}
+              onKeyPress={(e) => updateScoreTeam(e, team1)}
               style={{ marginLeft: '2%' }}
             ></ScoreInput>
           </ScoreTeamLeft>
@@ -45,7 +45,7 @@ function Teams() {
             <ScoreInput
               type="number"
               placeholder="±"
-              onKeyPress={(e) => updateScoreTeam(e, 'team2')}
+              onKeyPress={(e) => updateScoreTeam(e, team2)}
               style={{ marginRight: '2%' }}
             ></ScoreInput>{' '}
             {scoreTeam2} points

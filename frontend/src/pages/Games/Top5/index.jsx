@@ -32,7 +32,7 @@ function Top5() {
   const [trialNumber, setTrialNumber] = useState(0)
   const [nombreReponses, updateNombreReponses] = useState(0)
   const { games, updateGamesPlayed } = useContext(GameContext)
-  const { team1, team2 } = useContext(TeamContext)
+  const { team1, team2, updateScore } = useContext(TeamContext)
 
   const updateNombreAnswers = () => {
     setTop5()
@@ -89,8 +89,6 @@ function Top5() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <ScoreTeam1 value={15} />
-          <ScoreTeam2 value={15} />
           {top5 && teamAnswering && startCounter ? (
             <div>
               {counter > 0 && answerGiven < 5 ? (
@@ -130,14 +128,19 @@ function Top5() {
                 <ContainerRow>
                   <ContainerColumn>
                     {answerGiven >= 5 ? (
-                      <Text>Félicitations {teamAnswering}</Text>
+                      <ContainerColumn>
+                        <Text>Félicitations {teamAnswering}</Text>
+                        <button onClick={() => updateScore(15,teamAnswering )}>
+                          Attribuer leurs points à {teamAnswering}
+                        </button>
+                      </ContainerColumn>
                     ) : (
                       <Text>Aucune des deux équipes ne gagne de points..</Text>
                     )}
-                    <div style={{ width: 50, height: 50 }}>
+                    <div>
                       {nombreReponses < 1 ? (
                         <button onClick={() => updateNombreAnswers()}>
-                          Valider
+                          Manche suivante
                         </button>
                       ) : (
                         <Link
@@ -146,7 +149,7 @@ function Top5() {
                           }`}
                           onClick={() => updateNombreAnswers()}
                         >
-                          Valider
+                          Continuer vers {games[games.indexOf('Top 5') + 1]}
                         </Link>
                       )}
                     </div>

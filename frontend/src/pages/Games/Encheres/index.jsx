@@ -1,8 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
-import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
-import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import Theme from '../../../components/Theme'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import {
@@ -33,7 +31,7 @@ function Enchere() {
   const [answerGiven, setAnswerGiven] = useState(0)
   const [answerNumber, updateAnswerNumber] = useState(0)
   const { updateGamesPlayed, games } = useContext(GameContext)
-  const { team1, team2 } = useContext(TeamContext)
+  const { team1, team2, updateScore } = useContext(TeamContext)
 
   useEffect(() => {
     if (startCounter === true) {
@@ -75,8 +73,6 @@ function Enchere() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <ScoreTeam1 value={points} />
-          <ScoreTeam2 value={points} />
           {enchere && points && teamAnswering && startCounter ? (
             <div>
               {counter > 0 && answerGiven < points ? (
@@ -124,25 +120,35 @@ function Enchere() {
                   {answerGiven >= points ? (
                     <ContainerColumn>
                       <Text>Félicitations {teamAnswering}</Text>
-                      <Text>
-                        Tu peux accorder leurs points à l'équipe {teamAnswering}
-                      </Text>
+                      <button
+                        onClick={() => updateScore(points, teamAnswering)}
+                      >
+                        Attribuer leurs points à {teamAnswering}
+                      </button>
                     </ContainerColumn>
                   ) : (
                     <ContainerColumn>
                       <Text>Dommage {teamAnswering}</Text>
-                      <Text>
-                        Tu peux accorder leurs points à l'équipe{' '}
-                        {teamAnswering === team1 ? team2 : team1}
-                      </Text>
+                      <button
+                        onClick={() =>
+                          updateScore(
+                            points,
+                            teamAnswering === team1 ? team2 : team1
+                          )
+                        }
+                      >
+                        Attribuer leurs points à {teamAnswering === team1 ? team2 : team1}
+                      </button>
                     </ContainerColumn>
                   )}
-                  <div style={{ width: 50, height: 50 }}>
+                  <div>
                     <Link
-                      to={`/${games[games.indexOf('Les enchères') + 1]}?game=${games[games.indexOf('Les enchères') + 1]}`}
+                      to={`/${games[games.indexOf('Les enchères') + 1]}?game=${
+                        games[games.indexOf('Les enchères') + 1]
+                      }`}
                       onClick={() => updateAnswer()}
                     >
-                      Valider
+                      Continuer vers le Rolland Gamos
                     </Link>
                   </div>
                 </ContainerColumn>

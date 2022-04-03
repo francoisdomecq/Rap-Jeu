@@ -2,8 +2,6 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
-import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
-import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import {
   Text,
@@ -40,6 +38,7 @@ function RapGenieOuGenant() {
     if (teamAnswering === team1) setTeamAnswering(team2)
     else setTeamAnswering(team1)
   }
+
   function answer(answer) {
     setAnswerGiven(answer)
     if (
@@ -48,7 +47,7 @@ function RapGenieOuGenant() {
       (answer === false &&
         questionData[answerNumber].reponse.includes('Rap gênant'))
     ) {
-      updateScore(5, 'team1')
+      updateScore(5, teamAnswering)
     }
   }
 
@@ -57,7 +56,7 @@ function RapGenieOuGenant() {
       .then((response) => response.json())
       .then((requestData) => {
         const [n1, n2, n3, n4] = generateRandomNumber(requestData.length - 1)
-        console.log(n1,n2,n3,n4)
+        console.log(n1, n2, n3, n4)
         console.log(requestData[n1])
         console.log(requestData[n2])
         console.log(requestData[n3])
@@ -101,8 +100,6 @@ function RapGenieOuGenant() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          <ScoreTeam1 value={5} />
-          <ScoreTeam2 value={5} />
           <ContainerColumn style={{ marginTop: '2%' }}>
             <Text>{teamAnswering}</Text>
             {answerGiven === null ? (
@@ -177,7 +174,9 @@ function RapGenieOuGenant() {
           <button onClick={() => updateAnswer()}>Question suivante</button>
         ) : (
           <Link
-            to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}?game=${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
+            to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}?game=${
+              games[games.indexOf('Rap génie ou rap gênant') + 1]
+            }`}
             onClick={() => updateAnswer()}
           >
             Passer au jeu suivant
@@ -187,12 +186,12 @@ function RapGenieOuGenant() {
       <ContainerQuestion>
         <ContainerRow style={{ width: '85%', textAlign: 'center' }}>
           <Text style={{ color: 'white', fontSize: '1.4em' }}>
-          {questionData[answerNumber].question}
+            {questionData[answerNumber].question}
           </Text>
         </ContainerRow>
       </ContainerQuestion>
     </ContainerRow>
-  ): null
-} 
+  ) : null
+}
 
 export default RapGenieOuGenant

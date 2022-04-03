@@ -1,8 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
-import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
-import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import { Link } from 'react-router-dom'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import {
@@ -45,7 +43,7 @@ function MythoPasMytho() {
       (answer === false &&
         !mythoPasMythoData[answerNumber].reponse.includes('Pas mytho'))
     ) {
-      updateScore(5, 'team1')
+      updateScore(5, teamAnswering)
     }
   }
   useEffect(() => {
@@ -87,10 +85,8 @@ function MythoPasMytho() {
         <div className="o1-mpm">o</div>
       </div>
       <ContainerColumn>
-        <ScoreTeam1 />
-        <ScoreTeam2 />
         <ContainerColumn style={{ marginTop: '2%' }}>
-          <Text>{teamAnswering}</Text>
+          <Text>Equipe {teamAnswering}</Text>
           {answerGiven === null ? (
             <ContainerRow style={{ width: '30%' }}>
               <ButtonAnswer onClick={() => answer(true)}>

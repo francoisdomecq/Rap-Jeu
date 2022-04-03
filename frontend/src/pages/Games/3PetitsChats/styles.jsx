@@ -7,7 +7,7 @@ export const SecondContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: 100%;
 `
 

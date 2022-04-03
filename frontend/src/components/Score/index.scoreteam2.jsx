@@ -3,7 +3,7 @@ import { TeamContext } from '../../utils/context'
 import { ContainerScoreTeam2, ButtonScore } from './styles'
 
 function ScoreTeam2({ value, placeHolder }) {
-  const { updateScore } = useContext(TeamContext)
+  const { team2, updateScore } = useContext(TeamContext)
 
   const handleKeyPress = (e, team) => {
     if (e.key === 'Enter') {
@@ -17,7 +17,7 @@ function ScoreTeam2({ value, placeHolder }) {
         type="number"
         placeholder={placeHolder}
         defaultValue={value}
-        onKeyPress={(event) => handleKeyPress(event, 'team2')}
+        onKeyPress={(event) => handleKeyPress(event, team2)}
       />
     </ContainerScoreTeam2>
   )
