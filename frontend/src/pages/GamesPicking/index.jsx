@@ -12,7 +12,10 @@ import {
   PlayButton,
   ExplainContainer,
   PageTitle,
+  Text,
+  TextH1,
 } from './styles'
+import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 
 function Games() {
   const { games, selectGames, startGame } = useContext(GameContext)
@@ -65,43 +68,54 @@ function Games() {
           Commencer la partie
         </PlayButton>
       </GamesPicked>
-      <GameContainer>
-        <ExplainContainer>
-          <PageTitle style={{ textAlign: 'center' }}>Choix des jeux</PageTitle>
-          <p>
-            Maintenant que les équipes sont prêtes et que votre nom d'équipe
-            vous convient ou non, il faut choisir les jeux. N'y passez pas trop
-            de temps, le but c'est quand même de jouer ! Vous vous affronterez
-            au cours de 4 épreuves, les deux dernières étant obligatoirement les
-            fameeeeuses enchères et le classique Rolland Gamos!
-          </p>
-        </ExplainContainer>
-        <GameCard
-          label={'Top 5'}
-          manches="2 manches - 15 points par manche"
-          rules="Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
-        />
-        <GameCard
-          label={'Les 3 petits chats'}
-          manches="2 manches - 10 points par manche"
-          rules="Le maître de jeu choisit un rappeur et lance un trois petits r(c)chats. L’équipe adverse doit reprendre la dernière syllabe du premier nom cité, et ainsi de suite en répétant tous les noms depuis le début, jusqu’à ce qu’une équipe se trompe."
-        />
-        <GameCard
-          label={'Le CrossFeaturing'}
-          manches="3 manches - 5 points par manche"
-          rules="Le maître du jeu choisit deux rappeurs. Trouve le chemin le plus court qui lie les deux artistes en citant des featurings, et vole les points à l’autre équipe si tu trouves plus court."
-        />
-        <GameCard
-          label={'Le Mytho Pas Mytho'}
-          manches="4 manches - 5 points par manche"
-          rules="Trouve si ces anecdotes sur le rap sont ou non des mythos."
-        />
-        <GameCard
-          label={'Rap génie ou rap gênant'}
-          manches="4 manches - 5 points par manche"
-          rules="Un extrait de rap, ou pas.. à toi de deviner si c’est du génie ou si c’est juste gênant"
-        />
-      </GameContainer>
+      <ContainerColumn>
+        <ContainerRow>
+          <PageTitle style={{ textAlign: 'center', width: '100%' }}>
+            Choix des jeux
+          </PageTitle>
+          <ExplainContainer>
+            <TextH1>Instructions</TextH1>
+            <Text>
+              Maintenant que les équipes sont prêtes et que votre nom d'équipe
+              vous convient (ou non) il faut choisir les jeux. N'y passez pas
+              trop de temps, le but c'est quand même de jouer !
+            </Text>
+            <Text>
+              Vous vous affronterez au cours de 4 épreuves, les deux dernières
+              étant obligatoirement les fameuses enchères et le classique
+              Rolland Gamos ! Les règles seront accessibles pour chaque jeu,
+              vous n'avez pas à les retenir dès maintenant !
+            </Text>
+          </ExplainContainer>
+        </ContainerRow>
+        <GameContainer>
+          <GameCard
+            label={'Top 5'}
+            manches="2 manches - 15 points par manche"
+            rules="Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
+          />
+          <GameCard
+            label={'Les 3 petits chats'}
+            manches="2 manches - 10 points par manche"
+            rules="Le maître de jeu choisit un rappeur et lance un trois petits r(c)chats. L’équipe adverse doit reprendre la dernière syllabe du premier nom cité, et ainsi de suite en répétant tous les noms depuis le début, jusqu’à ce qu’une équipe se trompe."
+          />
+          <GameCard
+            label={'Le CrossFeaturing'}
+            manches="3 manches - 5 points par manche"
+            rules="Le maître du jeu choisit deux rappeurs. Trouve le chemin le plus court qui lie les deux artistes en citant des featurings, et vole les points à l’autre équipe si tu trouves plus court."
+          />
+          <GameCard
+            label={'Le Mytho Pas Mytho'}
+            manches="4 manches - 5 points par manche"
+            rules="Trouve si ces anecdotes sur le rap sont ou non des mythos."
+          />
+          <GameCard
+            label={'Rap génie ou rap gênant'}
+            manches="4 manches - 5 points par manche"
+            rules="Un extrait de rap, ou pas.. à toi de deviner si c’est du génie ou si c’est juste gênant"
+          />
+        </GameContainer>
+      </ContainerColumn>
     </Container>
   )
 }

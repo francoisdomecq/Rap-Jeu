@@ -14,7 +14,7 @@ export const GameContainer = styled.div`
   padding-bottom: 20px;
 `
 export const GamesPicked = styled.div`
-  width: 100%;
+  width: 25%;
   background-color: #2704c4;
   box-shadow: 5px 5px rgba(0, 0, 255, 0.2);
   display: flex;
@@ -82,10 +82,13 @@ export const RemoveButton = styled.button`
 `
 
 export const ExplainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  font-family: 'Montserrat';
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 70%;
+  padding: 2%;
+  padding-top: 0%;
+  text-align: start;
 `
 export const PageTitle = styled.p`
   font-family: 'Montserrat';
@@ -95,4 +98,16 @@ export const PageTitle = styled.p`
   line-height: 0px;
   color: ${colors.red};
   text-transform: uppercase;
+  text-shadow: 1px 1px 2px black;
+`
+export const Text = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 16px;
+`
+
+export const TextH1 = styled.h1`
+  font-family: 'Montserrat';
+  text-align: center;
+  font-size: 24px;
 `
