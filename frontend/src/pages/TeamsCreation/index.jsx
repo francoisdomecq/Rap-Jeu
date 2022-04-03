@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
 import Loader from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
-
+import Refresh from '../../assets/icons8-rafraîchir.svg'
 import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 import {
   LoaderWrapper,
@@ -13,6 +13,8 @@ import {
   TeamWrapper,
   TeamName,
   PageTitle,
+  Text,
+  TextH1,
 } from './styles'
 import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
 import '../../utils/animations/Bouncing/animationBouncing.css'
@@ -39,6 +41,7 @@ function Teams() {
       })
       .catch((error) => console.log(error))
   })
+
   function makeAlert() {
     setDataLoading(false)
   }
@@ -50,20 +53,22 @@ function Teams() {
     <ContainerRow>
       <PageTitle>Création des équipes</PageTitle>
       <ExplainContainer>
-        <p>
-          Avant de commencer, il faut bien évidemment commencer par le choix du
-          nom des équipes ! Pour ça, tu vas poser une petite question aux deux
-          équipes. Si la question vous inspire pas, tu peux bien entendu en
-          charger une autre. Et comme tu peux le voir les noms des deux équipes
-          sont déjà pré-remplis comme dans l'émission ! T'as plus qu'à écrire
-          leurs réponses avant ou après en fonction de ce qui sonne le mieux, ou
-          le moins bien si tu préfères..
-        </p>
+        <TextH1>Instructions</TextH1>
+        <Text>
+          Le maître de jeu doit lire la question aux deux équipes. Si la
+          question ne convient pas, tu peux en charger une autre !
+        </Text>
+        <Text>
+          Comme tu peux le voir les noms des deux équipes sont déjà pré-remplis
+          comme dans l'émission ! T'as plus qu'à compléter le nom des deux
+          équipes en ajoutant, avant (ou après) le texte déjà rempli, la réponse
+          donnée par chaque équipe !
+        </Text>
       </ExplainContainer>
       <ContainerRow>
         <QuestionWrapper>{questionTeam}</QuestionWrapper>
         <ContainerColumn>
-          <button onClick={refreshPage}>Changer de question</button>
+          <button onClick={refreshPage} />
         </ContainerColumn>
 
         <ContainerTeam>

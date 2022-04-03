@@ -6,7 +6,6 @@ export const ContainerTeam = styled.div`
   width: 1000px;
   justify-content: space-between;
 `
-
 export const QuestionWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -16,37 +15,40 @@ export const QuestionWrapper = styled.div`
   padding-left: 20px;
   height: 50px;
   border-radius: 30px;
-  background-color: ${colors.red};
+  background-color: ${colors.blue};
+  font-family: 'Montserrat';
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   color: white;
 `
 export const TeamWrapper = styled.div`
-  width: 350px;
-  background-color: ${colors.blue};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 24px;
+  font-weight: 700;
+  width: 35%;
+  background-color: ${colors.blue};
   color: white;
   border-radius: 20px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
   padding-bottom: 20px;
 `
 export const TeamName = styled.input`
   display: flex;
-  border-radius: 20px;
-  width: 300px;
-  height: 40px;
-  font-size: 18px;
-  background-color: ${colors.yellow};
-  color: ${colors.blue};
   align-items: center;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
+  text-align: center;
+  border-radius: 20px;
+  width: 90%;
+  height: 100%;
+  font-size: 32px;
+  background-color: ${colors.yellow};
+  color: ${colors.blue};
 `
 
 export const LoaderWrapper = styled.div`
@@ -58,10 +60,13 @@ export const LoaderWrapper = styled.div`
 `
 
 export const ExplainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  font-family: 'Montserrat';
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 50%;
+  padding: 2%;
+  padding-top: 0%;
+  text-align: start;
 `
 
 export const PageTitle = styled.p`
@@ -73,4 +78,15 @@ export const PageTitle = styled.p`
   color: ${colors.red};
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black;
+`
+export const Text = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 16px;
+`
+
+export const TextH1 = styled.h1`
+  font-family: 'Montserrat';
+  text-align: center;
+  font-size: 24px;
 `
