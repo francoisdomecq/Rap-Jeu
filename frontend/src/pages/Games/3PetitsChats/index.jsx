@@ -41,7 +41,9 @@ function PetitsChats() {
     updateGamesPlayed('Les 3 petits chats', answerNumber, updateAnswerNumber)
     setRapper('')
     setRappers([])
-    updateScore(10, teamAnswering)
+    if (rappers.length > 1) updateScore(10, teamAnswering)
+    else if (teamAnswering === team1) updateScore(10, team2)
+    else updateScore(10, team1)
     setTeamAnswering(team2)
   }
 
@@ -52,7 +54,6 @@ function PetitsChats() {
   HasGameStarted()
   return (
     <ContainerRow style={{ marginBottom: '1%' }}>
-      {console.log(teamAnswering)}
       <div className="bouncing-text">
         <div className="three-3pc">3</div>
         <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
@@ -73,6 +74,7 @@ function PetitsChats() {
         <ContainerRow>
           {rapper ? (
             <ContainerColumn>
+              <TextBlack>Equipe {teamAnswering}, à vous</TextBlack>
               <Header>Rappeurs cités</Header>
               <RappersContainer>
                 <p>{rapper}</p>

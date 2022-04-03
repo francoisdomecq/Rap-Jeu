@@ -5,7 +5,7 @@ import timer from '../../../assets/enchere_top5/timer.svg'
 import theme from '../../../assets/enchere_top5/theme.svg'
 import suggestions from '../../../assets/enchere_top5/suggestions.svg'
 import button from '../../../assets/enchere_top5/button+1.svg'
-import buttonTimer from '../../../assets/enchere_top5/buttonTeam.svg'
+import buttonTeam from '../../../assets/buttonTeam.svg'
 export const SecondContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@ export const ContainerStopTimer = styled.div`
   width: 325px;
   height: 56px;
   background-size: contain;
-  background-image: url(${buttonTimer});
+  background-image: url(${buttonTeam});
   background-repeat: no-repeat;
   &:hover {
     cursor: pointer;
@@ -167,7 +167,7 @@ export const ContainerTeam = styled.div`
   width: 325px;
   height: 56px;
   background-size: contain;
-  background-image: url(${buttonTimer});
+  background-image: url(${buttonTeam});
   background-repeat: no-repeat;
   opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
   &:hover {

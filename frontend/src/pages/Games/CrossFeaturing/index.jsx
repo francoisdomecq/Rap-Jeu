@@ -16,6 +16,7 @@ import {
   Header,
   RappersContainer,
   TableBottom,
+  ContainerTeam,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
@@ -188,10 +189,27 @@ function CrossFeaturing() {
                   </SearchContainer>
                 </SecondContainer>
               </ContainerRow>
-              <ContainerRow>
-                <button onClick={() => setTeamWinner(team1)}>{team1}</button>
-                <button onClick={() => setTeamWinner(team2)}>{team2}</button>
-              </ContainerRow>
+              <ContainerColumn style={{ marginTop: '3%', width: '50%' }}>
+                <Text>Equipe gagnante</Text>
+                <ContainerRow>
+                  <ContainerTeam
+                    isSelected={teamWinner === team1}
+                    onClick={() => setTeamWinner(team1)}
+                  >
+                    <Text style={{ color: 'white', fontSize: 18 }}>
+                      {team1}
+                    </Text>
+                  </ContainerTeam>
+                  <ContainerTeam
+                    isSelected={teamWinner === team2}
+                    onClick={() => setTeamWinner(team2)}
+                  >
+                    <Text style={{ color: 'white', fontSize: 18 }}>
+                      {team2}
+                    </Text>
+                  </ContainerTeam>
+                </ContainerRow>
+              </ContainerColumn>
               <ContainerColumn style={{ width: 50, height: 50 }}>
                 {answerNumber < 2 ? (
                   <button onClick={() => updateAnswer()}>Valider</button>

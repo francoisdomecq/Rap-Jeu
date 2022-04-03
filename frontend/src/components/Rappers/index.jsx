@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { ContainerColumn } from '../../utils/styles/Containers'
 import Search from './Search/index'
 
-function RapperArray({ selectRapper }) {
+function RapperArray({ selectRapper,chosenRapper }) {
   const [rapper, setRappers] = useState([])
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function RapperArray({ selectRapper }) {
 
   return (
     <ContainerColumn>
-      <Search data={rapper} selectRapper={selectRapper} />
+      <Search data={rapper} selectRapper={selectRapper} chosenRapper={chosenRapper}/>
     </ContainerColumn>
   )
 }

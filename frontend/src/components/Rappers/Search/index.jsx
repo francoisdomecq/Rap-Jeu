@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SearchList from '../SearchList/index'
 
-function Search({ data, selectRapper }) {
+function Search({ data, selectRapper,chosenRapper }) {
   const [searchField, setSearchField] = useState('')
 
   const filteredRappers = data.filter((rapper) => {
@@ -17,6 +17,7 @@ function Search({ data, selectRapper }) {
       filteredRapper={filteredRappers}
       selectRapper={selectRapper}
       search={handleChange}
+      chosenRapper={chosenRapper}
     />
   )
 }

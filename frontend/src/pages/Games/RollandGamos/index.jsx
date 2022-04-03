@@ -11,6 +11,7 @@ import {
   RapperInput,
   SearchInput,
   NextRoundButton,
+  ContainerTeam,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
@@ -26,24 +27,37 @@ import HasGameStarted from '../../../utils/functions/hasGameStarted'
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
   const [count, setCount] = useState(0)
+  const [points, setPoints] = useState()
+  const [teamWinner, setTeamWinner] = useState('')
   const [rappeur1Search, setRappeur1Search] = useState('')
   const [rappeur2Search, setRappeur2Search] = useState('')
   const { scoreTeam1, scoreTeam2 } = useContext(TeamContext)
+  const { team1, team2, updateScore } = useContext(TeamContext)
 
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
     setRappeur1Search(rappeur)
   }
+  const updatePoints = (e) => {
+    if (e.key === 'Enter') {
+      setPoints(e.target.value)
+    }
+  }
 
   function newRappeur() {
+    if (teamWinner === team1) updateScore(points, team1)
+    else if (teamWinner === team2) updateScore(points, team2)
     setRappeur('')
     setCount(count + 1)
+    setTeamWinner()
+    setPoints()
   }
 
   // HasGameStarted()
 
   return count < 3 ? (
     <ContainerRow>
+      {console.log(rappeur, points)}
       <div className="bouncing-text">
         <div className="r-RG">R</div>
         <div className="o-RG">O</div>
@@ -61,7 +75,7 @@ function RollandGamos() {
       </div>
       <ContainerColumn>
         <ContainerRow>
-          {rappeur ? (
+          {rappeur && points ? (
             <SecondContainer>
               <RappeurContainer>
                 <Text style={{ color: 'white' }}>Dernier rappeur cité</Text>
@@ -71,7 +85,9 @@ function RollandGamos() {
                   onChange={(e) => setRappeur1Search(e.target.value)}
                 />
               </RappeurContainer>
-              <Text>Un doute sur un featuring ? </Text>
+              <Text style={{ marginTop: '7%' }}>
+                Un doute sur un featuring ?
+              </Text>
               <InputContainer>
                 <SearchInput
                   type="search"
@@ -120,6 +136,27 @@ function RollandGamos() {
                   />
                 </a>
               </SearchContainer>
+              <ContainerColumn style={{ marginTop: '3%' }}>
+                <Text>Sélectionner l'équipe gagnante</Text>
+                <ContainerRow>
+                  <ContainerTeam
+                    isSelected={teamWinner === team1}
+                    onClick={() => setTeamWinner(team1)}
+                  >
+                    <Text style={{ color: 'white', fontSize: 18 }}>
+                      {team1}
+                    </Text>
+                  </ContainerTeam>
+                  <ContainerTeam
+                    isSelected={teamWinner === team2}
+                    onClick={() => setTeamWinner(team2)}
+                  >
+                    <Text style={{ color: 'white', fontSize: 18 }}>
+                      {team2}
+                    </Text>
+                  </ContainerTeam>
+                </ContainerRow>
+              </ContainerColumn>
               <ContainerRow style={{ marginTop: '5%' }}>
                 <NextRoundButton onClick={() => newRappeur()}>
                   Continuer
@@ -129,7 +166,9 @@ function RollandGamos() {
           ) : (
             <SecondContainer>
               <Text>Manche n°{count + 1}</Text>
-              <RappeurArray page="rappeur" selectRapper={selectRappeur} />
+              <RappeurArray page="rappeur" selectRapper={selectRappeur} chosenRapper={rappeur} />
+              <Text>Pour combien de points ?</Text>
+              <input type="number" onKeyPress={(e) => updatePoints(e)} />
             </SecondContainer>
           )}
         </ContainerRow>

@@ -15,14 +15,14 @@ import {
 
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
-function SearchList({ filteredRapper, selectRapper, search }) {
+function SearchList({ filteredRapper, selectRapper, search, chosenRapper }) {
   filteredRapper.sort((a, b) => a.nom.localeCompare(b.nom))
 
   const filteredData =
     filteredRapper.length > 0 ? (
       filteredRapper.map((rapper) => (
         <LineContainer>
-          <Line>
+          <Line isChosen={rapper.nom === chosenRapper ? true : false}>
             <RapperName
               key={rapper._id}
               onClick={() => selectRapper(rapper.nom)}

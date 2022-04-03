@@ -92,8 +92,10 @@ export const Line = styled.tr`
   width: 100%;
   color: white;
   font-size: 18px;
+  color: ${({ isChosen }) => (isChosen ? `${colors.red}` : 'white')};
   &:hover {
-    color: ${colors.yellow};
+    color: ${({ isChosen }) =>
+      isChosen ? `${colors.red}` : `${colors.yellow}`};
   }
 `
 export const RapperName = styled.p`

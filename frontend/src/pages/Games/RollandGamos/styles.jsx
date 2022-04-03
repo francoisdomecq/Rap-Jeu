@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
 import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg'
+import buttonTeam from '../../../assets/buttonTeam.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ export const SecondContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
+  width: 50%;
   height: 100%;
 `
 export const RappeurContainer = styled.div`
@@ -34,14 +35,14 @@ export const InputContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 60%;
   height: 100%;
 `
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 10%;
-  width: 100%;
+  margin-top: 3%;
+  width: 60%;
 `
 export const Text = styled.p`
   font-family: 'Montserrat';
@@ -119,6 +120,20 @@ export const NextRoundButton = styled.button`
   width: 45%;
   border-radius: 20px;
   color: white;
+  &:hover {
+    cursor: pointer;
+  }
+`
+export const ContainerTeam = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 325px;
+  height: 56px;
+  background-size: contain;
+  background-image: url(${buttonTeam});
+  background-repeat: no-repeat;
+  opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
   &:hover {
     cursor: pointer;
   }
