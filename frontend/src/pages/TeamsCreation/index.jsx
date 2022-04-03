@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
 import Loader from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
-import Refresh from '../../assets/icons8-rafraîchir.svg'
 import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 import {
   LoaderWrapper,
@@ -42,9 +41,7 @@ function Teams() {
       .catch((error) => console.log(error))
   })
 
-  function makeAlert() {
-    setDataLoading(false)
-  }
+ 
   return isDataLoading ? (
     <LoaderWrapper>
       <Loader src={Redbull} />
