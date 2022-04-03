@@ -108,8 +108,8 @@ export const ScoreTeamRight = styled.p`
   font-weight: 700;
   font-size: 24px;
   margin-top: 5px;
-  width: 23%;
   position: absolute;
+  width: 16%;
   left: 84%;
   padding-bottom: 5px;
   background-image: linear-gradient(
