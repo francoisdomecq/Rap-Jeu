@@ -145,3 +145,16 @@ export const ContainerTeam = styled.div`
     cursor: pointer;
   }
 `
+export const ContainerTeamSelection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 1%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: ${colors.yellow};
+  opacity:1;
+  
+`

@@ -16,8 +16,9 @@ export const SecondContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 50%;
+  width: 45%;
   height: 100%;
+  margin-bottom: 2%;
 `
 export const RappeurContainer = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ export const InputContainer = styled.div`
   width: 60%;
   height: 100%;
 `
-export const SearchContainer = styled.div`
+export const SearchLogos = styled.div`
   display: flex;
   justify-content: space-around;
   width: 60%;
@@ -179,4 +180,28 @@ export const ContainerTeam = styled.div`
   &:hover {
     cursor: pointer;
   }
+`
+export const SearchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 45%;
+  height: 100%;
+  margin-bottom: 2%;
+  background: ${colors.yellow};
+  border-radius: 20px;
+`
+export const ContainerTeamSelection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 1%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: ${colors.yellow};
+  opacity:1;
+  
 `

@@ -14,6 +14,7 @@ import {
   Header,
   TableBottom,
   RapperInput,
+  ContainerNewRapper,
 } from './styles'
 
 function PetitsChats() {
@@ -22,7 +23,8 @@ function PetitsChats() {
   const [rapper, setRapper] = useState('')
   const [rappers, setRappers] = useState([])
   const { games, updateGamesPlayed } = useContext(GameContext)
-  const { team1, team2, updateScore } = useContext(TeamContext)
+  const { team1, team2, updateScore, scoreTeam1, scoreTeam2 } =
+    useContext(TeamContext)
 
   function addRappers(e) {
     if (e.key === 'Enter') {
@@ -48,7 +50,8 @@ function PetitsChats() {
   }
 
   useEffect(() => {
-    setTeamAnswering(team1)
+    if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
+    else setTeamAnswering(team2)
   }, [team1])
 
   HasGameStarted()
@@ -83,11 +86,16 @@ function PetitsChats() {
                 ))}
               </RappersContainer>
               <TableBottom />
-              <ContainerColumn>
-                <TextBlack>Nouveau rappeur</TextBlack>
-                <RapperInput type="search" onKeyPress={(e) => addRappers(e)} />
-              </ContainerColumn>
-              <ContainerColumn>
+              <ContainerNewRapper>
+                <ContainerColumn>
+                  <TextBlack>Nouveau rappeur</TextBlack>
+                  <RapperInput
+                    type="search"
+                    onKeyPress={(e) => addRappers(e)}
+                  />
+                </ContainerColumn>
+              </ContainerNewRapper>
+              <ContainerColumn style={{ marginTop: '2%' }}>
                 {answerNumber < 1 ? (
                   <button onClick={() => updateAnswer()}>
                     Manche suivante

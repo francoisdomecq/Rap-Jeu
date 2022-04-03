@@ -18,6 +18,7 @@ import {
   ContainerButton,
   Text,
   ContainerTeam,
+  ContainerTeamSelection
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
@@ -130,7 +131,7 @@ function Top5() {
                     {answerGiven >= 5 ? (
                       <ContainerColumn>
                         <Text>Félicitations {teamAnswering}</Text>
-                        <button onClick={() => updateScore(15,teamAnswering )}>
+                        <button onClick={() => updateScore(15, teamAnswering)}>
                           Attribuer leurs points à {teamAnswering}
                         </button>
                       </ContainerColumn>
@@ -160,21 +161,28 @@ function Top5() {
           ) : (
             <SecondContainer>
               <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
-              <Text>Choisir l'équipe qui répond</Text>
-              <ContainerRow>
-                <ContainerTeam
-                  isSelected={teamAnswering === team1}
-                  onClick={() => setTeamAnswering(team1)}
-                >
-                  <Text style={{ color: 'white', fontSize: 18 }}>{team1}</Text>
-                </ContainerTeam>
-                <ContainerTeam
-                  isSelected={teamAnswering === team2}
-                  onClick={() => setTeamAnswering(team2)}
-                >
-                  <Text style={{ color: 'white', fontSize: 18 }}>{team2}</Text>
-                </ContainerTeam>
-              </ContainerRow>
+              <ContainerTeamSelection>
+                <Text style={{color:'#2704C4'}}>Choisir l'équipe qui répond</Text>
+                <ContainerRow>
+                  <ContainerTeam
+                    isSelected={teamAnswering === team1}
+                    onClick={() => setTeamAnswering(team1)}
+                  >
+                    <Text style={{ color: 'white', fontSize: 18 }}>
+                      {team1}
+                    </Text>
+                  </ContainerTeam>
+                  <ContainerTeam
+                    isSelected={teamAnswering === team2}
+                    onClick={() => setTeamAnswering(team2)}
+                  >
+                    <Text style={{ color: 'white', fontSize: 18 }}>
+                      {team2}
+                    </Text>
+                  </ContainerTeam>
+                </ContainerRow>
+              </ContainerTeamSelection>
+
               {/*Changer le boutton dessous*/}
               <ContainerTeam
                 style={{ marginTop: '2%' }}

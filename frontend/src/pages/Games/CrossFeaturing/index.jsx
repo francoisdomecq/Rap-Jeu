@@ -17,6 +17,8 @@ import {
   RappersContainer,
   TableBottom,
   ContainerTeam,
+  SearchLogos,
+  ContainerTeamSelection,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
@@ -137,7 +139,7 @@ function CrossFeaturing() {
                     />
                   </ContainerColumn>
                 </ContainerRow>
-                <SecondContainer>
+                <SearchContainer>
                   <Text>Un doute sur un featuring ? </Text>
                   <InputContainer>
                     <SearchInput
@@ -152,7 +154,7 @@ function CrossFeaturing() {
                       onChange={(e) => setRappeur2Search(e.target.value)}
                     />
                   </InputContainer>
-                  <SearchContainer>
+                  <SearchLogos>
                     <a
                       rel="noreferrer"
                       href={`https://www.youtube.com/results?search_query=${rappeur1Search}+${rappeur2Search}`}
@@ -186,30 +188,33 @@ function CrossFeaturing() {
                         alt="Chercher sur RapGenius"
                       />
                     </a>
-                  </SearchContainer>
-                </SecondContainer>
+                  </SearchLogos>
+                </SearchContainer>
               </ContainerRow>
-              <ContainerColumn style={{ marginTop: '3%', width: '50%' }}>
-                <Text>Equipe gagnante</Text>
-                <ContainerRow>
-                  <ContainerTeam
-                    isSelected={teamWinner === team1}
-                    onClick={() => setTeamWinner(team1)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team1}
-                    </Text>
-                  </ContainerTeam>
-                  <ContainerTeam
-                    isSelected={teamWinner === team2}
-                    onClick={() => setTeamWinner(team2)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team2}
-                    </Text>
-                  </ContainerTeam>
-                </ContainerRow>
-              </ContainerColumn>
+              <SecondContainer>
+                <ContainerTeamSelection>
+                  <Text>Equipe gagnante</Text>
+                  <ContainerRow>
+                    <ContainerTeam
+                      isSelected={teamWinner === team1}
+                      onClick={() => setTeamWinner(team1)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team1}
+                      </Text>
+                    </ContainerTeam>
+                    <ContainerTeam
+                      isSelected={teamWinner === team2}
+                      onClick={() => setTeamWinner(team2)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team2}
+                      </Text>
+                    </ContainerTeam>
+                  </ContainerRow>
+                </ContainerTeamSelection>
+              </SecondContainer>
+
               <ContainerColumn style={{ width: 50, height: 50 }}>
                 {answerNumber < 2 ? (
                   <button onClick={() => updateAnswer()}>Valider</button>

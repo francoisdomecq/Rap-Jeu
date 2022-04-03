@@ -14,7 +14,7 @@ export const SecondContainer = styled.div`
 export const Header = styled.div`
   padding-top: 1%;
   padding-bottom: 1%;
-  width: 30%;
+  width: 40%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
@@ -35,7 +35,7 @@ export const RappersContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: 100%;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   font-family: 'Montserrat';
@@ -45,7 +45,7 @@ export const RappersContainer = styled.div`
 `
 export const TableBottom = styled.div`
   height: 20px;
-  width: 30%;
+  width: 40%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
@@ -85,4 +85,14 @@ export const RapperInput = styled.input`
   background-repeat: no-repeat;
 `
 
-
+export const ContainerNewRapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 1%;
+  width: 30%;
+  border-radius: 20px;
+  background-color: ${colors.yellow};
+`

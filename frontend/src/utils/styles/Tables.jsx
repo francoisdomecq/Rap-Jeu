@@ -20,17 +20,17 @@ export const Table = styled.table`
   }
 `
 export const TableHead = styled.thead`
-display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  display:flex;
+  display: flex;
   justify-content: center;
   padding-bottom: 2%;
   padding-right: 2%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  color: white;
+  color: ${colors.blue};
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: 700;

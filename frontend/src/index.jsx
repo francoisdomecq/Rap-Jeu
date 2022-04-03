@@ -39,7 +39,7 @@ ReactDOM.render(
               <Games />
             </Route>
             <Route exact path="/Top 5">
-              <TeamsContainer />
+            <TeamsContainer />
               <Top5 />
             </Route>
             <Route path="/Les 3 petits chats">
