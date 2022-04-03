@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 
-
 export const ContainerTeam = styled.div`
   display: flex;
   width: 1000px;
@@ -73,4 +72,5 @@ export const PageTitle = styled.p`
   line-height: 0px;
   color: ${colors.red};
   text-transform: uppercase;
+  text-shadow: 1px 1px 2px black;
 `

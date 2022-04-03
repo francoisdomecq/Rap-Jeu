@@ -15,8 +15,8 @@ export const SecondContainer = styled.div`
   margin-top: 1%;
 `
 export const LinkImage = styled.a`
-  width: 15%;
-  height: 15%;
+  width: 10%;
+  height: 10%;
 `
 export const JouerContainer = styled.div`
   display: flex;
@@ -31,23 +31,27 @@ export const Logo = styled.img`
 `
 export const ExplicationsContainer = styled.div`
   display: flex;
+  margin-top: 1%;
+  justify-content: center;
 `
 export const Explications = styled.div`
-  width: 589px;
-  height: 370px;
-  padding: 20px;
-  background-size: contain;
-  background-image: url(${Rectangle});
-  background-repeat: no-repeat;
-  color: white;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 50%;
+  padding: 2%;
+  padding-top: 0%;
+  text-align: start;
 `
 
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 500;
+  font-size: 16px;
 `
 
 export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
+  font-size: 24px;
 `
