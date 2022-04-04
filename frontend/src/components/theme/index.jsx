@@ -10,9 +10,11 @@ import {
   TableContainer,
   TableBottom,
 } from './styles'
-
+import { LoaderWrapper, Loader } from '../../utils/styles/Atoms'
+import Redbull from '../../assets/PNG/redbull.png'
 
 function Theme({ selectTheme, page, chosenTheme }) {
+  const [isDataLoading, setDataLoading] = useState(true)
   const [theme, setTheme] = useState([])
 
   function displayThemes() {
@@ -32,11 +34,14 @@ function Theme({ selectTheme, page, chosenTheme }) {
       .then((response) => response.json())
       .then((requestData) => {
         setTheme(requestData)
+        setDataLoading(false)
       })
       .catch((error) => console.log(error))
   }, [])
 
-  return (
+  return isDataLoading ? ( <LoaderWrapper>
+    <Loader src={Redbull} />
+  </LoaderWrapper>):(
     <Container>
       <TableHead>
         <th>

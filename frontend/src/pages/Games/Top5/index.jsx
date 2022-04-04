@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
 import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import Theme from '../../../components/Theme'
+
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
 
 import {
   ContainerSuggestions,
@@ -18,13 +20,15 @@ import {
   ContainerButton,
   Text,
   ContainerTeam,
-  ContainerTeamSelection
+  ContainerTeamSelection,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
+import { TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
+  
   const [top5, setTop5] = useState()
   const [teamAnswering, setTeamAnswering] = useState()
   const [startCounter, setStartCount] = useState(false)
@@ -162,7 +166,7 @@ function Top5() {
             <SecondContainer>
               <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
               <ContainerTeamSelection>
-                <Text style={{color:'#2704C4'}}>Choisir l'équipe qui répond</Text>
+                <TextBlue>Choisir l'équipe qui répond</TextBlue>
                 <ContainerRow>
                   <ContainerTeam
                     isSelected={teamAnswering === team1}

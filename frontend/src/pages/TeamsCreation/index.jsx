@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
-import Loader from '../../utils/styles/Atoms'
+import { LoaderWrapper, Loader } from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
 import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 import {
-  LoaderWrapper,
   ExplainContainer,
   QuestionWrapper,
   ContainerTeam,
@@ -41,7 +40,6 @@ function Teams() {
       .catch((error) => console.log(error))
   })
 
- 
   return isDataLoading ? (
     <LoaderWrapper>
       <Loader src={Redbull} />

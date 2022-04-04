@@ -12,13 +12,14 @@ import {
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/mythoPasMythoBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
-
+import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
+import Redbull from '../../../assets/PNG/redbull.png'
 function MythoPasMytho() {
   const [mythoPasMythoData, setData] = useState([])
   const [teamAnswering, setTeamAnswering] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
   const [answerGiven, setAnswerGiven] = useState(null)
-  const [isDataLoaded, setDataLoad] = useState(false)
+  const [isDataLoading, setDataLoading] = useState(true)
   const { updateGamesPlayed, games } = useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
@@ -57,7 +58,7 @@ function MythoPasMytho() {
           requestData[n3],
           requestData[n4]
         )
-        setDataLoad(true)
+        setDataLoading(false)
         setTeamAnswering(team1)
       })
       .catch((error) => console.log(error))
@@ -65,7 +66,11 @@ function MythoPasMytho() {
 
   HasGameStarted()
 
-  return isDataLoaded ? (
+  return isDataLoading ? (
+    <LoaderWrapper>
+      <Loader src={Redbull} />
+    </LoaderWrapper>
+  ) : (
     <ContainerRow>
       <div className="bouncing-text">
         <div className="m-mpm">m</div>
@@ -105,19 +110,17 @@ function MythoPasMytho() {
                     {mythoPasMythoData[answerNumber].reponse.includes(
                       'Pas mytho'
                     ) ? (
-                      <div style={{textAlign:'center'}}>
-                        
-                      <p>Pas Mytho</p>
-                      <Text style={{ fontSize: 16 }}>
-                        {mythoPasMythoData[answerNumber].reponse.substring(
-                          12,
-                          mythoPasMythoData[answerNumber].reponse.length
-                        )}
-                      </Text>
-                    </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <p>Pas Mytho</p>
+                        <Text style={{ fontSize: 16 }}>
+                          {mythoPasMythoData[answerNumber].reponse.substring(
+                            12,
+                            mythoPasMythoData[answerNumber].reponse.length
+                          )}
+                        </Text>
+                      </div>
                     ) : (
-                      <div style={{textAlign:'center'}}>
-                        
+                      <div style={{ textAlign: 'center' }}>
                         <p>Mytho</p>
                         <Text style={{ fontSize: 16 }}>
                           {mythoPasMythoData[answerNumber].reponse.substring(
@@ -163,7 +166,9 @@ function MythoPasMytho() {
           <button onClick={() => updateAnswer()}>Question suivante</button>
         ) : (
           <Link
-            to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}?game=${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
+            to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}?game=${
+              games[games.indexOf('Le Mytho Pas Mytho') + 1]
+            }`}
             onClick={() => updateAnswer()}
           >
             Valider
@@ -178,7 +183,7 @@ function MythoPasMytho() {
         </ContainerRow>
       </ContainerQuestion>
     </ContainerRow>
-  ) : null
+  )
 }
 
 export default MythoPasMytho

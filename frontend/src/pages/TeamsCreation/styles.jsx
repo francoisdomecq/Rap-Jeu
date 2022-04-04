@@ -51,13 +51,7 @@ export const TeamName = styled.input`
   color: ${colors.blue};
 `
 
-export const LoaderWrapper = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+
 
 export const ExplainContainer = styled.div`
   background-color: white;

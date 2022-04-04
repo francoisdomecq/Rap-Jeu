@@ -12,13 +12,15 @@ import {
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/rapGenieOuGenantBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
+import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
+import Redbull from '../../../assets/PNG/redbull.png'
 
 function RapGenieOuGenant() {
+  const [isDataLoading, setDataLoading] = useState(true)
   const [questionData, setData] = useState([])
   const [teamAnswering, setTeamAnswering] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
   const [answerGiven, setAnswerGiven] = useState(null)
-  const [isDataLoaded, setDataLoad] = useState(false)
   const { games, updateGamesPlayed } = useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
@@ -67,15 +69,19 @@ function RapGenieOuGenant() {
           requestData[n3],
           requestData[n4]
         )
-        setDataLoad(true)
         setTeamAnswering(team1)
+        setDataLoading(false)
       })
       .catch((error) => console.log(error))
   }, [])
 
   HasGameStarted()
 
-  return isDataLoaded ? (
+  return isDataLoading ? (
+    <LoaderWrapper>
+      <Loader src={Redbull} />
+    </LoaderWrapper>
+  ) : (
     <ContainerRow>
       <div className="bouncing-text">
         <div className="r-rgog">r</div>
@@ -191,7 +197,7 @@ function RapGenieOuGenant() {
         </ContainerRow>
       </ContainerQuestion>
     </ContainerRow>
-  ) : null
+  )
 }
 
 export default RapGenieOuGenant

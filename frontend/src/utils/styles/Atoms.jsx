@@ -10,11 +10,19 @@ const rotate = keyframes`
     }
 `
 
-const Loader = styled.img`
+export const Loader = styled.img`
   border-bottom-color: transparent;
   animation: ${rotate} 2s infinite linear;
   height: 20%;
   width: 20%;
+`
+
+export const LoaderWrapper = styled.div`
+  margin-top: 10%;
+  margin-bottom: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export default Loader
