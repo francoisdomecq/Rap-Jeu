@@ -6,12 +6,13 @@ import {
   TableBody,
   Line,
   LineContainer,
-  QuestionTheme ,
+  QuestionTheme,
   TableContainer,
   TableBottom,
 } from './styles'
 import { LoaderWrapper, Loader } from '../../utils/styles/Atoms'
 import Redbull from '../../assets/PNG/redbull.png'
+import { TextBlue } from '../../utils/styles/Text'
 
 function Theme({ selectTheme, page, chosenTheme }) {
   const [isDataLoading, setDataLoading] = useState(true)
@@ -19,9 +20,9 @@ function Theme({ selectTheme, page, chosenTheme }) {
 
   function displayThemes() {
     return theme.map((theme) => (
-      <LineContainer>
+      <LineContainer key={theme._id}>
         <Line isChosen={theme === chosenTheme ? true : false}>
-          <QuestionTheme key={theme._id} onClick={() => selectTheme(theme)}>
+          <QuestionTheme  onClick={() => selectTheme(theme)}>
             {theme.theme}
           </QuestionTheme>
         </Line>
@@ -39,14 +40,14 @@ function Theme({ selectTheme, page, chosenTheme }) {
       .catch((error) => console.log(error))
   }, [])
 
-  return isDataLoading ? ( <LoaderWrapper>
-    <Loader src={Redbull} />
-  </LoaderWrapper>):(
+  return isDataLoading ? (
+    <LoaderWrapper>
+      <Loader src={Redbull} />
+    </LoaderWrapper>
+  ) : (
     <Container>
       <TableHead>
-        <th>
-          <p>Choisir un theme</p>
-        </th>
+          <TextBlue>Choisir un theme</TextBlue>
       </TableHead>
       <TableContainer>
         <Table>

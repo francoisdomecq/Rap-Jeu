@@ -18,4 +18,5 @@ export const TextBlue = styled.p`
   font-weight: 700;
   font-size: 24px;
   color: ${colors.blue};
+
 `

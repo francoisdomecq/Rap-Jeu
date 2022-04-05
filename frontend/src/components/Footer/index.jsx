@@ -1,4 +1,3 @@
-import Logo from '../../assets/logo_youtube.svg'
 import { FooterContainer, FooterText } from './styles'
 
 function Footer() {

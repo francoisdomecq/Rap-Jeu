@@ -6,6 +6,7 @@ import theme from '../../../assets/enchere_top5/theme.svg'
 import suggestions from '../../../assets/enchere_top5/suggestions.svg'
 import button from '../../../assets/enchere_top5/button+1.svg'
 import buttonTeam from '../../../assets/buttonTeam.svg'
+import Continuer from '../../../assets/continuer.svg'
 export const SecondContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -173,4 +174,37 @@ export const ContainerTeam = styled.div`
   &:hover {
     cursor: pointer;
   }
+`
+export const ContainerTeamSelection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 2%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: ${colors.yellow};
+  opacity: 1;
+  box-shadow: 1px 1px 1px ${colors.blue};
+`
+
+export const ContinuerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
 `

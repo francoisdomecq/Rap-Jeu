@@ -24,7 +24,7 @@ import { GameProvider, TeamProvider } from './utils/context/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router >
       <GameProvider>
         <Header />
         <Switch>

@@ -8,6 +8,7 @@ import {
   ContainerQuestion,
   ContainerAnswer,
   ButtonAnswer,
+  ContinuerContainer,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/rapGenieOuGenantBouncingLetters.css'
@@ -176,18 +177,25 @@ function RapGenieOuGenant() {
         </ContainerRow>
       </ContainerColumn>
       <ContainerColumn>
-        {answerNumber < 3 ? (
-          <button onClick={() => updateAnswer()}>Question suivante</button>
-        ) : (
-          <Link
-            to={`/${games[games.indexOf('Rap génie ou rap gênant') + 1]}?game=${
-              games[games.indexOf('Rap génie ou rap gênant') + 1]
-            }`}
-            onClick={() => updateAnswer()}
-          >
-            Passer au jeu suivant
-          </Link>
-        )}
+        {answerGiven ? (
+          answerNumber < 3 ? (
+            <ContinuerContainer onClick={() => updateAnswer()}>
+              Question suivante
+            </ContinuerContainer>
+          ) : (
+            <ContinuerContainer>
+              <Link
+                style={{ textDecoration: 'none', color: 'white' }}
+                to={`/${
+                  games[games.indexOf('Rap génie ou rap gênant') + 1]
+                }?game=${games[games.indexOf('Rap génie ou rap gênant') + 1]}`}
+                onClick={() => updateAnswer()}
+              >
+                Passer au jeu suivant
+              </Link>
+            </ContinuerContainer>
+          )
+        ) : null}
       </ContainerColumn>
       <ContainerQuestion>
         <ContainerRow style={{ width: '85%', textAlign: 'center' }}>

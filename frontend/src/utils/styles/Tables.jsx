@@ -39,7 +39,7 @@ export const TableHead = styled.thead`
 export const TableSearch = styled.input`
   width: 75%;
   text-align: center;
-  color: white;
+  color: ${colors.blue};
   text-transform: uppercase;
   font-family: 'Montserrat', 'sans-serif';
   font-size: 24px;
@@ -52,7 +52,7 @@ export const TableSearch = styled.input`
   ::placeholder {
     width: 100%;
     text-align: 'center';
-    color: white;
+    color: ${colors.blue};
     font-family: 'Montserrat', 'sans-serif';
     font-size: 24px;
     font-weight: 700;

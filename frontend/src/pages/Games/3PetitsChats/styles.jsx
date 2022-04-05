@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
+import Continuer from '../../../assets/continuer.svg'
 
 export const SecondContainer = styled.div`
   display: flex;
@@ -95,4 +96,23 @@ export const ContainerNewRapper = styled.div`
   width: 30%;
   border-radius: 20px;
   background-color: ${colors.yellow};
+`
+export const ContinuerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
 `

@@ -23,6 +23,7 @@ import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
+import { ContinuerContainer } from '../CrossFeaturing/styles'
 
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
@@ -158,15 +159,19 @@ function RollandGamos() {
                 </ContainerRow>
               </ContainerColumn>
               <ContainerRow style={{ marginTop: '5%' }}>
-                <NextRoundButton onClick={() => newRappeur()}>
-                  Continuer
-                </NextRoundButton>
+                <ContinuerContainer onClick={() => newRappeur()}>
+                  {count < 2 ? 'Manche suivante' : 'Résultats'}
+                </ContinuerContainer>
               </ContainerRow>
             </SecondContainer>
           ) : (
             <SecondContainer>
               <Text>Manche n°{count + 1}</Text>
-              <RappeurArray page="rappeur" selectRapper={selectRappeur} chosenRapper={rappeur} />
+              <RappeurArray
+                page="rappeur"
+                selectRapper={selectRappeur}
+                chosenRapper={rappeur}
+              />
               <Text>Pour combien de points ?</Text>
               <input type="number" onKeyPress={(e) => updatePoints(e)} />
             </SecondContainer>

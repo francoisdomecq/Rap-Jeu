@@ -15,6 +15,7 @@ import {
   TableBottom,
   RapperInput,
   ContainerNewRapper,
+  ContinuerContainer,
 } from './styles'
 
 function PetitsChats() {
@@ -48,7 +49,7 @@ function PetitsChats() {
     else updateScore(10, team1)
     setTeamAnswering(team2)
   }
-
+  useEffect(() => {})
   useEffect(() => {
     if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
     else setTeamAnswering(team2)
@@ -97,18 +98,24 @@ function PetitsChats() {
               </ContainerNewRapper>
               <ContainerColumn style={{ marginTop: '2%' }}>
                 {answerNumber < 1 ? (
-                  <button onClick={() => updateAnswer()}>
+                  <ContinuerContainer onClick={() => updateAnswer()}>
                     Manche suivante
-                  </button>
+                  </ContinuerContainer>
                 ) : (
-                  <Link
-                    to={`/${
-                      games[games.indexOf('Les 3 petits chats') + 1]
-                    }/?game=${games[games.indexOf('Les 3 petits chats') + 1]}`}
-                    onClick={() => updateAnswer()}
-                  >
-                    Valider
-                  </Link>
+                  <ContinuerContainer>
+                    <Link
+                      style={{ textDecoration: 'none', color: 'white' }}
+                      to={`/${
+                        games[games.indexOf('Les 3 petits chats') + 1]
+                      }/?game=${
+                        games[games.indexOf('Les 3 petits chats') + 1]
+                      }`}
+                      onClick={() => updateAnswer()}
+                    >
+                      Continuer vers <br />
+                      {games[games.indexOf('Les 3 petits chats') + 1]}
+                    </Link>
+                  </ContinuerContainer>
                 )}
               </ContainerColumn>
             </ContainerColumn>

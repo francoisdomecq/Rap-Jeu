@@ -4,7 +4,7 @@ import timer from '../../../assets/enchere_top5/timer.svg'
 import theme from '../../../assets/enchere_top5/theme.svg'
 import suggestions from '../../../assets/enchere_top5/suggestions.svg'
 import button from '../../../assets/enchere_top5/button+1.svg'
-import buttonTimer from '../../../assets/buttonTeam.svg'
+import buttonTeam from '../../../assets/buttonTeam.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -138,7 +138,7 @@ export const ContainerTeam = styled.div`
   width: 325px;
   height: 56px;
   background-size: contain;
-  background-image: url(${buttonTimer});
+  background-image: url(${buttonTeam});
   background-repeat: no-repeat;
   opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
   &:hover {
@@ -151,10 +151,10 @@ export const ContainerTeamSelection = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2%;
-  padding: 1%;
+  padding: 2%;
   width: 100%;
   border-radius: 20px;
   background-color: ${colors.yellow};
-  opacity:1;
-  
+  opacity: 1;
+  box-shadow: 1px 1px 1px ${colors.blue};
 `

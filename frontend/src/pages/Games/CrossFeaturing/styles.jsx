@@ -3,6 +3,7 @@ import colors from '../../../utils/styles/colors'
 import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
 import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg'
 import buttonTeam from '../../../assets/buttonTeam.svg'
+import Continuer from '../../../assets/continuer.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ export const RappeurContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-
+  width: 100%;
   background-size: contain;
   background-image: url(${RapperContainerBG});
   background-repeat: no-repeat;
@@ -131,7 +132,7 @@ export const NextRoundButton = styled.button`
 export const Header = styled.div`
   padding-top: 1%;
   padding-bottom: 1%;
-  width: 30%;
+  width: 80%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
@@ -146,13 +147,13 @@ export const Header = styled.div`
 `
 export const RappersContainer = styled.div`
   min-height: 50px;
-  max-height: 350px;
+  max-height: 250px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 80%;
   height: 100%;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   font-family: 'Montserrat';
@@ -162,7 +163,7 @@ export const RappersContainer = styled.div`
 `
 export const TableBottom = styled.div`
   height: 20px;
-  width: 30%;
+  width: 80%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
@@ -191,6 +192,7 @@ export const SearchContainer = styled.div`
   margin-bottom: 2%;
   background: ${colors.yellow};
   border-radius: 20px;
+  margin-top: 2%;
 `
 export const ContainerTeamSelection = styled.div`
   display: flex;
@@ -202,6 +204,42 @@ export const ContainerTeamSelection = styled.div`
   width: 100%;
   border-radius: 20px;
   background-color: ${colors.yellow};
-  opacity:1;
-  
+  opacity: 1;
+`
+export const ContainerTeamAnswer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 1%;
+  width: 32%;
+  border-radius: 20px;
+  background: rgb(255, 210, 34);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 210, 34, 1) 0%,
+    rgba(39, 4, 196, 1) 50%,
+    rgba(255, 210, 34, 1) 99%
+  );
+  opacity: 1;
+`
+export const ContinuerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
 `

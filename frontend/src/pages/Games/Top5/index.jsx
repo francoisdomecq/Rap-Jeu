@@ -8,7 +8,6 @@ import Theme from '../../../components/Theme'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
-
 import {
   ContainerSuggestions,
   ContainerTimer,
@@ -28,7 +27,6 @@ import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
-  
   const [top5, setTop5] = useState()
   const [teamAnswering, setTeamAnswering] = useState()
   const [startCounter, setStartCount] = useState(false)
@@ -133,12 +131,16 @@ function Top5() {
                 <ContainerRow>
                   <ContainerColumn>
                     {answerGiven >= 5 ? (
-                      <ContainerColumn>
-                        <Text>Félicitations {teamAnswering}</Text>
-                        <button onClick={() => updateScore(15, teamAnswering)}>
-                          Attribuer leurs points à {teamAnswering}
-                        </button>
-                      </ContainerColumn>
+                      <ContainerTeamSelection>
+                        <TextBlue>Félicitations {teamAnswering}</TextBlue>
+                        <ContainerTeam
+                          onClick={() => updateScore(15, teamAnswering)}
+                        >
+                          <Text style={{ color: 'white', fontSize: 16 }}>
+                            +15 points pour {teamAnswering}
+                          </Text>
+                        </ContainerTeam>
+                      </ContainerTeamSelection>
                     ) : (
                       <Text>Aucune des deux équipes ne gagne de points..</Text>
                     )}

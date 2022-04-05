@@ -8,6 +8,7 @@ import {
   ContainerQuestion,
   ContainerAnswer,
   ButtonAnswer,
+  ContinuerContainer,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/mythoPasMythoBouncingLetters.css'
@@ -162,18 +163,26 @@ function MythoPasMytho() {
         </ContainerColumn>
       </ContainerColumn>
       <ContainerColumn>
-        {answerNumber < 3 ? (
-          <button onClick={() => updateAnswer()}>Question suivante</button>
-        ) : (
-          <Link
-            to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}?game=${
-              games[games.indexOf('Le Mytho Pas Mytho') + 1]
-            }`}
-            onClick={() => updateAnswer()}
-          >
-            Valider
-          </Link>
-        )}
+        {answerGiven ? (
+          answerNumber < 3 ? (
+            <ContinuerContainer onClick={() => updateAnswer()}>
+              Question suivante
+            </ContinuerContainer>
+          ) : (
+            <ContinuerContainer>
+              <Link
+                style={{ textDecoration: 'none', color: 'white' }}
+                to={`/${games[games.indexOf('Le Mytho Pas Mytho') + 1]}?game=${
+                  games[games.indexOf('Le Mytho Pas Mytho') + 1]
+                }`}
+                onClick={() => updateAnswer()}
+              >
+                Continuer vers <br />{' '}
+                {games[games.indexOf('Le Mytho Pas Mytho') + 1]}
+              </Link>
+            </ContinuerContainer>
+          )
+        ) : null}
       </ContainerColumn>
       <ContainerQuestion>
         <ContainerRow style={{ width: '85%', textAlign: 'center' }}>
