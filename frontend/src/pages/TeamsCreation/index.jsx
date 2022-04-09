@@ -41,7 +41,7 @@ function Teams() {
       <Loader src={Redbull} />
     </LoaderWrapper>
   ) : (
-    <ContainerRow>
+    <ContainerRow style={{ marginBottom: '3%' }}>
       <PageTitle>Création des équipes</PageTitle>
       <ExplainContainer>
         <TextH1>Instructions</TextH1>
