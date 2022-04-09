@@ -29,7 +29,7 @@ function Top5() {
   const [top5, setTop5] = useState()
   const [teamAnswering, setTeamAnswering] = useState()
   const [startCounter, setStartCount] = useState(false)
-  const [counter, setCounter] = useState(20)
+  const [counter, setCounter] = useState(2000)
   const [answerGiven, setAnswerGiven] = useState(0)
   const [trialNumber, setTrialNumber] = useState(0)
   const [nombreReponses, updateNombreReponses] = useState(0)
@@ -86,7 +86,7 @@ function Top5() {
         <div className="t-top5">t</div>
         <div className="o-top5">o</div>
         <div className="p-top5">p</div>
-        <div style={{ color: 'transparent'}}>..</div>
+        <div style={{ color: 'transparent' }}>..</div>
         <div className="five-top5">5</div>
       </div>
       <ContainerColumn>
@@ -101,9 +101,11 @@ function Top5() {
                       {counter}
                     </Timer>
                   </ContainerTimer>
-                  <Text>{teamAnswering}, à vous de jouer !</Text>
-                  <Text>Nombre de bonne réponses : {answerGiven}</Text>
-                  <ContainerColumn>
+                  <ContainerColumn style={{ marginTop: '2%' }}>
+                    <Text>{teamAnswering}, à vous de jouer !</Text>
+                    <Text>Nombre de bonne réponses : {answerGiven}</Text>
+                  </ContainerColumn>
+                  <ContainerColumn style={{ marginTop: '2%' }}>
                     <ContainerRow style={{ justifyContent: '', width: '20%' }}>
                       <ContainerButton
                         onClick={() => setAnswerGiven(answerGiven - 1)}
@@ -117,7 +119,7 @@ function Top5() {
                       </ContainerButton>
                     </ContainerRow>
                   </ContainerColumn>
-                  <ContainerTheme style={{ marginTop: '2%' }}>
+                  <ContainerTheme style={{ marginTop: '4%' }}>
                     <ThemeText>{top5.theme}</ThemeText>
                   </ContainerTheme>
                   <ContainerSuggestions>
@@ -128,7 +130,7 @@ function Top5() {
                 </ContainerColumn>
               ) : (
                 <ContainerRow>
-                  <ContainerColumn>
+                  <ContainerColumn style={{marginTop:'16%'}}>
                     {answerGiven >= 5 ? (
                       <ContainerTeamSelection style={{ marginBottom: '5%' }}>
                         <TextBlue>Félicitations {teamAnswering}</TextBlue>

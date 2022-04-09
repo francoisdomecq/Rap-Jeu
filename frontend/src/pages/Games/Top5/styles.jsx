@@ -117,11 +117,10 @@ export const ContainerButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70px;
-  height: 60px;
-  background-size: contain;
-  background-image: url(${button});
-  background-repeat: no-repeat;
+  width: 35%;
+  max-height: 60px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   &:hover {
     cursor: pointer;
   }
@@ -152,7 +151,7 @@ export const ContainerTeamSelection = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2%;
-  padding: 2%;
+  padding: 2% 2% 6% 2%;
   width: 100%;
   border-radius: 20px;
   background: rgb(255, 255, 24);
@@ -170,6 +169,7 @@ export const ContinuerContainer = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-top: 20%;
   background-image: url(${Continuer});
   background-repeat: no-repeat;
   background-size: contain;
