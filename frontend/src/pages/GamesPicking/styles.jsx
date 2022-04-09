@@ -85,7 +85,7 @@ export const ExplainContainer = styled.div`
   background-color: white;
   border: 3px solid black;
   border-radius: 20px;
-  width: 70%;
+  width: 80%;
   padding: 2%;
   padding-top: 0%;
   text-align: start;
