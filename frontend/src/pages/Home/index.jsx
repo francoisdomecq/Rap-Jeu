@@ -17,7 +17,7 @@ import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
 import '../../utils/animations/Bouncing/animationBouncing.css'
 function Home() {
   return (
-    <Container style={{ marginBottom: '2%' }}>
+    <Container>
       <SecondContainer>
         <LinkImage
           href="https://www.redbull.com/fr-fr/collections/redbinks"
@@ -27,7 +27,7 @@ function Home() {
         </LinkImage>
 
         <Logo
-          style={{ width: '10%', height: '10%' }}
+          style={{ width: '5%', height: '5%' }}
           src={RapJeuLogo}
           alt="rapjeu"
         />
@@ -63,15 +63,10 @@ function Home() {
           <Text>
             Une fois les équipes définies, vous allez pouvoir choisir les deux
             premières épreuves auxquelles vous voulez jouer. Parmi les épreuves
-            disponibles se trouvent
+            disponibles se trouvent{' '}
             <strong>
-              <ul>
-                <li>Le top 5</li>
-                <li>Le crossfeaturing</li>
-                <li>Le mytho pas mytho</li>
-                <li>Le rap génie ou gênant</li>
-                <li>Les 3 petits (r)chats</li>
-              </ul>
+              le top 5, le crossfeaturing, le mytho pas mytho, le rap génie ou
+              gênant et les 3 petits (r)chats.{' '}
             </strong>
             Bien entendu, la troisième épreuve est <strong>les enchères</strong>
             . Et pour la dernière épreuve, vous départagerez le gagnant au cours
@@ -86,7 +81,7 @@ function Home() {
         </Explications>
       </ExplicationsContainer>
 
-      <Link style={{ textDecoration: 'none', marginTop: '3%' }} to="/teams">
+      <Link style={{ textDecoration: 'none', marginTop: '2%' }} to="/teams">
         <Container>
           <div className="bouncing-text">
             <div className="j">J</div>

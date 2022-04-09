@@ -15,8 +15,8 @@ export const SecondContainer = styled.div`
   margin-top: 1%;
 `
 export const LinkImage = styled.a`
-  width: 10%;
-  height: 10%;
+  width: 5%;
+  height: 5%;
 `
 export const JouerContainer = styled.div`
   display: flex;
@@ -38,7 +38,7 @@ export const Explications = styled.div`
   background-color: white;
   border: 3px solid black;
   border-radius: 20px;
-  width: 50%;
+  width: 70%;
   padding: 2%;
   padding-top: 0%;
   text-align: start;
