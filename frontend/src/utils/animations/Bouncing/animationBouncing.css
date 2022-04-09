@@ -1,9 +1,11 @@
 .bouncing-text {
   position: relative;
   display: flex;
-  font-size: 70px;
+  font-size: 60px;
+  line-height: 0%;
   font-family: 'Montserrat' black;
   font-weight: 700;
+  margin-bottom: 3%;
   text-transform: uppercase;
 }
 
