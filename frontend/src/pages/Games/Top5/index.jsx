@@ -2,8 +2,6 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
-import ScoreTeam1 from '../../../components/Score/index.scoreteam1'
-import ScoreTeam2 from '../../../components/Score/index.scoreteam2'
 import Theme from '../../../components/Theme'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
@@ -83,12 +81,12 @@ function Top5() {
 
   HasGameStarted()
   return (
-    <ContainerRow>
+    <ContainerRow style={{ marginBottom: '2%' }}>
       <div className="bouncing-text">
         <div className="t-top5">t</div>
         <div className="o-top5">o</div>
         <div className="p-top5">p</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent'}}>..</div>
         <div className="five-top5">5</div>
       </div>
       <ContainerColumn>
@@ -170,38 +168,40 @@ function Top5() {
               )}
             </div>
           ) : (
-            <SecondContainer>
+            <ContainerRow>
               <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
-              <ContainerTeamSelection>
-                <TextBlue>Choisir l'équipe qui répond</TextBlue>
-                <ContainerRow>
-                  <ContainerTeam
-                    isSelected={teamAnswering === team1}
-                    onClick={() => setTeamAnswering(team1)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team1}
-                    </Text>
-                  </ContainerTeam>
-                  <ContainerTeam
-                    isSelected={teamAnswering === team2}
-                    onClick={() => setTeamAnswering(team2)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team2}
-                    </Text>
-                  </ContainerTeam>
-                </ContainerRow>
-              </ContainerTeamSelection>
+              <ContainerColumn style={{ width: '40%' }}>
+                <ContainerTeamSelection>
+                  <TextBlue>Choisir l'équipe qui répond</TextBlue>
+                  <ContainerRow>
+                    <ContainerTeam
+                      isSelected={teamAnswering === team1}
+                      onClick={() => setTeamAnswering(team1)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team1}
+                      </Text>
+                    </ContainerTeam>
+                    <ContainerTeam
+                      isSelected={teamAnswering === team2}
+                      onClick={() => setTeamAnswering(team2)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team2}
+                      </Text>
+                    </ContainerTeam>
+                  </ContainerRow>
+                </ContainerTeamSelection>
 
-              {/*Changer le boutton dessous*/}
-              <ContainerTeam
-                style={{ marginTop: '2%' }}
-                onClick={() => startGame()}
-              >
-                <Text style={{ color: 'white' }}>Commencer la manche</Text>
-              </ContainerTeam>
-            </SecondContainer>
+                {/*Changer le boutton dessous*/}
+                <ContainerTeam
+                  style={{ marginTop: '6%' }}
+                  onClick={() => startGame()}
+                >
+                  <Text style={{ color: 'white' }}>Commencer la manche</Text>
+                </ContainerTeam>
+              </ContainerColumn>
+            </ContainerRow>
           )}
         </ContainerRow>
       </ContainerColumn>

@@ -48,7 +48,7 @@ export const SearchContainer = styled.div`
 `
 export const ContainerTimer = styled.div`
   position: absolute;
-  top: 10.6%;
+  top: 8.9%;
   display: flex;
   justify-content: flex-start;
   width: 215px;
