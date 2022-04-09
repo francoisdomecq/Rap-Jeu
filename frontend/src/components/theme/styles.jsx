@@ -4,7 +4,7 @@ import colors from '../../utils/styles/colors'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
 `
 export const TableHead = styled.thead`
   display: flex;

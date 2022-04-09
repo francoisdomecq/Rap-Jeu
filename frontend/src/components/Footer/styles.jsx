@@ -8,7 +8,6 @@ export const FooterContainer = styled.footer`
   background: #ffd222;
   border-top: 4px solid rgb(0, 0, 0);
   height: 10%;
-  margin-top: 3%;
 `
 export const FooterText = styled.p`
   font-family: 'Montserrat', 'sans-serif';

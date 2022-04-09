@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   SearchContainer,
@@ -11,9 +11,13 @@ import MusicBrainzLogo from '../../assets/rollandgamos/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../assets/rollandgamos/icons8-youtube.svg'
 import RapGeniusLogo from '../../assets/rollandgamos/RapGenius_Logo.png'
 
-function SearchFeaturing() {
+function SearchFeaturing(rappeur) {
   const [rappeur1Search, setRappeur1Search] = useState('')
   const [rappeur2Search, setRappeur2Search] = useState('')
+
+  useEffect(() => {
+    if (rappeur) setRappeur1Search(rappeur.rappeur)
+  },[rappeur])
 
   return (
     <SearchContainer>

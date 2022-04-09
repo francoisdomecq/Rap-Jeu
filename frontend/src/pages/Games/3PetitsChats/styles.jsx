@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
-import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
 import Continuer from '../../../assets/continuer.svg'
 
 export const ContainerRow = styled.div`
@@ -89,7 +88,7 @@ export const RapperInput = styled.input`
   text-align: center;
   width: 60%;
   border: 0px solid #000000;
-  border-radius: 20px;
+  border-radius: 10px;
   font-family: 'Montserrat', 'sans-serif';
   font-size: 28px;
   font-weight: 700;

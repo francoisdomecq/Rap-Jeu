@@ -5,14 +5,23 @@ import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg
 import buttonTeam from '../../../assets/buttonTeam.svg'
 import Continuer from '../../../assets/continuer.svg'
 
-export const Container = styled.div`
+export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   height: 100%;
   width: 100%;
 `
-export const SecondContainer = styled.div`
+export const ContainerColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+`
+export const ContainerColumn45 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -21,16 +30,92 @@ export const SecondContainer = styled.div`
   height: 100%;
   margin-bottom: 2%;
 `
-export const RappeurContainer = styled.div`
+export const ContainerTeamAnswer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  background-size: contain;
-  background-image: url(${RapperContainerBG});
-  background-repeat: no-repeat;
+  justify-content: center;
+  width: 30%;
+  padding: 1%;
+  border-radius: 20px;
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
 `
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom: 5px solid ${colors.yellow};
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+`
+export const RappersContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  min-height: 50px;
+  max-height: 250px;
+  overflow-y: scroll;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 24px;
+  color: ${colors.yellow};
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+`
+export const TableBottom = styled.div`
+  display: flex;
+  padding-bottom: 3%;
+  width: 80%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+`
+export const RapperInput = styled.input`
+  text-align: center;
+  width: 60%;
+  border: 0px solid #000000;
+  border-radius: 10px;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  background-color: ${colors.yellow};
+  ::placeholder {
+    text-transform: none;
+    text-align: 'center';
+    width: 100%;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+  }
+  &:hover {
+    text-underline-position: below;
+    text-decoration: underline;
+  }
+  ::-webkit-search-cancel-button {
+    position: relative;
+    right: 15px;
+    top: 50%;
+  }
+`
+
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -50,39 +135,7 @@ export const Text = styled.p`
   font-weight: 700;
   font-size: 24px;
 `
-export const RapperInput = styled.input`
-  text-align: center;
-  background-color: ${colors.yellow};
-  border: 0px solid #000000;
-  border-radius: 20px;
-  font-family: 'Montserrat', 'sans-serif';
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
-  ::placeholder {
-    color: white;
-    text-align: 'center';
-    font-family: 'Montserrat', 'sans-serif';
-    font-size: 24px;
-    font-weight: 700;
-    width: 100%;
-    text-transform: none;
-  }
-  &:hover {
-    text-underline-position: below;
-    text-decoration: underline;
-  }
-  ::-webkit-search-cancel-button {
-    position: relative;
-    right: 15px;
-    top: 50%;
-  }
-  width: 200px;
-  height: 60px;
-  background-size: contain;
-  background-image: url(${RapperInputBG});
-  background-repeat: no-repeat;
-`
+
 export const SearchInput = styled.input`
   text-align: center;
   background-color: ${colors.yellow};
@@ -129,45 +182,7 @@ export const NextRoundButton = styled.button`
     cursor: pointer;
   }
 `
-export const Header = styled.div`
-  padding-top: 1%;
-  padding-bottom: 1%;
-  width: 80%;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 24px;
-  color: white;
-  border-bottom: 5px solid ${colors.yellow};
-`
-export const RappersContainer = styled.div`
-  min-height: 50px;
-  max-height: 250px;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 24px;
-  color: ${colors.yellow};
-`
-export const TableBottom = styled.div`
-  height: 20px;
-  width: 80%;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
-`
+
 export const ContainerTeam = styled.div`
   display: flex;
   align-items: center;
@@ -206,24 +221,7 @@ export const ContainerTeamSelection = styled.div`
   background-color: ${colors.yellow};
   opacity: 1;
 `
-export const ContainerTeamAnswer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2%;
-  padding: 1%;
-  width: 32%;
-  border-radius: 20px;
-  background: rgb(255, 210, 34);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 210, 34, 1) 0%,
-    rgba(39, 4, 196, 1) 50%,
-    rgba(255, 210, 34, 1) 99%
-  );
-  opacity: 1;
-`
+
 export const ContinuerContainer = styled.div`
   display: flex;
   align-items: center;

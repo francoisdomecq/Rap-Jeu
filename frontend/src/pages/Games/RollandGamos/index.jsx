@@ -2,22 +2,16 @@ import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
+import SearchFeaturing from '../../../components/SearchFeaturing'
 import {
   RappeurContainer,
   SecondContainer,
-  InputContainer,
-  SearchContainer,
   Text,
   RapperInput,
-  SearchInput,
   NextRoundButton,
   ContainerTeam,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
-
-import MusicBrainzLogo from '../../../assets/rollandgamos/MusicBrainz_Logo.png'
-import YoutubeLogo from '../../../assets/rollandgamos/icons8-youtube.svg'
-import RapGeniusLogo from '../../../assets/rollandgamos/RapGenius_Logo.png'
 
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
@@ -30,14 +24,11 @@ function RollandGamos() {
   const [count, setCount] = useState(0)
   const [points, setPoints] = useState()
   const [teamWinner, setTeamWinner] = useState('')
-  const [rappeur1Search, setRappeur1Search] = useState('')
-  const [rappeur2Search, setRappeur2Search] = useState('')
   const { scoreTeam1, scoreTeam2 } = useContext(TeamContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
-    setRappeur1Search(rappeur)
   }
   const updatePoints = (e) => {
     if (e.key === 'Enter') {
@@ -45,6 +36,14 @@ function RollandGamos() {
     }
   }
 
+  function lastRapper(e) {
+    if (
+      e.nativeEvent.inputType === 'deleteContentBackward' &&
+      rappeur.length === 1
+    )
+      setRappeur(' ')
+    else setRappeur(e.target.value)
+  }
   function newRappeur() {
     if (teamWinner === team1) updateScore(points, team1)
     else if (teamWinner === team2) updateScore(points, team2)
@@ -58,7 +57,6 @@ function RollandGamos() {
 
   return count < 3 ? (
     <ContainerRow>
-      {console.log(rappeur, points)}
       <div className="bouncing-text">
         <div className="r-RG">R</div>
         <div className="o-RG">O</div>
@@ -77,66 +75,16 @@ function RollandGamos() {
       <ContainerColumn>
         <ContainerRow>
           {rappeur && points ? (
-            <SecondContainer>
+            <ContainerColumn>
               <RappeurContainer>
                 <Text style={{ color: 'white' }}>Dernier rappeur cité</Text>
                 <RapperInput
                   type="search"
-                  placeholder={rappeur1Search}
-                  onChange={(e) => setRappeur1Search(e.target.value)}
+                  placeholder={rappeur}
+                  onChange={(e) => lastRapper(e)}
                 />
               </RappeurContainer>
-              <Text style={{ marginTop: '7%' }}>
-                Un doute sur un featuring ?
-              </Text>
-              <InputContainer>
-                <SearchInput
-                  type="search"
-                  placeholder={rappeur1Search}
-                  value={rappeur1Search}
-                  onChange={(e) => setRappeur1Search(e.target.value)}
-                />
-                <SearchInput
-                  type="search"
-                  placeholder="rappeur 2"
-                  onChange={(e) => setRappeur2Search(e.target.value)}
-                />
-              </InputContainer>
-              <SearchContainer>
-                <a
-                  rel="noreferrer"
-                  href={`https://www.youtube.com/results?search_query=${rappeur1Search}+${rappeur2Search}`}
-                  target="_blank"
-                >
-                  <img
-                    style={{ width: 96, height: 96 }}
-                    src={YoutubeLogo}
-                    alt="Chercher sur youtube"
-                  />
-                </a>
-                <a
-                  rel="noreferrer"
-                  href={`https://musicbrainz.org/search?query=${rappeur1Search}%20feat.%20${rappeur2Search}&type=recording&limit=5&method=advanced`}
-                  target="_blank"
-                >
-                  <img
-                    src={MusicBrainzLogo}
-                    style={{ width: 96, heigth: 96 }}
-                    alt="Chercher sur MusicBrainz"
-                  />
-                </a>
-                <a
-                  rel="noreferrer"
-                  href={`https://genius.com/search?q=${rappeur1Search}%20${rappeur2Search}`}
-                  target="_blank"
-                >
-                  <img
-                    src={RapGeniusLogo}
-                    style={{ width: 96, heigth: 96 }}
-                    alt="Chercher sur RapGenius"
-                  />
-                </a>
-              </SearchContainer>
+              <SearchFeaturing rappeur={rappeur} />
               <ContainerColumn style={{ marginTop: '3%' }}>
                 <Text>Sélectionner l'équipe gagnante</Text>
                 <ContainerRow>
@@ -163,7 +111,7 @@ function RollandGamos() {
                   {count < 2 ? 'Manche suivante' : 'Résultats'}
                 </ContinuerContainer>
               </ContainerRow>
-            </SecondContainer>
+            </ContainerColumn>
           ) : (
             <SecondContainer>
               <Text>Manche n°{count + 1}</Text>

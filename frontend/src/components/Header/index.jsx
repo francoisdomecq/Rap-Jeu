@@ -15,7 +15,6 @@ function Header() {
   const game = urlParams.get('game')
   return hasGameStarted ? (
     <NavContainer>
-      {console.log(game)}
       {gamesPlayed.length === 0 ? (
         <PageTextBis>{games[0]}</PageTextBis>
       ) : (
