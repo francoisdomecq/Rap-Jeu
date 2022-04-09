@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom'
 import RapperArray from '../../../components/Rappers'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
-import { TextBlack, TextWhite, TextBlue } from '../../../utils/styles/Text'
+import { TextBlack, TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import {
+  ContainerRow,
+  ContainerColumn,
+  ContainerColumn45,
   RappersContainer,
-  SecondContainer,
   Header,
   TableBottom,
   RapperInput,
   ContainerNewRapper,
-  ContinuerContainer,
+  ContinueContainer,
 } from './styles'
 
 function PetitsChats() {
@@ -87,23 +88,21 @@ function PetitsChats() {
                 ))}
               </RappersContainer>
               <TableBottom />
-              <ContainerNewRapper>
-                <ContainerColumn>
+              <ContainerNewRapper>          
                   <TextBlue>Nouveau rappeur</TextBlue>
                   <RapperInput
                     type="search"
-                    placeholder='ajouter un rappeur'
+                    placeholder="ajouter un rappeur"
                     onKeyPress={(e) => addRappers(e)}
                   />
-                </ContainerColumn>
               </ContainerNewRapper>
               <ContainerColumn style={{ marginTop: '2%' }}>
                 {answerNumber < 1 ? (
-                  <ContinuerContainer onClick={() => updateAnswer()}>
+                  <ContinueContainer onClick={() => updateAnswer()}>
                     Manche suivante
-                  </ContinuerContainer>
+                  </ContinueContainer>
                 ) : (
-                  <ContinuerContainer>
+                  <ContinueContainer>
                     <Link
                       style={{ textDecoration: 'none', color: 'white' }}
                       to={`/${
@@ -116,15 +115,15 @@ function PetitsChats() {
                       Continuer vers <br />
                       {games[games.indexOf('Les 3 petits chats') + 1]}
                     </Link>
-                  </ContinuerContainer>
+                  </ContinueContainer>
                 )}
               </ContainerColumn>
             </ContainerColumn>
           ) : (
-            <SecondContainer>
+            <ContainerColumn45>
               <TextBlack>L'équipe {teamAnswering} commence la manche</TextBlack>
               <RapperArray selectRapper={selectRapper} />
-            </SecondContainer>
+            </ContainerColumn45>
           )}
         </ContainerRow>
       </ContainerColumn>
