@@ -21,10 +21,6 @@ function Teams() {
   const { team1, team2, changeTeams, questionTeam, changeQuestionTeams } =
     useContext(TeamContext)
 
-  function refreshPage() {
-    window.location.reload(false)
-  }
-
   useEffect(() => {
     fetch(`http://localhost:3001/api/nomequipe`)
       .then((response) => response.json())
@@ -50,22 +46,17 @@ function Teams() {
       <ExplainContainer>
         <TextH1>Instructions</TextH1>
         <Text>
-          Le maître de jeu doit lire la question aux deux équipes. Si la
-          question ne convient pas, tu peux en charger une autre !
-        </Text>
-        <Text>
-          Comme tu peux le voir les noms des deux équipes sont déjà pré-remplis
-          comme dans l'émission ! T'as plus qu'à compléter le nom des deux
-          équipes en ajoutant, avant (ou après) le texte déjà rempli, la réponse
-          donnée par chaque équipe !
+          Le maître de jeu doit lire la question aux deux équipes. Comme tu peux
+          le voir les noms des deux équipes sont déjà pré-remplis comme dans
+          l'émission ! T'as plus qu'à compléter le nom des deux équipes en
+          ajoutant, avant (ou après) le texte déjà rempli, la réponse donnée par
+          chaque équipe !
         </Text>
       </ExplainContainer>
       <ContainerRow>
-        <QuestionWrapper>{questionTeam}</QuestionWrapper>
         <ContainerColumn>
-          <button onClick={refreshPage} />
+          <QuestionWrapper>{questionTeam}</QuestionWrapper>
         </ContainerColumn>
-
         <ContainerTeam>
           <TeamWrapper>
             <p>EQUIPE 1</p>

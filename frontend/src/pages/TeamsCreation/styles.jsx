@@ -57,7 +57,7 @@ export const ExplainContainer = styled.div`
   background-color: white;
   border: 3px solid black;
   border-radius: 20px;
-  width: 50%;
+  width: 70%;
   padding: 2%;
   padding-top: 0%;
   text-align: start;
