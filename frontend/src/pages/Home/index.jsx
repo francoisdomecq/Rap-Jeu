@@ -17,7 +17,7 @@ import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
 import '../../utils/animations/Bouncing/animationBouncing.css'
 function Home() {
   return (
-    <Container>
+    <Container style={{ marginBottom: '3%' }}>
       <SecondContainer>
         <LinkImage
           href="https://www.redbull.com/fr-fr/collections/redbinks"
