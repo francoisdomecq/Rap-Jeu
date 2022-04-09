@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
 `
 export const TableHead = styled.thead`
   display: flex;
@@ -13,12 +12,17 @@ export const TableHead = styled.thead`
   padding-right: 2%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  color:${colors.blue};
+  color: ${colors.blue};
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: ${colors.yellow};
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
 `
 
 export const TableContainer = styled.div`
@@ -68,5 +72,10 @@ export const TableBottom = styled.div`
   width: 100%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: ${colors.yellow};
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
 `

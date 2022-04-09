@@ -11,7 +11,7 @@ export const CardWrapper = styled.div`
   width: 28%;
   border-radius: 30px;
   background-color: ${colors.blue};
-  
+
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.6);
   opacity: ${({ isFavorite }) => (isFavorite ? '0.4' : '1')};
   &:hover {
@@ -40,6 +40,8 @@ export const CardTitle = styled.span`
 
 export const CardRulesWrapper = styled.div`
   background: ${colors.yellow};
+  /*background: rgb(255,255,24);
+background: linear-gradient(180deg, rgba(255,255,24,1) 0%, rgba(255,210,34,1) 100%);*/
   box-shadow: 5px 5px 2px 1px black;
   font-size: 22px;
   width: 95%;

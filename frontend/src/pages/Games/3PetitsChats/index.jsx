@@ -5,7 +5,7 @@ import RapperArray from '../../../components/Rappers'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
-import { TextBlack, TextWhite } from '../../../utils/styles/Text'
+import { TextBlack, TextWhite, TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import {
@@ -89,9 +89,10 @@ function PetitsChats() {
               <TableBottom />
               <ContainerNewRapper>
                 <ContainerColumn>
-                  <TextBlack>Nouveau rappeur</TextBlack>
+                  <TextBlue>Nouveau rappeur</TextBlue>
                   <RapperInput
                     type="search"
+                    placeholder='ajouter un rappeur'
                     onKeyPress={(e) => addRappers(e)}
                   />
                 </ContainerColumn>

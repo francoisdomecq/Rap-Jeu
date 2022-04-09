@@ -20,6 +20,7 @@ import {
   Text,
   ContainerTeam,
   ContainerTeamSelection,
+  ContinuerContainer,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { TextBlue } from '../../../utils/styles/Text'
@@ -131,9 +132,10 @@ function Top5() {
                 <ContainerRow>
                   <ContainerColumn>
                     {answerGiven >= 5 ? (
-                      <ContainerTeamSelection>
+                      <ContainerTeamSelection style={{ marginBottom: '5%' }}>
                         <TextBlue>Félicitations {teamAnswering}</TextBlue>
                         <ContainerTeam
+                          className="Button"
                           onClick={() => updateScore(15, teamAnswering)}
                         >
                           <Text style={{ color: 'white', fontSize: 16 }}>
@@ -144,22 +146,25 @@ function Top5() {
                     ) : (
                       <Text>Aucune des deux équipes ne gagne de points..</Text>
                     )}
-                    <div>
-                      {nombreReponses < 1 ? (
-                        <button onClick={() => updateNombreAnswers()}>
-                          Manche suivante
-                        </button>
-                      ) : (
+
+                    {nombreReponses < 1 ? (
+                      <ContinuerContainer onClick={() => updateNombreAnswers()}>
+                        Manche suivante
+                      </ContinuerContainer>
+                    ) : (
+                      <ContinuerContainer>
                         <Link
+                          style={{ textDecoration: 'none', color: 'white' }}
                           to={`/${games[games.indexOf('Top 5') + 1]}/?game=${
                             games[games.indexOf('Top 5') + 1]
                           }`}
                           onClick={() => updateNombreAnswers()}
                         >
-                          Continuer vers {games[games.indexOf('Top 5') + 1]}
+                          Continuer vers <br />
+                          {games[games.indexOf('Top 5') + 1]}
                         </Link>
-                      )}
-                    </div>
+                      </ContinuerContainer>
+                    )}
                   </ContainerColumn>
                 </ContainerRow>
               )}

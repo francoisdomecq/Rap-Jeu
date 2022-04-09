@@ -107,31 +107,29 @@ function MythoPasMytho() {
             <ContainerColumn>
               <ContainerAnswer>
                 <ContainerRow style={{ width: '90%' }}>
-                  <Text style={{ color: 'white' }}>
-                    {mythoPasMythoData[answerNumber].reponse.includes(
-                      'Pas mytho'
-                    ) ? (
-                      <div style={{ textAlign: 'center' }}>
-                        <p>Pas Mytho</p>
-                        <Text style={{ fontSize: 16 }}>
-                          {mythoPasMythoData[answerNumber].reponse.substring(
-                            12,
-                            mythoPasMythoData[answerNumber].reponse.length
-                          )}
-                        </Text>
-                      </div>
-                    ) : (
-                      <div style={{ textAlign: 'center' }}>
-                        <p>Mytho</p>
-                        <Text style={{ fontSize: 16 }}>
-                          {mythoPasMythoData[answerNumber].reponse.substring(
-                            8,
-                            mythoPasMythoData[answerNumber].reponse.length
-                          )}
-                        </Text>
-                      </div>
-                    )}
-                  </Text>
+                  {mythoPasMythoData[answerNumber].reponse.includes(
+                    'Pas mytho'
+                  ) ? (
+                    <div>
+                      <Text>Pas Mytho</Text>
+                      <Text style={{ fontSize: 16 }}>
+                        {mythoPasMythoData[answerNumber].reponse.substring(
+                          12,
+                          mythoPasMythoData[answerNumber].reponse.length
+                        )}
+                      </Text>
+                    </div>
+                  ) : (
+                    <div>
+                      <Text>Mytho</Text>
+                      <Text style={{ fontSize: 16 }}>
+                        {mythoPasMythoData[answerNumber].reponse.substring(
+                          8,
+                          mythoPasMythoData[answerNumber].reponse.length
+                        )}
+                      </Text>
+                    </div>
+                  )}
                 </ContainerRow>
               </ContainerAnswer>
               {mythoPasMythoData[answerNumber].type === 'video' ? (
@@ -163,7 +161,7 @@ function MythoPasMytho() {
         </ContainerColumn>
       </ContainerColumn>
       <ContainerColumn>
-        {answerGiven ? (
+        {answerGiven !== null ? (
           answerNumber < 3 ? (
             <ContinuerContainer onClick={() => updateAnswer()}>
               Question suivante

@@ -86,7 +86,7 @@ function Home() {
         </Explications>
       </ExplicationsContainer>
 
-      <Link style={{ textDecoration: 'none', marginTop: '5%' }} to="/teams">
+      <Link style={{ textDecoration: 'none', marginTop: '3%' }} to="/teams">
         <Container>
           <div className="bouncing-text">
             <div className="j">J</div>

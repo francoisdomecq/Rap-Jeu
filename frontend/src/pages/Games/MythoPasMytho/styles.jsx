@@ -36,14 +36,10 @@ export const ContainerAnswer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1100px;
-  height: 160px;
-  background-size: contain;
-  background-image: url(${AnswerContainer});
-  background-repeat: no-repeat;
-  &:hover {
-    cursor: pointer;
-  }
+  text-align: center;
+  color: white;
+  background: linear-gradient(180deg, #15008d 0%, #198bf5 100%);
+  border-radius: 20px;
 `
 export const ContinuerContainer = styled.div`
   display: flex;

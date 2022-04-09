@@ -34,7 +34,8 @@ export const TableHead = styled.thead`
   font-family: 'Montserrat';
   font-size: 18px;
   font-weight: 700;
-  background-color: ${colors.yellow};
+  background: rgb(255,255,24);
+background: linear-gradient(180deg, rgba(255,255,24,1) 0%, rgba(255,210,34,1) 100%);
 `
 export const TableSearch = styled.input`
   width: 75%;
@@ -76,7 +77,8 @@ export const TableBottom = styled.div`
   width: 100%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: ${colors.yellow};
+  background: rgb(255,255,24);
+background: linear-gradient(180deg, rgba(255,255,24,1) 0%, rgba(255,210,34,1) 100%);
 `
 export const TableBody = styled.tbody`
   width: 99%;

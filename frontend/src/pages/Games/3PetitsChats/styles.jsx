@@ -54,11 +54,10 @@ export const TableBottom = styled.div`
 
 export const RapperInput = styled.input`
   text-align: center;
-  background-color: ${colors.yellow};
   border: 0px solid #000000;
   border-radius: 20px;
   font-family: 'Montserrat', 'sans-serif';
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
   color: white;
   ::placeholder {
@@ -79,11 +78,9 @@ export const RapperInput = styled.input`
     right: 15px;
     top: 50%;
   }
-  width: 200px;
-  height: 60px;
-  background-size: contain;
-  background-image: url(${RapperInputBG});
-  background-repeat: no-repeat;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  width: 60%;
+  
 `
 
 export const ContainerNewRapper = styled.div`
@@ -92,10 +89,15 @@ export const ContainerNewRapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2%;
-  padding: 1%;
+  padding-bottom: 1%;
   width: 30%;
   border-radius: 20px;
-  background-color: ${colors.yellow};
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
 `
 export const ContinuerContainer = styled.div`
   display: flex;

@@ -5,6 +5,7 @@ import theme from '../../../assets/enchere_top5/theme.svg'
 import suggestions from '../../../assets/enchere_top5/suggestions.svg'
 import button from '../../../assets/enchere_top5/button+1.svg'
 import buttonTeam from '../../../assets/buttonTeam.svg'
+import Continuer from '../../../assets/continuer.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ export const SearchContainer = styled.div`
 `
 export const ContainerTimer = styled.div`
   position: absolute;
-  top: 10.3%;
+  top: 10.6%;
   display: flex;
   justify-content: flex-start;
   width: 215px;
@@ -97,7 +98,7 @@ export const ThemeText = styled.p`
 `
 export const ContainerSuggestions = styled.div`
   display: flex;
-  justify-content: center;
+  text-align: center;
   width: 963px;
   height: 50px;
   background-size: contain;
@@ -154,7 +155,32 @@ export const ContainerTeamSelection = styled.div`
   padding: 2%;
   width: 100%;
   border-radius: 20px;
-  background-color: ${colors.yellow};
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
   opacity: 1;
   box-shadow: 1px 1px 1px ${colors.blue};
+`
+
+export const ContinuerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
 `

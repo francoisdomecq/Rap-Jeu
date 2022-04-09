@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from './colors'
+
 export const TextBlack = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;

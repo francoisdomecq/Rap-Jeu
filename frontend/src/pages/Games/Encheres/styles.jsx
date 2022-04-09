@@ -60,7 +60,7 @@ export const Text = styled.p`
 
 export const ContainerTimer = styled.div`
   position: absolute;
-  top: 10.3%;
+  top: 10.6%;
   display: flex;
   justify-content: flex-start;
   width: 215px;
@@ -110,8 +110,8 @@ export const ThemeText = styled.p`
 export const ContainerSuggestions = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+
+  text-align: center;
   width: 963px;
   height: 50px;
   background-size: contain;
@@ -184,7 +184,12 @@ export const ContainerTeamSelection = styled.div`
   padding: 2%;
   width: 100%;
   border-radius: 20px;
-  background-color: ${colors.yellow};
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
   opacity: 1;
   box-shadow: 1px 1px 1px ${colors.blue};
 `
