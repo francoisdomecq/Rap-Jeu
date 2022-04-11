@@ -27,11 +27,14 @@ function SearchFeaturing(rappeur) {
           type="search"
           placeholder={rappeur1Search}
           value={rappeur1Search}
+          onClick={()=>setRappeur1Search('')}
           onChange={(e) => setRappeur1Search(e.target.value)}
         />
         <SearchInput
           type="search"
-          placeholder="rappeur 2"
+       
+          value={rappeur2Search}
+          onClick={()=>setRappeur2Search('')}
           onChange={(e) => setRappeur2Search(e.target.value)}
         />
       </InputContainer>

@@ -6,7 +6,7 @@ export const SearchContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 45%;
+  width: 80%;
   margin-bottom: 2%;
   margin-top: 2%;
   border-radius: 20px;
@@ -59,7 +59,7 @@ export const SearchInput = styled.input`
 export const SearchLogos = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 60%;
+  width: 80%;
   margin-top: 3%;
 `
 export const Text = styled.p`
