@@ -32,7 +32,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 80%;
   padding-top: 1%;
   padding-bottom: 1%;
   border-top-right-radius: 20px;
@@ -50,7 +50,7 @@ export const RappersContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
-  width: 40%;
+  width: 80%;
   min-height: 50px;
   max-height: 350px;
   font-family: 'Montserrat';
@@ -61,7 +61,7 @@ export const RappersContainer = styled.div`
 `
 export const TableBottom = styled.div`
   display: flex;
-  width: 40%;
+  width: 80%;
   padding-bottom: 1%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -73,7 +73,6 @@ export const ContainerNewRapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 30%;
-  margin-top: 2%;
   padding-bottom: 1%;
   border-radius: 20px;
   background: rgb(255, 255, 24);

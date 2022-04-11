@@ -61,14 +61,14 @@ function PetitsChats() {
     <ContainerRow style={{ marginBottom: '1%' }}>
       <div className="bouncing-text">
         <div className="three-3pc">3</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent' }}>..</div>
         <div className="p-3pc">P</div>
         <div className="e-3pc">E</div>
         <div className="t-3pc">T</div>
         <div className="i-3pc">I</div>
         <div className="t1-3pc">T</div>
         <div className="s-3pc">S</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent' }}>..</div>
         <div className="c-3pc">C</div>
         <div className="h-3pc">H</div>
         <div className="a-3pc">A</div>
@@ -76,56 +76,58 @@ function PetitsChats() {
         <div className="s1-3pc">S</div>
       </div>
       <ContainerColumn>
-        <ContainerRow>
-          {rapper ? (
-            <ContainerColumn>
-              <TextBlack>Equipe {teamAnswering}, à vous</TextBlack>
-              <Header>Rappeurs cités</Header>
-              <RappersContainer>
-                <p>{rapper}</p>
-                {rappers.map((rapper) => (
+        {rapper ? (
+          <ContainerColumn>
+            <TextBlack>Equipe {teamAnswering}, à vous</TextBlack>
+            <ContainerRow style={{justifyContent:'center'}}>
+              <ContainerColumn style={{width:'30%'}}>
+                <Header>Rappeurs cités</Header>
+                <RappersContainer>
                   <p>{rapper}</p>
-                ))}
-              </RappersContainer>
-              <TableBottom />
-              <ContainerNewRapper>          
-                  <TextBlue>Nouveau rappeur</TextBlue>
-                  <RapperInput
-                    type="search"
-                    placeholder="ajouter un rappeur"
-                    onKeyPress={(e) => addRappers(e)}
-                  />
-              </ContainerNewRapper>
-              <ContainerColumn style={{ marginTop: '2%' }}>
-                {answerNumber < 1 ? (
-                  <ContinueContainer onClick={() => updateAnswer()}>
-                    Manche suivante
-                  </ContinueContainer>
-                ) : (
-                  <ContinueContainer>
-                    <Link
-                      style={{ textDecoration: 'none', color: 'white' }}
-                      to={`/${
-                        games[games.indexOf('Les 3 petits chats') + 1]
-                      }/?game=${
-                        games[games.indexOf('Les 3 petits chats') + 1]
-                      }`}
-                      onClick={() => updateAnswer()}
-                    >
-                      Continuer vers <br />
-                      {games[games.indexOf('Les 3 petits chats') + 1]}
-                    </Link>
-                  </ContinueContainer>
-                )}
+                  {rappers.map((rapper) => (
+                    <p>{rapper}</p>
+                  ))}
+                </RappersContainer>
+                <TableBottom />
               </ContainerColumn>
+
+              <ContainerNewRapper>
+                <TextBlue>Nouveau rappeur</TextBlue>
+                <RapperInput
+                  type="search"
+                  placeholder="ajouter un rappeur"
+                  onKeyPress={(e) => addRappers(e)}
+                />
+              </ContainerNewRapper>
+            </ContainerRow>
+
+            <ContainerColumn style={{ marginTop: '2%' }}>
+              {answerNumber < 1 ? (
+                <ContinueContainer onClick={() => updateAnswer()}>
+                  Manche suivante
+                </ContinueContainer>
+              ) : (
+                <ContinueContainer>
+                  <Link
+                    style={{ textDecoration: 'none', color: 'white' }}
+                    to={`/${
+                      games[games.indexOf('Les 3 petits chats') + 1]
+                    }/?game=${games[games.indexOf('Les 3 petits chats') + 1]}`}
+                    onClick={() => updateAnswer()}
+                  >
+                    Continuer vers <br />
+                    {games[games.indexOf('Les 3 petits chats') + 1]}
+                  </Link>
+                </ContinueContainer>
+              )}
             </ContainerColumn>
-          ) : (
-            <ContainerColumn45>
-              <TextBlack>L'équipe {teamAnswering} commence la manche</TextBlack>
-              <RapperArray selectRapper={selectRapper} />
-            </ContainerColumn45>
-          )}
-        </ContainerRow>
+          </ContainerColumn>
+        ) : (
+          <ContainerColumn45>
+            <TextBlack>L'équipe {teamAnswering} commence la manche</TextBlack>
+            <RapperArray selectRapper={selectRapper} />
+          </ContainerColumn45>
+        )}
       </ContainerColumn>
     </ContainerRow>
   )
