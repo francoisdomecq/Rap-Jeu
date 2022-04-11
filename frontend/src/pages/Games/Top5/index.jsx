@@ -29,7 +29,7 @@ function Top5() {
   const [top5, setTop5] = useState()
   const [teamAnswering, setTeamAnswering] = useState()
   const [startCounter, setStartCount] = useState(false)
-  const [counter, setCounter] = useState(2000)
+  const [counter, setCounter] = useState(20)
   const [answerGiven, setAnswerGiven] = useState(0)
   const [trialNumber, setTrialNumber] = useState(0)
   const [nombreReponses, updateNombreReponses] = useState(0)
@@ -194,8 +194,6 @@ function Top5() {
                     </ContainerTeam>
                   </ContainerRow>
                 </ContainerTeamSelection>
-
-                {/*Changer le boutton dessous*/}
                 <ContainerTeam
                   style={{ marginTop: '6%' }}
                   onClick={() => startGame()}
