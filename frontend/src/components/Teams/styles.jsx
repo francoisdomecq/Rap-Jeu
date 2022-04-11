@@ -11,8 +11,8 @@ export const PageContainer = styled.div`
 
 export const LeftTeamContainer = styled.div`
   background-image: url(${JouerGauche});
-  width: 44%;
-  height: 100px;
+  width: 35%;
+  margin-left: 5%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -20,8 +20,8 @@ export const LeftTeamContainer = styled.div`
   justify-content: space-between;
 `
 export const TeamsNameLeft = styled.p`
-  margin-top: 8px;
-  margin-left: 50px;
+  margin-top: 1%;
+  margin-left: 2%;
   height: 42px;
   padding-bottom: 10px;
   text-transform: uppercase;
@@ -47,10 +47,10 @@ export const TeamsNameLeft = styled.p`
 export const ScoreTeamLeft = styled.p`
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  margin-top: 5px;
-  margin-left: 15px;
-  padding-bottom: 5px;
+  font-size: 18px;
+  margin-top: 2%;
+  margin-left: 2%;
+  padding-bottom: 2%;
   background-image: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 36%,
@@ -69,8 +69,8 @@ export const ScoreTeamLeft = styled.p`
 
 export const RightTeamContainer = styled.div`
   background-image: url(${JouerDroite});
-  width: 44%;
-  height: 100px;
+  width: 35%;
+  margin-right: 5%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -79,8 +79,8 @@ export const RightTeamContainer = styled.div`
 `
 
 export const TeamsNameRight = styled.p`
-  margin-top: 8px;
-  margin-right: 50px;
+   margin-top: 1%;
+  margin-right: 2%;
   height: 42px;
   padding-bottom: 10px;
   font-family: 'Raleway', sans-serif;
@@ -106,10 +106,11 @@ export const TeamsNameRight = styled.p`
 export const ScoreTeamRight = styled.p`
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  margin-top: 5px;
+  font-size: 18px;
+   margin-top: 0.5%;
+
   position: absolute;
-  width: 16%;
+  width: 21%;
   left: 84%;
   padding-bottom: 5px;
   background-image: linear-gradient(
