@@ -24,6 +24,7 @@ import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
+import { ContainerColumn45, ContinueContainer } from '../3PetitsChats/styles'
 
 function Enchere() {
   const [enchere, setEncheres] = useState()
@@ -59,12 +60,12 @@ function Enchere() {
 
   // HasGameStarted()
   return (
-    <ContainerRow>
+    <ContainerRow style={{ marginBottom: '2%' }}>
       <div className="bouncing-text">
         <div className="l-enc">l</div>
         <div className="e-enc">e</div>
         <div className="s-enc">s</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent' }}>..</div>
         <div className="e1-enc">e</div>
         <div className="n-enc">n</div>
         <div className="c-enc">c</div>
@@ -86,9 +87,11 @@ function Enchere() {
                       {counter}
                     </Timer>
                   </ContainerTimer>
-                  <ContainerColumn>
+                  <ContainerColumn style={{ marginTop: '2%' }}>
                     <Text>{teamAnswering}, à vous de jouer !</Text>
                     <Text>Nombre de bonne réponses : {answerGiven}</Text>
+                  </ContainerColumn>
+                  <ContainerColumn style={{ marginTop: '2%' }}>
                     <ContainerRow
                       style={{ justifyContent: 'between', width: '20%' }}
                     >
@@ -105,7 +108,7 @@ function Enchere() {
                     </ContainerRow>
                   </ContainerColumn>
 
-                  <ContainerTheme style={{ marginTop: '2%' }}>
+                  <ContainerTheme style={{ marginTop: '4%' }}>
                     <ThemeText>{enchere.theme}</ThemeText>
                   </ContainerTheme>
                   <ContainerSuggestions>
@@ -119,9 +122,9 @@ function Enchere() {
                   </ContainerSuggestions>
                 </ContainerColumn>
               ) : (
-                <ContainerColumn>
+                <ContainerColumn style={{ marginTop: '16%' }}>
                   {answerGiven >= points ? (
-                    <ContainerTeamSelection>
+                    <ContainerTeamSelection style={{ marginBottom: '5%' }}>
                       <TextBlue>Félicitations {teamAnswering}</TextBlue>
                       <ContainerTeam
                         onClick={() => updateScore(points, teamAnswering)}
@@ -150,7 +153,7 @@ function Enchere() {
                     </ContainerTeamSelection>
                   )}
 
-                  <ContinuerContainer style={{marginTop:'10%'}}>
+                  <ContinuerContainer style={{ marginTop: '10%' }}>
                     <Link
                       style={{ textDecoration: 'none', color: 'white' }}
                       to={`/${games[games.indexOf('Les enchères') + 1]}?game=${
@@ -165,46 +168,53 @@ function Enchere() {
               )}
             </div>
           ) : (
-            <SecondContainer>
+            <ContainerRow>
               <Theme
                 page="enchere"
                 selectTheme={selectTheme}
                 chosenTheme={enchere}
               />
-              <ContainerTeamSelection>
-                <TextBlue>Choisir l'équipe qui répond</TextBlue>
-                <ContainerRow style={{ marginTop: '1%' }}>
-                  <ContainerTeam
-                    isSelected={teamAnswering === team1}
-                    onClick={() => setTeamAnswering(team1)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team1}
-                    </Text>
-                  </ContainerTeam>
-                  <ContainerTeam
-                    isSelected={teamAnswering === team2}
-                    onClick={() => setTeamAnswering(team2)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team2}
-                    </Text>
-                  </ContainerTeam>
-                </ContainerRow>
-              </ContainerTeamSelection>
-              <ContainerTeamSelection>
-                <ContainerColumn>
-                  <TextBlue>Combien de réponses ?</TextBlue>
-                  <ContainerScore style={{ marginTop: '1%' }}>
-                    <ButtonScore
-                      type="number"
-                      onChange={(e) => setPoints(e.target.value)}
-                    />
-                  </ContainerScore>
-                </ContainerColumn>
-              </ContainerTeamSelection>
-              <button onClick={() => startGame()}>Commencer la manche</button>
-            </SecondContainer>
+              <ContainerColumn45>
+                <ContainerTeamSelection>
+                  <TextBlue>Choisir l'équipe qui répond</TextBlue>
+                  <ContainerRow style={{ marginTop: '1%' }}>
+                    <ContainerTeam
+                      isSelected={teamAnswering === team1}
+                      onClick={() => setTeamAnswering(team1)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team1}
+                      </Text>
+                    </ContainerTeam>
+                    <ContainerTeam
+                      isSelected={teamAnswering === team2}
+                      onClick={() => setTeamAnswering(team2)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team2}
+                      </Text>
+                    </ContainerTeam>
+                  </ContainerRow>
+                </ContainerTeamSelection>
+                <ContainerTeamSelection>
+                  <ContainerColumn>
+                    <TextBlue>Combien de réponses ?</TextBlue>
+                    <ContainerScore style={{ marginTop: '1%' }}>
+                      <ButtonScore
+                        type="number"
+                        onChange={(e) => setPoints(e.target.value)}
+                      />
+                    </ContainerScore>
+                  </ContainerColumn>
+                </ContainerTeamSelection>
+                <ContinueContainer
+                  style={{ marginTop: '1%' }}
+                  onClick={() => startGame()}
+                >
+                  Commencer la manche
+                </ContinueContainer>
+              </ContainerColumn45>
+            </ContainerRow>
           )}
         </ContainerRow>
       </ContainerColumn>

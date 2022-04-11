@@ -60,7 +60,7 @@ export const Text = styled.p`
 
 export const ContainerTimer = styled.div`
   position: absolute;
-  top: 10.6%;
+  top: 9.2%;
   display: flex;
   justify-content: flex-start;
   width: 215px;
