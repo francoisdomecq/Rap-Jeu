@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
-import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg'
-import buttonTeam from '../../../assets/buttonTeam.svg'
+
 import Continuer from '../../../assets/continuer.svg'
 
 export const ContainerRow = styled.div`
@@ -35,7 +34,7 @@ export const ContainerTeamAnswer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 19%;
   padding: 1%;
   border-radius: 20px;
   background: rgb(255, 255, 24);
@@ -124,51 +123,13 @@ export const InputContainer = styled.div`
   width: 60%;
   height: 100%;
 `
-export const SearchLogos = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 60%;
-  margin-top: 3%;
-`
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
 `
 
-export const SearchInput = styled.input`
-  text-align: center;
-  background-color: ${colors.yellow};
-  border: 0px solid #000000;
-  border-radius: 20px;
-  font-family: 'Montserrat', 'sans-serif';
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
-  ::placeholder {
-    color: white;
-    text-align: 'center';
-    font-family: 'Montserrat', 'sans-serif';
-    font-size: 24px;
-    font-weight: 700;
-    width: 100%;
-    text-transform: none;
-  }
-  &:hover {
-    text-underline-position: below;
-    text-decoration: underline;
-  }
-  ::-webkit-search-cancel-button {
-    position: relative;
-    right: 15px;
-    top: 50%;
-  }
-  width: 200px;
-  height: 60px;
-  background-size: contain;
-  background-image: url(${RapperInputBG});
-  background-repeat: no-repeat;
-`
+
 
 export const NextRoundButton = styled.button`
   background-color: ${colors.red};
@@ -187,28 +148,16 @@ export const ContainerTeam = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 325px;
-  height: 56px;
-  background-size: contain;
-  background-image: url(${buttonTeam});
-  background-repeat: no-repeat;
+  text-align: center;
+  width: 45%;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  border-radius: 10px;
   opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
   &:hover {
     cursor: pointer;
   }
 `
-export const SearchContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 45%;
-  height: 100%;
-  margin-bottom: 2%;
-  background: ${colors.yellow};
-  border-radius: 20px;
-  margin-top: 2%;
-`
+
 export const ContainerTeamSelection = styled.div`
   display: flex;
   flex-direction: column;
@@ -218,12 +167,17 @@ export const ContainerTeamSelection = styled.div`
   padding: 1%;
   width: 100%;
   border-radius: 20px;
-  background-color: ${colors.yellow};
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
   opacity: 1;
 `
 
 export const ContinuerContainer = styled.div`
-  display: flex;
+ display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;

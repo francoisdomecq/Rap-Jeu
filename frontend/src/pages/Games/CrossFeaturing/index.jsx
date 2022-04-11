@@ -24,8 +24,6 @@ import { TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
-
-
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
@@ -68,7 +66,7 @@ function CrossFeaturing() {
       <div className="bouncing-text">
         <div className="l-cf">l</div>
         <div className="e-cf">e</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent', lineHeight: 0 }}>..</div>
         <div className="c-cf">c</div>
         <div className="r-cf">r</div>
         <div className="o-cf">o</div>
@@ -91,12 +89,7 @@ function CrossFeaturing() {
           </ContainerColumn45>
         ) : (
           <ContainerColumn>
-            <ContainerRow style={{ width: '30%' }}>
-              <TextBlue>
-                {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
-              </TextBlue>
-            </ContainerRow>
-            <ContainerRow>
+            <ContainerRow style={{ justifyContent: 'center' }}>
               <ContainerTeamAnswer>
                 <TextBlue>Equipe 1</TextBlue>
                 <Header>Rappeurs cités</Header>
@@ -112,6 +105,15 @@ function CrossFeaturing() {
                   onKeyPress={(e) => addRappers(e, 'team1')}
                 />
               </ContainerTeamAnswer>
+              <ContainerRow style={{ width: '40%' }}>
+                <ContainerRow>
+                  <TextBlue>
+                    {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
+                  </TextBlue>
+                </ContainerRow>
+
+                <SearchFeaturing />
+              </ContainerRow>
               <ContainerTeamAnswer>
                 <TextBlue>Equipe 2</TextBlue>
                 <Header>Rappeurs cités</Header>
@@ -128,8 +130,6 @@ function CrossFeaturing() {
                 />
               </ContainerTeamAnswer>
             </ContainerRow>
-            
-            <SearchFeaturing />
 
             <ContainerColumn45>
               <ContainerTeamSelection>
@@ -155,7 +155,7 @@ function CrossFeaturing() {
               </ContainerTeamSelection>
             </ContainerColumn45>
 
-            <ContainerColumn style={{ width: 50, height: 50 }}>
+            <ContainerColumn>
               {answerNumber < 2 ? (
                 <ContinuerContainer onClick={() => updateAnswer()}>
                   Manche suivante
