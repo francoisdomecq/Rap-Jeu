@@ -8,9 +8,12 @@ import {
   SecondContainer,
   Text,
   RapperInput,
-  NextRoundButton,
+  ContainerTeamSelection,
+  ContainerScore,
+  ButtonScore,
   ContainerTeam,
 } from './styles'
+import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
@@ -56,7 +59,7 @@ function RollandGamos() {
   // HasGameStarted()
 
   return count < 3 ? (
-    <ContainerRow>
+    <ContainerRow style={{ marginBottom: '2%' }}>
       <div className="bouncing-text">
         <div className="r-RG">R</div>
         <div className="o-RG">O</div>
@@ -65,7 +68,7 @@ function RollandGamos() {
         <div className="a-RG">A</div>
         <div className="n-RG">N</div>
         <div className="d-RG">D</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent' }}>..</div>
         <div className="g-RG">G</div>
         <div className="a2-RG">A</div>
         <div className="m-RG">M</div>
@@ -76,7 +79,7 @@ function RollandGamos() {
         <ContainerRow>
           {rappeur && points ? (
             <ContainerColumn>
-              <RappeurContainer>
+              <RappeurContainer style={{ marginTop: '2%' }}>
                 <Text style={{ color: 'white' }}>Dernier rappeur cité</Text>
                 <RapperInput
                   type="search"
@@ -84,45 +87,65 @@ function RollandGamos() {
                   onChange={(e) => lastRapper(e)}
                 />
               </RappeurContainer>
-              <SearchFeaturing rappeur={rappeur} />
-              <ContainerColumn style={{ marginTop: '3%' }}>
-                <Text>Sélectionner l'équipe gagnante</Text>
-                <ContainerRow>
-                  <ContainerTeam
-                    isSelected={teamWinner === team1}
-                    onClick={() => setTeamWinner(team1)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team1}
-                    </Text>
-                  </ContainerTeam>
-                  <ContainerTeam
-                    isSelected={teamWinner === team2}
-                    onClick={() => setTeamWinner(team2)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team2}
-                    </Text>
-                  </ContainerTeam>
-                </ContainerRow>
+              <ContainerRow style={{ width: '40%' }}>
+                <SearchFeaturing rappeur={rappeur} />
+              </ContainerRow>
+
+              <ContainerColumn style={{ width: '40%' }}>
+                <ContainerTeamSelection>
+                  <TextBlue>Sélectionner l'équipe gagnante</TextBlue>
+                  <ContainerRow>
+                    <ContainerTeam
+                      isSelected={teamWinner === team1}
+                      onClick={() => setTeamWinner(team1)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team1}
+                      </Text>
+                    </ContainerTeam>
+                    <ContainerTeam
+                      isSelected={teamWinner === team2}
+                      onClick={() => setTeamWinner(team2)}
+                    >
+                      <Text style={{ color: 'white', fontSize: 18 }}>
+                        {team2}
+                      </Text>
+                    </ContainerTeam>
+                  </ContainerRow>
+                </ContainerTeamSelection>
               </ContainerColumn>
-              <ContainerRow style={{ marginTop: '5%' }}>
+              <ContainerRow style={{ marginTop: '2%' }}>
                 <ContinuerContainer onClick={() => newRappeur()}>
                   {count < 2 ? 'Manche suivante' : 'Résultats'}
                 </ContinuerContainer>
               </ContainerRow>
             </ContainerColumn>
           ) : (
-            <SecondContainer>
+            <ContainerColumn>
               <Text>Manche n°{count + 1}</Text>
-              <RappeurArray
-                page="rappeur"
-                selectRapper={selectRappeur}
-                chosenRapper={rappeur}
-              />
-              <Text>Pour combien de points ?</Text>
-              <input type="number" onKeyPress={(e) => updatePoints(e)} />
-            </SecondContainer>
+              <ContainerRow>
+                <SecondContainer>
+                  <RappeurArray
+                    page="rappeur"
+                    selectRapper={selectRappeur}
+                    chosenRapper={rappeur}
+                  />
+                </SecondContainer>
+                <ContainerColumn style={{ width: '35%' }}>
+                  <ContainerTeamSelection>
+                    <ContainerColumn>
+                      <TextBlue>Combien de réponses ?</TextBlue>
+                      <ContainerScore style={{ marginTop: '1%' }}>
+                        <ButtonScore
+                          type="number"
+                          onKeyPress={(e) => updatePoints(e)}
+                        />
+                      </ContainerScore>
+                    </ContainerColumn>
+                  </ContainerTeamSelection>
+                </ContainerColumn>
+              </ContainerRow>
+            </ContainerColumn>
           )}
         </ContainerRow>
       </ContainerColumn>

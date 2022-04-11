@@ -3,6 +3,7 @@ import colors from '../../../utils/styles/colors'
 import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
 import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg'
 import buttonTeam from '../../../assets/buttonTeam.svg'
+import rectangle from '../../../assets/rectangle.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -128,13 +129,52 @@ export const ContainerTeam = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 325px;
-  height: 56px;
-  background-size: contain;
-  background-image: url(${buttonTeam});
-  background-repeat: no-repeat;
+  border-radius: 10px;
+  width: 45%;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
   &:hover {
     cursor: pointer;
+  }
+`
+export const ContainerTeamSelection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  padding: 2%;
+  width: 100%;
+  border-radius: 20px;
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
+  opacity: 1;
+  box-shadow: 1px 1px 1px ${colors.blue};
+`
+
+export const ContainerScore = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 189px;
+  height: 90px;
+  background-size: contain;
+  background-image: url(${rectangle});
+  background-repeat: no-repeat;
+`
+export const ButtonScore = styled.input`
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  ::placeholder {
+    color: white;
   }
 `
