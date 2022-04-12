@@ -4,27 +4,19 @@ import { Link } from 'react-router-dom'
 
 import CrossFeaturingArray from '../../../components/CrossFeaturing'
 import SearchFeaturing from '../../../components/SearchFeaturing'
+import TeamSelection from '../../../components/TeamSelection'
+import ContainerAnswerCrossFeaturing from '../../../components/ContainerAnswerCrossFeaturing'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 import {
   ContainerRow,
   ContainerColumn,
   ContainerColumn45,
-  Text,
-  RapperInput,
-  Header,
-  RappersContainer,
-  TableBottom,
-  ContainerTeam,
-  ContainerTeamSelection,
-  ContainerTeamAnswer,
   ContinuerContainer,
-  TableContainer,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
-import TeamSelection from '../../../components/TeamSelection'
 
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()
@@ -40,7 +32,7 @@ function CrossFeaturing() {
   }
   function addRappers(e, team) {
     if (e.key === 'Enter') {
-      if (team === 'team1') {
+      if (team === team1) {
         rappersTeam1.push(e.target.value)
         const newRapper = [...rappersTeam1]
         setRappersTeam1(newRapper)
@@ -53,6 +45,7 @@ function CrossFeaturing() {
       }
     }
   }
+  
   const updateAnswer = () => {
     updateGamesPlayed('Le CrossFeaturing', answerNumber, updateAnswerNumber)
     setCrossFeaturing()
@@ -92,51 +85,27 @@ function CrossFeaturing() {
         ) : (
           <ContainerColumn>
             <ContainerRow style={{ justifyContent: 'center' }}>
-              <ContainerTeamAnswer>
-                <TextBlue>Equipe 1</TextBlue>
-                <Header>Rappeurs cités</Header>
-                <TableContainer>
-                  <RappersContainer>
-                    {rappersTeam1.length > 0
-                      ? rappersTeam1.map((rapper) => <p>{rapper}</p>)
-                      : null}
-                  </RappersContainer>
-                </TableContainer>
-                <TableBottom />
-                <TextBlue>Nouveau rappeur</TextBlue>
-                <RapperInput
-                  type="search"
-                  onKeyPress={(e) => addRappers(e, 'team1')}
-                />
-              </ContainerTeamAnswer>
+              <ContainerAnswerCrossFeaturing
+                team={team1}
+                addRappers={addRappers}
+                rappersTeam={rappersTeam1}
+                setRappers = {setRappersTeam1}
+              />
               <ContainerRow style={{ width: '40%' }}>
                 <ContainerRow>
                   <TextBlue>
                     {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
                   </TextBlue>
                 </ContainerRow>
-
                 <SearchFeaturing />
               </ContainerRow>
-              <ContainerTeamAnswer>
-                <TextBlue>Equipe 2</TextBlue>
-                <Header>Rappeurs cités</Header>
-                <TableContainer>
-                  <RappersContainer>
-                    {rappersTeam2.length > 0
-                      ? rappersTeam2.map((rapper) => <p>{rapper}</p>)
-                      : null}
-                  </RappersContainer>
-                </TableContainer>
-                <TableBottom />
-                <TextBlue>Nouveau rappeur</TextBlue>
-                <RapperInput
-                  type="search"
-                  onKeyPress={(e) => addRappers(e, 'team2')}
-                />
-              </ContainerTeamAnswer>
+              <ContainerAnswerCrossFeaturing
+                team={team2}
+                addRappers={addRappers}
+                rappersTeam={rappersTeam2}
+                setRappers = {setRappersTeam2}
+              />
             </ContainerRow>
-
             <ContainerColumn45>
               <TeamSelection
                 team1={team1}
@@ -146,7 +115,6 @@ function CrossFeaturing() {
                 game="CrossFeaturing"
               />
             </ContainerColumn45>
-
             <ContainerColumn>
               {teamWinner ? (
                 answerNumber < 2 ? (
