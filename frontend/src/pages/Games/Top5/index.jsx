@@ -3,40 +3,37 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
 import Theme from '../../../components/Theme'
-
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 import {
-  ContainerSuggestions,
+  ContainerRow,
+  ContainerColumn,
   ContainerTimer,
   Timer,
-  SuggestionsText,
   ContainerTheme,
-  ThemeText,
-  SecondContainer,
+  ContainerSuggestions,
   ContainerButton,
-  Text,
   ContainerTeam,
   ContainerTeamSelection,
-  ContinuerContainer,
+  NextRoundButton,
+  ContainerAnswer,
 } from './styles'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
-import { TextBlue } from '../../../utils/styles/Text'
+import { TextBlue, TextWhite, TextBlack } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
   const [top5, setTop5] = useState()
   const [teamAnswering, setTeamAnswering] = useState()
-  const [startCounter, setStartCount] = useState(false)
-  const [counter, setCounter] = useState(20)
   const [answerGiven, setAnswerGiven] = useState(0)
   const [trialNumber, setTrialNumber] = useState(0)
-  const [nombreReponses, updateNombreReponses] = useState(0)
+  const [startCounter, setStartCount] = useState(false)
+  const [counter, setCounter] = useState(20)
+  const [round, updateRound] = useState(0)
   const { games, updateGamesPlayed } = useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
-  const updateNombreAnswers = () => {
+  const updateAnswersNumber = () => {
     setTop5()
     if (trialNumber === 0)
       if (teamAnswering === team1) setTeamAnswering(team2)
@@ -45,7 +42,7 @@ function Top5() {
     setCounter(20)
     setAnswerGiven(0)
     setTrialNumber(0)
-    updateGamesPlayed('Top 5', nombreReponses, updateNombreReponses)
+    updateGamesPlayed('Top 5', round, updateRound)
   }
 
   function selectTheme(theme) {
@@ -89,122 +86,129 @@ function Top5() {
         <div style={{ color: 'transparent' }}>..</div>
         <div className="five-top5">5</div>
       </div>
-      <ContainerColumn>
-        <ContainerRow>
-          {top5 && teamAnswering && startCounter ? (
-            <div>
-              {counter > 0 && answerGiven < 5 ? (
-                <ContainerColumn>
-                  <ContainerTimer>
-                    <Timer>
-                      00:{counter < 10 ? '0' : null}
-                      {counter}
-                    </Timer>
-                  </ContainerTimer>
-                  <ContainerColumn style={{ marginTop: '2%' }}>
-                    <Text>{teamAnswering}, à vous de jouer !</Text>
-                    <Text>Nombre de bonne réponses : {answerGiven}</Text>
-                  </ContainerColumn>
-                  <ContainerColumn style={{ marginTop: '2%' }}>
-                    <ContainerRow style={{ justifyContent: '', width: '20%' }}>
-                      <ContainerButton
-                        onClick={() => setAnswerGiven(answerGiven - 1)}
-                      >
-                        <Text style={{ color: 'white' }}>-1</Text>
-                      </ContainerButton>
-                      <ContainerButton
-                        onClick={() => setAnswerGiven(answerGiven + 1)}
-                      >
-                        <Text style={{ color: 'white' }}>+1</Text>
-                      </ContainerButton>
-                    </ContainerRow>
-                  </ContainerColumn>
-                  <ContainerTheme style={{ marginTop: '4%' }}>
-                    <ThemeText>{top5.theme}</ThemeText>
-                  </ContainerTheme>
-                  <ContainerSuggestions>
-                    <ContainerColumn>
-                      <SuggestionsText>{top5.suggestions}...</SuggestionsText>
-                    </ContainerColumn>
-                  </ContainerSuggestions>
-                </ContainerColumn>
-              ) : (
-                <ContainerRow>
-                  <ContainerColumn style={{marginTop:'16%'}}>
-                    {answerGiven >= 5 ? (
-                      <ContainerTeamSelection style={{ marginBottom: '5%' }}>
-                        <TextBlue>Félicitations {teamAnswering}</TextBlue>
-                        <ContainerTeam
-                          className="Button"
-                          onClick={() => updateScore(15, teamAnswering)}
-                        >
-                          <Text style={{ color: 'white', fontSize: 16 }}>
-                            +15 points pour {teamAnswering}
-                          </Text>
-                        </ContainerTeam>
-                      </ContainerTeamSelection>
-                    ) : (
-                      <Text>Aucune des deux équipes ne gagne de points..</Text>
-                    )}
-
-                    {nombreReponses < 1 ? (
-                      <ContinuerContainer onClick={() => updateNombreAnswers()}>
-                        Manche suivante
-                      </ContinuerContainer>
-                    ) : (
-                      <ContinuerContainer>
-                        <Link
-                          style={{ textDecoration: 'none', color: 'white' }}
-                          to={`/${games[games.indexOf('Top 5') + 1]}/?game=${
-                            games[games.indexOf('Top 5') + 1]
-                          }`}
-                          onClick={() => updateNombreAnswers()}
-                        >
-                          Continuer vers <br />
-                          {games[games.indexOf('Top 5') + 1]}
-                        </Link>
-                      </ContinuerContainer>
-                    )}
-                  </ContainerColumn>
-                </ContainerRow>
-              )}
-            </div>
-          ) : (
-            <ContainerRow>
-              <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
-              <ContainerColumn style={{ width: '40%' }}>
-                <ContainerTeamSelection>
-                  <TextBlue>Choisir l'équipe qui répond</TextBlue>
-                  <ContainerRow>
-                    <ContainerTeam
-                      isSelected={teamAnswering === team1}
-                      onClick={() => setTeamAnswering(team1)}
-                    >
-                      <Text style={{ color: 'white', fontSize: 18 }}>
-                        {team1}
-                      </Text>
-                    </ContainerTeam>
-                    <ContainerTeam
-                      isSelected={teamAnswering === team2}
-                      onClick={() => setTeamAnswering(team2)}
-                    >
-                      <Text style={{ color: 'white', fontSize: 18 }}>
-                        {team2}
-                      </Text>
-                    </ContainerTeam>
-                  </ContainerRow>
-                </ContainerTeamSelection>
-                <ContainerTeam
-                  style={{ marginTop: '6%' }}
-                  onClick={() => startGame()}
+      {startCounter ? (
+        counter > 0 && answerGiven < 5 ? (
+          <ContainerColumn style={{ marginTop: '1%' }}>
+            <ContainerTimer>
+              <Timer>
+                00:{counter < 10 ? '0' : null}
+                {counter}
+              </Timer>
+            </ContainerTimer>
+            <ContainerAnswer>
+              <TextBlue>
+                {teamAnswering}, à vous de jouer !<br />
+                <TextBlack size={12}>
+                  {counter <= 10 && trialNumber === 0
+                    ? teamAnswering === team1
+                      ? `${team2} préparez-vous, vous reprenez la main dans ${counter} secondes !`
+                      : `${team1} préparez-vous, vous reprenez la main dans ${counter} secondes !`
+                    : null}
+                </TextBlack>
+                <br />
+                Nombre de bonnes réponses : {answerGiven}
+              </TextBlue>
+              <ContainerRow style={{ width: '70%' }}>
+                <ContainerButton
+                  onClick={() => setAnswerGiven(answerGiven - 1)}
                 >
-                  <Text style={{ color: 'white' }}>Commencer la manche</Text>
-                </ContainerTeam>
+                  <TextWhite>-1</TextWhite>
+                </ContainerButton>
+                <ContainerButton
+                  onClick={() => setAnswerGiven(answerGiven + 1)}
+                >
+                  <TextWhite>+1</TextWhite>
+                </ContainerButton>
+              </ContainerRow>
+            </ContainerAnswer>
+            <ContainerTheme style={{ marginTop: '4%' }}>
+              <TextWhite size={20}>{top5.theme}</TextWhite>
+            </ContainerTheme>
+            <ContainerSuggestions>
+              <ContainerColumn>
+                <TextBlack size={14}>{top5.suggestions}...</TextBlack>
               </ContainerColumn>
-            </ContainerRow>
-          )}
-        </ContainerRow>
-      </ContainerColumn>
+            </ContainerSuggestions>
+          </ContainerColumn>
+        ) : (
+          <ContainerColumn>
+            {answerGiven >= 5 ? (
+              <ContainerAnswer
+                style={{ marginBottom: '5%', marginTop: '5%', width: '30%' }}
+              >
+                <TextBlue>Félicitations {teamAnswering}</TextBlue>
+                <ContainerTeam
+                  style={{ width: '60%' }}
+                  className="Button"
+                  onClick={() => updateScore(15, teamAnswering)}
+                >
+                  <TextWhite size={16}>
+                    +15 points pour {teamAnswering}
+                  </TextWhite>
+                </ContainerTeam>
+              </ContainerAnswer>
+            ) : (
+              <ContainerAnswer
+                style={{ marginBottom: '6%', marginTop: '7%', width: '30%' }}
+              >
+                <TextBlue size={20}>
+                  Aucune des deux équipes ne gagne de points..
+                </TextBlue>
+              </ContainerAnswer>
+            )}
+            {round < 1 ? (
+              <NextRoundButton onClick={() => updateAnswersNumber()}>
+                <TextWhite size={20}>Manche suivante</TextWhite>
+              </NextRoundButton>
+            ) : (
+              <NextRoundButton>
+                <Link
+                  style={{ textDecoration: 'none' }}
+                  to={`/${games[games.indexOf('Top 5') + 1]}/?game=${
+                    games[games.indexOf('Top 5') + 1]
+                  }`}
+                  onClick={() => updateAnswersNumber()}
+                >
+                  <TextWhite size={20}>
+                    Continuer vers <br /> {games[games.indexOf('Top 5') + 1]}
+                  </TextWhite>
+                </Link>
+              </NextRoundButton>
+            )}
+          </ContainerColumn>
+        )
+      ) : (
+        <ContainerColumn>
+          <ContainerRow>
+            <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
+            <ContainerColumn style={{ width: '40%' }}>
+              <ContainerTeamSelection>
+                <TextBlue>Choisir l'équipe qui répond</TextBlue>
+                <ContainerRow>
+                  <ContainerTeam
+                    isSelected={teamAnswering === team1}
+                    onClick={() => setTeamAnswering(team1)}
+                  >
+                    <TextWhite size={18}>{team1}</TextWhite>
+                  </ContainerTeam>
+                  <ContainerTeam
+                    isSelected={teamAnswering === team2}
+                    onClick={() => setTeamAnswering(team2)}
+                  >
+                    <TextWhite size={18}>{team2}</TextWhite>
+                  </ContainerTeam>
+                </ContainerRow>
+              </ContainerTeamSelection>
+              <NextRoundButton
+                style={{ marginTop: '6%' }}
+                onClick={() => startGame()}
+              >
+                <TextWhite size={20}> Commencer la manche</TextWhite>
+              </NextRoundButton>
+            </ContainerColumn>
+          </ContainerRow>
+        </ContainerColumn>
+      )}
     </ContainerRow>
   )
 }
