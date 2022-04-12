@@ -2,9 +2,8 @@ import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import RapperInputBG from '../../../assets/rollandgamos/rappeurInput.svg'
 import RapperContainerBG from '../../../assets/rollandgamos/rappeurContainer.svg'
-import buttonTeam from '../../../assets/buttonTeam.svg'
 import rectangle from '../../../assets/rectangle.svg'
-
+import Continuer from '../../../assets/continuer.svg'
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -177,4 +176,24 @@ export const ButtonScore = styled.input`
   ::placeholder {
     color: white;
   }
+`
+export const ContinuerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
+  opacity: ${({ isTeamSelected }) => (isTeamSelected ? 1 : 0.5)};
 `

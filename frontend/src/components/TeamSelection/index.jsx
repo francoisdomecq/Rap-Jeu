@@ -1,10 +1,18 @@
 import { ContainerTeamSelection, ContainerTeam, ContainerRow } from './styles'
 import { TextBlue, TextWhite } from '../../utils/styles/Text'
 
-function TeamSelection({team1, team2, teamAnswering, setTeamAnswering}) {
+function TeamSelection({
+  team1,
+  team2,
+  teamAnswering,
+  setTeamAnswering,
+  game,
+}) {
   return (
     <ContainerTeamSelection>
-      <TextBlue>Choisir l'équipe qui répond</TextBlue>
+      <TextBlue>
+        Choisir l'équipe qui {game === 'Rolland Gamos' || game==='CrossFeaturing' ? 'a gagné' : 'répond'}
+      </TextBlue>
       <ContainerRow>
         <ContainerTeam
           isSelected={teamAnswering === team1}

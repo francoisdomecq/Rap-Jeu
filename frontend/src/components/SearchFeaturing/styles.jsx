@@ -31,7 +31,7 @@ export const SearchInput = styled.input`
   border: 0px solid #000000;
   border-radius: 10px;
   font-family: 'Montserrat', 'sans-serif';
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
   color: white;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);

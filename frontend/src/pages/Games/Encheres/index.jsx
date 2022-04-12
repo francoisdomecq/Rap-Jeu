@@ -2,20 +2,14 @@ import { useState, useContext, useEffect } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import Theme from '../../../components/Theme'
+import Timer from '../../../components/Timer'
+import ContainerAnswer from '../../../components/ContainerAnswer'
+import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 import {
-  SecondContainer,
   ButtonScore,
   ContainerScore,
   Text,
-  ContainerTimer,
-  Timer,
-  ContainerTheme,
-  ContainerSuggestions,
-  ThemeText,
-  SuggestionsText,
-  ContainerButton,
-  SuggestionsTextDiv,
   ContainerTeam,
   ContainerTeamSelection,
   ContinuerContainer,
@@ -25,6 +19,7 @@ import { TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import { ContainerColumn45, ContinueContainer } from '../3PetitsChats/styles'
+import TeamSelection from '../../../components/TeamSelection'
 
 function Enchere() {
   const [enchere, setEncheres] = useState()
@@ -81,45 +76,19 @@ function Enchere() {
             <div>
               {counter > 0 && answerGiven < points ? (
                 <ContainerColumn>
-                  <ContainerTimer>
-                    <Timer>
-                      00:{counter < 10 ? '0' : null}
-                      {counter}
-                    </Timer>
-                  </ContainerTimer>
-                  <ContainerColumn style={{ marginTop: '2%' }}>
-                    <Text>{teamAnswering}, à vous de jouer !</Text>
-                    <Text>Nombre de bonne réponses : {answerGiven}</Text>
-                  </ContainerColumn>
-                  <ContainerColumn style={{ marginTop: '2%' }}>
-                    <ContainerRow
-                      style={{ justifyContent: 'between', width: '20%' }}
-                    >
-                      <ContainerButton
-                        onClick={() => setAnswerGiven(answerGiven - 1)}
-                      >
-                        <Text style={{ color: 'white' }}>-1</Text>
-                      </ContainerButton>
-                      <ContainerButton
-                        onClick={() => setAnswerGiven(answerGiven + 1)}
-                      >
-                        <Text style={{ color: 'white' }}>+1</Text>
-                      </ContainerButton>
-                    </ContainerRow>
-                  </ContainerColumn>
-
-                  <ContainerTheme style={{ marginTop: '4%' }}>
-                    <ThemeText>{enchere.theme}</ThemeText>
-                  </ContainerTheme>
-                  <ContainerSuggestions>
-                    <ContainerColumn>
-                      <SuggestionsTextDiv>
-                        <SuggestionsText>
-                          {enchere.suggestions}...
-                        </SuggestionsText>
-                      </SuggestionsTextDiv>
-                    </ContainerColumn>
-                  </ContainerSuggestions>
+                  <Timer counter={counter} />
+                  <ContainerRow style={{ width: '50%' }}>
+                    <ContainerAnswer
+                      teamAnswering={teamAnswering}
+                      answerGiven={answerGiven}
+                      setAnswerGiven={setAnswerGiven}
+                      answerNumberToGive={points}
+                    />
+                  </ContainerRow>
+                  <ContainerThemeSuggestion
+                    theme={enchere.theme}
+                    suggestions={enchere.suggestions}
+                  />
                 </ContainerColumn>
               ) : (
                 <ContainerColumn style={{ marginTop: '16%' }}>
@@ -127,6 +96,7 @@ function Enchere() {
                     <ContainerTeamSelection style={{ marginBottom: '5%' }}>
                       <TextBlue>Félicitations {teamAnswering}</TextBlue>
                       <ContainerTeam
+                        style={{ width: '80%' }}
                         onClick={() => updateScore(points, teamAnswering)}
                       >
                         <Text style={{ color: 'white', fontSize: 16 }}>
@@ -138,6 +108,7 @@ function Enchere() {
                     <ContainerTeamSelection>
                       <TextBlue>Dommage {teamAnswering}</TextBlue>
                       <ContainerTeam
+                        style={{ width: '80%' }}
                         onClick={() =>
                           updateScore(
                             points,
@@ -175,27 +146,13 @@ function Enchere() {
                 chosenTheme={enchere}
               />
               <ContainerColumn45>
-                <ContainerTeamSelection>
-                  <TextBlue>Choisir l'équipe qui répond</TextBlue>
-                  <ContainerRow style={{ marginTop: '1%' }}>
-                    <ContainerTeam
-                      isSelected={teamAnswering === team1}
-                      onClick={() => setTeamAnswering(team1)}
-                    >
-                      <Text style={{ color: 'white', fontSize: 18 }}>
-                        {team1}
-                      </Text>
-                    </ContainerTeam>
-                    <ContainerTeam
-                      isSelected={teamAnswering === team2}
-                      onClick={() => setTeamAnswering(team2)}
-                    >
-                      <Text style={{ color: 'white', fontSize: 18 }}>
-                        {team2}
-                      </Text>
-                    </ContainerTeam>
-                  </ContainerRow>
-                </ContainerTeamSelection>
+                <TeamSelection
+                  team1={team1}
+                  team2={team2}
+                  teamAnswering={teamAnswering}
+                  setTeamAnswering={setTeamAnswering}
+                  game={'Enchères'}
+                />
                 <ContainerTeamSelection>
                   <ContainerColumn>
                     <TextBlue>Combien de réponses ?</TextBlue>

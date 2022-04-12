@@ -19,10 +19,12 @@ import {
   ContainerTeamSelection,
   ContainerTeamAnswer,
   ContinuerContainer,
+  TableContainer,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
+import TeamSelection from '../../../components/TeamSelection'
 
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()
@@ -93,11 +95,13 @@ function CrossFeaturing() {
               <ContainerTeamAnswer>
                 <TextBlue>Equipe 1</TextBlue>
                 <Header>Rappeurs cités</Header>
-                <RappersContainer>
-                  {rappersTeam1.length > 0
-                    ? rappersTeam1.map((rapper) => <p>{rapper}</p>)
-                    : null}
-                </RappersContainer>
+                <TableContainer>
+                  <RappersContainer>
+                    {rappersTeam1.length > 0
+                      ? rappersTeam1.map((rapper) => <p>{rapper}</p>)
+                      : null}
+                  </RappersContainer>
+                </TableContainer>
                 <TableBottom />
                 <TextBlue>Nouveau rappeur</TextBlue>
                 <RapperInput
@@ -117,11 +121,13 @@ function CrossFeaturing() {
               <ContainerTeamAnswer>
                 <TextBlue>Equipe 2</TextBlue>
                 <Header>Rappeurs cités</Header>
-                <RappersContainer>
-                  {rappersTeam2.length > 0
-                    ? rappersTeam2.map((rapper) => <p>{rapper}</p>)
-                    : null}
-                </RappersContainer>
+                <TableContainer>
+                  <RappersContainer>
+                    {rappersTeam2.length > 0
+                      ? rappersTeam2.map((rapper) => <p>{rapper}</p>)
+                      : null}
+                  </RappersContainer>
+                </TableContainer>
                 <TableBottom />
                 <TextBlue>Nouveau rappeur</TextBlue>
                 <RapperInput
@@ -132,48 +138,36 @@ function CrossFeaturing() {
             </ContainerRow>
 
             <ContainerColumn45>
-              <ContainerTeamSelection>
-                <TextBlue>Equipe gagnante</TextBlue>
-                <ContainerRow>
-                  <ContainerTeam
-                    isSelected={teamWinner === team1}
-                    onClick={() => setTeamWinner(team1)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team1}
-                    </Text>
-                  </ContainerTeam>
-                  <ContainerTeam
-                    isSelected={teamWinner === team2}
-                    onClick={() => setTeamWinner(team2)}
-                  >
-                    <Text style={{ color: 'white', fontSize: 18 }}>
-                      {team2}
-                    </Text>
-                  </ContainerTeam>
-                </ContainerRow>
-              </ContainerTeamSelection>
+              <TeamSelection
+                team1={team1}
+                team2={team2}
+                teamAnswering={teamWinner}
+                setTeamAnswering={setTeamWinner}
+                game="CrossFeaturing"
+              />
             </ContainerColumn45>
 
             <ContainerColumn>
-              {answerNumber < 2 ? (
-                <ContinuerContainer onClick={() => updateAnswer()}>
-                  Manche suivante
-                </ContinuerContainer>
-              ) : (
-                <ContinuerContainer>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'white' }}
-                    to={`/${
-                      games[games.indexOf('Le CrossFeaturing') + 1]
-                    }?game=${games[games.indexOf('Le CrossFeaturing') + 1]}`}
-                    onClick={() => updateAnswer()}
-                  >
-                    Continuer vers <br />{' '}
-                    {games[games.indexOf('Le CrossFeaturing') + 1]}
-                  </Link>
-                </ContinuerContainer>
-              )}
+              {teamWinner ? (
+                answerNumber < 2 ? (
+                  <ContinuerContainer onClick={() => updateAnswer()}>
+                    Manche suivante
+                  </ContinuerContainer>
+                ) : (
+                  <ContinuerContainer>
+                    <Link
+                      style={{ textDecoration: 'none', color: 'white' }}
+                      to={`/${
+                        games[games.indexOf('Le CrossFeaturing') + 1]
+                      }?game=${games[games.indexOf('Le CrossFeaturing') + 1]}`}
+                      onClick={() => updateAnswer()}
+                    >
+                      Continuer vers <br />{' '}
+                      {games[games.indexOf('Le CrossFeaturing') + 1]}
+                    </Link>
+                  </ContinuerContainer>
+                )
+              ) : null}
             </ContainerColumn>
           </ContainerColumn>
         )}

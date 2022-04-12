@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import RapperArray from '../../../components/Rappers'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { TextBlack, TextBlue } from '../../../utils/styles/Text'
+import { TextBlack, TextBlue, TextWhite } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import {
@@ -17,6 +17,7 @@ import {
   RapperInput,
   ContainerNewRapper,
   ContinueContainer,
+  TableContainer,
 } from './styles'
 
 function PetitsChats() {
@@ -79,15 +80,17 @@ function PetitsChats() {
         {rapper ? (
           <ContainerColumn>
             <TextBlack>Equipe {teamAnswering}, à vous</TextBlack>
-            <ContainerRow style={{justifyContent:'center'}}>
-              <ContainerColumn style={{width:'30%'}}>
+            <ContainerRow style={{ justifyContent: 'center' }}>
+              <ContainerColumn style={{ width: '30%' }}>
                 <Header>Rappeurs cités</Header>
-                <RappersContainer>
-                  <p>{rapper}</p>
-                  {rappers.map((rapper) => (
+                <TableContainer>
+                  <RappersContainer>
                     <p>{rapper}</p>
-                  ))}
-                </RappersContainer>
+                    {rappers.map((rapper) => (
+                      <p>{rapper}</p>
+                    ))}
+                  </RappersContainer>
+                </TableContainer>
                 <TableBottom />
               </ContainerColumn>
 
@@ -105,6 +108,8 @@ function PetitsChats() {
               {answerNumber < 1 ? (
                 <ContinueContainer onClick={() => updateAnswer()}>
                   Manche suivante
+                  <br />
+                  (Victoire de {teamAnswering === team1 ? team2 : team1})
                 </ContinueContainer>
               ) : (
                 <ContinueContainer>
@@ -117,6 +122,8 @@ function PetitsChats() {
                   >
                     Continuer vers <br />
                     {games[games.indexOf('Les 3 petits chats') + 1]}
+                    <br />
+                    (Victoire de {teamAnswering === team1 ? team2 : team1})
                   </Link>
                 </ContinueContainer>
               )}

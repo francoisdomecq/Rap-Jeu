@@ -3,25 +3,23 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
 import Theme from '../../../components/Theme'
+import TeamSelection from '../../../components/TeamSelection'
+import Timer from '../../../components/Timer'
+import ContainerAnswer from '../../../components/ContainerAnswer'
+import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
+
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 import {
   ContainerRow,
   ContainerColumn,
-  ContainerTimer,
-  Timer,
-  ContainerTheme,
-  ContainerSuggestions,
-  ContainerButton,
   ContainerTeam,
-  ContainerTeamSelection,
   NextRoundButton,
-  ContainerAnswer,
+  Container,
 } from './styles'
-import { TextBlue, TextWhite, TextBlack } from '../../../utils/styles/Text'
+import { TextBlue, TextWhite } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
-import TeamSelection from '../../../components/TeamSelection'
 
 function Top5() {
   const [top5, setTop5] = useState()
@@ -90,51 +88,28 @@ function Top5() {
       {startCounter ? (
         counter > 0 && answerGiven < 5 ? (
           <ContainerColumn style={{ marginTop: '1%' }}>
-            <ContainerTimer>
-              <Timer>
-                00:{counter < 10 ? '0' : null}
-                {counter}
-              </Timer>
-            </ContainerTimer>
-            <ContainerAnswer>
-              <TextBlue>
-                {teamAnswering}, à vous de jouer !<br />
-                <TextBlack size={12}>
-                  {counter <= 10 && trialNumber === 0
-                    ? teamAnswering === team1
-                      ? `${team2} préparez-vous, vous reprenez la main dans ${counter} secondes !`
-                      : `${team1} préparez-vous, vous reprenez la main dans ${counter} secondes !`
-                    : null}
-                </TextBlack>
-                <br />
-                Nombre de bonnes réponses : {answerGiven}
-              </TextBlue>
-              <ContainerRow style={{ width: '70%' }}>
-                <ContainerButton
-                  onClick={() => setAnswerGiven(answerGiven - 1)}
-                >
-                  <TextWhite>-1</TextWhite>
-                </ContainerButton>
-                <ContainerButton
-                  onClick={() => setAnswerGiven(answerGiven + 1)}
-                >
-                  <TextWhite>+1</TextWhite>
-                </ContainerButton>
-              </ContainerRow>
-            </ContainerAnswer>
-            <ContainerTheme style={{ marginTop: '4%' }}>
-              <TextWhite size={20}>{top5.theme}</TextWhite>
-            </ContainerTheme>
-            <ContainerSuggestions>
-              <ContainerColumn>
-                <TextBlack size={14}>{top5.suggestions}...</TextBlack>
-              </ContainerColumn>
-            </ContainerSuggestions>
+            <Timer counter={counter} />
+            <ContainerRow style={{ width: '40%' }}>
+              <ContainerAnswer
+                team1={team1}
+                team2={team2}
+                teamAnswering={teamAnswering}
+                counter={counter}
+                answerGiven={answerGiven}
+                setAnswerGiven={setAnswerGiven}
+                trialNumber={trialNumber}
+                answerNumberToGive={5}
+              />
+            </ContainerRow>
+            <ContainerThemeSuggestion
+              theme={top5.theme}
+              suggestions={top5.suggestions}
+            />
           </ContainerColumn>
         ) : (
           <ContainerColumn>
             {answerGiven >= 5 ? (
-              <ContainerAnswer
+              <Container
                 style={{ marginBottom: '5%', marginTop: '5%', width: '30%' }}
               >
                 <TextBlue>Félicitations {teamAnswering}</TextBlue>
@@ -147,15 +122,15 @@ function Top5() {
                     +15 points pour {teamAnswering}
                   </TextWhite>
                 </ContainerTeam>
-              </ContainerAnswer>
+              </Container>
             ) : (
-              <ContainerAnswer
+              <Container
                 style={{ marginBottom: '6%', marginTop: '7%', width: '30%' }}
               >
                 <TextBlue size={20}>
                   Aucune des deux équipes ne gagne de points..
                 </TextBlue>
-              </ContainerAnswer>
+              </Container>
             )}
             {round < 1 ? (
               <NextRoundButton onClick={() => updateAnswersNumber()}>
@@ -188,6 +163,7 @@ function Top5() {
                 team2={team2}
                 teamAnswering={teamAnswering}
                 setTeamAnswering={setTeamAnswering}
+                game={'Top 5'}
               />
               <NextRoundButton
                 style={{ marginTop: '6%' }}

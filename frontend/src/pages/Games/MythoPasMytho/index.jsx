@@ -79,11 +79,11 @@ function MythoPasMytho() {
         <div className="t-mpm">t</div>
         <div className="h-mpm">h</div>
         <div className="o-mpm">o</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent'}}>..</div>
         <div className="p-mpm">p</div>
         <div className="a-mpm">a</div>
         <div className="s-mpm">s</div>
-        <p style={{ color: 'transparent', lineHeight: 0 }}>''</p>
+        <div style={{ color: 'transparent'}}>..</div>
         <div className="m1-mpm">m</div>
         <div className="y1-mpm">y</div>
         <div className="t1-mpm">t</div>

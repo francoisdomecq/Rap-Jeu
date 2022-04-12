@@ -44,20 +44,23 @@ export const Header = styled.div`
   color: white;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
 `
-export const RappersContainer = styled.div`
+export const TableContainer = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  overflow-y: scroll;
+  text-align: center;
   width: 80%;
+  max-height: 200px;
   min-height: 50px;
-  max-height: 350px;
+  overflow-y: scroll;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+`
+
+export const RappersContainer = styled.div`
+  width: 99%;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
   color: ${colors.yellow};
-  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
 `
 export const TableBottom = styled.div`
   display: flex;
@@ -100,7 +103,7 @@ export const RapperInput = styled.input`
     font-family: 'Montserrat', 'sans-serif';
     font-size: 24px;
     font-weight: 700;
-    color: white; 
+    color: white;
   }
   &:hover {
     text-underline-position: below;
@@ -122,7 +125,7 @@ export const ContinueContainer = styled.div`
   background-size: contain;
   width: 326px;
   height: 105px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   font-family: 'Montserrat';
   color: white;
@@ -130,4 +133,5 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
+
 `

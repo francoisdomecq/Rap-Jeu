@@ -57,39 +57,6 @@ export const Text = styled.p`
   font-weight: 700;
   font-size: 24px;
 `
-
-export const ContainerTimer = styled.div`
-  position: absolute;
-  top: 9.2%;
-  display: flex;
-  justify-content: flex-start;
-  width: 215px;
-  height: 75px;
-  background-size: contain;
-  background-image: url(${timer});
-  background-repeat: no-repeat;
-`
-
-export const Timer = styled.p`
-  font-size: 40px;
-  font-family: 'Orbitron';
-  font-weight: 700;
-  height: 75px;
-  margin-top: 8px;
-  margin-left: 40px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 36%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background-size: 100%;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
-  background-clip: text;
-`
 export const ContainerTheme = styled.div`
   display: flex;
   justify-content: center;
@@ -165,12 +132,10 @@ export const ContainerTeam = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 325px;
-  height: 56px;
-  background-size: contain;
-  background-image: url(${buttonTeam});
-  background-repeat: no-repeat;
-  opacity: ${({ isSelected }) => (isSelected ? '0.4' : '1')};
+  border-radius: 10px;
+  width: 45%;
+  opacity: ${({ isSelected }) => (isSelected ? 0.5 : 1)};
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   &:hover {
     cursor: pointer;
   }

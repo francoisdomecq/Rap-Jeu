@@ -5,19 +5,19 @@ export const TextBlack = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
+  font-size: ${({ size }) => (size ? `${size}px` : '24px')};
 `
 
 export const TextWhite = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 24px;
+  font-size: ${({ size }) => (size ? `${size}px` : '24px')};
   color: white;
 `
 
 export const TextBlue = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 24px;
+  font-size: ${({ size }) => (size ? `${size}px` : '24px')};
   color: ${colors.blue};
-
 `

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
 import SearchFeaturing from '../../../components/SearchFeaturing'
+import TeamSelection from '../../../components/TeamSelection'
 import {
   RappeurContainer,
   SecondContainer,
@@ -12,6 +13,7 @@ import {
   ContainerScore,
   ButtonScore,
   ContainerTeam,
+  ContinuerContainer,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
@@ -20,7 +22,6 @@ import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { ContinuerContainer } from '../CrossFeaturing/styles'
 
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
@@ -92,30 +93,19 @@ function RollandGamos() {
               </ContainerRow>
 
               <ContainerColumn style={{ width: '40%' }}>
-                <ContainerTeamSelection>
-                  <TextBlue>Sélectionner l'équipe gagnante</TextBlue>
-                  <ContainerRow>
-                    <ContainerTeam
-                      isSelected={teamWinner === team1}
-                      onClick={() => setTeamWinner(team1)}
-                    >
-                      <Text style={{ color: 'white', fontSize: 18 }}>
-                        {team1}
-                      </Text>
-                    </ContainerTeam>
-                    <ContainerTeam
-                      isSelected={teamWinner === team2}
-                      onClick={() => setTeamWinner(team2)}
-                    >
-                      <Text style={{ color: 'white', fontSize: 18 }}>
-                        {team2}
-                      </Text>
-                    </ContainerTeam>
-                  </ContainerRow>
-                </ContainerTeamSelection>
+                <TeamSelection
+                  team1={team1}
+                  team2={team2}
+                  teamAnswering={teamWinner}
+                  game='Rolland Gamos'
+                  setTeamAnswering={setTeamWinner}
+                />
               </ContainerColumn>
               <ContainerRow style={{ marginTop: '2%' }}>
-                <ContinuerContainer onClick={() => newRappeur()}>
+                <ContinuerContainer
+                  isTeamSelected={teamWinner ? true : false}
+                  onClick={() => newRappeur()}
+                >
                   {count < 2 ? 'Manche suivante' : 'Résultats'}
                 </ContinuerContainer>
               </ContainerRow>
@@ -134,7 +124,7 @@ function RollandGamos() {
                 <ContainerColumn style={{ width: '35%' }}>
                   <ContainerTeamSelection>
                     <ContainerColumn>
-                      <TextBlue>Combien de réponses ?</TextBlue>
+                      <TextBlue>Combien de points ?</TextBlue>
                       <ContainerScore style={{ marginTop: '1%' }}>
                         <ButtonScore
                           type="number"

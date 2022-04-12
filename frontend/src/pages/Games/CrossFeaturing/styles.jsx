@@ -61,20 +61,24 @@ export const Header = styled.div`
   color: white;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
 `
-export const RappersContainer = styled.div`
+
+export const TableContainer = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  text-align: center;
   width: 80%;
-  min-height: 50px;
-  max-height: 250px;
+  max-height: 150px;
+  min-height: 100px;
   overflow-y: scroll;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+`
+
+export const RappersContainer = styled.div`
+  width: 99%;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
   color: ${colors.yellow};
-  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
 `
 export const TableBottom = styled.div`
   display: flex;
@@ -129,8 +133,6 @@ export const Text = styled.p`
   font-size: 24px;
 `
 
-
-
 export const NextRoundButton = styled.button`
   background-color: ${colors.red};
   font-family: 'Montserrat', 'sans-serif';
@@ -177,7 +179,7 @@ export const ContainerTeamSelection = styled.div`
 `
 
 export const ContinuerContainer = styled.div`
- display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -194,4 +196,5 @@ export const ContinuerContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
+
 `
