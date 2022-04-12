@@ -32,7 +32,7 @@ function Teams() {
               type="number"
               placeholder="±"
               onKeyPress={(e) => updateScoreTeam(e, team1)}
-              style={{ marginLeft: '2%' }}
+              style={{ marginLeft: '2%', width:'12%' }}
             ></ScoreInput>
           </ScoreTeamLeft>
         </TeamsNameLeft>
@@ -46,7 +46,7 @@ function Teams() {
               type="number"
               placeholder="±"
               onKeyPress={(e) => updateScoreTeam(e, team2)}
-              style={{ marginRight: '2%' }}
+              style={{ marginRight: '2%'}}
             ></ScoreInput>{' '}
             {scoreTeam2} points
           </ScoreTeamRight>

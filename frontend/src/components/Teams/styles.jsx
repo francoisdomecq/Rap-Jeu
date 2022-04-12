@@ -79,7 +79,7 @@ export const RightTeamContainer = styled.div`
 `
 
 export const TeamsNameRight = styled.p`
-   margin-top: 1%;
+  margin-top: 1%;
   margin-right: 2%;
   height: 42px;
   padding-bottom: 10px;
@@ -110,7 +110,6 @@ export const ScoreTeamRight = styled.p`
    margin-top: 0.5%;
 
   position: absolute;
-  width: 21%;
   left: 84%;
   padding-bottom: 5px;
   background-image: linear-gradient(
@@ -132,7 +131,7 @@ export const ScoreInput = styled.input`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 16px;
-  width: 10%;
+  width: 15%;
   color: black;
   background: transparent;
   margin-top: 0;
