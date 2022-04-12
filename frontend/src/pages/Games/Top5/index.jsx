@@ -21,6 +21,7 @@ import {
 import { TextBlue, TextWhite, TextBlack } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
+import TeamSelection from '../../../components/TeamSelection'
 
 function Top5() {
   const [top5, setTop5] = useState()
@@ -182,23 +183,12 @@ function Top5() {
           <ContainerRow>
             <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
             <ContainerColumn style={{ width: '40%' }}>
-              <ContainerTeamSelection>
-                <TextBlue>Choisir l'équipe qui répond</TextBlue>
-                <ContainerRow>
-                  <ContainerTeam
-                    isSelected={teamAnswering === team1}
-                    onClick={() => setTeamAnswering(team1)}
-                  >
-                    <TextWhite size={18}>{team1}</TextWhite>
-                  </ContainerTeam>
-                  <ContainerTeam
-                    isSelected={teamAnswering === team2}
-                    onClick={() => setTeamAnswering(team2)}
-                  >
-                    <TextWhite size={18}>{team2}</TextWhite>
-                  </ContainerTeam>
-                </ContainerRow>
-              </ContainerTeamSelection>
+              <TeamSelection
+                team1={team1}
+                team2={team2}
+                teamAnswering={teamAnswering}
+                setTeamAnswering={setTeamAnswering}
+              />
               <NextRoundButton
                 style={{ marginTop: '6%' }}
                 onClick={() => startGame()}
