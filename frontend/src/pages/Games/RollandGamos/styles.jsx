@@ -197,3 +197,20 @@ export const ContinuerContainer = styled.div`
   padding-right: 1%;
   opacity: ${({ isTeamSelected }) => (isTeamSelected ? 1 : 0.5)};
 `
+
+export const CongratsContainer = styled.div`
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 36%,
+    rgb(255, 255, 255) 100%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+`

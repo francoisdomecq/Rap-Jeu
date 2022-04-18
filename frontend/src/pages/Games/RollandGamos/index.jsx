@@ -2,9 +2,12 @@ import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Confetti from 'react-confetti'
 import { GameContext, TeamContext } from '../../../utils/context'
+
 import RappeurArray from '../../../components/Rappers'
 import SearchFeaturing from '../../../components/SearchFeaturing'
 import TeamSelection from '../../../components/TeamSelection'
+import Background from '../../../components/Background'
+
 import {
   RappeurContainer,
   SecondContainer,
@@ -21,6 +24,9 @@ import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
+import comptoir_gauche from '../../../assets/comptoir_gauche.svg'
+import comptoir_droit from '../../../assets/comptoir_droit.svg'
+import mehdi from '../../../assets/mehdi.svg'
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
   const [count, setCount] = useState(0)
@@ -63,21 +69,6 @@ function RollandGamos() {
 
   return count < 1 ? (
     <ContainerRow style={{ marginBottom: '2%' }}>
-      <div className="bouncing-text">
-        <div className="r-RG">R</div>
-        <div className="o-RG">O</div>
-        <div className="l-RG">L</div>
-        <div className="l2-RG">L</div>
-        <div className="a-RG">A</div>
-        <div className="n-RG">N</div>
-        <div className="d-RG">D</div>
-        <div style={{ color: 'transparent' }}>..</div>
-        <div className="g-RG">G</div>
-        <div className="a2-RG">A</div>
-        <div className="m-RG">M</div>
-        <div className="o2-RG">O</div>
-        <div className="s-RG">S</div>
-      </div>
       <ContainerColumn>
         <ContainerRow>
           {rappeur && points ? (
@@ -150,6 +141,11 @@ function RollandGamos() {
         colors={['#2704C4', '#ff003d', '#ffd222']}
       />
       <p>Bien joué {scoreTeam1 < scoreTeam2 ? team2 : team1} </p>
+      {/* <ContainerRow>
+        <img src={comptoir_gauche} style={{ marginTop: '5%' }} alt="comptoir" />
+        <img src={mehdi} alt="mehdi" style={{ width: '30%', height: '30%' }} />
+        <img src={comptoir_droit} style={{ marginTop: '5%' }} alt="comptoir" />
+      </ContainerRow> */}
       <ContinuerContainer isTeamSelected={true}>
         <Link
           to="/"

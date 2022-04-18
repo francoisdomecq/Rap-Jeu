@@ -19,12 +19,13 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Error from './components/Error'
 import TeamsContainer from './components/Teams'
+import Background from './components/Background'
 
 import { GameProvider, TeamProvider } from './utils/context/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router >
+    <Router>
       <GameProvider>
         <Header />
         <Switch>
@@ -39,30 +40,37 @@ ReactDOM.render(
               <Games />
             </Route>
             <Route exact path="/Top 5">
-            <TeamsContainer />
+              <Background />
+              <TeamsContainer />
               <Top5 />
             </Route>
             <Route path="/Les 3 petits chats">
+              <Background />
               <TeamsContainer />
               <PetitsChats />
             </Route>
             <Route path="/Le CrossFeaturing">
+              <Background />
               <TeamsContainer />
               <CrossFeaturing />
             </Route>
             <Route path="/Le Mytho Pas Mytho">
+              <Background />
               <TeamsContainer />
               <MythoPasMytho />
             </Route>
             <Route path="/Rap génie ou rap gênant">
+              <Background />
               <TeamsContainer />
               <RapGenieOuGenant />
             </Route>
             <Route path="/Les enchères">
+              <Background />
               <TeamsContainer />
               <Enchere />
             </Route>
             <Route path="/Rolland Gamos">
+              <Background />
               <TeamsContainer />
               <RollandGamos />
             </Route>
