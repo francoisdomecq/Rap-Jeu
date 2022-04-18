@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Confetti from 'react-confetti'
 import { GameContext, TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
 import SearchFeaturing from '../../../components/SearchFeaturing'
@@ -13,7 +14,6 @@ import {
   ContainerScore,
   ButtonScore,
   ContinuerContainer,
-  NextRoundButton,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
@@ -61,7 +61,7 @@ function RollandGamos() {
     resetTeams()
   }
 
-  return count < 3 ? (
+  return count < 1 ? (
     <ContainerRow style={{ marginBottom: '2%' }}>
       <div className="bouncing-text">
         <div className="r-RG">R</div>
@@ -144,15 +144,19 @@ function RollandGamos() {
     </ContainerRow>
   ) : (
     <ContainerColumn>
+      <Confetti
+        width={window.innerWidth}
+        height={window.innerHeight}
+        colors={['#2704C4', '#ff003d', '#ffd222']}
+      />
       <p>Bien joué {scoreTeam1 < scoreTeam2 ? team2 : team1} </p>
-      <ContinuerContainer
-      isTeamSelected={true}>
+      <ContinuerContainer isTeamSelected={true}>
         <Link
           to="/"
           style={{ textDecoration: 'none', color: 'white' }}
           onClick={() => reset()}
         >
-          Recommencer 
+          Recommencer
         </Link>
       </ContinuerContainer>
     </ContainerColumn>
