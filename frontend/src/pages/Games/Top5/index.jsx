@@ -15,6 +15,7 @@ import {
   NextRoundButton,
   Container,
 } from './styles'
+
 import { TextBlue, TextWhite } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'

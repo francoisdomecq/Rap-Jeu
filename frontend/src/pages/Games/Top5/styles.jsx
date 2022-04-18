@@ -20,9 +20,6 @@ export const ContainerColumn = styled.div`
   height: 100%;
   width: 100%;
 `
-
-
-
 export const ContainerTeam = styled.div`
   display: flex;
   align-items: center;

@@ -13,6 +13,7 @@ import {
   ContainerScore,
   ButtonScore,
   ContinuerContainer,
+  NextRoundButton,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
@@ -143,10 +144,17 @@ function RollandGamos() {
     </ContainerRow>
   ) : (
     <ContainerColumn>
-      <p>Bien joué équipe {scoreTeam1 < scoreTeam2 ? '2' : '1'} </p>
-      <Link to="/" onClick={() => reset()}>
-        Recommencer une partie
-      </Link>
+      <p>Bien joué {scoreTeam1 < scoreTeam2 ? team2 : team1} </p>
+      <ContinuerContainer
+      isTeamSelected={true}>
+        <Link
+          to="/"
+          style={{ textDecoration: 'none', color: 'white' }}
+          onClick={() => reset()}
+        >
+          Recommencer 
+        </Link>
+      </ContinuerContainer>
     </ContainerColumn>
   )
 }
