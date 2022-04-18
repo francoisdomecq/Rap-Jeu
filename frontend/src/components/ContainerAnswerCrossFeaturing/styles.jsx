@@ -30,6 +30,7 @@ export const ContainerTeamAnswer = styled.div`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
+  opacity: 0.95;
 `
 export const TableContainer = styled.div`
   display: flex;
@@ -103,7 +104,6 @@ export const Line = styled.tr`
   width: 100%;
   color: white;
   font-size: 18px;
-
 `
 export const RapperName = styled.p`
   text-transform: uppercase;

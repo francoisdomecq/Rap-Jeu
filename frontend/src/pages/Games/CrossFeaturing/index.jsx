@@ -7,7 +7,6 @@ import SearchFeaturing from '../../../components/SearchFeaturing'
 import TeamSelection from '../../../components/TeamSelection'
 import ContainerAnswerCrossFeaturing from '../../../components/ContainerAnswerCrossFeaturing'
 
-
 import {
   ContainerRow,
   ContainerColumn,
@@ -45,7 +44,7 @@ function CrossFeaturing() {
       }
     }
   }
-  
+
   const updateAnswer = () => {
     updateGamesPlayed('Le CrossFeaturing', answerNumber, updateAnswerNumber)
     setCrossFeaturing()
@@ -58,42 +57,23 @@ function CrossFeaturing() {
 
   return (
     <ContainerRow>
-      <div className="bouncing-text">
-        <div className="l-cf">l</div>
-        <div className="e-cf">e</div>
-        <div style={{ color: 'transparent', lineHeight: 0 }}>..</div>
-        <div className="c-cf">c</div>
-        <div className="r-cf">r</div>
-        <div className="o-cf">o</div>
-        <div className="s-cf">s</div>
-        <div className="s1-cf">s</div>
-        <div className="f-cf">f</div>
-        <div className="e1-cf">e</div>
-        <div className="a-cf">a</div>
-        <div className="t-cf">t</div>
-        <div className="u-cf">u</div>
-        <div className="r1-cf">r</div>
-        <div className="i-cf">i</div>
-        <div className="n-cf">n</div>
-        <div className="g-cf">g</div>
-      </div>
       <ContainerColumn>
         {!crossFeaturing ? (
           <ContainerColumn45>
             <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
           </ContainerColumn45>
         ) : (
-          <ContainerColumn>
+          <ContainerColumn style={{ marginTop: '1%' }}>
             <ContainerRow style={{ justifyContent: 'center' }}>
               <ContainerAnswerCrossFeaturing
                 team={team1}
                 addRappers={addRappers}
                 rappersTeam={rappersTeam1}
-                setRappers = {setRappersTeam1}
+                setRappers={setRappersTeam1}
               />
               <ContainerRow style={{ width: '40%' }}>
                 <ContainerRow>
-                  <TextBlue>
+                  <TextBlue >
                     {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
                   </TextBlue>
                 </ContainerRow>
@@ -103,7 +83,7 @@ function CrossFeaturing() {
                 team={team2}
                 addRappers={addRappers}
                 rappersTeam={rappersTeam2}
-                setRappers = {setRappersTeam2}
+                setRappers={setRappersTeam2}
               />
             </ContainerRow>
             <ContainerColumn45>

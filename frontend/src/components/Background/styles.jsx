@@ -8,7 +8,7 @@ export const ContainerZIndex = styled.div`
 `
 export const ContainerRow = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 100%;

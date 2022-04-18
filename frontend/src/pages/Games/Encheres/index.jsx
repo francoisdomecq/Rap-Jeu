@@ -53,31 +53,16 @@ function Enchere() {
     if (enchere && teamAnswering && points) setStartCount(true)
   }
 
-
   return (
     <ContainerRow style={{ marginBottom: '2%' }}>
-      <div className="bouncing-text">
-        <div className="l-enc">l</div>
-        <div className="e-enc">e</div>
-        <div className="s-enc">s</div>
-        <div style={{ color: 'transparent' }}>..</div>
-        <div className="e1-enc">e</div>
-        <div className="n-enc">n</div>
-        <div className="c-enc">c</div>
-        <div className="h-enc">h</div>
-        <div className="e2-enc">è</div>
-        <div className="r-enc">r</div>
-        <div className="e3-enc">e</div>
-        <div className="s1-enc">s</div>
-      </div>
       <ContainerColumn>
         <ContainerRow>
           {enchere && points && teamAnswering && startCounter ? (
             <div>
               {counter > 0 && answerGiven < points ? (
-                <ContainerColumn>
+                <ContainerColumn style={{ marginTop: '1%' }}>
                   <Timer counter={counter} />
-                  <ContainerRow style={{ width: '50%' }}>
+                  <ContainerRow style={{ width: '50%', marginTop: '8%' }}>
                     <ContainerAnswer
                       teamAnswering={teamAnswering}
                       answerGiven={answerGiven}
@@ -93,7 +78,9 @@ function Enchere() {
               ) : (
                 <ContainerColumn style={{ marginTop: '16%' }}>
                   {answerGiven >= points ? (
-                    <ContainerTeamSelection style={{ marginBottom: '5%' }}>
+                    <ContainerTeamSelection
+                      style={{ marginBottom: '6%', marginTop: '30%' }}
+                    >
                       <TextBlue>Félicitations {teamAnswering}</TextBlue>
                       <ContainerTeam
                         style={{ width: '80%' }}

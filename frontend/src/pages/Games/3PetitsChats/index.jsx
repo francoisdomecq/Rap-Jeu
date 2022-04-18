@@ -61,9 +61,13 @@ function PetitsChats() {
       <ContainerColumn>
         {rapper ? (
           <ContainerColumn>
-            <TextBlack>Equipe {teamAnswering}, à vous</TextBlack>
-            <ContainerRow style={{ justifyContent: 'center' }}>
-              <ContainerColumn style={{ width: '30%' }}>
+            <TextBlack style={{ marginTop: '4%' }}>
+              Equipe {teamAnswering}, à vous
+            </TextBlack>
+            <ContainerRow
+              style={{ justifyContent: 'space-evenly', width: '65%' }}
+            >
+              <ContainerColumn style={{ width: '38%' }}>
                 <Header>Rappeurs cités</Header>
                 <TableContainer>
                   <RappersContainer>
@@ -86,7 +90,7 @@ function PetitsChats() {
               </ContainerNewRapper>
             </ContainerRow>
 
-            <ContainerColumn style={{ marginTop: '2%' }}>
+            <ContainerColumn style={{ marginTop: '4%' }}>
               {answerNumber < 1 ? (
                 <ContinueContainer onClick={() => updateAnswer()}>
                   Manche suivante

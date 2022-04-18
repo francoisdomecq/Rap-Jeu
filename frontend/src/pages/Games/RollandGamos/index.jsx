@@ -140,13 +140,18 @@ function RollandGamos() {
         height={window.innerHeight}
         colors={['#2704C4', '#ff003d', '#ffd222']}
       />
-      <p>Bien joué {scoreTeam1 < scoreTeam2 ? team2 : team1} </p>
+      <TextBlue style={{ marginTop: '3.5%' }}>
+        Bien joué {scoreTeam1 < scoreTeam2 ? team2 : team1}{' '}
+      </TextBlue>
       {/* <ContainerRow>
         <img src={comptoir_gauche} style={{ marginTop: '5%' }} alt="comptoir" />
         <img src={mehdi} alt="mehdi" style={{ width: '30%', height: '30%' }} />
         <img src={comptoir_droit} style={{ marginTop: '5%' }} alt="comptoir" />
       </ContainerRow> */}
-      <ContinuerContainer isTeamSelected={true}>
+      <ContinuerContainer
+        style={{ marginTop: '15%', marginBottom: '5% ' }}
+        isTeamSelected={true}
+      >
         <Link
           to="/"
           style={{ textDecoration: 'none', color: 'white' }}

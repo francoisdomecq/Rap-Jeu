@@ -38,6 +38,7 @@ export const ContainerScore = styled.div`
   background-size: contain;
   background-image: url(${rectangle});
   background-repeat: no-repeat;
+
 `
 export const ButtonScore = styled.input`
   width: 100%;
@@ -155,7 +156,7 @@ export const ContainerTeamSelection = styled.div`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
-  opacity: 1;
+  opacity: 0.95;
   box-shadow: 1px 1px 1px ${colors.blue};
 `
 

@@ -32,7 +32,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 70%;
   padding-top: 1%;
   padding-bottom: 1%;
   border-top-right-radius: 20px;
@@ -43,16 +43,18 @@ export const Header = styled.div`
   font-size: 24px;
   color: white;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  opacity: 0.95;
 `
 export const TableContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  width: 80%;
+  width: 70%;
   max-height: 200px;
-  min-height: 50px;
+  min-height: 150px;
   overflow-y: scroll;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  opacity: 0.95;
 `
 
 export const RappersContainer = styled.div`
@@ -64,20 +66,22 @@ export const RappersContainer = styled.div`
 `
 export const TableBottom = styled.div`
   display: flex;
-  width: 80%;
-  padding-bottom: 1%;
+  width: 70%;
+  padding-bottom: 2%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  opacity: 0.95;
 `
 export const ContainerNewRapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 35%;
   padding-bottom: 1%;
   border-radius: 20px;
+  opacity: 0.95;
   background: rgb(255, 255, 24);
   background: linear-gradient(
     180deg,
@@ -88,13 +92,14 @@ export const ContainerNewRapper = styled.div`
 
 export const RapperInput = styled.input`
   text-align: center;
-  width: 60%;
+  width: 80%;
   border: 0px solid #000000;
   border-radius: 10px;
   font-family: 'Montserrat', 'sans-serif';
   font-size: 28px;
   font-weight: 700;
   color: white;
+
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   ::placeholder {
     text-align: 'center';
@@ -133,5 +138,4 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
-
 `

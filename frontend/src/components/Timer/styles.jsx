@@ -3,7 +3,7 @@ import timer from '../../assets/enchere_top5/timer.svg'
 
 export const ContainerTimer = styled.div`
   position: absolute;
-  top: 9.2%;
+  top: 9.7%;
   width: 215px;
   height: 75px;
   background-size: contain;

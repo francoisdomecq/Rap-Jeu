@@ -29,6 +29,7 @@ export const RappeurContainer = styled.div`
   background-size: contain;
   background-image: url(${RapperContainerBG});
   background-repeat: no-repeat;
+  opacity: 0.95;
 `
 export const InputContainer = styled.div`
   display: flex;

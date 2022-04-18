@@ -16,6 +16,7 @@ export const SearchContainer = styled.div`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
+  opacity: 0.95;
 `
 export const InputContainer = styled.div`
   display: flex;

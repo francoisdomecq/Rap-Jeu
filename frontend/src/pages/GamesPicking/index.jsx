@@ -19,7 +19,6 @@ import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 
 function Games() {
   const { games, selectGames } = useContext(GameContext)
-  const { updateScore, scoreTeam1, scoreTeam2 } = useContext(TeamContext)
 
   function removeGame(label) {
     selectGames(label)
@@ -30,13 +29,9 @@ function Games() {
     localStorage.setItem('gamesPlayed', JSON.stringify([]))
   }
 
-  useEffect(() => {
-    updateScore(-scoreTeam1, 'team1')
-    updateScore(-scoreTeam2, 'team2')
-  })
-
   return (
     <Container>
+      {console.log(games)}
       <GamesPicked has4Games={games.length === 4 ? true : false}>
         <GamesPickedTitleWrapper>
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>

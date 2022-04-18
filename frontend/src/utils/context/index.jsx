@@ -47,13 +47,15 @@ export const GameProvider = ({ children }) => {
     else {
       const index = games.indexOf(value)
       //Si le jeu à supprimer est en position jeu 1
-      if (index === 0 && games[1] !== 'Jeu 2') {
-        //On récupère le jeu en position jeu 2
-        let game2 = games[1]
-        //On remplace le jeu 1 par le jeu 2
-        games.splice(index, 1, game2)
-        //On remplace le jeu 2 par 'Jeu 2'
-        games.splice(index + 1, 1, 'Jeu 2')
+      if (index === 0) {
+        if (games[1] !== 'Jeu 2') {
+          //On récupère le jeu en position jeu 2
+          let game2 = games[1]
+          //On remplace le jeu 1 par le jeu 2
+          games.splice(index, 1, game2)
+          //On remplace le jeu 2 par 'Jeu 2'
+          games.splice(index + 1, 1, 'Jeu 2')
+        } else games.splice(index, 1, 'Jeu 1')
       } else {
         games.splice(index, 1, `Jeu ${index + 1}`)
       }

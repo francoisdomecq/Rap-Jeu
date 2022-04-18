@@ -1,4 +1,4 @@
-import { useContext, useEffect} from 'react'
+import { useContext, useEffect } from 'react'
 import { GameContext } from '../../utils/context'
 import { Link } from 'react-router-dom'
 
@@ -12,16 +12,16 @@ function Header() {
   const { games, gamesPlayed, setGames, setGamesPlayed } =
     useContext(GameContext)
   const { isShowing, toggle } = useModal()
-  
+
   const localGames = JSON.parse(localStorage.getItem('games'))
   const localGamesPlayed = JSON.parse(localStorage.getItem('gamesPlayed'))
-  
+
   const queryString = window.location.search
   const urlParams = new URLSearchParams(queryString)
   const game = urlParams.get('game')
 
   useEffect(() => {
-    if (localGames && games[0] === 'Jeu 1') {
+    if (localGames && games[0] === 'Jeu 1' && game !== null) {
       setGames(localGames)
       if (localGamesPlayed !== null) setGamesPlayed(localGamesPlayed)
     }
@@ -29,6 +29,7 @@ function Header() {
 
   return (
     <NavContainer>
+      {console.log(game)}
       <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
         <PageText>Accueil</PageText>
       </Link>
