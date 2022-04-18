@@ -12,6 +12,11 @@ export const GameProvider = ({ children }) => {
   const [gamesPlayed, setGamesPlayed] = useState([])
   const [hasGameStarted, setStart] = useState(false)
 
+  function resetGame() {
+    setGames(['Jeu 1', 'Jeu 2', 'Les enchères', 'Rolland Gamos'])
+    setGamesPlayed([])
+    setStart(false)
+  }
   const selectGames = (value) => {
     //On regarde si la valeur à ajouter est contenue ou non dans le tableau
     if (!games.includes(value)) {
@@ -104,6 +109,7 @@ export const GameProvider = ({ children }) => {
         return gamesPlayed
     }
     setGamesPlayed(newGamesPlayed)
+    localStorage.setItem('gamesPlayed', JSON.stringify(newGamesPlayed))
   }
 
   function startGame(value) {
@@ -119,6 +125,9 @@ export const GameProvider = ({ children }) => {
         selectGames,
         startGame,
         updateGamesPlayed,
+        setGames,
+        setGamesPlayed,
+        resetGame,
       }}
     >
       {children}
@@ -129,8 +138,8 @@ export const GameProvider = ({ children }) => {
 export const TeamContext = createContext()
 
 export const TeamProvider = ({ children }) => {
-  const [team1, setTeam1] = useState('team1')
-  const [team2, setTeam2] = useState('team2')
+  const [team1, setTeam1] = useState('')
+  const [team2, setTeam2] = useState('')
   const [questionTeam, setQuestion] = useState('')
   const [scoreTeam1, setScoreTeam1] = useState(0)
   const [scoreTeam2, setScoreTeam2] = useState(0)
@@ -143,10 +152,12 @@ export const TeamProvider = ({ children }) => {
         let newTeam = { ...team1 }
         newTeam = e.target.value
         setTeam1(newTeam)
+        localStorage.setItem('team1', JSON.stringify(newTeam))
       } else if (team === 'team2') {
         let newTeam = { ...team2 }
         newTeam = e.target.value
         setTeam2(newTeam)
+        localStorage.setItem('team2', JSON.stringify(newTeam))
       }
     } else if (type === 'fetch') {
       if (team === 'team1') {
@@ -172,11 +183,21 @@ export const TeamProvider = ({ children }) => {
       if (team === team1) {
         let newScore = scoreTeam1 + parseInt(value)
         setScoreTeam1(newScore)
+        localStorage.setItem('scoreTeam1', JSON.stringify(newScore))
       } else if (team === team2) {
         let newScore = scoreTeam2 + parseInt(value)
         setScoreTeam2(newScore)
+        localStorage.setItem('scoreTeam2', JSON.stringify(newScore))
       }
     }
+  }
+
+  function resetTeams() {
+    setScoreTeam1(0)
+    setScoreTeam2(0)
+    setTeam1('')
+    setTeam2('')
+    setQuestion('')
   }
   return (
     <TeamContext.Provider
@@ -189,6 +210,11 @@ export const TeamProvider = ({ children }) => {
         changeTeams,
         changeQuestionTeams,
         updateScore,
+        setTeam1,
+        setTeam2,
+        setScoreTeam1,
+        setScoreTeam2,
+        resetTeams
       }}
     >
       {children}

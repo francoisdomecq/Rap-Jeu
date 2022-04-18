@@ -16,6 +16,13 @@ import {
 import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
 import '../../utils/animations/Bouncing/animationBouncing.css'
 function Home() {
+  const localGames = JSON.parse(localStorage.getItem('games'))
+  const localGamesPlayed = JSON.parse(localStorage.getItem('gamesPlayed'))
+  const nextGame =
+    localGames && localGamesPlayed ? localGames[localGamesPlayed.length] : null
+  const localTeam1 = JSON.parse(localStorage.getItem('team1'))
+  const localTeam2 = JSON.parse(localStorage.getItem('team2'))
+
   return (
     <Container style={{ marginBottom: '3%' }}>
       <SecondContainer>
@@ -81,7 +88,14 @@ function Home() {
         </Explications>
       </ExplicationsContainer>
 
-      <Link style={{ textDecoration: 'none', marginTop: '2%' }} to="/teams">
+      <Link
+        style={{ textDecoration: 'none', marginTop: '2%' }}
+        to={
+          localTeam1 === null && localTeam2 === null && localGames === null
+            ? '/teams'
+            : `${nextGame}`
+        }
+      >
         <Container>
           <div className="bouncing-text">
             <div className="j">J</div>

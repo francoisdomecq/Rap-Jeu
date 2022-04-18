@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { TeamContext } from '../../../utils/context'
+import { GameContext, TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
 import SearchFeaturing from '../../../components/SearchFeaturing'
 import TeamSelection from '../../../components/TeamSelection'
@@ -28,8 +28,9 @@ function RollandGamos() {
   const [count, setCount] = useState(0)
   const [points, setPoints] = useState()
   const [teamWinner, setTeamWinner] = useState('')
-  const { scoreTeam1, scoreTeam2 } = useContext(TeamContext)
-  const { team1, team2, updateScore } = useContext(TeamContext)
+  const { resetGame } = useContext(GameContext)
+  const { team1, team2, updateScore, scoreTeam1, scoreTeam2, resetTeams } =
+    useContext(TeamContext)
 
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
@@ -56,7 +57,11 @@ function RollandGamos() {
     setTeamWinner()
     setPoints()
   }
-
+  function reset() {
+    localStorage.clear()
+    resetGame()
+    resetTeams()
+  }
   // HasGameStarted()
 
   return count < 3 ? (
@@ -97,7 +102,7 @@ function RollandGamos() {
                   team1={team1}
                   team2={team2}
                   teamAnswering={teamWinner}
-                  game='Rolland Gamos'
+                  game="Rolland Gamos"
                   setTeamAnswering={setTeamWinner}
                 />
               </ContainerColumn>
@@ -143,7 +148,9 @@ function RollandGamos() {
   ) : (
     <ContainerColumn>
       <p>Bien joué équipe {scoreTeam1 < scoreTeam2 ? '2' : '1'} </p>
-      <Link to="/">Recommencer une partie</Link>
+      <Link to="/" onClick={() => reset()}>
+        Recommencer une partie
+      </Link>
     </ContainerColumn>
   )
 }

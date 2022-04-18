@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import GameCard from '../../components/GameCard'
 import { GameContext, TeamContext } from '../../utils/context'
 import {
@@ -20,15 +20,22 @@ import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 function Games() {
   const { games, selectGames, startGame } = useContext(GameContext)
   const { updateScore, scoreTeam1, scoreTeam2 } = useContext(TeamContext)
+
   function removeGame(label) {
     selectGames(label)
   }
 
+  function start() {
+    localStorage.setItem('games', JSON.stringify(games))
+    localStorage.setItem('gamesPlayed', JSON.stringify([]))
+    startGame(true)
+  }
   useEffect(() => {
     startGame(false)
     updateScore(-scoreTeam1, 'team1')
     updateScore(-scoreTeam2, 'team2')
   })
+
   return (
     <Container>
       <GamesPicked has4Games={games.length === 4 ? true : false}>
@@ -43,7 +50,7 @@ function Games() {
               (item !== 'Jeu 2' && games.indexOf(item) === 1) ? (
                 <div>
                   <RemoveButton onClick={() => removeGame(item)}>
-                    X
+                    &times;
                   </RemoveButton>
                 </div>
               ) : null}
@@ -60,9 +67,7 @@ function Games() {
               : '/games'
           }
           onClick={() =>
-            games.length === 4 && games.includes('') === false
-              ? startGame(true)
-              : null
+            games.length === 4 && games.includes('') === false ? start() : null
           }
         >
           Commencer la partie

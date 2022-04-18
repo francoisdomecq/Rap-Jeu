@@ -31,6 +31,8 @@ function Teams() {
           changeTeams(requestData[randomData].debutNomE1, 'team1', 'fetch')
           changeTeams(requestData[randomData].debutNomE2, 'team2', 'fetch')
           setDataLoading(false)
+          localStorage.setItem('scoreTeam1', 0)
+          localStorage.setItem('scoreTeam2', 0)
         }
       })
       .catch((error) => console.log(error))

@@ -35,7 +35,7 @@ function ContainerAnswerCrossFeaturing({
                   <Line>
                     <RapperName>{rapper}</RapperName>
                     <RemoveButton onClick={() => deleteRapper(rapper)}>
-                      -
+                      &times;
                     </RemoveButton>
                   </Line>
                 </LineContainer>

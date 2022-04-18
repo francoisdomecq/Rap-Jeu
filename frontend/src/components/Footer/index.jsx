@@ -1,11 +1,9 @@
 import { FooterContainer, FooterText } from './styles'
 
 function Footer() {
-  const queryString = window.location.search
-  const urlParams = new URLSearchParams(queryString)
-  const game = urlParams.get('game')
   return (
     <FooterContainer>
+      {console.log(localStorage)}
       <FooterText>Jeu crée par François Domecq</FooterText>
       <FooterText>
         <a
@@ -14,7 +12,8 @@ function Footer() {
           target="_blank"
         >
           Accéder au dépôt GitHub
-        </a>
+        </a>{' '}
+        <button onClick={() => localStorage.clear()} />          
       </FooterText>
     </FooterContainer>
   )
