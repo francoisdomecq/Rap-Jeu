@@ -42,6 +42,7 @@ function Teams() {
       setScoreTeam2(localScoreTeam2)
     }
   })
+
   return (
     <PageContainer>
       <LeftTeamContainer imgUrl="../../assets/jauge_gauche.svg">

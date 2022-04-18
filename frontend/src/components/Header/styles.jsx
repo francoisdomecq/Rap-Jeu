@@ -17,7 +17,7 @@ export const PageText = styled.span`
 export const PageTextBis = styled.span`
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 18px;
+  font-size: 24px;
   background: linear-gradient(180deg, #fefbeb 0%, #bdbaa2 100%);
   background-size: 100%;
   -webkit-background-clip: text;

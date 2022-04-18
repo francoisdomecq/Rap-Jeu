@@ -3,7 +3,6 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import RapperArray from '../../../components/Rappers'
 
-
 import { TextBlack, TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
@@ -57,25 +56,8 @@ function PetitsChats() {
     else setTeamAnswering(team2)
   }, [team1, team2, scoreTeam1, scoreTeam2])
 
-
   return (
     <ContainerRow style={{ marginBottom: '1%' }}>
-      <div className="bouncing-text">
-        <div className="three-3pc">3</div>
-        <div style={{ color: 'transparent' }}>..</div>
-        <div className="p-3pc">P</div>
-        <div className="e-3pc">E</div>
-        <div className="t-3pc">T</div>
-        <div className="i-3pc">I</div>
-        <div className="t1-3pc">T</div>
-        <div className="s-3pc">S</div>
-        <div style={{ color: 'transparent' }}>..</div>
-        <div className="c-3pc">C</div>
-        <div className="h-3pc">H</div>
-        <div className="a-3pc">A</div>
-        <div className="t2-3pc">T</div>
-        <div className="s1-3pc">S</div>
-      </div>
       <ContainerColumn>
         {rapper ? (
           <ContainerColumn>

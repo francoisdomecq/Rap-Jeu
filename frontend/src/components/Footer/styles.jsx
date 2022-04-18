@@ -1,12 +1,16 @@
 import styled from 'styled-components'
+import colors from '../../utils/styles/colors'
 
 export const FooterContainer = styled.footer`
+  position: relative;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
   background: #ffd222;
   border-top: 4px solid rgb(0, 0, 0);
-  height: 10%;
 `
 export const FooterText = styled.p`
   font-family: 'Montserrat', 'sans-serif';

@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
+  opacity: 0.95; 
 `
 export const TableHead = styled.thead`
   display: flex;

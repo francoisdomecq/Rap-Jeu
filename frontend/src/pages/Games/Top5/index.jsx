@@ -76,18 +76,11 @@ function Top5() {
 
   return (
     <ContainerRow style={{ marginBottom: '2%' }}>
-      <div className="bouncing-text">
-        <div className="t-top5">t</div>
-        <div className="o-top5">o</div>
-        <div className="p-top5">p</div>
-        <div style={{ color: 'transparent' }}>..</div>
-        <div className="five-top5">5</div>
-      </div>
       {startCounter ? (
         counter > 0 && answerGiven < 5 ? (
           <ContainerColumn style={{ marginTop: '1%' }}>
             <Timer counter={counter} />
-            <ContainerRow style={{ width: '40%' }}>
+            <ContainerRow style={{ width: '40%', marginTop: '5%' }}>
               <ContainerAnswer
                 team1={team1}
                 team2={team2}
@@ -108,7 +101,7 @@ function Top5() {
           <ContainerColumn>
             {answerGiven >= 5 ? (
               <Container
-                style={{ marginBottom: '5%', marginTop: '5%', width: '30%' }}
+                style={{ marginBottom: '5%', marginTop: '8%', width: '30%' }}
               >
                 <TextBlue>Félicitations {teamAnswering}</TextBlue>
                 <ContainerTeam

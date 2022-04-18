@@ -107,8 +107,7 @@ export const ScoreTeamRight = styled.p`
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 18px;
-   margin-top: 0.5%;
-
+  margin-top: 0.5%;
   position: absolute;
   left: 84%;
   padding-bottom: 5px;
@@ -126,6 +125,16 @@ export const ScoreTeamRight = styled.p`
   -moz-text-fill-color: transparent;
   -webkit-text-stroke-width: 0px;
   -webkit-text-stroke-color: rgb(255, 255, 255);
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 `
 export const ScoreInput = styled.input`
   font-family: 'Montserrat';
