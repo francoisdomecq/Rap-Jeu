@@ -10,7 +10,7 @@ import {
   ScoreTeamRight,
   ScoreInput,
 } from './styles'
-import { ContainerColumn } from '../../utils/styles/Containers'
+
 function Teams() {
   const {
     team1,

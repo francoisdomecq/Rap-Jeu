@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import { Link } from 'react-router-dom'
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
 import {
   Text,
   ContainerQuestion,
@@ -65,7 +65,6 @@ function MythoPasMytho() {
       .catch((error) => console.log(error))
   }, [])
 
-  HasGameStarted()
 
   return isDataLoading ? (
     <LoaderWrapper>

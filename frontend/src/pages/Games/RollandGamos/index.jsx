@@ -12,7 +12,6 @@ import {
   ContainerTeamSelection,
   ContainerScore,
   ButtonScore,
-  ContainerTeam,
   ContinuerContainer,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
@@ -20,8 +19,6 @@ import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
-
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
 
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
@@ -62,7 +59,6 @@ function RollandGamos() {
     resetGame()
     resetTeams()
   }
-  // HasGameStarted()
 
   return count < 3 ? (
     <ContainerRow style={{ marginBottom: '2%' }}>

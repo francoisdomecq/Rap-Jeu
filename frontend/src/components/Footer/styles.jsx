@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import colors from '../../utils/styles/colors'
 
 export const FooterContainer = styled.footer`
   display: flex;

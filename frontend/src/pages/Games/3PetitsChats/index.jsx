@@ -3,8 +3,8 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import RapperArray from '../../../components/Rappers'
 
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
-import { TextBlack, TextBlue, TextWhite } from '../../../utils/styles/Text'
+
+import { TextBlack, TextBlue } from '../../../utils/styles/Text'
 import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 import {
@@ -55,9 +55,9 @@ function PetitsChats() {
   useEffect(() => {
     if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
     else setTeamAnswering(team2)
-  }, [team1])
+  }, [team1, team2, scoreTeam1, scoreTeam2])
 
-  HasGameStarted()
+
   return (
     <ContainerRow style={{ marginBottom: '1%' }}>
       <div className="bouncing-text">

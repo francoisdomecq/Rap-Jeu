@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import GameCard from '../../components/GameCard'
 import { GameContext, TeamContext } from '../../utils/context'
 import {
@@ -18,7 +18,7 @@ import {
 import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 
 function Games() {
-  const { games, selectGames, startGame } = useContext(GameContext)
+  const { games, selectGames } = useContext(GameContext)
   const { updateScore, scoreTeam1, scoreTeam2 } = useContext(TeamContext)
 
   function removeGame(label) {
@@ -28,10 +28,9 @@ function Games() {
   function start() {
     localStorage.setItem('games', JSON.stringify(games))
     localStorage.setItem('gamesPlayed', JSON.stringify([]))
-    startGame(true)
   }
+
   useEffect(() => {
-    startGame(false)
     updateScore(-scoreTeam1, 'team1')
     updateScore(-scoreTeam2, 'team2')
   })

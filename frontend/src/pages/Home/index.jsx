@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import Jouer from '../../assets/jouer.svg'
 import RedBullLogo from '../../assets/PNG/redbull.png'
 import RapJeuLogo from '../../assets/RapJeuLogo.svg'
 import YoutubeLogo from '../../assets/rollandgamos/icons8-youtube.svg'
 import {
   Container,
+  ContainerRow,
   ExplicationsContainer,
   Explications,
   Logo,
@@ -15,7 +15,10 @@ import {
 } from './styles'
 import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
 import '../../utils/animations/Bouncing/animationBouncing.css'
+import { useContext } from 'react'
+import { GameContext } from '../../utils/context'
 function Home() {
+  const { startGame, resetGame } = useContext(GameContext)
   const localGames = JSON.parse(localStorage.getItem('games'))
   const localGamesPlayed = JSON.parse(localStorage.getItem('gamesPlayed'))
   const nextGame =
@@ -23,6 +26,10 @@ function Home() {
   const localTeam1 = JSON.parse(localStorage.getItem('team1'))
   const localTeam2 = JSON.parse(localStorage.getItem('team2'))
 
+  function newGame() {
+    localStorage.clear()
+    resetGame()
+  }
   return (
     <Container style={{ marginBottom: '3%' }}>
       <SecondContainer>
@@ -87,25 +94,23 @@ function Home() {
           </Text>
         </Explications>
       </ExplicationsContainer>
-
-      <Link
-        style={{ textDecoration: 'none', marginTop: '2%' }}
-        to={
-          localTeam1 === null && localTeam2 === null && localGames === null
-            ? '/teams'
-            : `${nextGame}`
-        }
-      >
-        <Container>
-          <div className="bouncing-text">
-            <div className="j">J</div>
-            <div className="o">O</div>
-            <div className="u">U</div>
-            <div className="e">E</div>
-            <div className="r">R</div>
-          </div>
-        </Container>
-      </Link>
+      <ContainerRow>
+        <Link
+          style={{ textDecoration: 'none' }}
+          onClick={() => newGame()}
+          to={'/teams'}
+        >
+          Commencer une nouvelle partie
+        </Link>
+        {localTeam1 && localTeam2 && localGames ? (
+          <Link
+            to={`${nextGame}/?game=${nextGame}`}
+            onClick={() => startGame(true)}
+          >
+            Reprendre la partie en cours
+          </Link>
+        ) : null}
+      </ContainerRow>
     </Container>
   )
 }

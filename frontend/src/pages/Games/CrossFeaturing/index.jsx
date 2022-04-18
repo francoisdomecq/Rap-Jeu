@@ -6,7 +6,7 @@ import CrossFeaturingArray from '../../../components/CrossFeaturing'
 import SearchFeaturing from '../../../components/SearchFeaturing'
 import TeamSelection from '../../../components/TeamSelection'
 import ContainerAnswerCrossFeaturing from '../../../components/ContainerAnswerCrossFeaturing'
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
 
 import {
   ContainerRow,
@@ -55,7 +55,7 @@ function CrossFeaturing() {
     else if (teamWinner === team2) updateScore(5, team2)
     setTeamWinner()
   }
-  // HasGameStarted()
+
   return (
     <ContainerRow>
       <div className="bouncing-text">

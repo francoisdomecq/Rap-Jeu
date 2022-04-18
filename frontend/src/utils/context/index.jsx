@@ -164,10 +164,12 @@ export const TeamProvider = ({ children }) => {
         let newTeam = { ...team1 }
         newTeam = e
         setTeam1(newTeam)
+        localStorage.setItem('team1', JSON.stringify(newTeam))
       } else if (team === 'team2') {
         let newTeam = { ...team2 }
         newTeam = e
         setTeam2(newTeam)
+        localStorage.setItem('team2', JSON.stringify(newTeam))
       }
     }
   }
@@ -214,7 +216,7 @@ export const TeamProvider = ({ children }) => {
         setTeam2,
         setScoreTeam1,
         setScoreTeam2,
-        resetTeams
+        resetTeams,
       }}
     >
       {children}

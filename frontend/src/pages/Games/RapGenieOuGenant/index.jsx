@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
+
 import {
   Text,
   ContainerQuestion,
@@ -76,7 +76,6 @@ function RapGenieOuGenant() {
       .catch((error) => console.log(error))
   }, [])
 
-  HasGameStarted()
 
   return isDataLoading ? (
     <LoaderWrapper>

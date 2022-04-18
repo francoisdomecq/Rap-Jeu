@@ -8,8 +8,6 @@ import Timer from '../../../components/Timer'
 import ContainerAnswer from '../../../components/ContainerAnswer'
 import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 
-import HasGameStarted from '../../../utils/functions/hasGameStarted'
-
 import {
   ContainerRow,
   ContainerColumn,
@@ -75,7 +73,6 @@ function Top5() {
     team2,
   ])
 
-  HasGameStarted()
   return (
     <ContainerRow style={{ marginBottom: '2%' }}>
       <div className="bouncing-text">
