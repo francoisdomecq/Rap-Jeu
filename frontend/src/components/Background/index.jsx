@@ -8,7 +8,7 @@ function Background() {
     <ContainerZIndex>
       <ContainerRow>
         <img src={comptoir_gauche} style={{ marginTop: '5%' }} alt="comptoir" />
-        <img src={mehdi} alt="mehdi" style={{ width: '40%', height: '100%' }} />
+        <img src={mehdi} alt="mehdi" style={{ width: '45%', height: '100%' }} />
         <img src={comptoir_droit} style={{ marginTop: '5%' }} alt="comptoir" />.
       </ContainerRow>
     </ContainerZIndex>
