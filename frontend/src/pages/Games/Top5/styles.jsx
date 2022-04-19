@@ -31,21 +31,7 @@ export const ContainerTeam = styled.div`
     cursor: pointer;
   }
 `
-export const NextRoundButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-image: url(${Continuer});
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 326px;
-  height: 105px;
-  &:hover {
-    cursor: pointer;
-  }
-  padding-right: 1%;
-`
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -64,4 +50,36 @@ export const Container = styled.div`
   );
   opacity: 0.95;
   box-shadow: 1px 1px 1px ${colors.blue};
+`
+export const NextRoundButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    width: 150px;
+    height: 55px;
+  }
+`
+export const TextLink = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    font-size: 12px;
+    width: 150px;
+  }
 `

@@ -5,12 +5,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-  opacity: 0.95; 
+  opacity: 0.95;
 `
 export const TableHead = styled.thead`
   display: flex;
   justify-content: center;
-  padding-right: 2%;
+  text-align: center;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   color: ${colors.blue};
@@ -24,6 +24,9 @@ export const TableHead = styled.thead`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
+  }
 `
 
 export const TableContainer = styled.div`
@@ -31,6 +34,9 @@ export const TableContainer = styled.div`
   width: 100%;
   max-height: 380px;
   overflow-y: scroll;
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    max-height: 250px;
+  }
 `
 export const Table = styled.table`
   text-align: center;
@@ -58,6 +64,9 @@ export const Line = styled.tr`
   &:hover {
     color: ${({ isChosen }) =>
       isChosen ? `${colors.red}` : `${colors.yellow}`};
+  }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
   }
 `
 

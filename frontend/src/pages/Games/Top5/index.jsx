@@ -14,6 +14,7 @@ import {
   ContainerTeam,
   NextRoundButton,
   Container,
+  TextLink,
 } from './styles'
 import { TextBlue, TextWhite } from '../../../utils/styles/Text'
 
@@ -27,7 +28,7 @@ function Top5() {
   //Booléen permettant de commencer le chrono
   const [startCounter, setStartCount] = useState(false)
   //Chronomètre de 20s
-  const [counter, setCounter] = useState(20)
+  const [counter, setCounter] = useState(2000)
   //Compteur des manches
   const [round, updateRound] = useState(0)
   const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
@@ -189,7 +190,10 @@ function Top5() {
                 style={{ marginTop: '6%' }}
                 onClick={() => startGame()}
               >
-                <TextWhite size={20}> Commencer la manche</TextWhite>
+                <TextLink>
+                  Commencer une
+                  <br /> nouvelle partie
+                </TextLink>
               </NextRoundButton>
             </ContainerColumn>
           </ContainerRow>

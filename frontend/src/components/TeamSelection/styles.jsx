@@ -33,7 +33,7 @@ export const ContainerTeamSelection = styled.div`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
-  opacity: 0.95; 
+  opacity: 0.95;
   box-shadow: 1px 1px 1px ${colors.blue};
 `
 
