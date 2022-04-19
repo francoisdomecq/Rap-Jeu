@@ -7,17 +7,21 @@ import {
   SearchLogos,
 } from './styles'
 import { TextBlue } from '../../utils/styles/Text'
+
 import MusicBrainzLogo from '../../assets/rollandgamos/MusicBrainz_Logo.png'
 import YoutubeLogo from '../../assets/rollandgamos/icons8-youtube.svg'
 import RapGeniusLogo from '../../assets/rollandgamos/RapGenius_Logo.png'
 
-function SearchFeaturing(rappeur) {
-  const [rappeur1Search, setRappeur1Search] = useState('')
-  const [rappeur2Search, setRappeur2Search] = useState('')
+//Ce composant est utilisé dans les épreuves Rolland Gamos et CrossFeaturing. Il permet d'effectuer une recherche d'un featuring
+//sur Youtube, RapGenius et MusicBrainz
+function SearchFeaturing(rapper) {
+  const [rapper1Search, setrapper1Search] = useState('')
+  const [rapper2Search, setrapper2Search] = useState('')
 
+  //Si le rapper passé en props est modifié, alors on modifie champ de recherche rapper1Search
   useEffect(() => {
-    if (rappeur) setRappeur1Search(rappeur.rappeur)
-  },[rappeur])
+    if (rapper) setrapper1Search(rapper.rapper)
+  }, [rapper])
 
   return (
     <SearchContainer>
@@ -25,23 +29,22 @@ function SearchFeaturing(rappeur) {
       <InputContainer>
         <SearchInput
           type="search"
-          placeholder={rappeur1Search}
-          value={rappeur1Search}
-          onClick={()=>setRappeur1Search('')}
-          onChange={(e) => setRappeur1Search(e.target.value)}
+          placeholder={rapper1Search}
+          value={rapper1Search}
+          onClick={() => setrapper1Search('')}
+          onChange={(e) => setrapper1Search(e.target.value)}
         />
         <SearchInput
           type="search"
-       
-          value={rappeur2Search}
-          onClick={()=>setRappeur2Search('')}
-          onChange={(e) => setRappeur2Search(e.target.value)}
+          value={rapper2Search}
+          onClick={() => setrapper2Search('')}
+          onChange={(e) => setrapper2Search(e.target.value)}
         />
       </InputContainer>
       <SearchLogos>
         <a
           rel="noreferrer"
-          href={`https://www.youtube.com/results?search_query=${rappeur1Search}+${rappeur2Search}`}
+          href={`https://www.youtube.com/results?search_query=${rapper1Search}+${rapper2Search}`}
           target="_blank"
         >
           <img
@@ -52,7 +55,7 @@ function SearchFeaturing(rappeur) {
         </a>
         <a
           rel="noreferrer"
-          href={`https://musicbrainz.org/search?query=${rappeur1Search}%20feat.%20${rappeur2Search}&type=recording&limit=5&method=advanced`}
+          href={`https://musicbrainz.org/search?query=${rapper1Search}%20feat.%20${rapper2Search}&type=recording&limit=10&method=advanced`}
           target="_blank"
         >
           <img
@@ -63,7 +66,7 @@ function SearchFeaturing(rappeur) {
         </a>
         <a
           rel="noreferrer"
-          href={`https://genius.com/search?q=${rappeur1Search}%20${rappeur2Search}`}
+          href={`https://genius.com/search?q=${rapper1Search}%20${rapper2Search}`}
           target="_blank"
         >
           <img
