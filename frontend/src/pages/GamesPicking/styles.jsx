@@ -5,6 +5,9 @@ import colors from '../../utils/styles/colors'
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 export const GamesPicked = styled.div`
   width: 25%;
@@ -14,6 +17,9 @@ export const GamesPicked = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    width: 100%;
+  }
 `
 export const GamesPickedTitleWrapper = styled.div`
   display: flex;
@@ -24,11 +30,18 @@ export const GamesPickedTitleWrapper = styled.div`
   height: 6%;
   font-family: 'Montserrat';
   font-weight: 700;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    height: 3%;
+  }
 `
 export const GamesPickedTitle = styled.div`
   color: white;
   font-size: 20px;
   font-weight: bold;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 16px;
+    text-align: center;
+  }
 `
 export const GamesPickedWrapper = styled.div`
   display: flex;
@@ -46,6 +59,14 @@ export const GamesPickedWrapper = styled.div`
   font-weight: 700;
   font-size: 16px;
   font-family: 'Montserrat';
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    width: 50%;
+    height: 5%;
+    border-radius: 10px;
+    font-size: 8px;
+    padding: 2%;
+    margin-top: 4%;
+  }
 `
 export const RemoveButton = styled.button`
   width: 30px;
@@ -55,6 +76,9 @@ export const RemoveButton = styled.button`
   font-size: 20px;
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 12px;
   }
 `
 export const PlayButton = styled(Link)`
@@ -70,6 +94,12 @@ export const PlayButton = styled(Link)`
   font-size: 20px;
   font-family: 'Montserrat';
   font-weight: 700;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 16px;
+    text-align: center;
+    height: 3%;
+    margin-top: 4%;
+  }
 `
 export const ContainerRow = styled.div`
   display: flex;
@@ -97,6 +127,12 @@ export const PageTitle = styled.p`
   color: ${colors.red};
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 800px) {
+    font-size: 36px;
+  }
 `
 export const ExplainContainer = styled.div`
   background-color: white;
@@ -112,12 +148,18 @@ export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 500;
   font-size: 16px;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 12px;
+  }
 `
 
 export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 18px;
+  }
 `
 export const GameContainer = styled.div`
   display: flex;

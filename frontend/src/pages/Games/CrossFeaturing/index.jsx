@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 import CrossFeaturingArray from '../../../components/CrossFeaturing'
 import SearchFeaturing from '../../../components/SearchFeaturing'
-import TeamSelection from '../../../components/TeamSelection'
 import ContainerAnswerCrossFeaturing from '../../../components/ContainerAnswerCrossFeaturing'
 
 import {
@@ -12,13 +11,13 @@ import {
   ContainerColumn,
   ContainerColumn45,
   ContinuerContainer,
+  ContainerCrossFeaturing,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
-  const [teamWinner, setTeamWinner] = useState('')
   const [rappersTeam1, setRappersTeam1] = useState([])
   const [rappersTeam2, setRappersTeam2] = useState([])
   const { games, updateGamesPlayed, setTeamAnswering } = useContext(GameContext)
@@ -48,13 +47,14 @@ function CrossFeaturing() {
     setCrossFeaturing()
     setRappersTeam1([])
     setRappersTeam2([])
-    if (teamWinner === team1) updateScore(5, team1)
-    else if (teamWinner === team2) updateScore(5, team2)
-    setTeamWinner()
+    if (rappersTeam1.length < rappersTeam2.length) updateScore(5, team1)
+    else if (rappersTeam1.length > rappersTeam2.length) updateScore(5, team2)
   }
+  
   useEffect(() => {
     setTeamAnswering()
-  }, [])
+  }, [setTeamAnswering])
+
   return (
     <ContainerRow>
       <ContainerColumn>
@@ -72,11 +72,11 @@ function CrossFeaturing() {
                 setRappers={setRappersTeam1}
               />
               <ContainerRow style={{ width: '40%' }}>
-                <ContainerRow>
+                <ContainerCrossFeaturing>
                   <TextBlue>
                     {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
                   </TextBlue>
-                </ContainerRow>
+                </ContainerCrossFeaturing>
                 <SearchFeaturing />
               </ContainerRow>
               <ContainerAnswerCrossFeaturing
@@ -86,36 +86,40 @@ function CrossFeaturing() {
                 setRappers={setRappersTeam2}
               />
             </ContainerRow>
-            <ContainerColumn45>
-              <TeamSelection
-                team1={team1}
-                team2={team2}
-                teamAnswering={teamWinner}
-                setTeamAnswering={setTeamWinner}
-                game="CrossFeaturing"
-              />
-            </ContainerColumn45>
             <ContainerColumn>
-              {teamWinner ? (
-                answerNumber < 2 ? (
-                  <ContinuerContainer onClick={() => updateAnswer()}>
-                    Manche suivante
-                  </ContinuerContainer>
-                ) : (
-                  <ContinuerContainer>
-                    <Link
-                      style={{ textDecoration: 'none', color: 'white' }}
-                      to={`/${
-                        games[games.indexOf('Le CrossFeaturing') + 1]
-                      }?game=${games[games.indexOf('Le CrossFeaturing') + 1]}`}
-                      onClick={() => updateAnswer()}
-                    >
-                      Continuer vers <br />{' '}
-                      {games[games.indexOf('Le CrossFeaturing') + 1]}
-                    </Link>
-                  </ContinuerContainer>
-                )
-              ) : null}
+              {answerNumber < 2 ? (
+                <ContinuerContainer
+                  isClickable={
+                    rappersTeam1.length > 0 && rappersTeam2.length > 0
+                      ? true
+                      : false
+                  }
+                  onClick={() =>
+                    rappersTeam1.length > 0 && rappersTeam2.length > 0
+                      ? updateAnswer()
+                      : null
+                  }
+                >
+                  Manche suivante
+                </ContinuerContainer>
+              ) : (
+                <ContinuerContainer>
+                  <Link
+                    style={{ textDecoration: 'none', color: 'white' }}
+                    to={`/${
+                      games[games.indexOf('Le CrossFeaturing') + 1]
+                    }?game=${games[games.indexOf('Le CrossFeaturing') + 1]}`}
+                    onClick={() =>
+                      rappersTeam1.length > 0 && rappersTeam2.length > 0
+                        ? updateAnswer()
+                        : null
+                    }
+                  >
+                    Continuer vers <br />{' '}
+                    {games[games.indexOf('Le CrossFeaturing') + 1]}
+                  </Link>
+                </ContinuerContainer>
+              )}
             </ContainerColumn>
           </ContainerColumn>
         )}

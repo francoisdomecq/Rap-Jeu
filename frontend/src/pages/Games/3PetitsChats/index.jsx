@@ -44,8 +44,8 @@ function PetitsChats() {
     updateGamesPlayed('Les 3 petits chats', answerNumber, updateAnswerNumber)
     setRapper('')
     setRappers([])
-    if (rappers.length > 1) updateScore(10, teamAnswering)
-    else if (teamAnswering === team1) updateScore(10, team2)
+
+    if (teamAnswering === team1) updateScore(10, team2)
     else updateScore(10, team1)
     setTeamAnswering(team2)
   }
@@ -53,7 +53,7 @@ function PetitsChats() {
   useEffect(() => {
     if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
     else setTeamAnswering(team2)
-  }, [team1, team2, scoreTeam1, scoreTeam2])
+  }, [team1, team2, scoreTeam1, scoreTeam2, setTeamAnswering])
 
   return (
     <ContainerRow style={{ marginBottom: '1%' }}>
@@ -112,7 +112,7 @@ function PetitsChats() {
             </ContainerColumn>
           </ContainerColumn>
         ) : (
-          <ContainerColumn45>
+          <ContainerColumn45 style={{ marginTop: '3%', marginBottom: '3%' }}>
             <RapperArray selectRapper={selectRapper} />
           </ContainerColumn45>
         )}

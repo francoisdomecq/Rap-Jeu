@@ -96,7 +96,7 @@ function Top5() {
   ])
 
   return (
-    <ContainerRow style={{ marginBottom: '2%' }}>
+    <ContainerRow style={{ marginBottom: '3%' }}>
       {/*Cette section ne s'affiche que si le chrono est lancé */}
       {startCounter ? (
         //Si le chronomètre est supérieur à 0 et que moins de 5 réponses ont été données, on affiche le timer, le containerAnswer et le containerThemeSuggestions

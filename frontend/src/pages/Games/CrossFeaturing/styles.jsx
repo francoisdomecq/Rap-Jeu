@@ -91,5 +91,20 @@ export const ContinuerContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
-
+  opacity: ${({ isClickable }) => (isClickable ? 1 : 0.6)};
+`
+export const ContainerCrossFeaturing = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 255, 24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 24, 1) 0%,
+    rgba(255, 210, 34, 1) 100%
+  );
+  padding: 1%;
+  border-radius: 20px;
+  width: 60%;
+  opacity:0.95;
 `
