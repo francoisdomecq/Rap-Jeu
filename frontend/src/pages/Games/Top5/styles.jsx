@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
-
 import Continuer from '../../../assets/continuer.svg'
 
 export const ContainerRow = styled.div`

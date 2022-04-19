@@ -15,22 +15,30 @@ import {
   NextRoundButton,
   Container,
 } from './styles'
-
 import { TextBlue, TextWhite } from '../../../utils/styles/Text'
 
 function Top5() {
+  //Permet de sélectionenr un thème
   const [top5, setTop5] = useState()
+  //Permet d'augmenter le nombre de réponses données
   const [answerGiven, setAnswerGiven] = useState(0)
+  //Permet de compter le nombre d'essais
   const [trialNumber, setTrialNumber] = useState(0)
+  //Booléen permettant de commencer le chrono
   const [startCounter, setStartCount] = useState(false)
+  //Chronomètre de 20s
   const [counter, setCounter] = useState(20)
+  //Compteur des manches
   const [round, updateRound] = useState(0)
   const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
     useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
-  const updateAnswersNumber = () => {
+  //Fonction qui permet de gérer la fin d'une manche
+  function updateAnswersNumber() {
+    //On supprime le thème top 5 sélectionné
     setTop5()
+    //On modifie la prochaine équipe qui va répondre en fonction de celle qui vient de le faire
     if (trialNumber === 0)
       if (teamAnswering === team1) setTeamAnswering(team2)
       else setTeamAnswering(team1)
@@ -38,29 +46,40 @@ function Top5() {
     setCounter(20)
     setAnswerGiven(0)
     setTrialNumber(0)
+    //On rajoute une manche jouée à la variable gamesPlayed de GameContext
     updateGamesPlayed('Top 5', round, updateRound)
   }
 
+  //Cette fonction permet de sélectionner/déselectionner un thème
   function selectTheme(theme) {
     if (theme === top5) setTop5()
     else setTop5(theme)
   }
 
+  //Si un thème et une équipe ont été sélectionnés, le chrono est lancé
   function startGame() {
     if (top5 && teamAnswering) setStartCount(true)
   }
 
-  useEffect(()=>{
+  //La variable teamAnswering étant globale à l'application, lors du premier chargement de la page, on la réinitialise pour qu'une
+  //équipe ne soit pas sélectionnée en fonction des épreuves passées
+  useEffect(() => {
     setTeamAnswering('')
-  },[])
+  }, [setTeamAnswering])
+
+  //Cette fonction permet de gérer le chrono et les actions associées
   useEffect(() => {
     if (startCounter === true) {
       const timer =
         counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
+      //Si le compteur vaut 0, que le nombre de réponses données est inférieur à 5 et que le nombre de tentative est à 1
       if (counter === 0 && answerGiven < 5 && trialNumber === 0) {
+        //On modifie l'équipe qui répond
         if (teamAnswering === team1) setTeamAnswering(team2)
         else setTeamAnswering(team1)
+        //On augmente le chronomètre de 10 secondes
         setCounter(10)
+        //On augmente la valeur du nombre de tentatives
         setTrialNumber(1)
       }
       return () => clearInterval(timer)
@@ -73,11 +92,14 @@ function Top5() {
     teamAnswering,
     team1,
     team2,
+    setTeamAnswering,
   ])
 
   return (
     <ContainerRow style={{ marginBottom: '2%' }}>
+      {/*Cette section ne s'affiche que si le chrono est lancé */}
       {startCounter ? (
+        //Si le chronomètre est supérieur à 0 et que moins de 5 réponses ont été données, on affiche le timer, le containerAnswer et le containerThemeSuggestions
         counter > 0 && answerGiven < 5 ? (
           <ContainerColumn style={{ marginTop: '1%' }}>
             <Timer counter={counter} />
@@ -99,8 +121,10 @@ function Top5() {
             />
           </ContainerColumn>
         ) : (
+          //Si le chronomètre est à 0 ou que 5 réponses ont été données, on affiche un message de victoire/défaite et le bouton pour continuer
           <ContainerColumn>
             {answerGiven >= 5 ? (
+              //5 réponses ont été données, alors on félicite et on donne la possibilité de donner 15points à l'équipe gagnante
               <Container
                 style={{ marginBottom: '5%', marginTop: '8%', width: '30%' }}
               >
@@ -116,8 +140,9 @@ function Top5() {
                 </ContainerTeam>
               </Container>
             ) : (
+              //Aucune équipe n'a réussi l'épreuve, on affiche un message en conséquence
               <Container
-                style={{ marginBottom: '6%', marginTop: '7%', width: '30%' }}
+                style={{ marginBottom: '6%', marginTop: '10%', width: '30%' }}
               >
                 <TextBlue size={20}>
                   Aucune des deux équipes ne gagne de points..
@@ -125,10 +150,12 @@ function Top5() {
               </Container>
             )}
             {round < 1 ? (
+              //Si round vaut 0, alors on donne la possibilité aux joueurs de jouer une autre manche
               <NextRoundButton onClick={() => updateAnswersNumber()}>
                 <TextWhite size={20}>Manche suivante</TextWhite>
               </NextRoundButton>
             ) : (
+              //Sinon, ils sont redirigés vers l'épreuve suivante
               <NextRoundButton>
                 <Link
                   style={{ textDecoration: 'none' }}
@@ -146,6 +173,7 @@ function Top5() {
           </ContainerColumn>
         )
       ) : (
+        //Si le chrono n'est pas lancé, cela signifie que le maître de jeu doit sélectionner un thème et une équipe
         <ContainerColumn>
           <ContainerRow>
             <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
