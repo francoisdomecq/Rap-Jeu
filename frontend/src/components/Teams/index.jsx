@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react'
+
 import { TeamContext } from '../../utils/context'
-import { TextBlue } from '../../utils/styles/Text'
+
 import {
   PageContainer,
   LeftTeamContainer,
@@ -10,9 +11,10 @@ import {
   ScoreTeamLeft,
   ScoreTeamRight,
   ScoreInput,
-  ContainerGame,
 } from './styles'
+import { TextBlue } from '../../utils/styles/Text'
 
+//Ce composant permet d'afficher les barres de chaque équipe où sont affichées leur nom et leur score.
 function Teams({ game }) {
   const {
     team1,
@@ -25,10 +27,14 @@ function Teams({ game }) {
     setScoreTeam1,
     setScoreTeam2,
   } = useContext(TeamContext)
+
+  //On regarde si il existe localement des équipes et des scores associés
   const localTeam1 = JSON.parse(localStorage.getItem('team1'))
   const localTeam2 = JSON.parse(localStorage.getItem('team2'))
   const localScoreTeam1 = JSON.parse(localStorage.getItem('scoreTeam1'))
   const localScoreTeam2 = JSON.parse(localStorage.getItem('scoreTeam2'))
+
+  //Cette fonction permet d'ajouter des points à une équipe à tout moment de la partie par le biais de la barre
   const updateScoreTeam = (e, team) => {
     if (e.key === 'Enter') {
       updateScore(e.target.value, team)
@@ -36,6 +42,7 @@ function Teams({ game }) {
     }
   }
 
+  //Cette fonction permet, dans le cas où il existe des données locales sur la machine, de les recharger pour les afficher
   useEffect(() => {
     if (localTeam1 && localTeam2) {
       setTeam1(localTeam1)
