@@ -1,6 +1,7 @@
 import { ContainerTeamSelection, ContainerTeam, ContainerRow } from './styles'
 import { TextBlue, TextWhite } from '../../utils/styles/Text'
 
+//Ce composant est utilisé dans diverses épreuves pour sélectionner une équipe qui va répondre ou qui a gagné
 function TeamSelection({
   team1,
   team2,
@@ -11,7 +12,11 @@ function TeamSelection({
   return (
     <ContainerTeamSelection>
       <TextBlue>
-        Choisir l'équipe qui {game === 'Rolland Gamos' || game==='CrossFeaturing' ? 'a gagné' : 'répond'}
+        {/*Dans le cas où le jeu est le Rolland Gamos ou le CrossFeaturing, on affiche le texte "a gagné" */}
+        Choisir l'équipe qui{' '}
+        {game === 'Rolland Gamos' || game === 'CrossFeaturing'
+          ? 'a gagné'
+          : 'répond'}
       </TextBlue>
       <ContainerRow>
         <ContainerTeam
