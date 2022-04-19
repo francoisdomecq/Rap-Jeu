@@ -15,20 +15,28 @@ import IconSearch from '../../../assets/icons8-chercher.svg'
 
 //Ce composant affiche le tableau contenant les crossFeaturings
 function SearchList({ filteredCrossFeaturing, selectCrossFeaturing, search }) {
-  
   //Cette variable permet d'afficher, en fonction du champ de recherche, les crossFeaturings ayant un lien avec ce dernier
-  const filteredData = filteredCrossFeaturing.map((crossFeaturing) => (
-    <LineContainer>
-      <Line>
-        <RapperName
-          key={crossFeaturing._id}
-          onClick={() => selectCrossFeaturing(crossFeaturing)}
-        >
-          {crossFeaturing.rappeur1} - {crossFeaturing.rappeur2}
-        </RapperName>
-      </Line>
-    </LineContainer>
-  ))
+  const filteredData =
+    filteredCrossFeaturing.length > 0 ? (
+      filteredCrossFeaturing.map((crossFeaturing) => (
+        <LineContainer>
+          <Line>
+            <RapperName
+              key={crossFeaturing._id}
+              onClick={() => selectCrossFeaturing(crossFeaturing)}
+            >
+              {crossFeaturing.rappeur1} - {crossFeaturing.rappeur2}
+            </RapperName>
+          </Line>
+        </LineContainer>
+      ))
+    ) : (
+      <LineContainer>
+        <Line>
+          <RapperName>Aucun résultat trouvé</RapperName>
+        </Line>
+      </LineContainer>
+    )
   return (
     <Container>
       <TableHead>
