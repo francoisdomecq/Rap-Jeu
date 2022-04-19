@@ -12,6 +12,7 @@ import {
   TextH1,
   Text,
   SecondContainer,
+  ContinuerContainer,
 } from './styles'
 import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
 import '../../utils/animations/Bouncing/animationBouncing.css'
@@ -94,21 +95,29 @@ function Home() {
           </Text>
         </Explications>
       </ExplicationsContainer>
-      <ContainerRow>
-        <Link
-          style={{ textDecoration: 'none' }}
-          onClick={() => newGame()}
-          to={'/teams'}
-        >
-          Commencer une nouvelle partie
-        </Link>
-        {localTeam1 && localTeam2 && localGames ? (
+      <ContainerRow style={{ width: '50%', marginTop: '2%' }}>
+        <ContinuerContainer>
           <Link
-            to={`${nextGame}/?game=${nextGame}`}
-            onClick={() => startGame(true)}
+            style={{ textDecoration: 'none', color: 'white' }}
+            onClick={() => newGame()}
+            to={'/teams'}
           >
-            Reprendre la partie en cours
+            Commencer une
+            <br /> nouvelle partie
           </Link>
+        </ContinuerContainer>
+
+        {localTeam1 && localTeam2 && localGames ? (
+          <ContinuerContainer>
+            <Link
+              style={{ textDecoration: 'none', color: 'white' }}
+              to={`${nextGame}/?game=${nextGame}`}
+              onClick={() => startGame(true)}
+            >
+              Reprendre la partie
+              <br /> en cours
+            </Link>
+          </ContinuerContainer>
         ) : null}
       </ContainerRow>
     </Container>

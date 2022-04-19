@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Continuer from '../../assets/continuer.svg'
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
@@ -63,4 +63,23 @@ export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
   font-size: 24px;
+`
+export const ContinuerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(${Continuer});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 326px;
+  height: 105px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-right: 1%;
 `
