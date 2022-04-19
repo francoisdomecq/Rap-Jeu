@@ -17,6 +17,10 @@ export const CardWrapper = styled.div`
     cursor: pointer;
     opacity: ${({ isFavorite }) => (isFavorite ? '0.2' : '0.9')};
   }
+  @media screen and (min-width: 300px) and (max-width: 1300px) {
+    width: 42%;
+    border-radius: 15px;
+  }
 `
 
 export const CardTitleWrapper = styled.div`
@@ -27,6 +31,10 @@ export const CardTitleWrapper = styled.div`
   border-radius: 20px;
   text-align: center;
   margin-top: 1%;
+  @media screen and (min-width: 300px) and (max-width: 1300px) {
+    width: 95%;
+    border-radius: 10px;
+  }
 `
 export const CardTitle = styled.span`
   color: white;
@@ -35,23 +43,43 @@ export const CardTitle = styled.span`
   font-size: 30px;
   text-align: center;
   text-transform: uppercase;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 10px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1300px) {
+    font-size: 18px;
+  }
 `
 
 export const CardRulesWrapper = styled.div`
   background: ${colors.yellow};
   box-shadow: 5px 5px 2px 1px black;
-  font-size: 22px;
   width: 95%;
   border-radius: 30px;
   padding: 10px;
   margin-top: 20px;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    padding: 2px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1300px) {
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 1px black;
+  }
 `
 export const CardRules = styled.p`
   color: #2704c4;
   font-size: 16px;
   font-family: 'Montserrat';
-  font-size: '20px';
   font-weight: 500;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1300px) {
+    font-size: 12px;
+  }
 `
 export const CardRound = styled.p`
   color: #2704c4;
@@ -59,4 +87,10 @@ export const CardRound = styled.p`
   font-weight: 700;
   font-family: 'Montserrat';
   text-align: center;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 8px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1300px) {
+    font-size: 12px;
+  }
 `
