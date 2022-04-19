@@ -7,17 +7,15 @@ import ContainerAnswer from '../../../components/ContainerAnswer'
 import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 
 import {
-  ButtonScore,
-  ContainerScore,
+  ContainerRow,
+  ContainerColumn,
   Text,
   ContainerTeam,
   ContainerTeamSelection,
-  ContinuerContainer,
+  ContinueContainer,
 } from './styles'
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { TextBlue } from '../../../utils/styles/Text'
 
-import { ContainerColumn45, ContinueContainer } from '../3PetitsChats/styles'
 import TeamSelection from '../../../components/TeamSelection'
 import ContainerPoints from '../../../components/ContainerPoints'
 
@@ -114,7 +112,7 @@ function Enchere() {
                     </ContainerTeamSelection>
                   )}
 
-                  <ContinuerContainer style={{ marginTop: '10%' }}>
+                  <ContinueContainer style={{ marginTop: '10%' }}>
                     <Link
                       style={{ textDecoration: 'none', color: 'white' }}
                       to={`/${games[games.indexOf('Les enchères') + 1]}?game=${
@@ -124,7 +122,7 @@ function Enchere() {
                     >
                       Continuer vers le Rolland Gamos
                     </Link>
-                  </ContinuerContainer>
+                  </ContinueContainer>
                 </ContainerColumn>
               )}
             </div>
@@ -135,7 +133,7 @@ function Enchere() {
                 selectTheme={selectTheme}
                 chosenTheme={enchere}
               />
-              <ContainerColumn45>
+              <ContainerColumn style={{ width: '45%' }}>
                 <TeamSelection
                   team1={team1}
                   team2={team2}
@@ -153,7 +151,7 @@ function Enchere() {
                 >
                   Commencer la manche
                 </ContinueContainer>
-              </ContainerColumn45>
+              </ContainerColumn>
             </ContainerRow>
           )}
         </ContainerRow>
