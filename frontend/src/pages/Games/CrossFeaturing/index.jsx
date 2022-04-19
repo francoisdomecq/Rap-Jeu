@@ -1,4 +1,4 @@
-import { useState, useContext,useEffect } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
@@ -15,14 +15,13 @@ import {
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 
-
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
   const [teamWinner, setTeamWinner] = useState('')
   const [rappersTeam1, setRappersTeam1] = useState([])
   const [rappersTeam2, setRappersTeam2] = useState([])
-  const { games, updateGamesPlayed ,setTeamAnswering} = useContext(GameContext)
+  const { games, updateGamesPlayed, setTeamAnswering } = useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   function selectCrossFeaturing(crossFeaturing) {
@@ -60,7 +59,7 @@ function CrossFeaturing() {
     <ContainerRow>
       <ContainerColumn>
         {!crossFeaturing ? (
-          <ContainerColumn45>
+          <ContainerColumn45 style={{ marginTop: '5%' }}>
             <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
           </ContainerColumn45>
         ) : (

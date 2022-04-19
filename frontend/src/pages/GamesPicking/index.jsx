@@ -21,6 +21,7 @@ import {
 function Games() {
   const { games, selectGames } = useContext(GameContext)
 
+  //Cette fonction permet à un joueur de supprimer un jeu lorsqu'il clique sur un jeu déjà sélectionné
   function removeGame(label) {
     selectGames(label)
   }

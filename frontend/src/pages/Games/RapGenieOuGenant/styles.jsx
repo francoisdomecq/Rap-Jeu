@@ -1,8 +1,26 @@
 import styled from 'styled-components'
+import colors from '../../../utils/styles/colors'
 import QuestionContainer from '../../../assets/mythoPasMytho/questionContainer.svg'
-import AnswerButton from '../../../assets/mythoPasMytho/answerButton.svg'
-import AnswerContainer from '../../../assets/mythoPasMytho/answerContainer.svg'
 import Continuer from '../../../assets/continuer.svg'
+
+export const ContainerRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+`
+export const ContainerColumn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`
+
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
@@ -23,11 +41,10 @@ export const ButtonAnswer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
-  height: 80px;
-  background-size: contain;
-  background-image: url(${AnswerButton});
-  background-repeat: no-repeat;
+  border-radius: 20px;
+  width: 30%;
+  border: solid 2px ${colors.yellow};
+  background: linear-gradient(180deg, #15008d 0%, #198bf5 100%);
   &:hover {
     cursor: pointer;
   }

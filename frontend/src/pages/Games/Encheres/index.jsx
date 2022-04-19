@@ -19,6 +19,7 @@ import { TextBlue } from '../../../utils/styles/Text'
 
 import { ContainerColumn45, ContinueContainer } from '../3PetitsChats/styles'
 import TeamSelection from '../../../components/TeamSelection'
+import ContainerPoints from '../../../components/ContainerPoints'
 
 function Enchere() {
   const [enchere, setEncheres] = useState()
@@ -41,7 +42,7 @@ function Enchere() {
 
   useEffect(() => {
     setTeamAnswering()
-  },[])
+  }, [])
   function selectTheme(theme) {
     if (theme === enchere) setEncheres()
     else setEncheres(theme)
@@ -142,17 +143,10 @@ function Enchere() {
                   setTeamAnswering={setTeamAnswering}
                   game={'Enchères'}
                 />
-                <ContainerTeamSelection>
-                  <ContainerColumn>
-                    <TextBlue>Combien de réponses ?</TextBlue>
-                    <ContainerScore style={{ marginTop: '1%' }}>
-                      <ButtonScore
-                        type="number"
-                        onChange={(e) => setPoints(e.target.value)}
-                      />
-                    </ContainerScore>
-                  </ContainerColumn>
-                </ContainerTeamSelection>
+                <ContainerPoints
+                  game={'Les enchères'}
+                  updatePoints={setPoints}
+                />
                 <ContinueContainer
                   style={{ marginTop: '1%' }}
                   onClick={() => startGame()}

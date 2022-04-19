@@ -10,11 +10,13 @@ export const Container = styled.div`
 export const TableContainer = styled.div`
   width: 100%;
   max-height: 380px;
+
   overflow-y: scroll;
 `
 export const Table = styled.table`
   width: 100%;
   height: 100%;
+  min-height: 280px;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   :hover {
     cursor: pointer;
