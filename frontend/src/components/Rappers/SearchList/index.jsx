@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Table,
   TableHead,
@@ -15,9 +14,11 @@ import {
 
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
+//Ce composant affiche le tableau contenant les rappeurs
 function SearchList({ filteredRapper, selectRapper, search, chosenRapper }) {
   filteredRapper.sort((a, b) => a.nom.localeCompare(b.nom))
 
+  //Cette variable permet d'afficher, en fonction du champ de recherche, les rapppeurs ayant un lien avec ce dernier
   const filteredData =
     filteredRapper.length > 0 ? (
       filteredRapper.map((rapper) => (
@@ -63,14 +64,7 @@ function SearchList({ filteredRapper, selectRapper, search, chosenRapper }) {
           <TableBody>{filteredData}</TableBody>
         </Table>
       </TableContainer>
-      <TableBottom>
-        {/* <input
-          type="text"
-          placeholder="Choisir un autre rappeur"
-          onChange={(e) => setRapperInput(e.target.value)}
-        />
-        <button onClick={() => selectRapper(rapperInput)} /> */}
-      </TableBottom>
+      <TableBottom />
     </Container>
   )
 }
