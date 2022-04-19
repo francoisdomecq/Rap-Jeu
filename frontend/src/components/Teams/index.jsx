@@ -70,7 +70,7 @@ function Teams({ game }) {
         </TeamsNameLeft>
       </LeftTeamContainer>
 
-      <TextBlue style={{ fontSize: '24px', textTransform: 'uppercase' }}>
+      <TextBlue size={24} style={{ textTransform: 'uppercase' }}>
         {game}
       </TextBlue>
 
