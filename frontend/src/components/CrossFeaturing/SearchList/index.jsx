@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Container,
   Table,
@@ -14,7 +13,10 @@ import {
 } from '../../../utils/styles/Tables'
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
+//Ce composant affiche le tableau contenant les crossFeaturings
 function SearchList({ filteredCrossFeaturing, selectCrossFeaturing, search }) {
+  
+  //Cette variable permet d'afficher, en fonction du champ de recherche, les crossFeaturings ayant un lien avec ce dernier
   const filteredData = filteredCrossFeaturing.map((crossFeaturing) => (
     <LineContainer>
       <Line>
