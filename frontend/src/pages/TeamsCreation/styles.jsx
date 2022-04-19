@@ -1,6 +1,23 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 
+export const ContainerRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+`
+export const ContainerColumn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`
 export const ContainerTeam = styled.div`
   display: flex;
   width: 1000px;
@@ -14,8 +31,8 @@ export const QuestionWrapper = styled.div`
   padding-right: 20px;
   padding-left: 20px;
   height: 50px;
-  border-radius: 30px;
-  background-color: ${colors.blue};
+  border-radius: 15px;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   font-family: 'Montserrat';
   font-size: 20px;
   font-weight: 700;
@@ -31,7 +48,7 @@ export const TeamWrapper = styled.div`
   font-size: 24px;
   font-weight: 700;
   width: 35%;
-  background-color: ${colors.blue};
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   color: white;
   border-radius: 20px;
   padding-bottom: 20px;
@@ -50,8 +67,6 @@ export const TeamName = styled.input`
   background-color: ${colors.yellow};
   color: ${colors.blue};
 `
-
-
 
 export const ExplainContainer = styled.div`
   background-color: white;
