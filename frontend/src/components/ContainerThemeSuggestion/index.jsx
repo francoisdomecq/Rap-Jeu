@@ -1,11 +1,12 @@
-import { TextWhite, TextBlack } from '../../utils/styles/Text'
 import {
-  ContainerTheme,
   ContainerColumn,
+  ContainerTheme,
   ContainerSuggestions,
   SuggestionsTextDiv,
 } from './styles'
+import { TextWhite, TextBlack } from '../../utils/styles/Text'
 
+//Ce composant est utilisé dans les épreuves TOP5 et les enchères pour afficher le thème choisi et les suggestions associées
 function ContainerThemeSuggestion({ theme, suggestions }) {
   return (
     <ContainerColumn>
