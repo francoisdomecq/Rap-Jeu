@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
+
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
@@ -25,7 +26,6 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   width: 100%;
-
   border-radius: 20px;
   padding: 0% 0% 1% 0%;
   background: rgb(255, 255, 24);
