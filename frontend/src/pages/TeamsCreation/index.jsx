@@ -67,7 +67,9 @@ function Teams() {
         </Text>
       </ExplainContainer>
       <ContainerRow>
-        <QuestionWrapper>{questionTeam}</QuestionWrapper>
+        <ContainerRow>
+          <QuestionWrapper>{questionTeam}</QuestionWrapper>
+        </ContainerRow>
         <ContainerTeam>
           <TeamWrapper>
             <p>EQUIPE 1</p>

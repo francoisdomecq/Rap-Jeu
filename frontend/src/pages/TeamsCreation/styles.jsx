@@ -20,13 +20,13 @@ export const ContainerColumn = styled.div`
 `
 export const ContainerTeam = styled.div`
   display: flex;
-  width: 1000px;
   justify-content: space-between;
 `
 export const QuestionWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   margin: 40px;
   padding-right: 20px;
   padding-left: 20px;
@@ -37,6 +37,9 @@ export const QuestionWrapper = styled.div`
   font-size: 20px;
   font-weight: 700;
   color: white;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 12px;
+  }
 `
 export const TeamWrapper = styled.div`
   display: flex;
@@ -52,6 +55,10 @@ export const TeamWrapper = styled.div`
   color: white;
   border-radius: 20px;
   padding-bottom: 20px;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 12px;
+    padding: 3%;
+  }
 `
 export const TeamName = styled.input`
   display: flex;
@@ -66,6 +73,9 @@ export const TeamName = styled.input`
   font-size: 32px;
   background-color: ${colors.yellow};
   color: ${colors.blue};
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 12px;
+  }
 `
 
 export const ExplainContainer = styled.div`
@@ -76,6 +86,9 @@ export const ExplainContainer = styled.div`
   padding: 2%;
   padding-top: 0%;
   text-align: start;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    width: 90%;
+  }
 `
 
 export const PageTitle = styled.p`
@@ -87,15 +100,28 @@ export const PageTitle = styled.p`
   color: ${colors.red};
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    font-size: 36px;
+  }
 `
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 500;
   font-size: 16px;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 12px;
+  }
 `
 
 export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 18px;
+  }
 `
+
