@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext,  useState } from 'react'
 
 export const GameContext = createContext()
 
@@ -11,6 +11,7 @@ export const GameProvider = ({ children }) => {
   ])
   const [gamesPlayed, setGamesPlayed] = useState([])
   const [hasGameStarted, setStart] = useState(false)
+  const [teamAnswering, setTeamAnswering] = useState('')
 
   function resetGame() {
     setGames(['Jeu 1', 'Jeu 2', 'Les enchères', 'Rolland Gamos'])
@@ -124,6 +125,8 @@ export const GameProvider = ({ children }) => {
         games,
         hasGameStarted,
         gamesPlayed,
+        teamAnswering,
+        setTeamAnswering,
         selectGames,
         startGame,
         updateGamesPlayed,

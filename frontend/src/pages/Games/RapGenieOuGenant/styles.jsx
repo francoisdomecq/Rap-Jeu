@@ -17,6 +17,7 @@ export const ContainerQuestion = styled.div`
   background-size: contain;
   background-image: url(${QuestionContainer});
   background-repeat: no-repeat;
+  margin-top: ${({ isAnswerGiven }) => (isAnswerGiven ? '2%' : '11%')};
 `
 export const ButtonAnswer = styled.div`
   display: flex;
@@ -36,14 +37,12 @@ export const ContainerAnswer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1100px;
-  height: 160px;
-  background-size: contain;
-  background-image: url(${AnswerContainer});
-  background-repeat: no-repeat;
-  &:hover {
-    cursor: pointer;
-  }
+  text-align: center;
+  color: white;
+  background: linear-gradient(180deg, #15008d 0%, #198bf5 100%);
+  border-radius: 20px;
+  opacity: 0.95;
+  width: 50%;
 `
 
 export const ContinuerContainer = styled.div`
@@ -65,4 +64,3 @@ export const ContinuerContainer = styled.div`
   }
   padding-right: 1%;
 `
-

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Confetti from 'react-confetti'
 import { GameContext, TeamContext } from '../../../utils/context'
@@ -6,7 +6,6 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import RappeurArray from '../../../components/Rappers'
 import SearchFeaturing from '../../../components/SearchFeaturing'
 import TeamSelection from '../../../components/TeamSelection'
-import Background from '../../../components/Background'
 
 import {
   RappeurContainer,
@@ -24,15 +23,12 @@ import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
 import '../../../utils/animations/Bouncing/animationBouncing.css'
 
-import comptoir_gauche from '../../../assets/comptoir_gauche.svg'
-import comptoir_droit from '../../../assets/comptoir_droit.svg'
-import mehdi from '../../../assets/mehdi.svg'
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
   const [count, setCount] = useState(0)
   const [points, setPoints] = useState()
   const [teamWinner, setTeamWinner] = useState('')
-  const { resetGame } = useContext(GameContext)
+  const { resetGame,setTeamAnswering } = useContext(GameContext)
   const { team1, team2, updateScore, scoreTeam1, scoreTeam2, resetTeams } =
     useContext(TeamContext)
 
@@ -44,7 +40,10 @@ function RollandGamos() {
       setPoints(e.target.value)
     }
   }
-
+  useEffect(() => {
+    setTeamAnswering()
+  }, [])
+  
   function lastRapper(e) {
     if (
       e.nativeEvent.inputType === 'deleteContentBackward' &&
@@ -143,11 +142,7 @@ function RollandGamos() {
       <TextBlue style={{ marginTop: '3.5%' }}>
         Bien joué {scoreTeam1 < scoreTeam2 ? team2 : team1}{' '}
       </TextBlue>
-      {/* <ContainerRow>
-        <img src={comptoir_gauche} style={{ marginTop: '5%' }} alt="comptoir" />
-        <img src={mehdi} alt="mehdi" style={{ width: '30%', height: '30%' }} />
-        <img src={comptoir_droit} style={{ marginTop: '5%' }} alt="comptoir" />
-      </ContainerRow> */}
+
       <ContinuerContainer
         style={{ marginTop: '15%', marginBottom: '5% ' }}
         isTeamSelected={true}

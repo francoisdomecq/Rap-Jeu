@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import JouerGauche from '../../assets/jauge_gauche.svg'
 import JouerDroite from '../../assets/jauge_droite.svg'
+import colors from '../../utils/styles/colors'
 
 export const PageContainer = styled.div`
   display: flex;

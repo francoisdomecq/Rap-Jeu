@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext,useEffect } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
@@ -23,7 +23,7 @@ function CrossFeaturing() {
   const [teamWinner, setTeamWinner] = useState('')
   const [rappersTeam1, setRappersTeam1] = useState([])
   const [rappersTeam2, setRappersTeam2] = useState([])
-  const { games, updateGamesPlayed } = useContext(GameContext)
+  const { games, updateGamesPlayed ,setTeamAnswering} = useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   function selectCrossFeaturing(crossFeaturing) {
@@ -54,7 +54,9 @@ function CrossFeaturing() {
     else if (teamWinner === team2) updateScore(5, team2)
     setTeamWinner()
   }
-
+  useEffect(() => {
+    setTeamAnswering()
+  }, [])
   return (
     <ContainerRow>
       <ContainerColumn>
@@ -73,7 +75,7 @@ function CrossFeaturing() {
               />
               <ContainerRow style={{ width: '40%' }}>
                 <ContainerRow>
-                  <TextBlue >
+                  <TextBlue>
                     {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
                   </TextBlue>
                 </ContainerRow>

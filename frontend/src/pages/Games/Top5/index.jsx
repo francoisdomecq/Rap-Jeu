@@ -17,18 +17,16 @@ import {
 } from './styles'
 
 import { TextBlue, TextWhite } from '../../../utils/styles/Text'
-import '../../../utils/animations/Bouncing/top5BouncingLetters.css'
-import '../../../utils/animations/Bouncing/animationBouncing.css'
 
 function Top5() {
   const [top5, setTop5] = useState()
-  const [teamAnswering, setTeamAnswering] = useState()
   const [answerGiven, setAnswerGiven] = useState(0)
   const [trialNumber, setTrialNumber] = useState(0)
   const [startCounter, setStartCount] = useState(false)
   const [counter, setCounter] = useState(20)
   const [round, updateRound] = useState(0)
-  const { games, updateGamesPlayed } = useContext(GameContext)
+  const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
+    useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   const updateAnswersNumber = () => {
@@ -52,6 +50,9 @@ function Top5() {
     if (top5 && teamAnswering) setStartCount(true)
   }
 
+  useEffect(()=>{
+    setTeamAnswering('')
+  },[])
   useEffect(() => {
     if (startCounter === true) {
       const timer =

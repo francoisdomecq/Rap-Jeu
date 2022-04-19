@@ -18,11 +18,11 @@ import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
 import Redbull from '../../../assets/PNG/redbull.png'
 function MythoPasMytho() {
   const [mythoPasMythoData, setData] = useState([])
-  const [teamAnswering, setTeamAnswering] = useState()
   const [answerNumber, updateAnswerNumber] = useState(0)
   const [answerGiven, setAnswerGiven] = useState(null)
   const [isDataLoading, setDataLoading] = useState(true)
-  const { updateGamesPlayed, games } = useContext(GameContext)
+  const { updateGamesPlayed, games, teamAnswering, setTeamAnswering } =
+    useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   const updateData = (value1, value2, value3, value4) => {
@@ -73,8 +73,7 @@ function MythoPasMytho() {
   ) : (
     <ContainerRow>
       <ContainerColumn>
-        <ContainerColumn style={{ marginTop: '2%' }}>
-          <TextBlue>Equipe {teamAnswering}</TextBlue>
+        <ContainerColumn style={{ marginTop: '4%' }}>
           {answerGiven === null ? (
             <ContainerRow style={{ width: '40%', marginTop: '2%' }}>
               <ButtonAnswer onClick={() => answer(true)}>

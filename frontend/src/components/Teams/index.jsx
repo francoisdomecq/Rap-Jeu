@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { TeamContext } from '../../utils/context'
+import { TextBlue } from '../../utils/styles/Text'
 import {
   PageContainer,
   LeftTeamContainer,
@@ -9,9 +10,10 @@ import {
   ScoreTeamLeft,
   ScoreTeamRight,
   ScoreInput,
+  ContainerGame,
 } from './styles'
 
-function Teams() {
+function Teams({ game }) {
   const {
     team1,
     team2,
@@ -60,6 +62,11 @@ function Teams() {
           </ScoreTeamLeft>
         </TeamsNameLeft>
       </LeftTeamContainer>
+
+      <TextBlue style={{ fontSize: '24px', textTransform: 'uppercase' }}>
+        {game}
+      </TextBlue>
+
       <RightTeamContainer imgUrl="../../assets/jauge_droite.svg">
         <TeamsNameRight>
           {team2}

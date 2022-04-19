@@ -24,12 +24,12 @@ import TeamSelection from '../../../components/TeamSelection'
 function Enchere() {
   const [enchere, setEncheres] = useState()
   const [points, setPoints] = useState()
-  const [teamAnswering, setTeamAnswering] = useState()
   const [startCounter, setStartCount] = useState(false)
   const [counter, setCounter] = useState(60)
   const [answerGiven, setAnswerGiven] = useState(0)
   const [answerNumber, updateAnswerNumber] = useState(0)
-  const { updateGamesPlayed, games } = useContext(GameContext)
+  const { updateGamesPlayed, games, teamAnswering, setTeamAnswering } =
+    useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   useEffect(() => {
@@ -40,6 +40,9 @@ function Enchere() {
     }
   }, [counter, startCounter])
 
+  useEffect(() => {
+    setTeamAnswering()
+  },[])
   function selectTheme(theme) {
     if (theme === enchere) setEncheres()
     else setEncheres(theme)

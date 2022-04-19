@@ -21,10 +21,10 @@ import {
 
 function PetitsChats() {
   const [answerNumber, updateAnswerNumber] = useState(0)
-  const [teamAnswering, setTeamAnswering] = useState()
   const [rapper, setRapper] = useState('')
   const [rappers, setRappers] = useState([])
-  const { games, updateGamesPlayed } = useContext(GameContext)
+  const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
+    useContext(GameContext)
   const { team1, team2, updateScore, scoreTeam1, scoreTeam2 } =
     useContext(TeamContext)
 
@@ -50,7 +50,7 @@ function PetitsChats() {
     else updateScore(10, team1)
     setTeamAnswering(team2)
   }
-  useEffect(() => {})
+
   useEffect(() => {
     if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
     else setTeamAnswering(team2)
@@ -60,10 +60,7 @@ function PetitsChats() {
     <ContainerRow style={{ marginBottom: '1%' }}>
       <ContainerColumn>
         {rapper ? (
-          <ContainerColumn>
-            <TextBlack style={{ marginTop: '4%' }}>
-              Equipe {teamAnswering}, à vous
-            </TextBlack>
+          <ContainerColumn style={{ marginTop: '6%' }}>
             <ContainerRow
               style={{ justifyContent: 'space-evenly', width: '65%' }}
             >
@@ -117,7 +114,6 @@ function PetitsChats() {
           </ContainerColumn>
         ) : (
           <ContainerColumn45>
-            <TextBlack>L'équipe {teamAnswering} commence la manche</TextBlack>
             <RapperArray selectRapper={selectRapper} />
           </ContainerColumn45>
         )}
