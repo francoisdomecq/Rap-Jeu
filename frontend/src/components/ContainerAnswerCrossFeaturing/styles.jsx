@@ -1,21 +1,6 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
-export const Header = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  border-bottom: 5px solid ${colors.yellow};
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 24px;
-  color: white;
-  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
-`
+
 export const ContainerTeamAnswer = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,6 +17,24 @@ export const ContainerTeamAnswer = styled.div`
   );
   opacity: 0.95;
 `
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom: 5px solid ${colors.yellow};
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+`
+
 export const TableContainer = styled.div`
   display: flex;
   justify-content: center;

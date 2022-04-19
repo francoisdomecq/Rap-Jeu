@@ -12,12 +12,14 @@ import {
 } from './styles'
 import { TextBlue } from '../../utils/styles/Text'
 
+//Ce composant correspond aux tableaux dans lequel sont stockés les réponses des équipes pour l'épreuve Crossfeaturing
 function ContainerAnswerCrossFeaturing({
   rappersTeam,
   team,
   addRappers,
   setRappers,
 }) {
+  //Cette fonction permet de supprimer un rappeur du tableau
   function deleteRapper(rapper) {
     rappersTeam.splice(rappersTeam.indexOf(rapper), 1)
     let newRappersArray = [...rappersTeam]
