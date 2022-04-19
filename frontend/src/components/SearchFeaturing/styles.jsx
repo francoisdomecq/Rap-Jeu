@@ -5,6 +5,7 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  text-align: center;
   align-items: center;
   width: 80%;
   margin-bottom: 2%;
@@ -55,6 +56,18 @@ export const SearchInput = styled.input`
     right: 15px;
     top: 50%;
   }
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    font-size: 8px;
+    ::placeholder {
+      font-size: 28px;
+    }
+  }
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 18px;
+    ::placeholder {
+      font-size: 18px;
+    }
+  }
 `
 
 export const SearchLogos = styled.div`
@@ -67,4 +80,16 @@ export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
+`
+export const Image = styled.img`
+  width: 96px;
+  height: 96px;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    width: 48px;
+    height: 48px;
+  }
 `

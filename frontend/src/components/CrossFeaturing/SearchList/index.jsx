@@ -10,6 +10,7 @@ import {
   RapperName,
   TableSearch,
   SearchDiv,
+  Image,
 } from '../../../utils/styles/Tables'
 import IconSearch from '../../../assets/icons8-chercher.svg'
 
@@ -46,13 +47,7 @@ function SearchList({ filteredCrossFeaturing, selectCrossFeaturing, search }) {
             placeholder="Chercher un featuring"
             onChange={(e) => search(e)}
           />
-          <img
-            style={{ marginTop: '2%' }}
-            src={IconSearch}
-            width="50"
-            height="50"
-            alt="search"
-          />
+          <Image style={{ marginTop: '2%' }} src={IconSearch} alt="search" />
         </SearchDiv>
       </TableHead>
       <TableContainer>

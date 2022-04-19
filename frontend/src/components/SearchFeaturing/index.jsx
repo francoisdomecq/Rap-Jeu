@@ -5,6 +5,7 @@ import {
   InputContainer,
   SearchInput,
   SearchLogos,
+  Image,
 } from './styles'
 import { TextBlue } from '../../utils/styles/Text'
 
@@ -47,33 +48,21 @@ function SearchFeaturing(rapper) {
           href={`https://www.youtube.com/results?search_query=${rapper1Search}+${rapper2Search}`}
           target="_blank"
         >
-          <img
-            style={{ width: 96, height: 96 }}
-            src={YoutubeLogo}
-            alt="Chercher sur youtube"
-          />
+          <Image src={YoutubeLogo} alt="Chercher sur youtube" />
         </a>
         <a
           rel="noreferrer"
           href={`https://musicbrainz.org/search?query=${rapper1Search}%20feat.%20${rapper2Search}&type=recording&limit=10&method=advanced`}
           target="_blank"
         >
-          <img
-            src={MusicBrainzLogo}
-            style={{ width: 96, heigth: 96 }}
-            alt="Chercher sur MusicBrainz"
-          />
+          <Image src={MusicBrainzLogo} alt="Chercher sur MusicBrainz" />
         </a>
         <a
           rel="noreferrer"
           href={`https://genius.com/search?q=${rapper1Search}%20${rapper2Search}`}
           target="_blank"
         >
-          <img
-            src={RapGeniusLogo}
-            style={{ width: 96, heigth: 96 }}
-            alt="Chercher sur RapGenius"
-          />
+          <Image src={RapGeniusLogo} alt="Chercher sur RapGenius" />
         </a>
       </SearchLogos>
     </SearchContainer>

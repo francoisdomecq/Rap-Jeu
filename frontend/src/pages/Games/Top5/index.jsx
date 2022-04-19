@@ -28,7 +28,7 @@ function Top5() {
   //Booléen permettant de commencer le chrono
   const [startCounter, setStartCount] = useState(false)
   //Chronomètre de 20s
-  const [counter, setCounter] = useState(2000)
+  const [counter, setCounter] = useState(20)
   //Compteur des manches
   const [round, updateRound] = useState(0)
   const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =

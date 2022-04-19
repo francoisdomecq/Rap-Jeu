@@ -5,6 +5,7 @@ export const ContainerTeamAnswer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   justify-content: center;
   width: 19%;
   padding: 1%;
@@ -16,12 +17,16 @@ export const ContainerTeamAnswer = styled.div`
     rgba(255, 210, 34, 1) 100%
   );
   opacity: 0.95;
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    border-radius: 10px;
+  }
 `
 
 export const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   width: 90%;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -33,6 +38,11 @@ export const Header = styled.div`
   font-size: 24px;
   color: white;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
 `
 
 export const TableContainer = styled.div`
@@ -52,6 +62,9 @@ export const RappersContainer = styled.div`
   font-weight: 700;
   font-size: 24px;
   color: ${colors.yellow};
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
+  }
 `
 export const TableBottom = styled.div`
   display: flex;
@@ -90,8 +103,15 @@ export const RapperInput = styled.input`
     right: 15px;
     top: 50%;
   }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
+    width: 90%;
+    border-radius: 5px;
+    ::placeholder {
+      font-size: 12px;
+    }
+  }
 `
-
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -107,6 +127,9 @@ export const Line = styled.tr`
   width: 100%;
   color: white;
   font-size: 18px;
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 8px;
+  }
 `
 export const RapperName = styled.p`
   text-transform: uppercase;
@@ -129,5 +152,8 @@ export const RemoveButton = styled.button`
   font-family: 'Montserrat';
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 8px;
   }
 `

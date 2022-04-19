@@ -10,8 +10,10 @@ export const Container = styled.div`
 export const TableContainer = styled.div`
   width: 100%;
   max-height: 380px;
-
   overflow-y: scroll;
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    max-height: 250px;
+  }
 `
 export const Table = styled.table`
   width: 100%;
@@ -43,6 +45,9 @@ export const TableHead = styled.thead`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
+  }
 `
 export const TableSearch = styled.input`
   width: 75%;
@@ -75,6 +80,12 @@ export const TableSearch = styled.input`
   ::-webkit-search-cancel-button {
     position: relative;
     right: 15px;
+  }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 8px;
+    ::placeholder {
+      font-size: 8px;
+    }
   }
 `
 
@@ -110,6 +121,9 @@ export const Line = styled.tr`
     color: ${({ isChosen }) =>
       isChosen ? `${colors.red}` : `${colors.yellow}`};
   }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    font-size: 12px;
+  }
 `
 export const RapperName = styled.p`
   text-transform: uppercase;
@@ -121,4 +135,12 @@ export const SearchDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+export const Image = styled.img`
+  width: 50px;
+  height: 50px;
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    width: 24px;
+    height: 24px;
+  }
 `
