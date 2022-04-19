@@ -1,10 +1,12 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import GameCard from '../../components/GameCard'
-import { GameContext, TeamContext } from '../../utils/context'
+import { GameContext } from '../../utils/context'
 import {
   Container,
-  GamesPicked,
+  ContainerColumn,
+  ContainerRow,
   GamesPickedWrapper,
+  GamesPicked,
   GamesPickedTitleWrapper,
   GamesPickedTitle,
   GameContainer,
@@ -15,7 +17,6 @@ import {
   Text,
   TextH1,
 } from './styles'
-import { ContainerRow, ContainerColumn } from '../../utils/styles/Containers'
 
 function Games() {
   const { games, selectGames } = useContext(GameContext)
@@ -24,6 +25,8 @@ function Games() {
     selectGames(label)
   }
 
+  //Lorsque l'utilisateur clique sur 'Commencer la partie', on créée des variables locales qui stockent les jeux sélectionnés
+  //Pour qu'il puisse reprendre la partie en cas d'arrêt
   function start() {
     localStorage.setItem('games', JSON.stringify(games))
     localStorage.setItem('gamesPlayed', JSON.stringify([]))
@@ -31,8 +34,7 @@ function Games() {
 
   return (
     <Container>
-      {console.log(games)}
-      <GamesPicked has4Games={games.length === 4 ? true : false}>
+      <GamesPicked>
         <GamesPickedTitleWrapper>
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>
         </GamesPickedTitleWrapper>
@@ -52,17 +54,13 @@ function Games() {
           </GamesPickedWrapper>
         ))}
         <PlayButton
-          has4games={
-            games.length === 4 && !games.includes('') ? 'true' : 'false'
-          }
+          has4games={!games.includes('Jeu 2') ? 'true' : 'false'}
           to={
-            games.length === 4 && !games.includes('Jeu 2')
+            !games.includes('Jeu 2')
               ? `/${games[0]}/?game=${games[0]}`
               : '/games'
           }
-          onClick={() =>
-            games.length === 4 && games.includes('') === false ? start() : null
-          }
+          onClick={() => (games.includes('Jeu 2') === false ? start() : null)}
         >
           Commencer la partie
         </PlayButton>

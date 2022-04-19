@@ -6,13 +6,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
 `
-export const GameContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding-bottom: 20px;
-`
 export const GamesPicked = styled.div`
   width: 25%;
   background-color: #2704c4;
@@ -54,7 +47,16 @@ export const GamesPickedWrapper = styled.div`
   font-size: 16px;
   font-family: 'Montserrat';
 `
-
+export const RemoveButton = styled.button`
+  width: 30px;
+  background: rgba(255, 0, 61, 1);
+  border-radius: 360px;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+`
 export const PlayButton = styled(Link)`
   display: flex;
   justify-content: center;
@@ -69,26 +71,22 @@ export const PlayButton = styled(Link)`
   font-family: 'Montserrat';
   font-weight: 700;
 `
-
-export const RemoveButton = styled.button`
-  width: 30px;
-  background: rgba(255, 0, 61, 1);
-  border-radius: 360px;
-  color: white;
-  font-size: 20px;
-  &:hover {
-    cursor: pointer;
-  }
+export const ContainerRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
 `
-
-export const ExplainContainer = styled.div`
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 20px;
-  width: 80%;
-  padding: 2%;
-  padding-top: 0%;
-  text-align: start;
+export const ContainerColumn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 `
 export const PageTitle = styled.p`
   font-family: 'Montserrat';
@@ -100,6 +98,16 @@ export const PageTitle = styled.p`
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black;
 `
+export const ExplainContainer = styled.div`
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 80%;
+  padding: 2%;
+  padding-top: 0%;
+  text-align: start;
+`
+
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 500;
@@ -110,4 +118,11 @@ export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
   font-size: 24px;
+`
+export const GameContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
 `
