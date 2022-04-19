@@ -41,6 +41,7 @@ export const ContainerTeamSelection = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align:center;
   margin-top: 2%;
   padding: 2%;
   width: 100%;
@@ -73,4 +74,17 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    width: 150px;
+    height: 55px;
+  }
+`
+export const TextLink = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    font-size: 12px;
+    width: 150px;
+  }
 `

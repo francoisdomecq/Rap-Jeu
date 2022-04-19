@@ -16,6 +16,7 @@ import {
   Text,
   RapperInput,
   ContinuerContainer,
+  TextLink,
 } from './styles'
 
 import { TextBlue } from '../../../utils/styles/Text'
@@ -96,7 +97,7 @@ function RollandGamos() {
                 onChange={(e) => lastRapper(e)}
               />
             </ContainerRapper>
-            <ContainerRow style={{ width: '40%' }}>
+            <ContainerRow style={{ width: '50%' }}>
               <SearchFeaturing rapper={rappeur} />
             </ContainerRow>
 
@@ -114,7 +115,9 @@ function RollandGamos() {
                 isTeamSelected={teamWinner ? true : false}
                 onClick={() => (teamWinner ? nextRound() : null)}
               >
-                {count < 2 ? 'Manche suivante' : 'Résultats'}
+                <TextLink>
+                  {count < 2 ? 'Manche suivante' : 'Résultats'}
+                </TextLink>
               </ContinuerContainer>
             </ContainerRow>
           </ContainerColumn>
@@ -164,7 +167,7 @@ function RollandGamos() {
           style={{ textDecoration: 'none', color: 'white' }}
           onClick={() => reset()}
         >
-          Recommencer
+          <TextLink>Recommencer</TextLink>
         </Link>
       </ContinuerContainer>
     </ContainerColumn>

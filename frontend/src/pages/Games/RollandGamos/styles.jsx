@@ -39,12 +39,16 @@ export const ContainerRapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   justify-content: space-evenly;
   border-radius: 20px;
   border: 2px solid ${colors.yellow};
   padding: 1%;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   opacity: 0.95;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    width: 30%;
+  }
 `
 export const InputContainer = styled.div`
   display: flex;
@@ -64,6 +68,9 @@ export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    font-size: 12px;
+  }
 `
 export const RapperInput = styled.input`
   outline: none;
@@ -114,4 +121,18 @@ export const ContinuerContainer = styled.div`
   }
   padding-right: 1%;
   opacity: ${({ isTeamSelected }) => (isTeamSelected ? 1 : 0.5)};
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    width: 150px;
+    height: 55px;
+
+  }
+`
+export const TextLink = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    font-size: 12px;
+    width: 150px;
+  }
 `

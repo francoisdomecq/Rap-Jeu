@@ -13,6 +13,7 @@ import {
   ContainerTeam,
   ContainerTeamSelection,
   ContinueContainer,
+  TextLink,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 
@@ -149,7 +150,10 @@ function Enchere() {
                   style={{ marginTop: '1%' }}
                   onClick={() => startGame()}
                 >
-                  Commencer la manche
+                  <TextLink>
+                    Commencer une
+                    <br /> nouvelle partie
+                  </TextLink>
                 </ContinueContainer>
               </ContainerColumn>
             </ContainerRow>
