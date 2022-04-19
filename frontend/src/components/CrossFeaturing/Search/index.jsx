@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import SearchList from '../SearchList/index'
 
 //Cette fonction est utilisée pour la fonctionnalité de recherche de crossfeaturings
