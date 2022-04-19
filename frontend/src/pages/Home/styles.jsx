@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import Continuer from '../../assets/continuer.svg'
 
-const width = window.innerWidth
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
