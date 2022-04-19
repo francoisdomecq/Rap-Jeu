@@ -1,25 +1,31 @@
 import { Link } from 'react-router-dom'
-import RedBullLogo from '../../assets/PNG/redbull.png'
-import RapJeuLogo from '../../assets/RapJeuLogo.svg'
-import YoutubeLogo from '../../assets/rollandgamos/icons8-youtube.svg'
+import { useContext } from 'react'
+import { GameContext } from '../../utils/context'
+
 import {
   Container,
   ContainerRow,
-  ExplicationsContainer,
-  Explications,
+  ExplainationContainer,
+  Explaination,
   Logo,
   LinkImage,
   TextH1,
   Text,
   SecondContainer,
-  ContinuerContainer,
+  ContinueContainer,
 } from './styles'
-import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
-import '../../utils/animations/Bouncing/animationBouncing.css'
-import { useContext } from 'react'
-import { GameContext } from '../../utils/context'
+
+import RedBullLogo from '../../assets/PNG/redbull.png'
+import RapJeuLogo from '../../assets/RapJeuLogo.svg'
+import YoutubeLogo from '../../assets/rollandgamos/icons8-youtube.svg'
+
+//Cette fonction représente la page d'accueil
 function Home() {
+  //On récupère les fonction startGame et resetGame dans le GameContext
   const { startGame, resetGame } = useContext(GameContext)
+
+  //On récupère ici les données stockées localement sur la machine si elles existent pour que l'utilisateur puisse reprendre la partie
+  //S'il l'a interrompue
   const localGames = JSON.parse(localStorage.getItem('games'))
   const localGamesPlayed = JSON.parse(localStorage.getItem('gamesPlayed'))
   const nextGame =
@@ -27,12 +33,14 @@ function Home() {
   const localTeam1 = JSON.parse(localStorage.getItem('team1'))
   const localTeam2 = JSON.parse(localStorage.getItem('team2'))
 
+  //Cette fonction permet de supprimer toutes les données stockées localement sur la machine et celles stockées pendant la session
   function newGame() {
     localStorage.clear()
     resetGame()
   }
+
   return (
-    <Container style={{ marginBottom: '3%' }}>
+    <Container style={{ marginBottom: '2%' }}>
       <SecondContainer>
         <LinkImage
           href="https://www.redbull.com/fr-fr/collections/redbinks"
@@ -54,8 +62,8 @@ function Home() {
           <Logo src={YoutubeLogo} alt="youtube" />
         </LinkImage>
       </SecondContainer>
-      <ExplicationsContainer>
-        <Explications>
+      <ExplainationContainer>
+        <Explaination>
           <TextH1>Bienvenue dans Rap Jeu</TextH1>
           <Text>
             Salut la famille, tu es sur le point de te lancer dans une partie de
@@ -93,10 +101,12 @@ function Home() {
             ajoutant des points ou en enlevant si c'est un flop.. Ce n'est qu'un
             exemple bien-sûr, libre à toi d'animer la partie !
           </Text>
-        </Explications>
-      </ExplicationsContainer>
+        </Explaination>
+      </ExplainationContainer>
+      {/*Si l'utilisateur souhaite recommencer une nouvelle partie, il est redirigé vers l'écran Teams et on supprime les données de 
+      la session actuelle et celles stockées localement */}
       <ContainerRow style={{ width: '50%', marginTop: '2%' }}>
-        <ContinuerContainer>
+        <ContinueContainer>
           <Link
             style={{ textDecoration: 'none', color: 'white' }}
             onClick={() => newGame()}
@@ -105,10 +115,12 @@ function Home() {
             Commencer une
             <br /> nouvelle partie
           </Link>
-        </ContinuerContainer>
+        </ContinueContainer>
 
+        {/*Si l'utilisateur souhaite reprendre la dernière partie en cours, il est redirigé vers la prochaine épreuve à jouer
+        Cette option ne s'affiche que si des données stockées localement sur la machine existent */}
         {localTeam1 && localTeam2 && localGames ? (
-          <ContinuerContainer>
+          <ContinueContainer>
             <Link
               style={{ textDecoration: 'none', color: 'white' }}
               to={`${nextGame}/?game=${nextGame}`}
@@ -117,7 +129,7 @@ function Home() {
               Reprendre la partie
               <br /> en cours
             </Link>
-          </ContinuerContainer>
+          </ContinueContainer>
         ) : null}
       </ContainerRow>
     </Container>
