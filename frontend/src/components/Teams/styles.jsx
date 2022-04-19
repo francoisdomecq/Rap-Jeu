@@ -3,6 +3,9 @@ import JouerGauche from '../../assets/jauge_gauche.svg'
 import JouerDroite from '../../assets/jauge_droite.svg'
 import colors from '../../utils/styles/colors'
 
+//Max width = 900 pour le nom d'équipe
+//Moins pour l'input
+
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: row;

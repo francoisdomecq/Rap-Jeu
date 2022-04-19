@@ -1,4 +1,4 @@
-import { ContainerRow, ContainerZIndex } from './styles'
+import { ContainerRow, ContainerZIndex, Image, ImageMehdi } from './styles'
 import { useContext, useEffect, useState } from 'react'
 import { GameContext, TeamContext } from '../../utils/context'
 
@@ -36,9 +36,13 @@ function Background() {
   return (
     <ContainerZIndex>
       <ContainerRow>
-        <img src={leftImage} style={{ marginTop: '5%' }} alt="comptoir" />
-        <img src={mehdi} alt="mehdi" style={{ width: '45%', height: '100%' }} />
-        <img src={rightImage} style={{ marginTop: '5%' }} alt="comptoir" />.
+        <Image src={leftImage} style={{ marginTop: '5%' }} alt="comptoir" />
+        <ImageMehdi
+          src={mehdi}
+          alt="mehdi"
+          style={{ width: '45%', height: '100%' }}
+        />
+        <Image src={rightImage} style={{ marginTop: '5%' }} alt="comptoir" />.
       </ContainerRow>
     </ContainerZIndex>
   )

@@ -13,3 +13,17 @@ export const ContainerRow = styled.div`
   width: 100%;
   height: 100%;
 `
+export const Image = styled.img`
+  margin-top: 5%;
+  @media screen and (min-width: 300px) and (max-width: 1250px) {
+    width: 25%
+  }
+`
+
+export const ImageMehdi = styled.img`
+  width: 45%;
+  height: 100%;
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    width: 25%
+  }
+`
