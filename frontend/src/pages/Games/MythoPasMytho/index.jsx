@@ -3,6 +3,8 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import { Link } from 'react-router-dom'
 
+import TeamSelection from '../../../components/TeamSelection'
+
 import {
   Text,
   ContainerQuestion,
@@ -84,6 +86,19 @@ function MythoPasMytho() {
               </ButtonAnswer>
             </ContainerRow>
           ) : null}
+          {teamAnswering ? (
+            ''
+          ) : (
+            <ContainerRow style={{ width: '30%' }}>
+              <TeamSelection
+                team1={team1}
+                team2={team2}
+                teamAnswering={teamAnswering}
+                setTeamAnswering={setTeamAnswering}
+                game={'Mytho pas Mytho'}
+              />
+            </ContainerRow>
+          )}
           <ContainerColumn style={{ marginTop: '2%' }}>
             {answerGiven !== null ? (
               answerNumber < 3 ? (

@@ -17,7 +17,7 @@ export const ContainerQuestion = styled.div`
   background-size: contain;
   background-image: url(${QuestionContainer});
   background-repeat: no-repeat;
-  margin-top: ${({ isAnswerGiven }) => (isAnswerGiven ? '2%' : '11%')};
+  margin-top: ${({ isAnswerGiven }) => (isAnswerGiven ? '4%' : '11%')};
 `
 export const ButtonAnswer = styled.div`
   display: flex;
