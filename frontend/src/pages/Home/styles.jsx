@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Continuer from '../../assets/continuer.svg'
 
+const width = window.innerWidth
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
@@ -25,10 +26,18 @@ export const SecondContainer = styled.div`
 export const LinkImage = styled.a`
   width: 5%;
   height: 5%;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: 15%;
+    height: 15%;
+  }
 `
 export const Logo = styled.img`
-  width: 100%;
-  height: 100%;
+  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '5%' : '100%')};
+  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '5%' : '100%')};
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '15%' : '100%')};
+    height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '15%' : '100%')};
+  }
 `
 export const ExplainationContainer = styled.div`
   display: flex;
@@ -43,16 +52,25 @@ export const Explaination = styled.div`
   padding: 2%;
   padding-top: 0%;
   text-align: start;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: 80%;
+  }
 `
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 500;
   font-size: 16px;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 12px;
+  }
 `
 export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 18px;
+  }
 `
 export const ContinueContainer = styled.div`
   display: flex;
@@ -72,4 +90,16 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: 300px;
+  }
+`
+export const TextLink = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 24px;
+    width: 300px;
+  }
 `

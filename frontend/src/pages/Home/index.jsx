@@ -13,6 +13,7 @@ import {
   Text,
   SecondContainer,
   ContinueContainer,
+  TextLink,
 } from './styles'
 
 import RedBullLogo from '../../assets/PNG/redbull.png'
@@ -50,7 +51,7 @@ function Home() {
         </LinkImage>
 
         <Logo
-          style={{ width: '5%', height: '5%' }}
+          isRapJeuLogo={true}
           src={RapJeuLogo}
           alt="rapjeu"
         />
@@ -112,8 +113,11 @@ function Home() {
             onClick={() => newGame()}
             to={'/teams'}
           >
-            Commencer une
-            <br /> nouvelle partie
+            {' '}
+            <TextLink>
+              Commencer une
+              <br /> nouvelle partie
+            </TextLink>
           </Link>
         </ContinueContainer>
 
@@ -126,8 +130,10 @@ function Home() {
               to={`${nextGame}/?game=${nextGame}`}
               onClick={() => startGame(true)}
             >
-              Reprendre la partie
-              <br /> en cours
+              <TextLink>
+                Reprendre la partie
+                <br /> en cours
+              </TextLink>
             </Link>
           </ContinueContainer>
         ) : null}
