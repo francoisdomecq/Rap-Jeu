@@ -53,8 +53,12 @@ function Header() {
       ) : (
         <PageText>{games[3]}</PageText>
       )}
-      <Logo src={IconInformation} onClick={toggle} alt="logo"></Logo>
-      <Modal isShowing={isShowing} hide={toggle} title={game}></Modal>
+      {game ? (
+        <div>
+          <Logo src={IconInformation} onClick={toggle} alt="logo"></Logo>
+          <Modal isShowing={isShowing} hide={toggle} title={game}></Modal>{' '}
+        </div>
+      ) : null}
     </NavContainer>
   )
 }

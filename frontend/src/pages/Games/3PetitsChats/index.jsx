@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import RapperArray from '../../../components/Rappers'
 
 import { TextBlack, TextBlue } from '../../../utils/styles/Text'
-import '../../../utils/animations/Bouncing/petitsChatsBouncingLetters.css'
-import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 import {
   ContainerRow,
   ContainerColumn,

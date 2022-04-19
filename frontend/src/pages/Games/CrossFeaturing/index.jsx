@@ -14,8 +14,7 @@ import {
   ContinuerContainer,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
-import '../../../utils/animations/Bouncing/crossFeaturingBouncingLetters.css'
-import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 
 function CrossFeaturing() {
   const [crossFeaturing, setCrossFeaturing] = useState()

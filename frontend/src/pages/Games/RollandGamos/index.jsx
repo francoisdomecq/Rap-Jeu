@@ -20,8 +20,7 @@ import {
 import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
-import '../../../utils/animations/Bouncing/rollandGamosBouncingLetters.css'
-import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 
 function RollandGamos() {
   const [rappeur, setRappeur] = useState('')
@@ -43,7 +42,7 @@ function RollandGamos() {
   useEffect(() => {
     setTeamAnswering()
   }, [])
-  
+
   function lastRapper(e) {
     if (
       e.nativeEvent.inputType === 'deleteContentBackward' &&

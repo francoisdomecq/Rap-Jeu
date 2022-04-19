@@ -16,8 +16,7 @@ import {
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { TextBlue } from '../../../utils/styles/Text'
-import '../../../utils/animations/Bouncing/enchereBouncingLetters.css'
-import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 import { ContainerColumn45, ContinueContainer } from '../3PetitsChats/styles'
 import TeamSelection from '../../../components/TeamSelection'
 

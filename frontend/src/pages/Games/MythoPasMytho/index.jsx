@@ -14,8 +14,7 @@ import {
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
-import '../../../utils/animations/Bouncing/mythoPasMythoBouncingLetters.css'
-import '../../../utils/animations/Bouncing/animationBouncing.css'
+
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
 import Redbull from '../../../assets/PNG/redbull.png'
 function MythoPasMytho() {
