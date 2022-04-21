@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from '../styles/colors'
+
 export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -86,6 +87,9 @@ export const ModalDiv = styled.div`
   min-height: 250px;
   width: 100%;
   padding: 1rem;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    width: 80%;
+  }
 `
 
 export const ModalHeader = styled.div`
@@ -113,6 +117,9 @@ export const ModalTitle = styled.p`
   font-family: 'Montserrat';
   text-transform: uppercase;
   color: ${colors.blue};
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 20px;
+  }
 `
 export const ModalBody = styled.div`
   display: flex;
@@ -130,6 +137,9 @@ export const ModalRound = styled.div`
   font-size: 18px;
   font-weight: 500;
   font-family: 'Montserrat';
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    font-size: 14px;
+  }
 `
 export const ModalRules = styled.div`
   width: 100%;

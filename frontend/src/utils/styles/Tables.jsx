@@ -11,9 +11,6 @@ export const TableContainer = styled.div`
   width: 100%;
   max-height: 380px;
   overflow-y: scroll;
-  @media screen and (min-width: 300px) and (max-width: 900px) {
-    max-height: 250px;
-  }
 `
 export const Table = styled.table`
   width: 100%;
