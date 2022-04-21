@@ -6,6 +6,10 @@ export const Container = styled.div`
   flex-direction: column;
   width: 50%;
   opacity: 0.95;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: 80%;
+  }
+  
 `
 export const TableHead = styled.thead`
   display: flex;
@@ -24,7 +28,7 @@ export const TableHead = styled.thead`
     rgba(255, 255, 24, 1) 0%,
     rgba(255, 210, 34, 1) 100%
   );
-  @media screen and (min-width: 300px) and (max-width: 900px) {
+  @media screen and (min-width: 300px) and (max-width: 1000px) {
     font-size: 12px;
   }
 `
@@ -34,7 +38,7 @@ export const TableContainer = styled.div`
   width: 100%;
   max-height: 380px;
   overflow-y: scroll;
-  @media screen and (min-width: 300px) and (max-width: 900px) {
+  @media screen and (min-width: 300px) and (max-width: 1000px) {
     max-height: 250px;
   }
 `

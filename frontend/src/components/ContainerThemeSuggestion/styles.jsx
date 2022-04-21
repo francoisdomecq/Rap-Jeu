@@ -5,6 +5,7 @@ import suggestions from '../../assets/enchere_top5/suggestions.svg'
 export const ContainerColumn = styled.div`
   display: flex;
   align-items: center;
+
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -17,7 +18,28 @@ export const ContainerTheme = styled.div`
   background-size: contain;
   background-image: url(${theme});
   background-repeat: no-repeat;
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    width: 300px;
+    height: 22px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    width: 420px;
+    height: 32px;
+  }
 `
+export const TextWhite = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: ${({ size }) => (size ? `${size}px` : '24px')};
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 8px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    font-size: 12px;
+  }
+`
+
 export const ContainerSuggestions = styled.div`
   display: flex;
   text-align: center;
@@ -26,11 +48,32 @@ export const ContainerSuggestions = styled.div`
   background-size: contain;
   background-image: url(${suggestions});
   background-repeat: no-repeat;
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    width: 350px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    width: 450px;
+  }
 `
 export const SuggestionsTextDiv = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
   width: 80%;
-  height: 50%;
+
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    width: 90%;
+  }
+`
+export const TextBlack = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 14px;
+
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 0.3em;
+  }
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    font-size: 0.5em;
+  }
 `
