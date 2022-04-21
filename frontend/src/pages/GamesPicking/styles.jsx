@@ -2,9 +2,65 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import colors from '../../utils/styles/colors'
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(
+      112.5deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(
+      157.5deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(90deg, rgb(195, 195, 195), rgb(228, 228, 228));
+  background-blend-mode: overlay, overlay, overlay, normal;
   @media screen and (min-width: 300px) and (max-width: 600px) {
     flex-direction: column;
   }

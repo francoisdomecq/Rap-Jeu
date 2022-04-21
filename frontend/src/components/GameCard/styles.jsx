@@ -17,8 +17,19 @@ export const CardWrapper = styled.div`
     cursor: pointer;
     opacity: ${({ isFavorite }) => (isFavorite ? '0.2' : '0.9')};
   }
-  @media screen and (min-width: 300px) and (max-width: 1300px) {
+  @media screen and (min-width: 300px) and (max-width: 500px) {
     width: 42%;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.6);
+    border-radius: 15px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    width: 36%;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.6);
+    border-radius: 15px;
+  } 
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    width: 45%;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.6);
     border-radius: 15px;
   }
 `

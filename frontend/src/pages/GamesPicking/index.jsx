@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import GameCard from '../../components/GameCard'
 import { GameContext } from '../../utils/context'
 import {
-  Container,
+  Wrapper,
   ContainerColumn,
   ContainerRow,
   GamesPickedWrapper,
@@ -34,7 +34,7 @@ function Games() {
   }
 
   return (
-    <Container>
+    <Wrapper>
       <GamesPicked>
         <GamesPickedTitleWrapper>
           <GamesPickedTitle>Jeux sélectionnés</GamesPickedTitle>
@@ -68,9 +68,7 @@ function Games() {
       </GamesPicked>
       <ContainerColumn>
         <ContainerRow>
-          <PageTitle style={{ textAlign: 'center', width: '100%' }}>
-            Choix des jeux
-          </PageTitle>
+          <PageTitle>Choix des jeux</PageTitle>
           <ExplainContainer>
             <TextH1>Instructions</TextH1>
             <Text>
@@ -114,7 +112,7 @@ function Games() {
           />
         </GameContainer>
       </ContainerColumn>
-    </Container>
+    </Wrapper>
   )
 }
 
