@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   justify-content: space-evenly;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   padding-top: 1vw;
   padding-bottom: 5vw;
   left: 0;
@@ -65,15 +64,6 @@ export const Wrapper = styled.div`
     ),
     linear-gradient(90deg, rgb(195, 195, 195), rgb(228, 228, 228));
   background-blend-mode: overlay, overlay, overlay, normal;
-  @media screen and (min-width: 300px) and (max-width: 500px) {
-    height: 130%;
-  }
-  @media screen and (min-width: 500px) and (max-width: 900px) {
-    height: 150%;
-  }
-  @media screen and (min-width: 900px) and (max-width: 1300px) {
-    height: 130%;
-  }
 `
 export const ContainerLogos = styled.div`
   display: flex;
@@ -95,8 +85,8 @@ export const LinkImage = styled.a`
   }
 `
 export const Logo = styled.img`
-  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '80%')};
-  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '80%')};
+  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '20%' : '80%')};
+  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '20%' : '80%')};
 `
 export const ExplainationContainer = styled.div`
   display: flex;
@@ -110,7 +100,7 @@ export const Explaination = styled.div`
   padding: 2%;
   padding-top: 0%;
   text-align: start;
- 
+  margin-top: 2%;
   @media screen and (min-width: 300px) and (max-width: 500px) {
     width: 80%;
   }
