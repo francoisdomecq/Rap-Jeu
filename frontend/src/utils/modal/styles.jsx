@@ -150,3 +150,11 @@ export const ModalRules = styled.div`
   font-weight: 500;
   font-family: 'Montserrat';
 `
+export const Iframe = styled.iframe`
+  width: 400;
+  height: 250;
+  @media screen and (min-width: 300px) and (max-width: 550px) {
+    width: 250;
+    height: 150;
+  }
+`

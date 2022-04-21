@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {
+  Iframe,
   ModalOverlay,
   ModalWrapper,
   ModalDiv,
@@ -33,15 +34,14 @@ function Modal({ isShowing, hide, title, ...props }) {
                   <ModalRules>
                     <p>{rules.rules}</p>
                   </ModalRules>
-                  <iframe
-                    width="400"
-                    height="250"
+                  <Iframe
+                   
                     src={rules.video}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
-                  ></iframe>
+                  ></Iframe>
                 </ModalBody>
               </ModalDiv>
             </ModalWrapper>
