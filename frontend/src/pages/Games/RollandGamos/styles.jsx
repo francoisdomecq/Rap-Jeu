@@ -2,17 +2,47 @@ import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import Continuer from '../../../assets/continuer.svg'
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width: 300px) and (max-width: 400px) {
+    height: 75%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 400px) and (max-width: 500px) {
+    height: 90%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    height: 111%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    height: 130%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 700px) and (max-width: 800px) {
+    height: 160%;
+    align-items: flex-start;
+  }
+`
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 100%;
   width: 100%;
 `
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
   height: 100%;
@@ -21,19 +51,24 @@ export const ContainerRow = styled.div`
 export const ContainerColumn = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
   height: 100%;
   width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+   height: 70%;
+  }
+`
+
+export const ContainerColumnPoints = styled.div`
+  width: 35%;
 `
 
 export const SecondContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   width: 50%;
-  height: 100%;
 `
 export const ContainerRapper = styled.div`
   display: flex;
@@ -56,12 +91,11 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 60%;
-  height: 100%;
+
 `
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 3%;
   width: 60%;
 `
 export const Text = styled.p`
@@ -124,7 +158,6 @@ export const ContinuerContainer = styled.div`
   @media screen and (min-width: 300px) and (max-width: 650px) {
     width: 150px;
     height: 55px;
-
   }
 `
 export const TextLink = styled.p`

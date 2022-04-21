@@ -13,10 +13,12 @@ import {
   SecondContainer,
   ContainerRow,
   ContainerColumn,
+  ContainerColumnPoints,
   Text,
   RapperInput,
   ContinuerContainer,
   TextLink,
+  Wrapper,
 } from './styles'
 
 import { TextBlue } from '../../../utils/styles/Text'
@@ -25,7 +27,7 @@ function RollandGamos() {
   //Rappeur sélectionné
   const [rappeur, setRappeur] = useState('')
   //Compteur de manche
-  const [count, setCount] = useState(3)
+  const [count, setCount] = useState(0)
   //Points que remporte une manche
   const [points, setPoints] = useState()
   const [teamWinner, setTeamWinner] = useState('')
@@ -84,7 +86,7 @@ function RollandGamos() {
 
   return count < 3 ? (
     //Si moins de 3 manches ont été jouées, on affiche tout ce qui permet au maître de jeu d'animer la partie. Sinon, on affiche l'écran de victoire
-    <ContainerRow>
+    <Wrapper>
       {
         //Si un rappeur a été sélectionné et un nombre de points définis, alors on affiche l'écran de jeu
         rappeur && points ? (
@@ -110,7 +112,7 @@ function RollandGamos() {
                 setTeamAnswering={setTeamWinner}
               />
             </ContainerColumn>
-            <ContainerRow style={{ marginTop: '2%' }}>
+            <ContainerRow>
               <ContinuerContainer
                 isTeamSelected={teamWinner ? true : false}
                 onClick={() => (teamWinner ? nextRound() : null)}
@@ -132,16 +134,16 @@ function RollandGamos() {
                 chosenRapper={rappeur}
               />
             </SecondContainer>
-            <ContainerColumn style={{ width: '35%' }}>
+            <ContainerColumnPoints>
               <ContainerPoints
                 game="Rolland Gamos"
                 updatePoints={updatePoints}
               />
-            </ContainerColumn>
+            </ContainerColumnPoints>
           </ContainerRow>
         )
       }
-    </ContainerRow>
+    </Wrapper>
   ) : (
     //Ecran de fin de partie
     <ContainerColumn>
