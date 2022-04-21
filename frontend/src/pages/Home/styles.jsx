@@ -124,8 +124,12 @@ export const TextH1 = styled.h1`
 export const ContainerRow = styled.div`
   display: flex;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   margin-top: 2%;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 export const ContinueContainer = styled.div`
   display: flex;
