@@ -3,12 +3,21 @@ import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 import { generateRandomNumber } from '../../../utils/functions/random'
 import TeamSelection from '../../../components/TeamSelection'
+import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 import {
-  Text,
-  ContainerQuestion,
+  Wrapper,
   ContainerAnswer,
   ButtonAnswer,
   ContinuerContainer,
+  ContainerColumnGlobal,
+  ContainerRowAnswer,
+  ContainerColumnAnswer,
+  TextAnswer,
+  Iframe,
+  Image,
+  TextLink,
+  TextButton,
+  ContainerImage,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
@@ -70,42 +79,72 @@ function RapGenieOuGenant() {
   }, [])
 
   return isDataLoading ? (
-    <LoaderWrapper>
-      <Loader src={Redbull} />
-    </LoaderWrapper>
+    <Wrapper>
+      <LoaderWrapper>
+        <Loader src={Redbull} />
+      </LoaderWrapper>
+    </Wrapper>
   ) : (
-    <ContainerRow>
-      <ContainerColumn>
-        <ContainerRow>
-          <ContainerColumn style={{ marginTop: '5%' }}>
-            {answerGiven === null ? (
-              <ContainerRow style={{ width: '40%', marginTop: '2%' }}>
-                <ButtonAnswer onClick={() => answer(true)}>
-                  <Text style={{ color: 'white' }}>Rap génie</Text>
-                </ButtonAnswer>
-                <ButtonAnswer onClick={() => answer(false)}>
-                  <Text style={{ color: 'white' }}>Rap gênant</Text>
-                </ButtonAnswer>
-              </ContainerRow>
-            ) : null}
-            {teamAnswering ? (
-              ''
-            ) : (
-              <ContainerRow style={{ width: '30%' }}>
-                <TeamSelection
-                  team1={team1}
-                  team2={team2}
-                  teamAnswering={teamAnswering}
-                  setTeamAnswering={setTeamAnswering}
-                  game={'Mytho pas Mytho'}
-                />
-              </ContainerRow>
-            )}
-            <ContainerColumn style={{ marginTop: '2%' }}>
+    <Wrapper>
+      {teamAnswering ? (
+        ''
+      ) : (
+        <ContainerRow style={{ width: '30%' }}>
+          <TeamSelection
+            team1={team1}
+            team2={team2}
+            teamAnswering={teamAnswering}
+            setTeamAnswering={setTeamAnswering}
+            game={'Rap génie ou gênant'}
+          />
+        </ContainerRow>
+      )}
+
+      <ContainerColumnGlobal>
+        {answerGiven === null && teamAnswering ? (
+          <ContainerRowAnswer>
+            <ButtonAnswer onClick={() => answer(true)}>
+              <TextButton>Rap génie</TextButton>
+            </ButtonAnswer>
+            <ButtonAnswer onClick={() => answer(false)}>
+              <TextButton>Rap gênant</TextButton>
+            </ButtonAnswer>
+          </ContainerRowAnswer>
+        ) : null}
+
+        {answerGiven !== null ? (
+          <ContainerColumnAnswer>
+            <ContainerAnswer>
+              <TextAnswer>{questionData[answerNumber].reponse}</TextAnswer>
+            </ContainerAnswer>
+            <ContainerRow>
+              {questionData[answerNumber].type === 'video' ? (
+                <Iframe
+                  src={questionData[answerNumber].illustration}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></Iframe>
+              ) : questionData[answerNumber].type === 'image' ? (
+                <ContainerImage>
+                  <Image src={questionData[answerNumber].illustration} alt="" />
+                </ContainerImage>
+              ) : (
+                <a
+                  rel="noreferrer"
+                  href={questionData[answerNumber].illustration}
+                  target="_blank"
+                >
+                  {questionData[answerNumber].illustration}
+                </a>
+              )}
+            </ContainerRow>
+            <ContainerColumn>
               {answerGiven !== null ? (
                 answerNumber < 3 ? (
                   <ContinuerContainer onClick={() => updateAnswer()}>
-                    Question suivante
+                    <TextLink>Question suivante</TextLink>
                   </ContinuerContainer>
                 ) : (
                   <ContinuerContainer>
@@ -118,80 +157,26 @@ function RapGenieOuGenant() {
                       }`}
                       onClick={() => updateAnswer()}
                     >
-                      Continuer vers <br />{' '}
-                      {games[games.indexOf('Rap génie ou gênant') + 1]}
+                      <TextLink>
+                        Continuer vers <br />{' '}
+                        {games[games.indexOf('Rap génie ou gênant') + 1]}
+                      </TextLink>
                     </Link>
                   </ContinuerContainer>
                 )
               ) : null}
             </ContainerColumn>
-            {answerGiven !== null ? (
-              <ContainerColumn>
-                <ContainerAnswer style={{ marginTop: '2%' }}>
-                  <ContainerRow style={{ width: '90%' }}>
-                    <Text style={{ color: 'white' }}>
-                      {questionData[answerNumber].reponse.includes(
-                        'Rap génie'
-                      ) ? (
-                        <div style={{ textAlign: 'center' }}>
-                          <p>Rap génie</p>
-                          <Text style={{ fontSize: 16 }}>
-                            {questionData[answerNumber].reponse.substring(
-                              12,
-                              questionData[answerNumber].reponse.length
-                            )}
-                          </Text>
-                        </div>
-                      ) : (
-                        <div style={{ textAlign: 'center' }}>
-                          <p>Rap gênant</p>
-                          <Text style={{ fontSize: 16 }}>
-                            {questionData[answerNumber].reponse.substring(
-                              13,
-                              questionData[answerNumber].reponse.length
-                            )}
-                          </Text>
-                        </div>
-                      )}
-                    </Text>
-                  </ContainerRow>
-                </ContainerAnswer>
-                <ContainerRow style={{ marginTop: '2%' }}>
-                  {questionData[answerNumber].type === 'video' ? (
-                    <iframe
-                      width="560"
-                      height="315"
-                      src={questionData[answerNumber].illustration}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  ) : questionData[answerNumber].type === 'image' ? (
-                    <img src={questionData[answerNumber].illustration} alt="" />
-                  ) : (
-                    <a
-                      rel="noreferrer"
-                      href={questionData[answerNumber].illustration}
-                      target="_blank"
-                    >
-                      {questionData[answerNumber].illustration}
-                    </a>
-                  )}
-                </ContainerRow>
-              </ContainerColumn>
-            ) : null}
-          </ContainerColumn>
-        </ContainerRow>
-      </ContainerColumn>
-      <ContainerQuestion isAnswerGiven={answerGiven !== null}>
-        <ContainerRow style={{ width: '85%', textAlign: 'center' }}>
-          <Text style={{ color: 'white', fontSize: '1.4em' }}>
-            {questionData[answerNumber].question}
-          </Text>
-        </ContainerRow>
-      </ContainerQuestion>
-    </ContainerRow>
+          </ContainerColumnAnswer>
+        ) : null}
+      </ContainerColumnGlobal>
+      {teamAnswering ? (
+        <ContainerColumn>
+          <ContainerThemeSuggestion
+            theme={questionData[answerNumber].question}
+          />
+        </ContainerColumn>
+      ) : null}
+    </Wrapper>
   )
 }
 
