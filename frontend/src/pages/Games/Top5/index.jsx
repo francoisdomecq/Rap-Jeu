@@ -97,14 +97,14 @@ function Top5() {
   ])
 
   return (
-    <ContainerRow style={{ marginBottom: '3%' }}>
+    <ContainerRow>
       {/*Cette section ne s'affiche que si le chrono est lancé */}
       {startCounter ? (
         //Si le chronomètre est supérieur à 0 et que moins de 5 réponses ont été données, on affiche le timer, le containerAnswer et le containerThemeSuggestions
         counter > 0 && answerGiven < 5 ? (
-          <ContainerColumn style={{ marginTop: '1%' }}>
+          <ContainerColumn>
             <Timer counter={counter} />
-            <ContainerRow style={{ width: '40%', marginTop: '5%' }}>
+            <ContainerRow style={{ width: '40%' }}>
               <ContainerAnswer
                 team1={team1}
                 team2={team2}
@@ -126,9 +126,7 @@ function Top5() {
           <ContainerColumn>
             {answerGiven >= 5 ? (
               //5 réponses ont été données, alors on félicite et on donne la possibilité de donner 15points à l'équipe gagnante
-              <Container
-                style={{ marginBottom: '5%', marginTop: '8%', width: '30%' }}
-              >
+              <Container style={{ width: '30%' }}>
                 <TextBlue>Félicitations {teamAnswering}</TextBlue>
                 <ContainerTeam
                   style={{ width: '60%' }}
@@ -142,9 +140,7 @@ function Top5() {
               </Container>
             ) : (
               //Aucune équipe n'a réussi l'épreuve, on affiche un message en conséquence
-              <Container
-                style={{ marginBottom: '6%', marginTop: '10%', width: '30%' }}
-              >
+              <Container style={{ width: '30%' }}>
                 <TextBlue size={20}>
                   Aucune des deux équipes ne gagne de points..
                 </TextBlue>
@@ -186,10 +182,7 @@ function Top5() {
                 setTeamAnswering={setTeamAnswering}
                 game={'Top 5'}
               />
-              <NextRoundButton
-                style={{ marginTop: '6%' }}
-                onClick={() => startGame()}
-              >
+              <NextRoundButton onClick={() => startGame()}>
                 <TextLink>
                   Commencer une
                   <br /> nouvelle partie

@@ -16,7 +16,7 @@ export const PageText = styled.span`
   font-weight: 700;
   font-size: 18px;
   @media screen and (min-width: 300px) and (max-width: 600px) {
-    font-size: 6px;
+    font-size: 8px;
   }
   @media screen and (min-width: 600px) and (max-width: 900px) {
     font-size: 12px;

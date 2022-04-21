@@ -25,7 +25,7 @@ function RollandGamos() {
   //Rappeur sélectionné
   const [rappeur, setRappeur] = useState('')
   //Compteur de manche
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(3)
   //Points que remporte une manche
   const [points, setPoints] = useState()
   const [teamWinner, setTeamWinner] = useState('')
@@ -84,12 +84,12 @@ function RollandGamos() {
 
   return count < 3 ? (
     //Si moins de 3 manches ont été jouées, on affiche tout ce qui permet au maître de jeu d'animer la partie. Sinon, on affiche l'écran de victoire
-    <ContainerRow style={{ marginBottom: '2%' }}>
+    <ContainerRow>
       {
         //Si un rappeur a été sélectionné et un nombre de points définis, alors on affiche l'écran de jeu
         rappeur && points ? (
           <ContainerColumn>
-            <ContainerRapper style={{ marginTop: '2%' }}>
+            <ContainerRapper>
               <Text style={{ color: 'white' }}>Dernier rappeur cité</Text>
               <RapperInput
                 type="search"
@@ -158,10 +158,7 @@ function RollandGamos() {
           : `Bien joué ${team1}`}
       </TextBlue>
 
-      <ContinuerContainer
-        style={{ marginTop: '15%', marginBottom: '5% ' }}
-        isTeamSelected={true}
-      >
+      <ContinuerContainer isTeamSelected={true}>
         <Link
           to="/"
           style={{ textDecoration: 'none', color: 'white' }}
