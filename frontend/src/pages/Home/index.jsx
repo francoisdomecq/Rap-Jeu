@@ -3,18 +3,17 @@ import { useContext } from 'react'
 import { GameContext } from '../../utils/context'
 
 import {
-  Container,
-  ContainerRow,
+  Wrapper,
+  ContainerLogos,
+  LinkImage,
+  Logo,
   ExplainationContainer,
   Explaination,
-  Logo,
-  LinkImage,
   TextH1,
   Text,
-  SecondContainer,
+  ContainerRow,
   ContinueContainer,
   TextLink,
-  Wrapper,
 } from './styles'
 
 import RedBullLogo from '../../assets/PNG/redbull.png'
@@ -43,7 +42,7 @@ function Home() {
 
   return (
     <Wrapper>
-      <SecondContainer>
+      <ContainerLogos>
         <LinkImage
           href="https://www.redbull.com/fr-fr/collections/redbinks"
           target="_blank"
@@ -51,11 +50,7 @@ function Home() {
           <Logo src={RedBullLogo} alt="redbull" />
         </LinkImage>
 
-        <Logo
-          isRapJeuLogo={true}
-          src={RapJeuLogo}
-          alt="rapjeu"
-        />
+        <Logo isRapJeuLogo={true} src={RapJeuLogo} alt="rapjeu" />
 
         <LinkImage
           href="https://www.youtube.com/playlist?list=PLLkvlAQ5R3l8zLZWcwcjkMQ1pU4BQlAcp"
@@ -63,7 +58,7 @@ function Home() {
         >
           <Logo src={YoutubeLogo} alt="youtube" />
         </LinkImage>
-      </SecondContainer>
+      </ContainerLogos>
       <ExplainationContainer>
         <Explaination>
           <TextH1>Bienvenue dans Rap Jeu</TextH1>
@@ -107,7 +102,7 @@ function Home() {
       </ExplainationContainer>
       {/*Si l'utilisateur souhaite recommencer une nouvelle partie, il est redirigé vers l'écran Teams et on supprime les données de 
       la session actuelle et celles stockées localement */}
-      <ContainerRow style={{ width: '50%', marginTop: '2%' }}>
+      <ContainerRow>
         <ContinueContainer>
           <Link
             style={{ textDecoration: 'none', color: 'white' }}

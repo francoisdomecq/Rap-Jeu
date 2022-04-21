@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   padding-top: 1vw;
-  padding-bottom: 10vw;
+  padding-bottom: 5vw;
   left: 0;
   top: 0;
   background-image: linear-gradient(
@@ -66,23 +66,7 @@ export const Wrapper = styled.div`
     linear-gradient(90deg, rgb(195, 195, 195), rgb(228, 228, 228));
   background-blend-mode: overlay, overlay, overlay, normal;
 `
-
-export const ContainerRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 100%;
-  width: 100%;
-`
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-export const SecondContainer = styled.div`
+export const ContainerLogos = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -135,6 +119,12 @@ export const TextH1 = styled.h1`
   @media screen and (min-width: 300px) and (max-width: 500px) {
     font-size: 18px;
   }
+`
+export const ContainerRow = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-top: 2%;
 `
 export const ContinueContainer = styled.div`
   display: flex;
