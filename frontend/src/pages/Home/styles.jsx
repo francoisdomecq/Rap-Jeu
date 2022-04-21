@@ -68,8 +68,11 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 300px) and (max-width: 500px) {
     height: 130%;
   }
-  @media screen and (min-width: 500px) and (max-width: 1200px) {
+  @media screen and (min-width: 500px) and (max-width: 900px) {
     height: 150%;
+  }
+  @media screen and (min-width: 900px) and (max-width: 1300px) {
+    height: 130%;
   }
 `
 export const ContainerLogos = styled.div`
@@ -92,8 +95,8 @@ export const LinkImage = styled.a`
   }
 `
 export const Logo = styled.img`
-  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '100%')};
-  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '100%')};
+  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '80%')};
+  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '80%')};
 `
 export const ExplainationContainer = styled.div`
   display: flex;
@@ -107,6 +110,7 @@ export const Explaination = styled.div`
   padding: 2%;
   padding-top: 0%;
   text-align: start;
+ 
   @media screen and (min-width: 300px) and (max-width: 500px) {
     width: 80%;
   }
