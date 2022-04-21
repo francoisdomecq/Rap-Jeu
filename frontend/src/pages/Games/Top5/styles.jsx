@@ -41,15 +41,19 @@ export const Wrapper = styled.div`
   }
 `
 
-export const ContainerRow = styled.div`
+export const ContainerRowAnswer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 40%;
   @media screen and (min-width: 300px) and (max-width: 800px) {
     margin-top: 30%;
+    width: 60%;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    width: 60%;
   }
 `
 export const ContainerColumn = styled.div`

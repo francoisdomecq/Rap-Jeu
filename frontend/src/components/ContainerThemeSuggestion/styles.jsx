@@ -77,7 +77,7 @@ export const ContainerSuggestions = styled.div`
 `
 export const SuggestionsTextDiv = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   text-align: center;
   width: 80%;
@@ -89,7 +89,7 @@ export const SuggestionsTextDiv = styled.div`
 export const TextBlack = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.8em;
 
   @media screen and (min-width: 300px) and (max-width: 500px) {
     font-size: 0.2em;

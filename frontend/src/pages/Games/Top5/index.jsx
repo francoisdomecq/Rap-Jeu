@@ -10,7 +10,7 @@ import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggesti
 
 import {
   Wrapper,
-  ContainerRow,
+  ContainerRowAnswer,
   ContainerColumn,
   ContainerColumnWinScreen, 
   ContainerRowTheme,
@@ -108,7 +108,7 @@ function Top5() {
           counter > 0 && answerGiven < 5 ? (
             <ContainerColumn>
               <Timer counter={counter} />
-              <ContainerRow style={{ width: '40%' }}>
+              <ContainerRowAnswer>
                 <ContainerAnswer
                   team1={team1}
                   team2={team2}
@@ -119,7 +119,7 @@ function Top5() {
                   trialNumber={trialNumber}
                   answerNumberToGive={5}
                 />
-              </ContainerRow>
+              </ContainerRowAnswer>
               <ContainerThemeSuggestion
                 theme={top5.theme}
                 suggestions={top5.suggestions}

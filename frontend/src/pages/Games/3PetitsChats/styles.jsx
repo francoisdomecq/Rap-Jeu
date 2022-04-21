@@ -87,9 +87,10 @@ export const Header = styled.div`
   width: 70%;
   padding-top: 1%;
   padding-bottom: 1%;
+  border: 3px solid ${colors.yellow};
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  border-bottom: 5px solid ${colors.yellow};
+
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
@@ -117,6 +118,9 @@ export const TableContainer = styled.div`
   overflow-y: scroll;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   opacity: 0.95;
+  border: 3px solid ${colors.yellow};
+  border-top: none;
+  border-bottom: none;
   @media screen and (min-width: 300px) and (max-width: 600px) {
     max-height: 150px;
     min-height: 100px;
@@ -142,6 +146,7 @@ export const TableBottom = styled.div`
   padding-bottom: 2%;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  border: 3px solid ${colors.yellow};
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   opacity: 0.95;
 `
@@ -239,4 +244,5 @@ export const ContinueContainer = styled.div`
   @media screen and (min-width: 300px) and (max-width: 400px) {
     margin-top: 50%;
     margin-bottom: 10%;
-  }`
+  }
+`

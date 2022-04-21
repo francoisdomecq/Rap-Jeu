@@ -60,6 +60,7 @@ function Teams({ game }) {
           <br />
           <ScoreTeamLeft>
             {scoreTeam1} points{' '}
+           
             <ScoreInput
               isLeft={true}
               type="number"

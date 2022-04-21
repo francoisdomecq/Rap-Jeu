@@ -23,12 +23,10 @@ export const LeftTeamContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   @media screen and (min-width: 350px) and (max-width: 650px) {
-    height: 42px;
     width: 47%;
     margin-left: 1%;
   }
   @media screen and (min-width: 550px) and (max-width: 650px) {
-    height: 50px;
     width: 40%;
     margin-left: 1%;
   }
@@ -48,7 +46,6 @@ export const LeftTeamContainer = styled.div`
     width: 45%;
     margin-left: 1%;
   }
-  
 `
 export const TeamsNameLeft = styled.p`
   margin-top: 1%;
@@ -74,23 +71,47 @@ export const TeamsNameLeft = styled.p`
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
   background-clip: text;
-  @media screen and (min-width: 350px) and (max-width: 450px) {
+  @media screen and (min-width: 350px) and (max-width: 400px) {
     padding-bottom: 0px;
     height: 42px;
     font-size: 12px;
-    margin-top: 4.2%;
+    margin-top: 16.5%;
     background-image: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 1) 10%,
+      rgba(255, 255, 255, 1) 15%,
       rgba(0, 0, 0, 1) 100%
     );
     -webkit-text-stroke-width: 0.4px;
   }
-  @media screen and (min-width: 450px) and (max-width: 550px) {
+  @media screen and (min-width: 400px) and (max-width: 450px) {
+    padding-bottom: 0px;
+    height: 42px;
+    font-size: 12px;
+    margin-top: 15%;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 15%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-text-stroke-width: 0.4px;
+  }
+  @media screen and (min-width: 450px) and (max-width: 500px) {
     padding-bottom: 0px;
     height: 42px;
     font-size: 16px;
-    margin-top: 2%;
+    margin-top: 12%;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 15%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-text-stroke-width: 0.4px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 550px) {
+    padding-bottom: 0px;
+    height: 42px;
+    font-size: 16px;
+    margin-top: 11%;
     background-image: linear-gradient(
       180deg,
       rgba(255, 255, 255, 1) 15%,
@@ -102,7 +123,7 @@ export const TeamsNameLeft = styled.p`
     padding-bottom: 0px;
     height: 42px;
     font-size: 18px;
-    margin-top: 2.4%;
+    margin-top: 9%;
     margin-left: 2%;
     background-image: linear-gradient(
       180deg,
@@ -115,7 +136,7 @@ export const TeamsNameLeft = styled.p`
     padding-bottom: 0px;
     height: 42px;
     font-size: 24px;
-    margin-top: 4%;
+    margin-top: 6%;
     margin-left: 2%;
     background-image: linear-gradient(
       180deg,
@@ -150,7 +171,6 @@ export const TeamsNameLeft = styled.p`
     );
     -webkit-text-stroke-width: 1px;
   }
-
 `
 export const ScoreTeamLeft = styled.p`
   font-family: 'Montserrat', sans-serif;
@@ -177,20 +197,25 @@ export const ScoreTeamLeft = styled.p`
   input[type='number'] {
     -moz-appearance: textfield;
   }
-  @media screen and (min-width: 350px) and (max-width: 450px) {
+  @media screen and (min-width: 350px) and (max-width: 400px) {
     margin-left: 3%;
     font-size: 6px;
-    margin-top: 0%;
+    margin-top: 0.5%;
+  }
+  @media screen and (min-width: 400px) and (max-width: 450px) {
+    margin-left: 3%;
+    font-size: 6px;
+    margin-top: 5%;
   }
   @media screen and (min-width: 450px) and (max-width: 550px) {
     margin-left: 3%;
     font-size: 8px;
-    margin-top: 0%;
+    margin-top: 0.5%;
   }
   @media screen and (min-width: 550px) and (max-width: 650px) {
-    margin-left: 2%;
+    margin-left: 3%;
     font-size: 9px;
-    margin-top: 0%;
+    margin-top: 5%;
   }
   @media screen and (min-width: 650px) and (max-width: 750px) {
     margin-left: 2%;
@@ -200,7 +225,7 @@ export const ScoreTeamLeft = styled.p`
   @media screen and (min-width: 750px) and (max-width: 850px) {
     margin-left: 2%;
     font-size: 14px;
-    margin-top: 0%;
+    margin-top: -1%;
   }
   @media screen and (min-width: 850px) and (max-width: 1000px) {
     margin-left: 2%;
@@ -212,7 +237,6 @@ export const ScoreTeamLeft = styled.p`
     font-size: 16px;
     margin-top: 0%;
   }
-
 `
 
 export const RightTeamContainer = styled.div`
@@ -225,12 +249,10 @@ export const RightTeamContainer = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   @media screen and (min-width: 350px) and (max-width: 650px) {
-    height: 42px;
     width: 47%;
     margin-right: 1%;
   }
   @media screen and (min-width: 550px) and (max-width: 650px) {
-    height: 50px;
     width: 40%;
     margin-right: 1%;
   }
@@ -276,23 +298,47 @@ export const TeamsNameRight = styled.p`
   -moz-text-fill-color: transparent;
   background-clip: text;
   text-transform: uppercase;
-  @media screen and (min-width: 350px) and (max-width: 450px) {
+  @media screen and (min-width: 350px) and (max-width: 400px) {
     padding-bottom: 0px;
     height: 42px;
     font-size: 12px;
-    margin-top: 4.2%;
+    margin-top: 16.5%;
     background-image: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 1) 10%,
+      rgba(255, 255, 255, 1) 15%,
       rgba(0, 0, 0, 1) 100%
     );
     -webkit-text-stroke-width: 0.4px;
   }
-  @media screen and (min-width: 450px) and (max-width: 550px) {
+  @media screen and (min-width: 400px) and (max-width: 450px) {
+    padding-bottom: 0px;
+    height: 42px;
+    font-size: 12px;
+    margin-top: 15%;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 15%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-text-stroke-width: 0.4px;
+  }
+  @media screen and (min-width: 450px) and (max-width: 500px) {
     padding-bottom: 0px;
     height: 42px;
     font-size: 16px;
-    margin-top: 2%;
+    margin-top: 12%;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 15%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-text-stroke-width: 0.4px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 550px) {
+    padding-bottom: 0px;
+    height: 42px;
+    font-size: 16px;
+    margin-top: 11%;
     background-image: linear-gradient(
       180deg,
       rgba(255, 255, 255, 1) 15%,
@@ -304,7 +350,7 @@ export const TeamsNameRight = styled.p`
     padding-bottom: 0px;
     height: 42px;
     font-size: 18px;
-    margin-top: 2.4%;
+    margin-top: 9%;
 
     background-image: linear-gradient(
       180deg,
@@ -317,7 +363,7 @@ export const TeamsNameRight = styled.p`
     padding-bottom: 0px;
     height: 42px;
     font-size: 24px;
-    margin-top: 4%;
+    margin-top: 6%;
 
     background-image: linear-gradient(
       180deg,
@@ -383,30 +429,35 @@ export const ScoreTeamRight = styled.p`
   input[type='number'] {
     -moz-appearance: textfield;
   }
-  @media screen and (min-width: 350px) and (max-width: 450px) {
+  @media screen and (min-width: 350px) and (max-width: 400px) {
     font-size: 6px;
-    left: 83%;
-    margin-top: 0%;
+    left: 88%;
+    margin-top: 0.5%;
+  }
+  @media screen and (min-width: 400px) and (max-width: 450px) {
+    font-size: 6px;
+    left: 89%;
+    margin-top: 0.5%;
   }
   @media screen and (min-width: 450px) and (max-width: 550px) {
     font-size: 8px;
-    left: 83%;
-    margin-top: 0%;
+    left: 89%;
+    margin-top: 0.5%;
   }
   @media screen and (min-width: 550px) and (max-width: 650px) {
     font-size: 9px;
-    left: 84.5%;
-    margin-top: 0%;
+    left: 89%;
+    margin-top: 0.5%;
   }
   @media screen and (min-width: 650px) and (max-width: 750px) {
     font-size: 12px;
-    left: 85%;
+    left: 89%;
     margin-top: 0%;
   }
   @media screen and (min-width: 750px) and (max-width: 850px) {
     font-size: 14px;
     left: 84%;
-    margin-top: 0%;
+    margin-top: -0.5%;
   }
   @media screen and (min-width: 850px) and (max-width: 1000px) {
     font-size: 16px;
@@ -418,7 +469,6 @@ export const ScoreTeamRight = styled.p`
     left: 84%;
     margin-top: 0%;
   }
-
 `
 export const ScoreInput = styled.input`
   font-family: 'Montserrat';
@@ -429,35 +479,14 @@ export const ScoreInput = styled.input`
   background: transparent;
   margin-top: 0;
   border: 2px solid white;
-  @media screen and (min-width: 350px) and (max-width: 450px) {
-    font-size: 6px;
-    width: ${({ isLeft }) => (isLeft ? '8%' : '15%')};
-    height: 4px;
-    margin-top: 2px;
+  @media screen and (min-width: 350px) and (max-width: 750px) {
+    display: none;
   }
-  @media screen and (min-width: 450px) and (max-width: 550px) {
-    font-size: 8px;
-    width: ${({ isLeft }) => (isLeft ? '8%' : '15%')};
-    height: 6px;
-    margin-top: 0px;
-  }
-  @media screen and (min-width: 550px) and (max-width: 650px) {
-    font-size: 8px;
-    width: ${({ isLeft }) => (isLeft ? '7%' : '15%')};
-    height: 6px;
-    margin-top: 2px;
-  }
-  @media screen and (min-width: 650px) and (max-width: 750px) {
+  @media screen and (min-width: 750px) and (max-width: 850px) {
     font-size: 8px;
     width: ${({ isLeft }) => (isLeft ? '7%' : '12%')};
     height: 8px;
-    margin-top: 2px;
-  }
-  @media screen and (min-width: 750px) and (max-width: 850px) {
-    font-size: 10px;
-    width: ${({ isLeft }) => (isLeft ? '7%' : '12%')};
-    height: 10px;
-    margin-top: 2px;
+
   }
   @media screen and (min-width: 850px) and (max-width: 1200px) {
     font-size: 12px;
@@ -471,5 +500,4 @@ export const ScoreInput = styled.input`
     height: 16px;
     margin-top: 2px;
   }
-  
 `
