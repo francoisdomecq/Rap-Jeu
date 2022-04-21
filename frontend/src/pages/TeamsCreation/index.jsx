@@ -51,9 +51,11 @@ function Teams() {
 
   return isDataLoading ? (
     //Si les données chargent, on affiche le loader
-    <LoaderWrapper>
-      <Loader src={Redbull} />
-    </LoaderWrapper>
+    <Wrapper>
+      <LoaderWrapper>
+        <Loader src={Redbull} />
+      </LoaderWrapper>
+    </Wrapper>
   ) : (
     <Wrapper>
       <PageTitle>Création des équipes</PageTitle>

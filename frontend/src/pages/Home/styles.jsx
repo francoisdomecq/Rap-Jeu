@@ -65,6 +65,12 @@ export const Wrapper = styled.div`
     ),
     linear-gradient(90deg, rgb(195, 195, 195), rgb(228, 228, 228));
   background-blend-mode: overlay, overlay, overlay, normal;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    height: 130%;
+  }
+  @media screen and (min-width: 500px) and (max-width: 1200px) {
+    height: 150%;
+  }
 `
 export const ContainerLogos = styled.div`
   display: flex;
@@ -72,21 +78,22 @@ export const ContainerLogos = styled.div`
   align-items: center;
   width: 70%;
   height: 20%;
+  @media screen and (min-width: 500px) and (max-width: 900px) {
+    margin-top: 5vh;
+  }
 `
 export const LinkImage = styled.a`
-  width: 10%;
+  width: 20%;
   @media screen and (min-width: 300px) and (max-width: 500px) {
-    width: 15%;
-    height: 15%;
+    width: 40%;
+  }
+  @media screen and (min-width: 500px) and (max-width: 900px) {
+    width: 30%;
   }
 `
 export const Logo = styled.img`
   width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '100%')};
   height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '100%')};
-  @media screen and (min-width: 300px) and (max-width: 500px) {
-    width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '15%' : '100%')};
-    height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '15%' : '100%')};
-  }
 `
 export const ExplainationContainer = styled.div`
   display: flex;
