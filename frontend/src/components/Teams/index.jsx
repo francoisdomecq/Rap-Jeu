@@ -61,18 +61,19 @@ function Teams({ game }) {
           <ScoreTeamLeft>
             {scoreTeam1} points{' '}
             <ScoreInput
+              isLeft={true}
               type="number"
               placeholder="±"
               onKeyPress={(e) => updateScoreTeam(e, team1)}
-              style={{ marginLeft: '2%', width: '12%' }}
+              style={{  }}
             ></ScoreInput>
           </ScoreTeamLeft>
         </TeamsNameLeft>
       </LeftTeamContainer>
 
-      <TextBlue size={24} style={{ textTransform: 'uppercase' }}>
+      {/* <TextBlue size={24} style={{ textTransform: 'uppercase' }}>
         {game}
-      </TextBlue>
+      </TextBlue> */}
 
       <RightTeamContainer imgUrl="../../assets/jauge_droite.svg">
         <TeamsNameRight>
