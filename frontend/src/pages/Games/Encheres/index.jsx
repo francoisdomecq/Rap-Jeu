@@ -117,7 +117,8 @@ function Enchere() {
                 }`}
                 onClick={() => updateAnswer()}
               >
-                Continuer vers le Rolland Gamos
+                Continuer vers
+                <br /> le Rolland Gamos
               </Link>
             </ContinueContainer>
           </ContainerColumn>

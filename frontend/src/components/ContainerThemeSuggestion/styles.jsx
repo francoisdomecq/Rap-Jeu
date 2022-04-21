@@ -31,19 +31,29 @@ export const ContainerTheme = styled.div`
     height: 56px;
   }
 `
+export const ThemeTextDiv = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  width: 80%;
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    width: 90%;
+  }
+`
 export const TextWhite = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
-  font-size: ${({ size }) => (size ? `${size}px` : '24px')};
+  font-size: 18px;
   color: white;
   @media screen and (min-width: 300px) and (max-width: 500px) {
-    font-size: 8px;
+    font-size: 0.2em;
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
-    font-size: 12px;
+    font-size: 0.5em;
   }
   @media screen and (min-width: 800px) and (max-width: 1000px) {
-    font-size: 18px;
+    font-size: 0.8em;
   }
 `
 
@@ -56,7 +66,7 @@ export const ContainerSuggestions = styled.div`
   background-image: url(${suggestions});
   background-repeat: no-repeat;
   @media screen and (min-width: 350px) and (max-width: 500px) {
-    width: 350px;
+    width: 340px;
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     width: 450px;
@@ -69,6 +79,7 @@ export const SuggestionsTextDiv = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  text-align: center;
   width: 80%;
 
   @media screen and (min-width: 500px) and (max-width: 800px) {
@@ -81,7 +92,7 @@ export const TextBlack = styled.p`
   font-size: 14px;
 
   @media screen and (min-width: 300px) and (max-width: 500px) {
-    font-size: 0.3em;
+    font-size: 0.2em;
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     font-size: 0.5em;

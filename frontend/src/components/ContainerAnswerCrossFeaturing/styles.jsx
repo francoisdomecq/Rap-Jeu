@@ -19,6 +19,10 @@ export const ContainerTeamAnswer = styled.div`
   opacity: 0.95;
   @media screen and (min-width: 300px) and (max-width: 900px) {
     border-radius: 10px;
+    width: 27%;
+  }
+  @media screen and (min-width: 900px) and (max-width: 1200px) {
+    width: 22%;
   }
 `
 
@@ -54,6 +58,9 @@ export const TableContainer = styled.div`
   min-height: 100px;
   overflow-y: scroll;
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    min-height: 60px;
+  }
 `
 
 export const RappersContainer = styled.div`

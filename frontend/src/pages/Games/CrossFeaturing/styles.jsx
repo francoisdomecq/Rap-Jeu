@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import colors from '../../../utils/styles/colors'
 import Continuer from '../../../assets/continuer.svg'
 
 export const Wrapper = styled.div`

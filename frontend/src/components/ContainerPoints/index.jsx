@@ -22,6 +22,7 @@ function ContainerPoints({ updatePoints, game }) {
             }
           />
         </ContainerScore>
+        <TextBlue size={10}>{game==='Les enchères' ? '(appuyez sur entrée pour valider)' : ''}</TextBlue>
       </ContainerColumn>
     </ContainerScoreSelection>
   )

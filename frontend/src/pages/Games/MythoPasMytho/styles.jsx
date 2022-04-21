@@ -195,10 +195,13 @@ export const ContainerColumnAnswer = styled.div`
   flex-direction: column;
   height: 95%;
 `
-export const Image = styled.img`
-  height: auto;
-  width: auto;
-  margin-top: 5%;
+
+export const ContainerImage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  width: 35%;
   @media screen and (min-width: 350px) and (max-width: 500px) {
     width: 300px;
     height: 250px;
@@ -207,4 +210,8 @@ export const Image = styled.img`
     width: 400px;
     height: 350px;
   }
+`
+export const Image = styled.img`
+  height: 100%;
+  width: 50%;
 `

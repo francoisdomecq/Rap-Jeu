@@ -13,6 +13,7 @@ import {
   ButtonAnswer,
   ContinuerContainer,
   Iframe,
+  ContainerImage,
   Image,
   Wrapper,
   ContainerRowTeamAnswering,
@@ -20,7 +21,7 @@ import {
   ContainerColumnAnswer,
   TextLink,
 } from './styles'
-import { TextBlue } from '../../../utils/styles/Text'
+
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
@@ -112,30 +113,32 @@ function MythoPasMytho() {
             <ContainerAnswer>
               <TextAnswer>{mythoPasMythoData[answerNumber].reponse}</TextAnswer>
             </ContainerAnswer>
-            <ContainerRow>
-              {mythoPasMythoData[answerNumber].type === 'video' ? (
-                <Iframe
-                  src={mythoPasMythoData[answerNumber].illustration}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></Iframe>
-              ) : mythoPasMythoData[answerNumber].type === 'image' ? (
+
+            {mythoPasMythoData[answerNumber].type === 'video' ? (
+              <Iframe
+                src={mythoPasMythoData[answerNumber].illustration}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></Iframe>
+            ) : mythoPasMythoData[answerNumber].type === 'image' ? (
+              <ContainerImage>
                 <Image
                   src={mythoPasMythoData[answerNumber].illustration}
                   alt=""
                 />
-              ) : (
-                <a
-                  rel="noreferrer"
-                  href={mythoPasMythoData[answerNumber].illustration}
-                  target="_blank"
-                >
-                  {mythoPasMythoData[answerNumber].illustration}
-                </a>
-              )}
-            </ContainerRow>
+              </ContainerImage>
+            ) : (
+              <a
+                rel="noreferrer"
+                href={mythoPasMythoData[answerNumber].illustration}
+                target="_blank"
+              >
+                {mythoPasMythoData[answerNumber].illustration}
+              </a>
+            )}
+
             <ContainerColumn>
               {answerGiven !== null ? (
                 answerNumber < 3 ? (
