@@ -40,7 +40,7 @@ function Background() {
         <ImageMehdi
           src={mehdi}
           alt="mehdi"
-          style={{ width: '45%', height: '100%' }}
+
         />
         <Image src={rightImage} style={{ marginTop: '5%' }} alt="comptoir" />.
       </ContainerRow>
