@@ -9,8 +9,12 @@ import ContainerAnswer from '../../../components/ContainerAnswer'
 import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 
 import {
+  Wrapper,
   ContainerRow,
   ContainerColumn,
+  ContainerColumnWinScreen, 
+  ContainerRowTheme,
+  ContainerColumnTheme,
   ContainerTeam,
   NextRoundButton,
   Container,
@@ -97,84 +101,83 @@ function Top5() {
   ])
 
   return (
-    <ContainerRow>
-      {/*Cette section ne s'affiche que si le chrono est lancé */}
-      {startCounter ? (
-        //Si le chronomètre est supérieur à 0 et que moins de 5 réponses ont été données, on affiche le timer, le containerAnswer et le containerThemeSuggestions
-        counter > 0 && answerGiven < 5 ? (
-          <ContainerColumn>
-            <Timer counter={counter} />
-            <ContainerRow style={{ width: '40%' }}>
-              <ContainerAnswer
-                team1={team1}
-                team2={team2}
-                teamAnswering={teamAnswering}
-                counter={counter}
-                answerGiven={answerGiven}
-                setAnswerGiven={setAnswerGiven}
-                trialNumber={trialNumber}
-                answerNumberToGive={5}
+    <Wrapper>
+        {/*Cette section ne s'affiche que si le chrono est lancé */}
+        {startCounter ? (
+          //Si le chronomètre est supérieur à 0 et que moins de 5 réponses ont été données, on affiche le timer, le containerAnswer et le containerThemeSuggestions
+          counter > 0 && answerGiven < 5 ? (
+            <ContainerColumn>
+              <Timer counter={counter} />
+              <ContainerRow style={{ width: '40%' }}>
+                <ContainerAnswer
+                  team1={team1}
+                  team2={team2}
+                  teamAnswering={teamAnswering}
+                  counter={counter}
+                  answerGiven={answerGiven}
+                  setAnswerGiven={setAnswerGiven}
+                  trialNumber={trialNumber}
+                  answerNumberToGive={5}
+                />
+              </ContainerRow>
+              <ContainerThemeSuggestion
+                theme={top5.theme}
+                suggestions={top5.suggestions}
               />
-            </ContainerRow>
-            <ContainerThemeSuggestion
-              theme={top5.theme}
-              suggestions={top5.suggestions}
-            />
-          </ContainerColumn>
+            </ContainerColumn>
+          ) : (
+            //Si le chronomètre est à 0 ou que 5 réponses ont été données, on affiche un message de victoire/défaite et le bouton pour continuer
+            <ContainerColumnWinScreen>
+              {answerGiven >= 5 ? (
+                //5 réponses ont été données, alors on félicite et on donne la possibilité de donner 15points à l'équipe gagnante
+                <Container style={{ width: '30%' }}>
+                  <TextBlue>Félicitations {teamAnswering}</TextBlue>
+                  <ContainerTeam
+                    style={{ width: '60%' }}
+                    className="Button"
+                    onClick={() => updateScore(15, teamAnswering)}
+                  >
+                    <TextWhite size={16}>
+                      +15 points pour {teamAnswering}
+                    </TextWhite>
+                  </ContainerTeam>
+                </Container>
+              ) : (
+                //Aucune équipe n'a réussi l'épreuve, on affiche un message en conséquence
+                <Container style={{ width: '30%' }}>
+                  <TextBlue size={20}>
+                    Aucune des deux équipes ne gagne de points..
+                  </TextBlue>
+                </Container>
+              )}
+              {round < 1 ? (
+                //Si round vaut 0, alors on donne la possibilité aux joueurs de jouer une autre manche
+                <NextRoundButton onClick={() => updateAnswersNumber()}>
+                  <TextWhite size={20}>Manche suivante</TextWhite>
+                </NextRoundButton>
+              ) : (
+                //Sinon, ils sont redirigés vers l'épreuve suivante
+                <NextRoundButton>
+                  <Link
+                    style={{ textDecoration: 'none' }}
+                    to={`/${games[games.indexOf('Top 5') + 1]}/?game=${
+                      games[games.indexOf('Top 5') + 1]
+                    }`}
+                    onClick={() => updateAnswersNumber()}
+                  >
+                    <TextWhite size={20}>
+                      Continuer vers <br /> {games[games.indexOf('Top 5') + 1]}
+                    </TextWhite>
+                  </Link>
+                </NextRoundButton>
+              )}
+            </ContainerColumnWinScreen>
+          )
         ) : (
-          //Si le chronomètre est à 0 ou que 5 réponses ont été données, on affiche un message de victoire/défaite et le bouton pour continuer
-          <ContainerColumn>
-            {answerGiven >= 5 ? (
-              //5 réponses ont été données, alors on félicite et on donne la possibilité de donner 15points à l'équipe gagnante
-              <Container style={{ width: '30%' }}>
-                <TextBlue>Félicitations {teamAnswering}</TextBlue>
-                <ContainerTeam
-                  style={{ width: '60%' }}
-                  className="Button"
-                  onClick={() => updateScore(15, teamAnswering)}
-                >
-                  <TextWhite size={16}>
-                    +15 points pour {teamAnswering}
-                  </TextWhite>
-                </ContainerTeam>
-              </Container>
-            ) : (
-              //Aucune équipe n'a réussi l'épreuve, on affiche un message en conséquence
-              <Container style={{ width: '30%' }}>
-                <TextBlue size={20}>
-                  Aucune des deux équipes ne gagne de points..
-                </TextBlue>
-              </Container>
-            )}
-            {round < 1 ? (
-              //Si round vaut 0, alors on donne la possibilité aux joueurs de jouer une autre manche
-              <NextRoundButton onClick={() => updateAnswersNumber()}>
-                <TextWhite size={20}>Manche suivante</TextWhite>
-              </NextRoundButton>
-            ) : (
-              //Sinon, ils sont redirigés vers l'épreuve suivante
-              <NextRoundButton>
-                <Link
-                  style={{ textDecoration: 'none' }}
-                  to={`/${games[games.indexOf('Top 5') + 1]}/?game=${
-                    games[games.indexOf('Top 5') + 1]
-                  }`}
-                  onClick={() => updateAnswersNumber()}
-                >
-                  <TextWhite size={20}>
-                    Continuer vers <br /> {games[games.indexOf('Top 5') + 1]}
-                  </TextWhite>
-                </Link>
-              </NextRoundButton>
-            )}
-          </ContainerColumn>
-        )
-      ) : (
-        //Si le chrono n'est pas lancé, cela signifie que le maître de jeu doit sélectionner un thème et une équipe
-        <ContainerColumn>
-          <ContainerRow>
+          //Si le chrono n'est pas lancé, cela signifie que le maître de jeu doit sélectionner un thème et une équipe
+          <ContainerRowTheme>
             <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
-            <ContainerColumn style={{ width: '40%' }}>
+            <ContainerColumnTheme>
               <TeamSelection
                 team1={team1}
                 team2={team2}
@@ -188,11 +191,11 @@ function Top5() {
                   <br /> nouvelle partie
                 </TextLink>
               </NextRoundButton>
-            </ContainerColumn>
-          </ContainerRow>
-        </ContainerColumn>
-      )}
-    </ContainerRow>
+            </ContainerColumnTheme>
+          </ContainerRowTheme>
+        )}
+    
+    </Wrapper>
   )
 }
 export default Top5
