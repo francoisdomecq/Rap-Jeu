@@ -4,13 +4,21 @@ import { generateRandomNumber } from '../../../utils/functions/random'
 import { Link } from 'react-router-dom'
 
 import TeamSelection from '../../../components/TeamSelection'
-
+import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 import {
-  Text,
-  ContainerQuestion,
+  TextAnswer,
+  TextButton,
+  ContainerRowAnswer,
   ContainerAnswer,
   ButtonAnswer,
   ContinuerContainer,
+  Iframe,
+  Image,
+  Wrapper,
+  ContainerRowTeamAnswering,
+  ContainerColumnGlobal,
+  ContainerColumnAnswer,
+  TextLink,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
@@ -68,125 +76,101 @@ function MythoPasMytho() {
   }, [])
 
   return isDataLoading ? (
-    <LoaderWrapper>
-      <Loader src={Redbull} />
-    </LoaderWrapper>
+    <Wrapper>
+      <LoaderWrapper>
+        <Loader src={Redbull} />
+      </LoaderWrapper>
+    </Wrapper>
   ) : (
-    <ContainerRow>
-      <ContainerColumn>
-        <ContainerColumn style={{ marginTop: '4%' }}>
-          {answerGiven === null ? (
-            <ContainerRow style={{ width: '40%', marginTop: '2%' }}>
-              <ButtonAnswer onClick={() => answer(true)}>
-                <Text style={{ color: 'white' }}>Pas mytho</Text>
-              </ButtonAnswer>
-              <ButtonAnswer onClick={() => answer(false)}>
-                <Text style={{ color: 'white' }}>Mytho</Text>
-              </ButtonAnswer>
-            </ContainerRow>
-          ) : null}
-          {teamAnswering ? (
-            ''
-          ) : (
-            <ContainerRow style={{ width: '30%' }}>
-              <TeamSelection
-                team1={team1}
-                team2={team2}
-                teamAnswering={teamAnswering}
-                setTeamAnswering={setTeamAnswering}
-                game={'Mytho pas Mytho'}
-              />
-            </ContainerRow>
-          )}
-          <ContainerColumn style={{ marginTop: '2%' }}>
-            {answerGiven !== null ? (
-              answerNumber < 3 ? (
-                <ContinuerContainer onClick={() => updateAnswer()}>
-                  Question suivante
-                </ContinuerContainer>
+    <Wrapper>
+      {teamAnswering ? (
+        ''
+      ) : (
+        <ContainerRowTeamAnswering>
+          <TeamSelection
+            team1={team1}
+            team2={team2}
+            teamAnswering={teamAnswering}
+            setTeamAnswering={setTeamAnswering}
+            game={'Mytho pas Mytho'}
+          />
+        </ContainerRowTeamAnswering>
+      )}
+      <ContainerColumnGlobal>
+        {answerGiven === null && teamAnswering ? (
+          <ContainerRowAnswer>
+            <ButtonAnswer onClick={() => answer(true)}>
+              <TextButton>Pas mytho</TextButton>
+            </ButtonAnswer>
+            <ButtonAnswer onClick={() => answer(false)}>
+              <TextButton>Mytho</TextButton>
+            </ButtonAnswer>
+          </ContainerRowAnswer>
+        ) : null}
+        {answerGiven !== null ? (
+          <ContainerColumnAnswer>
+            <ContainerAnswer>
+              <TextAnswer>{mythoPasMythoData[answerNumber].reponse}</TextAnswer>
+            </ContainerAnswer>
+            <ContainerRow>
+              {mythoPasMythoData[answerNumber].type === 'video' ? (
+                <Iframe
+                  src={mythoPasMythoData[answerNumber].illustration}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></Iframe>
+              ) : mythoPasMythoData[answerNumber].type === 'image' ? (
+                <Image
+                  src={mythoPasMythoData[answerNumber].illustration}
+                  alt=""
+                />
               ) : (
-                <ContinuerContainer>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'white' }}
-                    to={`/${
-                      games[games.indexOf('Le Mytho Pas Mytho') + 1]
-                    }?game=${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
-                    onClick={() => updateAnswer()}
-                  >
-                    Continuer vers <br />{' '}
-                    {games[games.indexOf('Le Mytho Pas Mytho') + 1]}
-                  </Link>
-                </ContinuerContainer>
-              )
-            ) : null}
-          </ContainerColumn>
-          {answerGiven !== null ? (
+                <a
+                  rel="noreferrer"
+                  href={mythoPasMythoData[answerNumber].illustration}
+                  target="_blank"
+                >
+                  {mythoPasMythoData[answerNumber].illustration}
+                </a>
+              )}
+            </ContainerRow>
             <ContainerColumn>
-              <ContainerAnswer style={{ marginTop: '2%' }}>
-                <ContainerRow style={{ width: '90%' }}>
-                  {mythoPasMythoData[answerNumber].reponse.includes(
-                    'Pas mytho'
-                  ) ? (
-                    <div>
-                      <Text>Pas Mytho</Text>
-                      <Text style={{ fontSize: 16 }}>
-                        {mythoPasMythoData[answerNumber].reponse.substring(
-                          12,
-                          mythoPasMythoData[answerNumber].reponse.length
-                        )}
-                      </Text>
-                    </div>
-                  ) : (
-                    <div>
-                      <Text>Mytho</Text>
-                      <Text style={{ fontSize: 16 }}>
-                        {mythoPasMythoData[answerNumber].reponse.substring(
-                          8,
-                          mythoPasMythoData[answerNumber].reponse.length
-                        )}
-                      </Text>
-                    </div>
-                  )}
-                </ContainerRow>
-              </ContainerAnswer>
-              <ContainerRow style={{ marginTop: '2%' }}>
-                {mythoPasMythoData[answerNumber].type === 'video' ? (
-                  <iframe
-                    width="450"
-                    height="250"
-                    src={mythoPasMythoData[answerNumber].illustration}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                ) : mythoPasMythoData[answerNumber].type === 'image' ? (
-                  <img
-                    src={mythoPasMythoData[answerNumber].illustration}
-                    alt=""
-                  />
+              {answerGiven !== null ? (
+                answerNumber < 3 ? (
+                  <ContinuerContainer onClick={() => updateAnswer()}>
+                    <TextLink>Question suivante</TextLink>
+                  </ContinuerContainer>
                 ) : (
-                  <a
-                    rel="noreferrer"
-                    href={mythoPasMythoData[answerNumber].illustration}
-                    target="_blank"
-                  >
-                    {mythoPasMythoData[answerNumber].illustration}
-                  </a>
-                )}
-              </ContainerRow>
+                  <ContinuerContainer>
+                    <Link
+                      style={{ textDecoration: 'none', color: 'white' }}
+                      to={`/${
+                        games[games.indexOf('Le Mytho Pas Mytho') + 1]
+                      }?game=${games[games.indexOf('Le Mytho Pas Mytho') + 1]}`}
+                      onClick={() => updateAnswer()}
+                    >
+                      <TextLink>
+                        Continuer vers <br />{' '}
+                        {games[games.indexOf('Le Mytho Pas Mytho') + 1]}
+                      </TextLink>
+                    </Link>
+                  </ContinuerContainer>
+                )
+              ) : null}
             </ContainerColumn>
-          ) : null}
+          </ContainerColumnAnswer>
+        ) : null}
+      </ContainerColumnGlobal>
+      {teamAnswering ? (
+        <ContainerColumn>
+          <ContainerThemeSuggestion
+            theme={mythoPasMythoData[answerNumber].question}
+          />
         </ContainerColumn>
-      </ContainerColumn>
-      <ContainerQuestion isAnswerGiven={answerGiven !== null}>
-        <ContainerRow style={{ width: '85%', textAlign: 'center' }}>
-          <Text style={{ color: 'white', fontSize: '1.4em' }}>
-            {mythoPasMythoData[answerNumber].question}
-          </Text>
-        </ContainerRow>
-      </ContainerQuestion>
-    </ContainerRow>
+      ) : null}
+    </Wrapper>
   )
 }
 
