@@ -26,6 +26,10 @@ export const ContainerTheme = styled.div`
     width: 420px;
     height: 32px;
   }
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    width: 720px;
+    height: 56px;
+  }
 `
 export const TextWhite = styled.p`
   font-family: 'Montserrat';
@@ -37,6 +41,9 @@ export const TextWhite = styled.p`
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     font-size: 12px;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    font-size: 18px;
   }
 `
 
@@ -53,6 +60,9 @@ export const ContainerSuggestions = styled.div`
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     width: 450px;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    width: 780px;
   }
 `
 export const SuggestionsTextDiv = styled.div`
@@ -75,5 +85,8 @@ export const TextBlack = styled.p`
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     font-size: 0.5em;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    font-size: 0.7em;
   }
 `
