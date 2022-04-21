@@ -8,10 +8,14 @@ import ContainerAnswerCrossFeaturing from '../../../components/ContainerAnswerCr
 
 import {
   ContainerRow,
+  ContainerRowMiddle,
   ContainerColumn,
   ContainerColumn45,
   ContinuerContainer,
   ContainerCrossFeaturing,
+  Wrapper,
+  TextLink,
+  ContainerColumnNextRound,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 
@@ -50,81 +54,81 @@ function CrossFeaturing() {
     if (rappersTeam1.length < rappersTeam2.length) updateScore(5, team1)
     else if (rappersTeam1.length > rappersTeam2.length) updateScore(5, team2)
   }
-  
+
   useEffect(() => {
     setTeamAnswering()
   }, [setTeamAnswering])
 
   return (
-    <ContainerRow>
-      <ContainerColumn>
-        {!crossFeaturing ? (
-          <ContainerColumn45 style={{ marginTop: '5%' }}>
-            <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
-          </ContainerColumn45>
-        ) : (
-          <ContainerColumn style={{ marginTop: '1%' }}>
-            <ContainerRow style={{ justifyContent: 'center' }}>
-              <ContainerAnswerCrossFeaturing
-                team={team1}
-                addRappers={addRappers}
-                rappersTeam={rappersTeam1}
-                setRappers={setRappersTeam1}
-              />
-              <ContainerRow style={{ width: '40%' }}>
-                <ContainerCrossFeaturing>
-                  <TextBlue>
-                    {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
-                  </TextBlue>
-                </ContainerCrossFeaturing>
-                <SearchFeaturing />
-              </ContainerRow>
-              <ContainerAnswerCrossFeaturing
-                team={team2}
-                addRappers={addRappers}
-                rappersTeam={rappersTeam2}
-                setRappers={setRappersTeam2}
-              />
-            </ContainerRow>
-            <ContainerColumn>
-              {answerNumber < 2 ? (
-                <ContinuerContainer
-                  isClickable={
-                    rappersTeam1.length > 0 && rappersTeam2.length > 0
-                      ? true
-                      : false
-                  }
+    <Wrapper>
+      {!crossFeaturing ? (
+        <ContainerColumn45>
+          <CrossFeaturingArray selectCrossFeaturing={selectCrossFeaturing} />
+        </ContainerColumn45>
+      ) : (
+        <ContainerColumn style={{ marginTop: '1%' }}>
+          <ContainerRow style={{ justifyContent: 'center' }}>
+            <ContainerAnswerCrossFeaturing
+              team={team1}
+              addRappers={addRappers}
+              rappersTeam={rappersTeam1}
+              setRappers={setRappersTeam1}
+            />
+            <ContainerRowMiddle style={{ width: '40%' }}>
+              <ContainerCrossFeaturing>
+                <TextBlue>
+                  {crossFeaturing.rappeur1}-{crossFeaturing.rappeur2}
+                </TextBlue>
+              </ContainerCrossFeaturing>
+              <SearchFeaturing />
+            </ContainerRowMiddle>
+            <ContainerAnswerCrossFeaturing
+              team={team2}
+              addRappers={addRappers}
+              rappersTeam={rappersTeam2}
+              setRappers={setRappersTeam2}
+            />
+          </ContainerRow>
+          <ContainerColumnNextRound>
+            {answerNumber < 2 ? (
+              <ContinuerContainer
+                isClickable={
+                  rappersTeam1.length > 0 && rappersTeam2.length > 0
+                    ? true
+                    : false
+                }
+                onClick={() =>
+                  rappersTeam1.length > 0 && rappersTeam2.length > 0
+                    ? updateAnswer()
+                    : null
+                }
+              >
+                <TextLink>Manche suivante</TextLink>
+              </ContinuerContainer>
+            ) : (
+              <ContinuerContainer>
+                <Link
+                  style={{ textDecoration: 'none', color: 'white' }}
+                  to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}?game=${
+                    games[games.indexOf('Le CrossFeaturing') + 1]
+                  }`}
                   onClick={() =>
                     rappersTeam1.length > 0 && rappersTeam2.length > 0
                       ? updateAnswer()
                       : null
                   }
                 >
-                  Manche suivante
-                </ContinuerContainer>
-              ) : (
-                <ContinuerContainer>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'white' }}
-                    to={`/${
-                      games[games.indexOf('Le CrossFeaturing') + 1]
-                    }?game=${games[games.indexOf('Le CrossFeaturing') + 1]}`}
-                    onClick={() =>
-                      rappersTeam1.length > 0 && rappersTeam2.length > 0
-                        ? updateAnswer()
-                        : null
-                    }
-                  >
+                  <TextLink>
                     Continuer vers <br />{' '}
                     {games[games.indexOf('Le CrossFeaturing') + 1]}
-                  </Link>
-                </ContinuerContainer>
-              )}
-            </ContainerColumn>
-          </ContainerColumn>
-        )}
-      </ContainerColumn>
-    </ContainerRow>
+                  </TextLink>
+                </Link>
+              </ContinuerContainer>
+            )}
+          </ContainerColumnNextRound>
+        </ContainerColumn>
+      )}
+    </Wrapper>
   )
 }
 

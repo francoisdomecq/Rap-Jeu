@@ -2,14 +2,65 @@ import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import Continuer from '../../../assets/continuer.svg'
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  @media screen and (min-width: 300px) and (max-width: 400px) {
+    height: 75%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 400px) and (max-width: 500px) {
+    height: 90%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    height: 111%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    height: 130%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 700px) and (max-width: 800px) {
+    height: 160%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    height: 80%;
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1100px) {
+    height: 85%;
+  }
+  @media screen and (min-width: 1100px) and (max-width: 1250px) {
+    height: 90%;
+  }
+`
+
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
 `
+export const ContainerRowMiddle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 80%;
+  width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+    height: 50%;
+  }
+`
+
 export const ContainerColumn = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,19 +77,6 @@ export const ContainerColumn45 = styled.div`
   width: 45%;
   height: 100%;
   margin-bottom: 2%;
-`
-
-export const NextRoundButton = styled.button`
-  background-color: ${colors.red};
-  font-family: 'Montserrat', 'sans-serif';
-  font-size: 24px;
-  font-weight: 700;
-  width: 45%;
-  border-radius: 20px;
-  color: white;
-  &:hover {
-    cursor: pointer;
-  }
 `
 
 export const ContainerTeam = styled.div`
@@ -86,13 +124,35 @@ export const ContinuerContainer = styled.div`
   font-size: 20px;
   font-weight: 700;
   font-family: 'Montserrat';
+  opacity: ${({ isClickable }) => (isClickable ? 1 : 0.6)};
   color: white;
   &:hover {
     cursor: pointer;
   }
   padding-right: 1%;
-  opacity: ${({ isClickable }) => (isClickable ? 1 : 0.6)};
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: 150px;
+    height: 55px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    width: 200px;
+    height: 85px;
+  }
 `
+export const TextLink = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 12px;
+    width: 150px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    width: 200px;
+    font-size: 14px;
+  }
+`
+
 export const ContainerCrossFeaturing = styled.div`
   display: flex;
   justify-content: center;
@@ -106,5 +166,16 @@ export const ContainerCrossFeaturing = styled.div`
   padding: 1%;
   border-radius: 20px;
   width: 60%;
-  opacity:0.95;
+  opacity: 0.95;
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+    border-radius: 10px;
+  }
+`
+export const ContainerColumnNextRound = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 20%;
+  width: 100%;
 `
