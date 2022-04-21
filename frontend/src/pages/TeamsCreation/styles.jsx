@@ -1,22 +1,85 @@
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 1vw;
+  padding-bottom: 10vw;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(
+      112.5deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(
+      157.5deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(90deg, rgb(195, 195, 195), rgb(228, 228, 228));
+  background-blend-mode: overlay, overlay, overlay, normal;
+`
+
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 100%;
   width: 100%;
 `
 export const ContainerColumn = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
 `
 export const ContainerTeam = styled.div`
   display: flex;
@@ -77,7 +140,6 @@ export const TeamName = styled.input`
     font-size: 12px;
   }
 `
-
 export const ExplainContainer = styled.div`
   background-color: white;
   border: 3px solid black;
@@ -90,7 +152,6 @@ export const ExplainContainer = styled.div`
     width: 90%;
   }
 `
-
 export const PageTitle = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
@@ -115,7 +176,6 @@ export const Text = styled.p`
     font-size: 12px;
   }
 `
-
 export const TextH1 = styled.h1`
   font-family: 'Montserrat';
   text-align: center;
@@ -124,4 +184,3 @@ export const TextH1 = styled.h1`
     font-size: 18px;
   }
 `
-

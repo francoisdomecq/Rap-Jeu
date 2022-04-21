@@ -51,7 +51,7 @@ function MythoPasMytho() {
     }
   }
   useEffect(() => {
-    fetch(`http://localhost:3001/api/mythopasmytho`)
+    fetch(`https://rapjeu-backend.herokuapp.com/api/mythopasmytho`)
       .then((response) => response.json())
       .then((requestData) => {
         const [n1, n2, n3, n4] = generateRandomNumber(requestData.length - 1)

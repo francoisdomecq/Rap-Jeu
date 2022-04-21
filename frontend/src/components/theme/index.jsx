@@ -36,7 +36,7 @@ function Theme({ selectTheme, page, chosenTheme }) {
 
   useEffect(() => {
     //On effectue le call API pour récupérer les données. L'adresse est modifiée en fonction de la page sur laquelle l'utilisateur se trouve
-    fetch(`http://localhost:3001/api/${page}`)
+    fetch(`https://rapjeu-backend.herokuapp.com/api/${page}`)
       .then((response) => response.json())
       .then((requestData) => {
         //On ajoute les données récupérées dans le tableau theme

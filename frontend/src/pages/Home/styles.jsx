@@ -1,6 +1,72 @@
 import styled from 'styled-components'
 import Continuer from '../../assets/continuer.svg'
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding-top: 1vw;
+  padding-bottom: 10vw;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(
+      112.5deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(
+      157.5deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(214, 214, 214) 0%,
+      rgb(214, 214, 214) 10%,
+      rgb(195, 195, 195) 10%,
+      rgb(195, 195, 195) 53%,
+      rgb(176, 176, 176) 53%,
+      rgb(176, 176, 176) 55%,
+      rgb(157, 157, 157) 55%,
+      rgb(157, 157, 157) 60%,
+      rgb(137, 137, 137) 60%,
+      rgb(137, 137, 137) 88%,
+      rgb(118, 118, 118) 88%,
+      rgb(118, 118, 118) 91%,
+      rgb(99, 99, 99) 91%,
+      rgb(99, 99, 99) 100%
+    ),
+    linear-gradient(90deg, rgb(195, 195, 195), rgb(228, 228, 228));
+  background-blend-mode: overlay, overlay, overlay, normal;
+`
+
 export const ContainerRow = styled.div`
   display: flex;
   align-items: center;
@@ -18,21 +84,21 @@ export const Container = styled.div`
 `
 export const SecondContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 1%;
+  width: 70%;
+  height: 20%;
 `
 export const LinkImage = styled.a`
-  width: 5%;
-  height: 5%;
+  width: 10%;
   @media screen and (min-width: 300px) and (max-width: 500px) {
     width: 15%;
     height: 15%;
   }
 `
 export const Logo = styled.img`
-  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '5%' : '100%')};
-  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '5%' : '100%')};
+  width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '100%')};
+  height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '50%' : '100%')};
   @media screen and (min-width: 300px) and (max-width: 500px) {
     width: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '15%' : '100%')};
     height: ${({ isRapJeuLogo }) => (isRapJeuLogo === true ? '15%' : '100%')};
@@ -40,7 +106,6 @@ export const Logo = styled.img`
 `
 export const ExplainationContainer = styled.div`
   display: flex;
-  margin-top: 1%;
   justify-content: center;
 `
 export const Explaination = styled.div`

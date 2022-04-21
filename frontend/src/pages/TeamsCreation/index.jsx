@@ -13,6 +13,7 @@ import {
   PageTitle,
   Text,
   TextH1,
+  Wrapper,
 } from './styles'
 import { LoaderWrapper, Loader } from '../../utils/styles/Atoms'
 import '../../utils/animations/Bouncing/jouerBouncingLetters.css'
@@ -28,7 +29,7 @@ function Teams() {
 
   //Cette fonction effectue un call vers l'API pour récupérer une question à poser aux équipes, ainsi que les "débuts de nom d'équipes" associés
   useEffect(() => {
-    fetch(`http://localhost:3001/api/nomequipe`)
+    fetch(`https://rapjeu-backend.herokuapp.com/api/nomequipe`)
       .then((response) => response.json())
       .then((requestData) => {
         //Le call API ne s'effectue que si les champs ci-dessous sont vides
@@ -54,7 +55,7 @@ function Teams() {
       <Loader src={Redbull} />
     </LoaderWrapper>
   ) : (
-    <ContainerRow style={{ marginBottom: '3%' }}>
+    <Wrapper>
       <PageTitle>Création des équipes</PageTitle>
       <ExplainContainer>
         <TextH1>Instructions</TextH1>
@@ -102,7 +103,7 @@ function Teams() {
           </div>
         </ContainerColumn>
       </Link>
-    </ContainerRow>
+    </Wrapper>
   )
 }
 

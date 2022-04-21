@@ -14,7 +14,7 @@ function RapperArray({ selectRapper, chosenRapper }) {
 
   //Cette fonction permet d'effectuer le call vers l'API pour récupérer les rappeurs
   useEffect(() => {
-    fetch(`http://localhost:3001/api/rappeur`)
+    fetch(`https://rapjeu-backend.herokuapp.com/api/rappeur`)
       .then((response) => response.json())
       .then((requestData) => {
         //On ajoute les données récupérées dans le tableau rapper

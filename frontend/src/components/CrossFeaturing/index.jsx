@@ -14,7 +14,7 @@ function CrossFeaturingArray({ selectCrossFeaturing }) {
 
   //Cette fonction permet d'effectuer le call vers l'API pour récupérer les crossfeaturings
   useEffect(() => {
-    fetch(`http://localhost:3001/api/crossfeaturing`)
+    fetch(`https://rapjeu-backend.herokuapp.com/api/crossfeaturing`)
       .then((response) => response.json())
       .then((requestData) => {
         //On ajoute les données récupérées dans le tableau crossFeaturing
@@ -24,7 +24,6 @@ function CrossFeaturingArray({ selectCrossFeaturing }) {
       })
       .catch((error) => console.log(error))
   }, [])
-
 
   return isDataLoading ? (
     //Si les données chargent, on affiche le loader

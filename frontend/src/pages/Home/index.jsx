@@ -14,6 +14,7 @@ import {
   SecondContainer,
   ContinueContainer,
   TextLink,
+  Wrapper,
 } from './styles'
 
 import RedBullLogo from '../../assets/PNG/redbull.png'
@@ -41,7 +42,7 @@ function Home() {
   }
 
   return (
-    <Container style={{ marginBottom: '2%' }}>
+    <Wrapper>
       <SecondContainer>
         <LinkImage
           href="https://www.redbull.com/fr-fr/collections/redbinks"
@@ -138,7 +139,7 @@ function Home() {
           </ContinueContainer>
         ) : null}
       </ContainerRow>
-    </Container>
+    </Wrapper>
   )
 }
 
