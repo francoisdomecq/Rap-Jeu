@@ -187,8 +187,8 @@ function Top5() {
               />
               <NextRoundButton onClick={() => startGame()}>
                 <TextLink>
-                  Commencer une
-                  <br /> nouvelle partie
+                  Commencer 
+                  <br /> 
                 </TextLink>
               </NextRoundButton>
             </ContainerColumnTheme>
