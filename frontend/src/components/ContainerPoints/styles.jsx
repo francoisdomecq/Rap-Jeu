@@ -4,7 +4,7 @@ import colors from '../../utils/styles/colors'
 export const ContainerColumn = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   height: 100%;
   width: 100%;

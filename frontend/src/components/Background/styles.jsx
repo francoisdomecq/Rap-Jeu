@@ -6,6 +6,7 @@ export const ContainerZIndex = styled.div`
   width: 100%;
   left: 0;
   top: 0;
+  
 `
 export const ContainerRow = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ export const Image = styled.img`
     width: 0%;
   }
   @media screen and (min-width: 800px) and (max-width:1000px) {
-    width: 28%;
+    width: 25%;
   }
 `
 
@@ -32,6 +33,6 @@ export const ImageMehdi = styled.img`
     width: 100%;
   }
   @media screen and (min-width: 800px) and (max-width:1000px) {
-    width: 60%;
+    width: 55%;
   }
 `
