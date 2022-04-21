@@ -1,9 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
-import RapperArray from '../../../components/Rappers'
 
-import { TextBlack, TextBlue } from '../../../utils/styles/Text'
+import RapperArray from '../../../components/Rappers'
 
 import {
   ContainerRow,
@@ -16,108 +15,121 @@ import {
   ContainerNewRapper,
   ContinueContainer,
   TableContainer,
+  Wrapper,
+  ContainerRappers,
 } from './styles'
+import { TextBlue } from '../../../utils/styles/Text'
 
 function PetitsChats() {
+  //Permet de compter le nombre de rounds joués
   const [answerNumber, updateAnswerNumber] = useState(0)
+  //Permet de sélectionner un rappeur
   const [rapper, setRapper] = useState('')
+  //Permet d'ajouter des rappeurs qui ont été cités 
   const [rappers, setRappers] = useState([])
   const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
     useContext(GameContext)
   const { team1, team2, updateScore, scoreTeam1, scoreTeam2 } =
     useContext(TeamContext)
 
+  //Permet d'ajouter un rappeur au tableau des rappeurs cités
   function addRappers(e) {
     if (e.key === 'Enter') {
       rappers.push(e.target.value)
       const newRapper = [...rappers]
       setRappers(newRapper)
       e.target.value = ''
+      //On change l'équipe qui répond
       if (teamAnswering === team1) setTeamAnswering(team2)
       else setTeamAnswering(team1)
     }
   }
+  
+  //Fonction permettant de changer le state 'rapper' et de sélectionner un rappeur pour lancer la partie
   function selectRapper(rapper) {
     setRapper(rapper)
   }
+
+  //Fonction permettant de compter le nombre de manches jouées pour pouvoir passer au jeu suivant au bout de 3 manches
   function updateAnswer() {
     updateGamesPlayed('Les 3 petits chats', answerNumber, updateAnswerNumber)
     setRapper('')
     setRappers([])
-
+    //En fonction de l'équipe qui devait répondre, l'autre équipe est gagnante
     if (teamAnswering === team1) updateScore(10, team2)
     else updateScore(10, team1)
     setTeamAnswering(team2)
   }
 
+  //Au lancement de la page, l'équipe ayant le plus de points commence
   useEffect(() => {
     if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
     else setTeamAnswering(team2)
   }, [team1, team2, scoreTeam1, scoreTeam2, setTeamAnswering])
 
   return (
-    <ContainerRow style={{ marginBottom: '1%' }}>
-      <ContainerColumn>
-        {rapper ? (
-          <ContainerColumn style={{ marginTop: '6%' }}>
-            <ContainerRow
-              style={{ justifyContent: 'space-evenly', width: '65%' }}
-            >
-              <ContainerColumn style={{ width: '38%' }}>
-                <Header>Rappeurs cités</Header>
-                <TableContainer>
-                  <RappersContainer>
+    <Wrapper>
+      {/*La section ci-dessous ne s'affiche que si un rappeur a bien été sélectionné*/}
+      {rapper ? (
+        <ContainerColumn>
+          <ContainerRow style={{ width: '65%' }}>
+            <ContainerRappers>
+              {/*Tableau contenant les rappeurs cités */}
+              <Header>Rappeurs cités</Header>
+              <TableContainer>
+                <RappersContainer>
+                  <p>{rapper}</p>
+                  {rappers.map((rapper) => (
                     <p>{rapper}</p>
-                    {rappers.map((rapper) => (
-                      <p>{rapper}</p>
-                    ))}
-                  </RappersContainer>
-                </TableContainer>
-                <TableBottom />
-              </ContainerColumn>
+                  ))}
+                </RappersContainer>
+              </TableContainer>
+              <TableBottom />
+            </ContainerRappers>
 
-              <ContainerNewRapper>
-                <TextBlue>Nouveau rappeur</TextBlue>
-                <RapperInput
-                  type="search"
-                  placeholder="ajouter un rappeur"
-                  onKeyPress={(e) => addRappers(e)}
-                />
-              </ContainerNewRapper>
-            </ContainerRow>
+            <ContainerNewRapper>
+              <TextBlue>Nouveau rappeur</TextBlue>
+              <RapperInput
+                type="search"
+                placeholder="ajouter un rappeur"
+                onKeyPress={(e) => addRappers(e)}
+              />
+            </ContainerNewRapper>
+          </ContainerRow>
 
-            <ContainerColumn style={{ marginTop: '4%' }}>
-              {answerNumber < 1 ? (
-                <ContinueContainer onClick={() => updateAnswer()}>
-                  Manche suivante
+          <ContainerColumn>
+            {answerNumber < 1 ? (
+              //Si une seule manche a été jouée, on met à jour le nombre de manches jouées et on en joue une autre
+              <ContinueContainer onClick={() => updateAnswer()}>
+                Manche suivante
+                <br />
+                (Victoire de {teamAnswering === team1 ? team2 : team1})
+              </ContinueContainer>
+            ) : (
+              <ContinueContainer>
+                <Link
+                  style={{ textDecoration: 'none', color: 'white' }}
+                  to={`/${
+                    games[games.indexOf('Les 3 petits chats') + 1]
+                  }/?game=${games[games.indexOf('Les 3 petits chats') + 1]}`}
+                  onClick={() => updateAnswer()}
+                >
+                  Continuer vers <br />
+                  {games[games.indexOf('Les 3 petits chats') + 1]}
                   <br />
                   (Victoire de {teamAnswering === team1 ? team2 : team1})
-                </ContinueContainer>
-              ) : (
-                <ContinueContainer>
-                  <Link
-                    style={{ textDecoration: 'none', color: 'white' }}
-                    to={`/${
-                      games[games.indexOf('Les 3 petits chats') + 1]
-                    }/?game=${games[games.indexOf('Les 3 petits chats') + 1]}`}
-                    onClick={() => updateAnswer()}
-                  >
-                    Continuer vers <br />
-                    {games[games.indexOf('Les 3 petits chats') + 1]}
-                    <br />
-                    (Victoire de {teamAnswering === team1 ? team2 : team1})
-                  </Link>
-                </ContinueContainer>
-              )}
-            </ContainerColumn>
+                </Link>
+              </ContinueContainer>
+            )}
           </ContainerColumn>
-        ) : (
-          <ContainerColumn45 style={{ marginTop: '3%', marginBottom: '3%' }}>
-            <RapperArray selectRapper={selectRapper} />
-          </ContainerColumn45>
-        )}
-      </ContainerColumn>
-    </ContainerRow>
+        </ContainerColumn>
+      ) : (
+        /*Si un rappeur n'est pas encore sélectionné, on propose au maître de jeu d'en choisir un */
+        <ContainerColumn45>
+          <RapperArray selectRapper={selectRapper} />
+        </ContainerColumn45>
+      )}
+    </Wrapper>
   )
 }
 

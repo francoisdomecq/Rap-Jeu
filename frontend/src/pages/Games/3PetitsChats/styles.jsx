@@ -2,20 +2,64 @@ import styled from 'styled-components'
 import colors from '../../../utils/styles/colors'
 import Continuer from '../../../assets/continuer.svg'
 
-export const ContainerRow = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-direction: row;
   flex-wrap: wrap;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  @media screen and (min-width: 300px) and (max-width: 400px) {
+    height: 75%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 400px) and (max-width: 500px) {
+    height: 90%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    height: 111%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    height: 130%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 700px) and (max-width: 800px) {
+    height: 160%;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    height: 80%;
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1100px) {
+    height: 85%;
+  }
+  @media screen and (min-width: 1100px) and (max-width: 1250px) {
+    height: 90%;
+  }
+`
+
+export const ContainerRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 50%;
+  width: 100%;
+  margin-top: 8%;
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+    height: 10%;
+    margin-top: 40%;
+  }
 `
 export const ContainerColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: space-around;
+  height: 90%;
   width: 100%;
 `
 
@@ -23,6 +67,13 @@ export const ContainerColumn45 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  width: 45%;
+  height: 100%;
+`
+export const ContainerRappers = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
   width: 45%;
   height: 100%;
@@ -49,7 +100,6 @@ export const Header = styled.div`
     font-size: 12px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    margin-top: 100%;
   }
   @media screen and (min-width: 600px) and (max-width: 900px) {
     font-size: 18px;
@@ -101,7 +151,7 @@ export const ContainerNewRapper = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 35%;
+  width: 40%;
   padding-bottom: 1%;
   border-radius: 20px;
   opacity: 0.95;
@@ -113,7 +163,11 @@ export const ContainerNewRapper = styled.div`
   );
   @media screen and (min-width: 300px) and (max-width: 600px) {
     border-radius: 10px;
-    margin-top: 10%;
+    width: 45%;
+  }
+  @media screen and (min-width: 600px) and (max-width: 800px) {
+    border-radius: 10px;
+    width: 45%;
   }
 `
 
@@ -148,7 +202,19 @@ export const RapperInput = styled.input`
   @media screen and (min-width: 300px) and (max-width: 600px) {
     font-size: 12px;
     ::placeholder {
-      font-size:6px;
+      font-size: 6px;
+    }
+  }
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 16px;
+    ::placeholder {
+      font-size: 10px;
+    }
+  }
+  @media screen and (min-width: 900px) and (max-width: 1300px) {
+    font-size: 20px;
+    ::placeholder {
+      font-size: 14px;
     }
   }
 `
@@ -170,8 +236,7 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
-  @media screen and (min-width: 300px) and (max-width: 600px) {
-    margin-top: 20%;
+  @media screen and (min-width: 300px) and (max-width: 400px) {
+    margin-top: 50%;
     margin-bottom: 10%;
-  }
-`
+  }`
