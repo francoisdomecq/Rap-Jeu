@@ -17,6 +17,7 @@ import {
   TableContainer,
   Wrapper,
   ContainerRappers,
+  TextLink,
 } from './styles'
 import { TextBlue } from '../../../utils/styles/Text'
 
@@ -25,7 +26,7 @@ function PetitsChats() {
   const [answerNumber, updateAnswerNumber] = useState(0)
   //Permet de sélectionner un rappeur
   const [rapper, setRapper] = useState('')
-  //Permet d'ajouter des rappeurs qui ont été cités 
+  //Permet d'ajouter des rappeurs qui ont été cités
   const [rappers, setRappers] = useState([])
   const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
     useContext(GameContext)
@@ -44,7 +45,7 @@ function PetitsChats() {
       else setTeamAnswering(team1)
     }
   }
-  
+
   //Fonction permettant de changer le state 'rapper' et de sélectionner un rappeur pour lancer la partie
   function selectRapper(rapper) {
     setRapper(rapper)
@@ -101,9 +102,11 @@ function PetitsChats() {
             {answerNumber < 1 ? (
               //Si une seule manche a été jouée, on met à jour le nombre de manches jouées et on en joue une autre
               <ContinueContainer onClick={() => updateAnswer()}>
-                Manche suivante
-                <br />
-                (Victoire de {teamAnswering === team1 ? team2 : team1})
+                <TextLink>
+                  Manche suivante
+                  <br />
+                  (Victoire de {teamAnswering === team1 ? team2 : team1})
+                </TextLink>
               </ContinueContainer>
             ) : (
               <ContinueContainer>
@@ -114,10 +117,12 @@ function PetitsChats() {
                   }/?game=${games[games.indexOf('Les 3 petits chats') + 1]}`}
                   onClick={() => updateAnswer()}
                 >
-                  Continuer vers <br />
-                  {games[games.indexOf('Les 3 petits chats') + 1]}
-                  <br />
-                  (Victoire de {teamAnswering === team1 ? team2 : team1})
+                  <TextLink>
+                    Continuer vers <br />
+                    {games[games.indexOf('Les 3 petits chats') + 1]}
+                    <br />
+                    (Victoire de {teamAnswering === team1 ? team2 : team1})
+                  </TextLink>
                 </Link>
               </ContinueContainer>
             )}

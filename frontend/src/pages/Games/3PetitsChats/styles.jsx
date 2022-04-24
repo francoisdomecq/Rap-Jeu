@@ -50,8 +50,8 @@ export const ContainerRow = styled.div`
   width: 100%;
   margin-top: 8%;
   @media screen and (min-width: 300px) and (max-width: 800px) {
-    height: 10%;
-    margin-top: 40%;
+    height: 60%;
+    margin-top: 15%;
   }
 `
 export const ContainerColumn = styled.div`
@@ -61,6 +61,9 @@ export const ContainerColumn = styled.div`
   justify-content: space-around;
   height: 90%;
   width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    height: 50%;
+  }
 `
 
 export const ContainerColumn45 = styled.div`
@@ -101,6 +104,7 @@ export const Header = styled.div`
     font-size: 12px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    width: 90%;
   }
   @media screen and (min-width: 600px) and (max-width: 900px) {
     font-size: 18px;
@@ -124,6 +128,7 @@ export const TableContainer = styled.div`
   @media screen and (min-width: 300px) and (max-width: 600px) {
     max-height: 150px;
     min-height: 100px;
+    width: 90%;
   }
 `
 
@@ -149,6 +154,9 @@ export const TableBottom = styled.div`
   border: 3px solid ${colors.yellow};
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   opacity: 0.95;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    width: 90%;
+  }
 `
 export const ContainerNewRapper = styled.div`
   display: flex;
@@ -241,8 +249,25 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
-  @media screen and (min-width: 300px) and (max-width: 400px) {
-    margin-top: 50%;
-    margin-bottom: 10%;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    width: 150px;
+    height: 55px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    width: 200px;
+    height: 85px;
+  }
+`
+export const TextLink = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: white;
+  @media screen and (min-width: 300px) and (max-width: 500px) {
+    font-size: 8px;
+    width: 150px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    width: 200px;
+    font-size: 12px;
   }
 `

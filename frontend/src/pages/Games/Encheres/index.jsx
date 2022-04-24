@@ -8,7 +8,7 @@ import ContainerAnswer from '../../../components/ContainerAnswer'
 import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 
 import {
-  ContainerRow,
+  ContainerRowAnswer,
   ContainerRowStart,
   ContainerColumn,
   ContainerColumnStart,
@@ -65,14 +65,14 @@ function Enchere() {
         counter > 0 && answerGiven < points ? (
           <ContainerColumn>
             <Timer counter={counter} />
-            <ContainerRow style={{ width: '40%' }}>
+            <ContainerRowAnswer>
               <ContainerAnswer
                 teamAnswering={teamAnswering}
                 answerGiven={answerGiven}
                 setAnswerGiven={setAnswerGiven}
                 answerNumberToGive={points}
               />
-            </ContainerRow>
+            </ContainerRowAnswer>
             <ContainerThemeSuggestion
               theme={enchere.theme}
               suggestions={enchere.suggestions}
@@ -117,8 +117,10 @@ function Enchere() {
                 }`}
                 onClick={() => updateAnswer()}
               >
-                Continuer vers
-                <br /> le Rolland Gamos
+                <TextLink>
+                  Continuer vers
+                  <br /> le Rolland Gamos
+                </TextLink>
               </Link>
             </ContinueContainer>
           </ContainerColumn>

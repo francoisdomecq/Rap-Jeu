@@ -67,6 +67,10 @@ export const ContainerColumn = styled.div`
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    height: 50%;
+  }
+
 `
 export const ContainerColumn45 = styled.div`
   display: flex;

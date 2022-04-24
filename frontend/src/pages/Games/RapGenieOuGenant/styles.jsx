@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 110%;
   padding-top: 5%;
   padding-bottom: 5%;
 
@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
   }
   @media screen and (min-width: 400px) and (max-width: 500px) {
     height: 90%;
+    justify-content: flex-start;
     padding-bottom: 0%;
   }
   @media screen and (min-width: 500px) and (max-width: 600px) {
@@ -43,7 +44,9 @@ export const ContainerRowTeamAnswering = styled.div`
   flex-wrap: wrap;
   width: 50%;
   @media screen and (min-width: 300px) and (max-width: 500px) {
-    width: 80%;
+    align-items: flex-start;
+    width: 80%; 
+    height: 30%;
   }
 `
 export const ContainerColumnGlobal = styled.div`
@@ -52,6 +55,7 @@ export const ContainerColumnGlobal = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
+  
 `
 export const ContainerRowAnswer = styled.div`
   display: flex;
@@ -143,7 +147,7 @@ export const ContainerAnswer = styled.div`
   border-radius: 20px;
   opacity: 0.95;
   width: 55%;
-  padding: 1%;
+  padding: 2%;
   @media screen and (min-width: 300px) and (max-width: 800px) {
     border-radius: 10px;
     width: 80%;

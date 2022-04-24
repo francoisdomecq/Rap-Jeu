@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  height: 110%;
   @media screen and (min-width: 300px) and (max-width: 400px) {
     height: 75%;
     align-items: flex-start;
@@ -62,6 +62,9 @@ export const ContainerColumn = styled.div`
   justify-content: space-around;
   flex-direction: column;
   width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+    height: 50%;
+  }
 `
 export const ContainerColumnWinScreen = styled.div`
   display: flex;
@@ -102,10 +105,12 @@ export const ContainerColumnTheme = styled.div`
   width: 40%;
   height: 100%;
   @media screen and (min-width: 300px) and (max-width: 450px) {
+    width: 65%;
     height: 35%;
   }
   @media screen and (min-width: 450px) and (max-width: 600px) {
-    height: 40%;
+    height: 35%;
+    width: 60%;
   }
   @media screen and (min-width: 600px) and (max-width: 800px) {
     height: 45%;
@@ -135,7 +140,7 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   width: 35%;
-
+  padding: 2%;
   border-radius: 20px;
   padding: 0% 0% 1% 0%;
   background: rgb(255, 255, 24);
@@ -146,6 +151,10 @@ export const Container = styled.div`
   );
   opacity: 0.95;
   box-shadow: 1px 1px 1px ${colors.blue};
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    width: 50%;
+    padding: 2%;
+  }
 `
 export const NextRoundButton = styled.div`
   display: flex;

@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
     align-items: flex-start;
   }
   @media screen and (min-width: 400px) and (max-width: 500px) {
-    height: 90%;
+    height: 170%;
     align-items: flex-start;
   }
   @media screen and (min-width: 500px) and (max-width: 600px) {
@@ -58,6 +58,9 @@ export const ContainerColumn = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    height: 50%;
+  }
 `
 export const ContainerRowStart = styled.div`
   display: flex;
@@ -90,7 +93,7 @@ export const ContainerColumnStart = styled.div`
   @media screen and (min-width: 300px) and (max-width: 600px) {
     align-content: center;
     height: 100%;
-    width: 50%;
+    width: 70%;
   }
 `
 
@@ -129,6 +132,10 @@ export const ContainerTeamSelection = styled.div`
   );
   opacity: 0.95;
   box-shadow: 1px 1px 1px ${colors.blue};
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    width: 60%;
+    padding: 2%;
+  }
 `
 
 export const ContinueContainer = styled.div`
@@ -149,17 +156,41 @@ export const ContinueContainer = styled.div`
     cursor: pointer;
   }
   padding-right: 1%;
-  @media screen and (min-width: 300px) and (max-width: 700px) {
+  @media screen and (min-width: 300px) and (max-width: 500px) {
     width: 150px;
     height: 55px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    width: 200px;
+    height: 85px;
   }
 `
 export const TextLink = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   color: white;
-  @media screen and (min-width: 300px) and (max-width: 650px) {
+  @media screen and (min-width: 300px) and (max-width: 500px) {
     font-size: 12px;
     width: 150px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 700px) {
+    width: 200px;
+    font-size: 14px;
+  }
+`
+
+export const ContainerRowAnswer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40%;
+  @media screen and (min-width: 300px) and (max-width: 800px) {
+    margin-top: 30%;
+    width: 60%;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    width: 60%;
   }
 `

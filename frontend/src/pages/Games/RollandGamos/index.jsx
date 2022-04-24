@@ -12,6 +12,7 @@ import {
   ContainerRapper,
   SecondContainer,
   ContainerRow,
+  ContainerRowStart,
   ContainerColumn,
   ContainerColumnPoints,
   Text,
@@ -125,7 +126,7 @@ function RollandGamos() {
           </ContainerColumn>
         ) : (
           //Sinon, on affiche l'écran de sélection d'un rappeur et du nombre de points
-          <ContainerRow>
+          <ContainerRowStart>
             <SecondContainer>
               <Text>Manche n°{count + 1}</Text>
               <RappeurArray
@@ -140,7 +141,7 @@ function RollandGamos() {
                 updatePoints={updatePoints}
               />
             </ContainerColumnPoints>
-          </ContainerRow>
+          </ContainerRowStart>
         )
       }
     </Wrapper>

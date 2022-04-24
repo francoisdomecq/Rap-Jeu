@@ -130,7 +130,7 @@ function Top5() {
             <ContainerColumnWinScreen>
               {answerGiven >= 5 ? (
                 //5 réponses ont été données, alors on félicite et on donne la possibilité de donner 15points à l'équipe gagnante
-                <Container style={{ width: '30%' }}>
+                <Container >
                   <TextBlue>Félicitations {teamAnswering}</TextBlue>
                   <ContainerTeam
                     style={{ width: '60%' }}
@@ -144,7 +144,7 @@ function Top5() {
                 </Container>
               ) : (
                 //Aucune équipe n'a réussi l'épreuve, on affiche un message en conséquence
-                <Container style={{ width: '30%' }}>
+                <Container>
                   <TextBlue size={20}>
                     Aucune des deux équipes ne gagne de points..
                   </TextBlue>

@@ -10,12 +10,12 @@ export const ContainerTimer = styled.div`
   background-image: url(${timer});
   background-repeat: no-repeat;
   @media screen and (min-width: 300px) and (max-width: 400px) {
-    top: 6.2%;
+    top: 4.6%;
     width: 60px;
     align-items: flex-start;
   }
   @media screen and (min-width: 400px) and (max-width: 500px) {
-    top: 6.2%;
+    top: 4.6%;
     width: 80px;
     align-items: flex-start;
   }

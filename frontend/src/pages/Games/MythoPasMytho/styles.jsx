@@ -6,20 +6,21 @@ import Continuer from '../../../assets/continuer.svg'
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 110%;
   padding-top: 5%;
   padding-bottom: 5%;
 
   @media screen and (min-width: 300px) and (max-width: 400px) {
-    height: 85%;
-
+    height: 90%;
+    align-items: flex-start;
     padding-bottom: 0%;
   }
   @media screen and (min-width: 400px) and (max-width: 500px) {
-    height: 90%;
+    height: 90%; 
+    justify-content: flex-start;
     padding-bottom: 0%;
   }
   @media screen and (min-width: 500px) and (max-width: 600px) {
@@ -44,7 +45,9 @@ export const ContainerRowTeamAnswering = styled.div`
   flex-wrap: wrap;
   width: 50%;
   @media screen and (min-width: 300px) and (max-width: 500px) {
+    align-items: flex-start;
     width: 80%;
+    height: 100%;
   }
 `
 
@@ -54,6 +57,12 @@ export const ContainerColumnGlobal = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
+  /* @media screen and (min-width: 300px) and (max-width: 500px) {
+    align-items: center;
+    width: 100%;
+    height: 40%;
+  } */
+
 `
 
 export const ContainerRowAnswer = styled.div`
@@ -167,7 +176,7 @@ export const TextLink = styled.p`
   font-weight: 700;
   color: white;
   @media screen and (min-width: 300px) and (max-width: 500px) {
-    font-size: 12px;
+    font-size: 10px;
     width: 150px;
   }
   @media screen and (min-width: 500px) and (max-width: 700px) {
@@ -214,4 +223,21 @@ export const ContainerImage = styled.div`
 export const Image = styled.img`
   height: 100%;
   width: 50%;
+`
+export const ContainerRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+`
+export const ContainerColumn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 `

@@ -15,8 +15,9 @@ export const Wrapper = styled.div`
     align-items: flex-start;
   }
   @media screen and (min-width: 400px) and (max-width: 500px) {
-    height: 90%;
+    height: 80%;
     align-items: flex-start;
+    justify-content: center;
   }
   @media screen and (min-width: 500px) and (max-width: 600px) {
     height: 111%;
@@ -56,7 +57,22 @@ export const ContainerColumn = styled.div`
   height: 100%;
   width: 100%;
   @media screen and (min-width: 300px) and (max-width: 800px) {
-   height: 70%;
+    justify-content: flex-start;
+    height: 80%;
+  }
+`
+
+export const ContainerRowStart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 `
 
@@ -91,7 +107,6 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 60%;
-
 `
 export const SearchContainer = styled.div`
   display: flex;

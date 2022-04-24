@@ -18,6 +18,7 @@ import {
   TextLink,
   TextButton,
   ContainerImage,
+  ContainerRowTeamAnswering,
 } from './styles'
 import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
@@ -89,7 +90,7 @@ function RapGenieOuGenant() {
       {teamAnswering ? (
         ''
       ) : (
-        <ContainerRow style={{ width: '30%' }}>
+        <ContainerRowTeamAnswering>
           <TeamSelection
             team1={team1}
             team2={team2}
@@ -97,7 +98,7 @@ function RapGenieOuGenant() {
             setTeamAnswering={setTeamAnswering}
             game={'Rap génie ou gênant'}
           />
-        </ContainerRow>
+        </ContainerRowTeamAnswering>
       )}
 
       <ContainerColumnGlobal>
@@ -159,7 +160,7 @@ function RapGenieOuGenant() {
                     >
                       <TextLink>
                         Continuer vers <br />{' '}
-                        {games[games.indexOf('Rap génie ou gênant') + 1]}
+                        {games[games.indexOf('Rap génie ou rap gênant') + 1]}
                       </TextLink>
                     </Link>
                   </ContinuerContainer>

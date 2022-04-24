@@ -14,7 +14,7 @@ export const Loader = styled.img`
   border-bottom-color: transparent;
   animation: ${rotate} 2s infinite linear;
 
-  width: 60%;
+  width: 50%;
 `
 
 export const LoaderWrapper = styled.div`

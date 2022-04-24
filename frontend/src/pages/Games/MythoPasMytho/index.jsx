@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import TeamSelection from '../../../components/TeamSelection'
 import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
 import {
+  ContainerRow,
+  ContainerColumn,
   TextAnswer,
   TextButton,
   ContainerRowAnswer,
@@ -21,8 +23,6 @@ import {
   ContainerColumnAnswer,
   TextLink,
 } from './styles'
-
-import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
 import Redbull from '../../../assets/PNG/redbull.png'
@@ -87,15 +87,17 @@ function MythoPasMytho() {
       {teamAnswering ? (
         ''
       ) : (
-        <ContainerRowTeamAnswering>
-          <TeamSelection
-            team1={team1}
-            team2={team2}
-            teamAnswering={teamAnswering}
-            setTeamAnswering={setTeamAnswering}
-            game={'Mytho pas Mytho'}
-          />
-        </ContainerRowTeamAnswering>
+        <ContainerColumn>
+          <ContainerRowTeamAnswering>
+            <TeamSelection
+              team1={team1}
+              team2={team2}
+              teamAnswering={teamAnswering}
+              setTeamAnswering={setTeamAnswering}
+              game={'Mytho pas Mytho'}
+            />
+          </ContainerRowTeamAnswering>
+        </ContainerColumn>
       )}
       <ContainerColumnGlobal>
         {answerGiven === null && teamAnswering ? (
@@ -113,32 +115,34 @@ function MythoPasMytho() {
             <ContainerAnswer>
               <TextAnswer>{mythoPasMythoData[answerNumber].reponse}</TextAnswer>
             </ContainerAnswer>
-
-            {mythoPasMythoData[answerNumber].type === 'video' ? (
-              <Iframe
-                src={mythoPasMythoData[answerNumber].illustration}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></Iframe>
-            ) : mythoPasMythoData[answerNumber].type === 'image' ? (
-              <ContainerImage>
-                <Image
+            <ContainerRow>
+              {mythoPasMythoData[answerNumber].type === 'video' ? (
+                <Iframe
                   src={mythoPasMythoData[answerNumber].illustration}
-                  alt=""
-                />
-              </ContainerImage>
-            ) : (
-              <a
-                rel="noreferrer"
-                href={mythoPasMythoData[answerNumber].illustration}
-                target="_blank"
-              >
-                {mythoPasMythoData[answerNumber].illustration}
-              </a>
-            )}
-
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></Iframe>
+              ) : mythoPasMythoData[answerNumber].type === 'image' ? (
+                <ContainerImage>
+                  <Image
+                    src={mythoPasMythoData[answerNumber].illustration}
+                    alt=""
+                  />
+                </ContainerImage>
+              ) : (
+                <ContainerRow style={{ width: '50%' }}>
+                  <a
+                    rel="noreferrer"
+                    href={mythoPasMythoData[answerNumber].illustration}
+                    target="_blank"
+                  >
+                    {mythoPasMythoData[answerNumber].illustration}
+                  </a>
+                </ContainerRow>
+              )}
+            </ContainerRow>
             <ContainerColumn>
               {answerGiven !== null ? (
                 answerNumber < 3 ? (

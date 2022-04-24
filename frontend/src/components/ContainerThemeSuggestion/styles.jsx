@@ -5,13 +5,12 @@ import suggestions from '../../assets/enchere_top5/suggestions.svg'
 export const ContainerColumn = styled.div`
   display: flex;
   align-items: center;
-
   flex-direction: column;
   height: 100%;
-  width: 100%;
 `
 export const ContainerTheme = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 862px;
   height: 67px;
@@ -59,6 +58,8 @@ export const TextWhite = styled.p`
 
 export const ContainerSuggestions = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: 963px;
   height: 50px;
@@ -66,7 +67,7 @@ export const ContainerSuggestions = styled.div`
   background-image: url(${suggestions});
   background-repeat: no-repeat;
   @media screen and (min-width: 350px) and (max-width: 500px) {
-    width: 340px;
+    width: 320px;
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     width: 450px;
@@ -92,7 +93,7 @@ export const TextBlack = styled.p`
   font-size: 0.8em;
 
   @media screen and (min-width: 300px) and (max-width: 500px) {
-    font-size: 0.2em;
+    font-size: 0.2%;
   }
   @media screen and (min-width: 500px) and (max-width: 800px) {
     font-size: 0.5em;
