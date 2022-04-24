@@ -16,7 +16,7 @@ export const PageContainer = styled.div`
 export const LeftTeamContainer = styled.div`
   background-image: url(${JouerGauche});
   width: 40%;
-  margin-left: 5%;
+  margin-left: 3%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -242,7 +242,7 @@ export const ScoreTeamLeft = styled.p`
 export const RightTeamContainer = styled.div`
   background-image: url(${JouerDroite});
   width: 40%;
-  margin-right: 5%;
+  margin-right: 3%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -403,7 +403,7 @@ export const ScoreTeamRight = styled.p`
   font-size: 18px;
   margin-top: 0.5%;
   position: absolute;
-  left: 82%;
+  left: 85%;
   padding-bottom: 5px;
   background-image: linear-gradient(
     180deg,

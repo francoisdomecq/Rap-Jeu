@@ -146,13 +146,13 @@ function RollandGamos() {
     </Wrapper>
   ) : (
     //Ecran de fin de partie
-    <ContainerColumn>
+    <ContainerColumn style={{ marginBottom: '5%' }}>
       <Confetti
         width={window.innerWidth}
         height={window.innerHeight}
         colors={['#2704C4', '#ff003d', '#ffd222']}
       />
-      <TextBlue style={{ marginTop: '3.5%' }}>
+      <TextBlue size={48} style={{ textTransform: 'uppercase' }}>
         {scoreTeam1 < scoreTeam2
           ? `Bien joué ${team2}`
           : scoreTeam1 === scoreTeam2

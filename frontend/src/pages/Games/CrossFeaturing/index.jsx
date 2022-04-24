@@ -106,7 +106,13 @@ function CrossFeaturing() {
                 <TextLink>Manche suivante</TextLink>
               </ContinuerContainer>
             ) : (
-              <ContinuerContainer>
+              <ContinuerContainer
+                isClickable={
+                  rappersTeam1.length > 0 && rappersTeam2.length > 0
+                    ? true
+                    : false
+                }
+              >
                 <Link
                   style={{ textDecoration: 'none', color: 'white' }}
                   to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}?game=${

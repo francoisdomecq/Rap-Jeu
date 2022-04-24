@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  height: 110%;
   @media screen and (min-width: 300px) and (max-width: 400px) {
     height: 75%;
     align-items: flex-start;
@@ -156,6 +156,7 @@ export const ContainerCrossFeaturing = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background: rgb(255, 255, 24);
   background: linear-gradient(
     180deg,

@@ -81,7 +81,7 @@ function Enchere() {
         ) : (
           <ContainerColumn>
             {answerGiven >= points ? (
-              <ContainerTeamSelection style={{ width: '40%' }}>
+              <ContainerTeamSelection>
                 <TextBlue>Félicitations {teamAnswering}</TextBlue>
                 <ContainerTeam
                   style={{ width: '80%' }}

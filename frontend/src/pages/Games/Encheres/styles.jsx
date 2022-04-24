@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  height: 110%;
   @media screen and (min-width: 300px) and (max-width: 400px) {
     height: 75%;
     align-items: flex-start;
@@ -119,7 +119,7 @@ export const ContainerTeamSelection = styled.div`
   text-align: center;
   margin-top: 2%;
   padding: 2%;
-  width: 100%;
+  width: 30%;
   border-radius: 20px;
   background: rgb(255, 255, 24);
   background: linear-gradient(
