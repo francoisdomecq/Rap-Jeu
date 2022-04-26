@@ -54,7 +54,7 @@ export const ContainerRow = styled.div`
 export const ContainerColumn = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -108,10 +108,12 @@ export const ContainerTeam = styled.div`
   justify-content: center;
   border-radius: 10px;
   width: 45%;
-  opacity: ${({ isSelected }) => (isSelected ? 0.5 : 1)};
   background: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
   &:hover {
     cursor: pointer;
+  }
+  &:active {
+    opacity: 0.5;
   }
 `
 export const ContainerTeamSelection = styled.div`
