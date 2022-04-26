@@ -203,10 +203,23 @@ export const RapperInput = styled.input`
     font-weight: 700;
     color: white;
   }
-  &:hover {
-    text-underline-position: below;
-    text-decoration: underline;
+  &:focus {
+    input::placeholder {
+      display: none;
+      color: linear-gradient(90deg, #15008d 0%, #198bf5 100%);
+    }
+    ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      color: transparent;
+    }
+    ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: transparent;
+    }
+    text-underline-position: unset;
+    text-decoration: none;
   }
+
   ::-webkit-search-cancel-button {
     position: relative;
     right: 15px;

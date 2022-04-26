@@ -14,14 +14,14 @@ import {
 } from './styles'
 import { RulesData } from './rules'
 
-//Cette fonction permet d'afficher une modal si l'utilisateur clique sur 'info' dans le header. Ce info ne s'affiche que 
+//Cette fonction permet d'afficher une modal si l'utilisateur clique sur 'info' dans le header. Ce info ne s'affiche que
 function Modal({ isShowing, hide, title, ...props }) {
   //On récupère les règles du jeu 'game'
   const rules = RulesData.find((game) => game.game === title)
 
   return isShowing
-  //Permet de créer une modale
-    ? ReactDOM.createPortal(
+    ? //Permet de créer une modale
+      ReactDOM.createPortal(
         <>
           <ModalOverlay>
             <ModalWrapper>
@@ -39,12 +39,11 @@ function Modal({ isShowing, hide, title, ...props }) {
                     <p>{rules.rules}</p>
                   </ModalRules>
                   <Iframe
-                   
                     src={rules.video}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowfullscreen={true}
                   ></Iframe>
                 </ModalBody>
               </ModalDiv>

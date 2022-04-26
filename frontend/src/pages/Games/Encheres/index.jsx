@@ -82,7 +82,7 @@ function Enchere() {
                 teamAnswering={teamAnswering}
                 answerGiven={answerGiven}
                 setAnswerGiven={setAnswerGiven}
-                roundNumberToGive={points}
+                answerNumberToGive={points}
               />
             </ContainerRowAnswer>
             <ContainerThemeSuggestion

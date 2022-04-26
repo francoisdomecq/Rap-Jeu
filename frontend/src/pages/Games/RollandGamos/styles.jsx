@@ -117,8 +117,19 @@ export const Text = styled.p`
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 24px;
+  line-height: 0;
   @media screen and (min-width: 300px) and (max-width: 650px) {
     font-size: 12px;
+  }
+`
+
+export const TextLittle = styled.p`
+    font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 0;
+  @media screen and (min-width: 300px) and (max-width: 650px) {
+    font-size: 8px;
   }
 `
 export const RapperInput = styled.input`

@@ -20,6 +20,7 @@ import {
   ContinuerContainer,
   TextLink,
   Wrapper,
+  TextLittle,
 } from './styles'
 
 import { TextBlue } from '../../../utils/styles/Text'
@@ -33,13 +34,15 @@ function RollandGamos() {
   const [points, setPoints] = useState()
   //Permet de sélectionner un gagnant
   const [teamWinner, setTeamWinner] = useState('')
-  const { resetGame, setTeamAnswering } = useContext(GameContext)
+  const { resetGame, setTeamAnswering, teamAnswering } = useContext(GameContext)
   const { team1, team2, updateScore, scoreTeam1, scoreTeam2, resetTeams } =
     useContext(TeamContext)
 
   //Fonction passée en props au composant RappeurArray qui permet de sélectionner un rappeur
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
+    if (scoreTeam1 < scoreTeam2) setTeamAnswering(team1)
+    else if (scoreTeam2 <= scoreTeam1) setTeamAnswering(team2)
   }
 
   //Fonction qui permet de valider le nombre de points pour lequel les joueurs jouent
@@ -62,6 +65,12 @@ function RollandGamos() {
     else setRappeur(e.target.value)
   }
 
+  function changeTeam(e) {
+    if (e.key === 'Enter') {
+      if (teamAnswering === team1) setTeamAnswering(team2)
+      else setTeamAnswering(team1)
+    }
+  }
   //Cette fonction permet de passer à une nouvelle manche
   function nextRound() {
     //On ajoute les points au gagnant
@@ -99,10 +108,14 @@ function RollandGamos() {
           <ContainerColumn>
             <ContainerRapper>
               <Text style={{ color: 'white' }}>Dernier rappeur cité</Text>
+              <TextLittle style={{ color: 'white'}}>
+                (appuyez sur entrée pour valider)
+              </TextLittle>
               <RapperInput
                 type="search"
                 placeholder={rappeur}
                 onChange={(e) => lastRapper(e)}
+                onKeyDown={(e) => changeTeam(e)}
               />
             </ContainerRapper>
             <ContainerRow style={{ width: '50%' }}>
