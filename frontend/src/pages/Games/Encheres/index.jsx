@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react'
 import { GameContext, TeamContext } from '../../../utils/context'
 import { Link } from 'react-router-dom'
 
-import Theme from '../../../components/Theme'
+import Theme from '../../../components/theme'
 import Timer from '../../../components/Timer'
 import ContainerAnswer from '../../../components/ContainerAnswer'
 import ContainerThemeSuggestion from '../../../components/ContainerThemeSuggestion'
