@@ -1,4 +1,4 @@
-import { createContext,  useState } from 'react'
+import { createContext, useState } from 'react'
 
 export const GameContext = createContext()
 
@@ -39,7 +39,7 @@ export const GameProvider = ({ children }) => {
           games.splice(index, 1, value) //Remplacement de 'Jeu 2' par la valeur à ajouter
           let newGame = [...games] //Création d'une nouvelle variable pour l'immutabilité du state
           setGames(newGame)
-        } else { 
+        } else {
           let newGame = [...games, value]
           setGames(newGame)
         }
@@ -67,41 +67,41 @@ export const GameProvider = ({ children }) => {
   }
 
   //Cette fonction permet d'ajouter des jeux terminés à gamesPlayed
-  const updateGamesPlayed = (game, value, updateNombreReponses) => {
+  const updateGamesPlayed = (game, value, updateRoundNumber) => {
     let newGamesPlayed = [...gamesPlayed]
     switch (game) {
       case 'Les 3 petits chats':
-        updateNombreReponses(value + 1) //On augmente le nombre de manches jouées sur la page 3 petits chats
-        if (value >= 1) { 
+        updateRoundNumber(value + 1) //On augmente le nombre de manches jouées sur la page 3 petits chats
+        if (value >= 1) {
           newGamesPlayed.push('Les 3 petits chats') //On ajoute les 3 petits chats au tableau des jeux joués
         }
         break
       case 'Le CrossFeaturing':
-        updateNombreReponses(value + 1)
+        updateRoundNumber(value + 1)
         if (value >= 2) {
           newGamesPlayed.push('Le CrossFeaturing')
         }
         break
       case 'Les enchères':
-        updateNombreReponses(value + 1)
+        updateRoundNumber(value + 1)
         if (value >= 0) {
           newGamesPlayed.push('Les enchères')
         }
         break
       case 'Le Mytho Pas Mytho':
-        updateNombreReponses(value + 1)
+        updateRoundNumber(value + 1)
         if (value >= 3) {
           newGamesPlayed.push('Le Mytho Pas Mytho')
         }
         break
       case 'Rap génie ou rap gênant':
-        updateNombreReponses(value + 1)
+        updateRoundNumber(value + 1)
         if (value >= 3) {
           newGamesPlayed.push('Rap génie ou rap gênant')
         }
         break
       case 'Top 5':
-        updateNombreReponses(value + 1)
+        updateRoundNumber(value + 1)
         if (value >= 1) {
           newGamesPlayed.push('Top 5')
         }
@@ -113,7 +113,7 @@ export const GameProvider = ({ children }) => {
         return gamesPlayed
     }
     setGamesPlayed(newGamesPlayed)
-    localStorage.setItem('gamesPlayed', JSON.stringify(newGamesPlayed)) //On modifie également la variable contenant les jeux terminés stockée localement 
+    localStorage.setItem('gamesPlayed', JSON.stringify(newGamesPlayed)) //On modifie également la variable contenant les jeux terminés stockée localement
   }
 
   function startGame(value) {
@@ -157,12 +157,12 @@ export const TeamProvider = ({ children }) => {
     if (type === 'input') {
       if (team === 'team1') {
         let newTeam = { ...team1 }
-        newTeam = e.target.value      //On modifie la valeur de team1
+        newTeam = e.target.value //On modifie la valeur de team1
         setTeam1(newTeam)
         localStorage.setItem('team1', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
       } else if (team === 'team2') {
         let newTeam = { ...team2 }
-        newTeam = e.target.value 
+        newTeam = e.target.value
         setTeam2(newTeam)
         localStorage.setItem('team2', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
       }
@@ -170,10 +170,10 @@ export const TeamProvider = ({ children }) => {
     else if (type === 'fetch') {
       if (team === 'team1') {
         let newTeam = { ...team1 } //Respect de l'immutabilité du state
-        newTeam = e                
-        setTeam1(newTeam)          //On modifie la valeur de team1
+        newTeam = e
+        setTeam1(newTeam) //On modifie la valeur de team1
         localStorage.setItem('team1', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
-      } else if (team === 'team2') { 
+      } else if (team === 'team2') {
         let newTeam = { ...team2 }
         newTeam = e
         setTeam2(newTeam)
@@ -182,13 +182,14 @@ export const TeamProvider = ({ children }) => {
     }
   }
 
+  //Cette fonction permet de changer la valeur de la question à poser aux deux équipes
   function changeQuestionTeams(value) {
     let newQuestion = { ...questionTeam }
     newQuestion = value
     setQuestion(newQuestion)
   }
 
-
+  //Cette fonction permet de changer le score des deux équipes
   function updateScore(value, team) {
     if (value) {
       if (team === team1) {
