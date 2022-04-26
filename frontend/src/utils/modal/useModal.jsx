@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//Cette fonction permet d'afficher la modal
 const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
 

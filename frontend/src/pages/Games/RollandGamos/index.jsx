@@ -31,14 +31,19 @@ function RollandGamos() {
   const [count, setCount] = useState(0)
   //Points que remporte une manche
   const [points, setPoints] = useState()
+  //Permet de sélectionner un gagnant
   const [teamWinner, setTeamWinner] = useState('')
   const { resetGame, setTeamAnswering } = useContext(GameContext)
   const { team1, team2, updateScore, scoreTeam1, scoreTeam2, resetTeams } =
     useContext(TeamContext)
 
+  //Fonction passée en props au composant RappeurArray qui permet de sélectionner un rappeur
   function selectRappeur(rappeur) {
     setRappeur(rappeur)
   }
+
+  //Fonction qui permet de valider le nombre de points pour lequel les joueurs jouent
+  //Elle est passée en props au composant ContainerPoints
   function updatePoints(e) {
     if (e.key === 'Enter') {
       setPoints(e.target.value)

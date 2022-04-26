@@ -14,9 +14,13 @@ import {
 } from './styles'
 import { RulesData } from './rules'
 
+//Cette fonction permet d'afficher une modal si l'utilisateur clique sur 'info' dans le header. Ce info ne s'affiche que 
 function Modal({ isShowing, hide, title, ...props }) {
+  //On récupère les règles du jeu 'game'
   const rules = RulesData.find((game) => game.game === title)
+
   return isShowing
+  //Permet de créer une modale
     ? ReactDOM.createPortal(
         <>
           <ModalOverlay>

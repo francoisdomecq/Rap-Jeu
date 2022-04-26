@@ -1,3 +1,6 @@
+//Règles de chaque épreuve, ainsi que lien vers une vidéo explicative. Comme dit dans le rapport, 
+//il faudrait créer une table dans la base de données plutôt que de le faire localement
+
 export const RulesData = [
   {
     game: 'Top 5',

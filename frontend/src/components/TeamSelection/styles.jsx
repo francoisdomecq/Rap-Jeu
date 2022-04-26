@@ -10,14 +10,6 @@ export const ContainerRow = styled.div`
   height: 100%;
   width: 100%;
 `
-export const ContainerColumn = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-`
 export const ContainerTeamSelection = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +18,7 @@ export const ContainerTeamSelection = styled.div`
   text-align: center;
   margin-top: 2%;
   padding: 2% 2% 4% 2%;
-  width: 100%;
+  width: 80%;
   border-radius: 20px;
   background: rgb(255, 255, 24);
   background: linear-gradient(

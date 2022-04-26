@@ -88,7 +88,8 @@ function Games() {
           <GameCard
             label={'Top 5'}
             round="2 manches - 15 points par manche"
-            rules="Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
+            rules="Donne 5 (bonnes ?) réponses au thème sélectionné en 20 secondes. 
+            Si tu échoues, l’équipe adversaire peut voler tes points en donnant les réponses manquantes en 10 secondes."
           />
           <GameCard
             label={'Les 3 petits chats'}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import CrossFeaturingArray from '../../../components/CrossFeaturing'
 import SearchFeaturing from '../../../components/SearchFeaturing'
 import ContainerAnswerCrossFeaturing from '../../../components/ContainerAnswerCrossFeaturing'
+import TeamSelection from '../../../components/TeamSelection'
 
 import {
   ContainerRow,
@@ -20,22 +21,34 @@ import {
 import { TextBlue } from '../../../utils/styles/Text'
 
 function CrossFeaturing() {
+  //Variable qui contient le crossfeaturing sélectionné
   const [crossFeaturing, setCrossFeaturing] = useState()
-  const [answerNumber, updateAnswerNumber] = useState(0)
+  //Permet de compter le nombre de manches jouées
+  const [roundNumber, updateRoundNumber] = useState(0)
+  //Variable qui contient les rapppeurs cités par l'équipe 1
   const [rappersTeam1, setRappersTeam1] = useState([])
+  //Variable qui contient les rappeurs cités par l'équipe 2
   const [rappersTeam2, setRappersTeam2] = useState([])
+  //Permet au maître de jeu de sélectionner l'équipe gagnante
+  const [teamWinner, setTeamWinner] = useState('')
   const { games, updateGamesPlayed, setTeamAnswering } = useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
+  //Fonction utilisée pour sélectionner un crossfeaturing. On la fait passer en props au composant CrossFeaturingArray
   function selectCrossFeaturing(crossFeaturing) {
     setCrossFeaturing(crossFeaturing)
   }
+
+  //Permet d'ajouter un rappeur aux tableaux rappersTeam1 et rappersTeam2
+  //Cette fonction est passée en props au composant ContainerAnswerCrossFeaturing pour l'équipe 1 et l'équipe 2
   function addRappers(e, team) {
+    //L'ajout ne se fait que si le maître de jeu valide avec entrée
     if (e.key === 'Enter') {
       if (team === team1) {
         rappersTeam1.push(e.target.value)
         const newRapper = [...rappersTeam1]
         setRappersTeam1(newRapper)
+        //On supprime le champ écrit dans l'input
         e.target.value = ''
       } else {
         rappersTeam2.push(e.target.value)
@@ -46,15 +59,21 @@ function CrossFeaturing() {
     }
   }
 
-  const updateAnswer = () => {
-    updateGamesPlayed('Le CrossFeaturing', answerNumber, updateAnswerNumber)
+  //Fonction utilisée à la fin de chaque manche
+  const updateRound = () => {
+    if (teamWinner === team1) updateScore(5, team1)
+    else if (teamWinner === team2) updateScore(5, team2)
+    setTeamWinner()
+    //On augmente le nombre de manches jouées pour gérer la navigation
+    updateGamesPlayed('Le CrossFeaturing', roundNumber, updateRoundNumber)
+    //On réinitialise le crossfeaturing et les rappeurs cités par les deux équipes
     setCrossFeaturing()
     setRappersTeam1([])
     setRappersTeam2([])
-    if (rappersTeam1.length < rappersTeam2.length) updateScore(5, team1)
-    else if (rappersTeam1.length > rappersTeam2.length) updateScore(5, team2)
+    //Les points sont attribués à l'équipe ayant cité le moins de rappeur
   }
 
+  //Dans cette épreuve, les deux équipes jouent en même tempsn on supprime alors teamAnswering
   useEffect(() => {
     setTeamAnswering()
   }, [setTeamAnswering])
@@ -81,6 +100,13 @@ function CrossFeaturing() {
                 </TextBlue>
               </ContainerCrossFeaturing>
               <SearchFeaturing />
+              <TeamSelection
+                team1={team1}
+                team2={team2}
+                teamAnswering={teamWinner}
+                game="Rolland Gamos"
+                setTeamAnswering={setTeamWinner}
+              />
             </ContainerRowMiddle>
             <ContainerAnswerCrossFeaturing
               team={team2}
@@ -90,39 +116,21 @@ function CrossFeaturing() {
             />
           </ContainerRow>
           <ContainerColumnNextRound>
-            {answerNumber < 2 ? (
+            {roundNumber < 2 ? (
               <ContinuerContainer
-                isClickable={
-                  rappersTeam1.length > 0 && rappersTeam2.length > 0
-                    ? true
-                    : false
-                }
-                onClick={() =>
-                  rappersTeam1.length > 0 && rappersTeam2.length > 0
-                    ? updateAnswer()
-                    : null
-                }
+                isClickable={teamWinner ? true : false}
+                onClick={() => (teamWinner ? updateRound() : null)}
               >
                 <TextLink>Manche suivante</TextLink>
               </ContinuerContainer>
             ) : (
-              <ContinuerContainer
-                isClickable={
-                  rappersTeam1.length > 0 && rappersTeam2.length > 0
-                    ? true
-                    : false
-                }
-              >
+              <ContinuerContainer isClickable={teamWinner ? true : false}>
                 <Link
                   style={{ textDecoration: 'none', color: 'white' }}
                   to={`/${games[games.indexOf('Le CrossFeaturing') + 1]}?game=${
                     games[games.indexOf('Le CrossFeaturing') + 1]
                   }`}
-                  onClick={() =>
-                    rappersTeam1.length > 0 && rappersTeam2.length > 0
-                      ? updateAnswer()
-                      : null
-                  }
+                  onClick={() => (teamWinner ? updateRound() : null)}
                 >
                   <TextLink>
                     Continuer vers <br />{' '}

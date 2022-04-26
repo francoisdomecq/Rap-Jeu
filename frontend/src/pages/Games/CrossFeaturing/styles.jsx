@@ -183,3 +183,8 @@ export const ContainerColumnNextRound = styled.div`
   height: 20%;
   width: 100%;
 `
+export const Text = styled.p`
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 24px;
+`

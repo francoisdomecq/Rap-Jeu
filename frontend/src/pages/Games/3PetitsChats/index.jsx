@@ -23,10 +23,10 @@ import { TextBlue } from '../../../utils/styles/Text'
 
 function PetitsChats() {
   //Permet de compter le nombre de rounds joués
-  const [answerNumber, updateAnswerNumber] = useState(0)
-  //Permet de sélectionner un rappeur
+  const [roundNumber, updateRoundNumber] = useState(0)
+  //Variable qui contient le rappeur sélectionné
   const [rapper, setRapper] = useState('')
-  //Permet d'ajouter des rappeurs qui ont été cités
+  //Permet d'ajouter des rappeurs qui ont été cités dans le tableau
   const [rappers, setRappers] = useState([])
   const { games, updateGamesPlayed, teamAnswering, setTeamAnswering } =
     useContext(GameContext)
@@ -35,6 +35,7 @@ function PetitsChats() {
 
   //Permet d'ajouter un rappeur au tableau des rappeurs cités
   function addRappers(e) {
+    //L'ajout ne se fait que si le maître de jeu valide avec entrée
     if (e.key === 'Enter') {
       rappers.push(e.target.value)
       const newRapper = [...rappers]
@@ -52,8 +53,8 @@ function PetitsChats() {
   }
 
   //Fonction permettant de compter le nombre de manches jouées pour pouvoir passer au jeu suivant au bout de 3 manches
-  function updateAnswer() {
-    updateGamesPlayed('Les 3 petits chats', answerNumber, updateAnswerNumber)
+  function updateRound() {
+    updateGamesPlayed('Les 3 petits chats', roundNumber, updateRoundNumber)
     setRapper('')
     setRappers([])
     //En fonction de l'équipe qui devait répondre, l'autre équipe est gagnante
@@ -62,7 +63,7 @@ function PetitsChats() {
     setTeamAnswering(team2)
   }
 
-  //Au lancement de la page, l'équipe ayant le plus de points commence
+  //Au lancement de la page, on change teamAnswering pour que l'équipe ayant le plus de points commence
   useEffect(() => {
     if (scoreTeam1 >= scoreTeam2) setTeamAnswering(team1)
     else setTeamAnswering(team2)
@@ -99,9 +100,9 @@ function PetitsChats() {
           </ContainerRow>
 
           <ContainerColumn>
-            {answerNumber < 1 ? (
+            {roundNumber < 1 ? (
               //Si une seule manche a été jouée, on met à jour le nombre de manches jouées et on en joue une autre
-              <ContinueContainer onClick={() => updateAnswer()}>
+              <ContinueContainer onClick={() => updateRound()}>
                 <TextLink>
                   Manche suivante
                   <br />
@@ -115,7 +116,7 @@ function PetitsChats() {
                   to={`/${
                     games[games.indexOf('Les 3 petits chats') + 1]
                   }/?game=${games[games.indexOf('Les 3 petits chats') + 1]}`}
-                  onClick={() => updateAnswer()}
+                  onClick={() => updateRound()}
                 >
                   <TextLink>
                     Continuer vers <br />

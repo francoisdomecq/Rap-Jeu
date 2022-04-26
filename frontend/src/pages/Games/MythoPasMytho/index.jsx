@@ -26,21 +26,28 @@ import {
 
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
 import Redbull from '../../../assets/PNG/redbull.png'
+
 function MythoPasMytho() {
+  //Tableau contenant les 4 objets (question, réponse, illustration, type) sélectionnés aléatoirement
   const [mythoPasMythoData, setData] = useState([])
+  //Compteur du nombre de réponses données par les joueurs. On change de jeu lorsque celle-ci vaut 4
   const [answerNumber, updateAnswerNumber] = useState(0)
+  //Booléen qui prend la valeur true/false ou null. Il est utilisé pour gérer l'affichage des questions et réponses
   const [answerGiven, setAnswerGiven] = useState(null)
+  //Booléen qui permet d'afficher le loader tant que les données n'ont pas été chargées
   const [isDataLoading, setDataLoading] = useState(true)
   const { updateGamesPlayed, games, teamAnswering, setTeamAnswering } =
     useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
+  //Cette fonction permet d'ajouter 4 valeurs en même temps au tableau mythoPasMythoData
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...mythoPasMythoData]
     newData.push(value1, value2, value3, value4)
     setData(newData)
   }
 
+  //Cette fonction permet de compter le nombre de réponses données, de réinitialiser answerGiven et de changer l'équipe qui doit répondre
   function updateAnswer() {
     updateGamesPlayed('Le Mytho Pas Mytho', answerNumber, updateAnswerNumber)
     setAnswerGiven(null)
@@ -48,8 +55,13 @@ function MythoPasMytho() {
     else setTeamAnswering(team1)
   }
 
+  //Cette fonction est appelée lorsqu'un utilisateur clique sur les boutons Mytho/Pas Mytho
   function answer(answer) {
+    //On change la valeur de answerGiven qui valait null avant pour afficher les réponses
     setAnswerGiven(answer)
+    //On regarde si la réponse inclut 'Pas mytho' (=true) auquel cas si l'utilisateur a répondu true, on lui accorde les points
+    //On regarde aussi si la réponse n'inclut pas 'Pas mytho' (=false) auquel cas si l'utilisateur a répondu false, on lui accorde les points
+    //Sinon, il ne gagne pas de points
     if (
       (answer === true &&
         mythoPasMythoData[answerNumber].reponse.includes('Pas mytho')) ||
@@ -59,18 +71,24 @@ function MythoPasMytho() {
       updateScore(5, teamAnswering)
     }
   }
+
+  //Fonction utilisée au chargement de la page pour récupérer les données de jeu
   useEffect(() => {
     fetch(`https://rapjeu-backend.herokuapp.com/api/mythopasmytho`)
       .then((response) => response.json())
       .then((requestData) => {
+        //On génère 4 nombre aléatoires compris entre 0 et le nombre d'éléments de la table mythopasmytho
         const [n1, n2, n3, n4] = generateRandomNumber(requestData.length - 1)
+        //On met à jour la variable mythoPasMythoData en lui ajoutant 4 objets à l'aide de la fonction updateData
         updateData(
           requestData[n1],
           requestData[n2],
           requestData[n3],
           requestData[n4]
         )
+        //Les données ne chargent plus, on change donc la valeur de isDataLoading
         setDataLoading(false)
+        //Puisque les deux équipes répondent à 2 questions, l'ordre importe peu
         setTeamAnswering(team1)
       })
       .catch((error) => console.log(error))

@@ -24,6 +24,7 @@ import { ContainerRow, ContainerColumn } from '../../../utils/styles/Containers'
 import { LoaderWrapper, Loader } from '../../../utils/styles/Atoms'
 import Redbull from '../../../assets/PNG/redbull.png'
 
+//Cette page utilise le même fonctionnement que MythoPasMytho 
 function RapGenieOuGenant() {
   const [isDataLoading, setDataLoading] = useState(true)
   const [questionData, setData] = useState([])

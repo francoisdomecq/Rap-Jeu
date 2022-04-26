@@ -21,25 +21,25 @@ export const GameProvider = ({ children }) => {
   const selectGames = (value) => {
     //On regarde si la valeur à ajouter est contenue ou non dans le tableau
     if (!games.includes(value)) {
-      // Si la valeur n'est pas contenu dans le tableau, alors on regarde si la longueur du tableau est inférieure à 4
-      // ou si elle est égale à 4 et qu'elle contient des ''
+      // Si la valeur n'est pas contenue dans le tableau, alors on regarde si la longueur du tableau est inférieure à 4
+      // ou si elle est égale à 4 et qu'elle contient 'Jeu 1' et/ou 'Jeu 2
       if (
         games.length === 4 &&
         (games.includes('Jeu 1') || games.includes('Jeu 2'))
       ) {
-        //Si le tableau contient bien des '', alors on remplace les '' par la valeur à ajouter
+        //Si le tableau contient bien 'Jeu 1', alors on remplace 'Jeu 1' par la valeur à ajouter
         if (games.includes('Jeu 1')) {
-          const index = games.indexOf('Jeu 1') //position dans le tableau des ''
-          games.splice(index, 1, value) //Remplacement des '' par la valeur à ajouter
+          const index = games.indexOf('Jeu 1') //position dans le tableau de 'Jeu 1'
+          games.splice(index, 1, value) //Remplacement de 'Jeu 1' par la valeur à ajouter
           let newGame = [...games] //Création d'une nouvelle variable pour l'immutabilité du state
           setGames(newGame)
-        } //Si le tableau ne contient pas de ''
+        } //Si le tableau contient encore 'Jeu 2'
         else if (games.includes('Jeu 2')) {
-          const index = games.indexOf('Jeu 2') //position dans le tableau des ''
-          games.splice(index, 1, value) //Remplacement des '' par la valeur à ajouter
+          const index = games.indexOf('Jeu 2') //position dans le tableau de 'Jeu 2'
+          games.splice(index, 1, value) //Remplacement de 'Jeu 2' par la valeur à ajouter
           let newGame = [...games] //Création d'une nouvelle variable pour l'immutabilité du state
           setGames(newGame)
-        } else {
+        } else { 
           let newGame = [...games, value]
           setGames(newGame)
         }
@@ -66,13 +66,14 @@ export const GameProvider = ({ children }) => {
     return games
   }
 
+  //Cette fonction permet d'ajouter des jeux terminés à gamesPlayed
   const updateGamesPlayed = (game, value, updateNombreReponses) => {
     let newGamesPlayed = [...gamesPlayed]
     switch (game) {
       case 'Les 3 petits chats':
-        updateNombreReponses(value + 1)
-        if (value >= 1) {
-          newGamesPlayed.push('Les 3 petits chats')
+        updateNombreReponses(value + 1) //On augmente le nombre de manches jouées sur la page 3 petits chats
+        if (value >= 1) { 
+          newGamesPlayed.push('Les 3 petits chats') //On ajoute les 3 petits chats au tableau des jeux joués
         }
         break
       case 'Le CrossFeaturing':
@@ -112,7 +113,7 @@ export const GameProvider = ({ children }) => {
         return gamesPlayed
     }
     setGamesPlayed(newGamesPlayed)
-    localStorage.setItem('gamesPlayed', JSON.stringify(newGamesPlayed))
+    localStorage.setItem('gamesPlayed', JSON.stringify(newGamesPlayed)) //On modifie également la variable contenant les jeux terminés stockée localement 
   }
 
   function startGame(value) {
@@ -150,31 +151,33 @@ export const TeamProvider = ({ children }) => {
   const [scoreTeam2, setScoreTeam2] = useState(0)
 
   //Il y a deux manières de changer le nom des équipes. Soit lors de la requête à l'api,
-  //soit lorsque l'utilisateur les modifie manuellement dans les input
+  //soit lorsque l'utilisateur les modifie manuellement dans les input.
   function changeTeams(e, team, type) {
+    //Cas où l'utilisateur modifie lui même le nom
     if (type === 'input') {
       if (team === 'team1') {
         let newTeam = { ...team1 }
-        newTeam = e.target.value
+        newTeam = e.target.value      //On modifie la valeur de team1
         setTeam1(newTeam)
-        localStorage.setItem('team1', JSON.stringify(newTeam))
+        localStorage.setItem('team1', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
       } else if (team === 'team2') {
         let newTeam = { ...team2 }
-        newTeam = e.target.value
+        newTeam = e.target.value 
         setTeam2(newTeam)
-        localStorage.setItem('team2', JSON.stringify(newTeam))
+        localStorage.setItem('team2', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
       }
-    } else if (type === 'fetch') {
+    } //Cas où le nom des équipes est modifié lors du chargement de la page TeamCreations avec l'appel API
+    else if (type === 'fetch') {
       if (team === 'team1') {
-        let newTeam = { ...team1 }
-        newTeam = e
-        setTeam1(newTeam)
-        localStorage.setItem('team1', JSON.stringify(newTeam))
-      } else if (team === 'team2') {
+        let newTeam = { ...team1 } //Respect de l'immutabilité du state
+        newTeam = e                
+        setTeam1(newTeam)          //On modifie la valeur de team1
+        localStorage.setItem('team1', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
+      } else if (team === 'team2') { 
         let newTeam = { ...team2 }
         newTeam = e
         setTeam2(newTeam)
-        localStorage.setItem('team2', JSON.stringify(newTeam))
+        localStorage.setItem('team2', JSON.stringify(newTeam)) //On modifie également la valeur stockée localement
       }
     }
   }
@@ -185,16 +188,17 @@ export const TeamProvider = ({ children }) => {
     setQuestion(newQuestion)
   }
 
+
   function updateScore(value, team) {
     if (value) {
       if (team === team1) {
         let newScore = scoreTeam1 + parseInt(value)
         setScoreTeam1(newScore)
-        localStorage.setItem('scoreTeam1', JSON.stringify(newScore))
+        localStorage.setItem('scoreTeam1', JSON.stringify(newScore)) //On modifie également la valeur stockée localement
       } else if (team === team2) {
         let newScore = scoreTeam2 + parseInt(value)
         setScoreTeam2(newScore)
-        localStorage.setItem('scoreTeam2', JSON.stringify(newScore))
+        localStorage.setItem('scoreTeam2', JSON.stringify(newScore)) //On modifie également la valeur stockée localement
       }
     }
   }

@@ -25,36 +25,48 @@ import TeamSelection from '../../../components/TeamSelection'
 import ContainerPoints from '../../../components/ContainerPoints'
 
 function Enchere() {
+  //Cette variable contient le theme selectionné
   const [enchere, setEncheres] = useState()
+  //Cette variable contient le nombre de points pour lequel les joueurs jouent
   const [points, setPoints] = useState()
+  //Ce booléen permet de lancer la manche. Tant que celui-ci vaut false, on reste sur l'écran de sélection de thème.
   const [startCounter, setStartCount] = useState(false)
+  //Chronomètre de 60 secondes
   const [counter, setCounter] = useState(60)
+  //Compteur du nombre de réponses données par l'équipe qui répond
   const [answerGiven, setAnswerGiven] = useState(0)
-  const [answerNumber, updateAnswerNumber] = useState(0)
+  const [roundNumber, updateRoundNumber] = useState(0)
   const { updateGamesPlayed, games, teamAnswering, setTeamAnswering } =
     useContext(GameContext)
   const { team1, team2, updateScore } = useContext(TeamContext)
 
   useEffect(() => {
+    //Si startCounter vaut true, cela signifique qu'un theme, une équipe et un nombre de points ont été déterminés. Alors on commence le chrono
     if (startCounter === true) {
+      //Syntaxe permettant de décrémenter d'une seconde le chrono chaque seconde
       const timer =
         counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
       return () => clearInterval(timer)
     }
   }, [counter, startCounter])
 
+  //Au premier chargement de la page, on réinitialise la variable teamAnswering 
   useEffect(() => {
     setTeamAnswering()
-  }, [])
+  }, [setTeamAnswering])
+  
+  //Cette fonction permet de sélectionner/désélectionner un thème. Elle est passée en props au composant Theme.
   function selectTheme(theme) {
     if (theme === enchere) setEncheres()
     else setEncheres(theme)
   }
 
-  const updateAnswer = () => {
-    updateGamesPlayed('Les enchères', answerNumber, updateAnswerNumber)
+  //Cette fonction est appelée à la fin de la manche pour ajouter 'les enchères' au tableau des jeux terminés
+  const updateRound = () => {
+    updateGamesPlayed('Les enchères', roundNumber, updateRoundNumber)
   }
 
+  //Fonction qui vérifie si les conditions sont réunies pour lancer le chronomètre et quitter l'écran de sélection du thème
   function startGame() {
     if (enchere && teamAnswering && points) setStartCount(true)
   }
@@ -70,7 +82,7 @@ function Enchere() {
                 teamAnswering={teamAnswering}
                 answerGiven={answerGiven}
                 setAnswerGiven={setAnswerGiven}
-                answerNumberToGive={points}
+                roundNumberToGive={points}
               />
             </ContainerRowAnswer>
             <ContainerThemeSuggestion
@@ -115,7 +127,7 @@ function Enchere() {
                 to={`/${games[games.indexOf('Les enchères') + 1]}?game=${
                   games[games.indexOf('Les enchères') + 1]
                 }`}
-                onClick={() => updateAnswer()}
+                onClick={() => updateRound()}
               >
                 <TextLink>
                   Continuer vers

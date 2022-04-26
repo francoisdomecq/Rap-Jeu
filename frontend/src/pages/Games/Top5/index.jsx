@@ -176,8 +176,10 @@ function Top5() {
         ) : (
           //Si le chrono n'est pas lancé, cela signifie que le maître de jeu doit sélectionner un thème et une équipe
           <ContainerRowTheme>
+            {/*Permet de sélectionner un thème */}
             <Theme page="top5" selectTheme={selectTheme} chosenTheme={top5} />
             <ContainerColumnTheme>
+              {/*Permet de sélectionner l'équipe qui doit répondre */}
               <TeamSelection
                 team1={team1}
                 team2={team2}
