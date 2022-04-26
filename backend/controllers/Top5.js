@@ -1,10 +1,11 @@
-const { render } = require('../app')
+//Regarder CrossFeaturing.js pour comprendre le fonctionnement des requêtes
+
 const Top5 = require('../models/Top5')
 
 exports.createTop5 = (req, res, next) => {
   const top5 = new Top5({
     theme: req.body.theme,
-    suggestions:req.body.suggestions
+    suggestions: req.body.suggestions,
   })
   top5
     .save()
@@ -34,7 +35,7 @@ exports.getOneTop5 = (req, res, next) => {
     })
 }
 
-exports.modifyTop5= (req, res, next) => {
+exports.modifyTop5 = (req, res, next) => {
   const top5 = new Top5({
     _id: req.params.id,
     theme: req.body.theme,

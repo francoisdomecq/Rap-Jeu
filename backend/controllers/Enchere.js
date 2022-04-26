@@ -1,3 +1,5 @@
+//Regarder CrossFeaturing.js pour comprendre le fonctionnement des requêtes
+
 const Enchere = require('../models/Encheres')
 
 exports.createEnchere = (req, res, next) => {

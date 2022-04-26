@@ -13,12 +13,17 @@ const Top5 = require('./models/Top5')
 
 const app = express()
 
+//Middleware pour gérer le système de sécurité CORS qui bloque les appels HTTP entre des serveurs différents.
 app.use((req, res, next) => {
+  //Permet d'accéder à l'API depuis n'importe quel origine
   res.setHeader('Access-Control-Allow-Origin', '*')
+
+  //Ajoute les headers mentionnés aux requêtes envoyées vers notre API
   res.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization'
   )
+  //Permet d'envoyer des requêtes
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, PUT, DELETE, PATCH, OPTIONS'
@@ -28,6 +33,7 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 
+//Permet d'utiliser les routes que l'on a créé pour effectuer des appels vers l'API
 app.use('/api/crossfeaturing', CrossFeaturingRoutes)
 app.use('/api/enchere', EnchereRoutes)
 app.use('/api/nomequipe', NomEquipeRoutes)

@@ -1,3 +1,5 @@
+//Regarder CrossFeaturing.js pour comprendre le fonctionnement des requêtes
+
 const MythoPasMytho = require('../models/MythoPasMytho')
 
 exports.createMythoPasMytho = (req, res, next) => {

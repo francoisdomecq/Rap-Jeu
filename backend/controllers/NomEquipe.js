@@ -1,3 +1,5 @@
+//Regarder CrossFeaturing.js pour comprendre le fonctionnement des requêtes
+
 const NomEquipe = require('../models/NomEquipe')
 
 exports.createNomEquipe = (req, res, next) => {

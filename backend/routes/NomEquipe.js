@@ -1,3 +1,5 @@
+//Regarder CrossFeaturing.js pour comprendre le fonctionnement des routes
+
 const express = require('express')
 const router = express.Router()
 

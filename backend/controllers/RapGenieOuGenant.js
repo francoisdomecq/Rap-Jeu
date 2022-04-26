@@ -1,3 +1,5 @@
+//Regarder CrossFeaturing.js pour comprendre le fonctionnement des requêtes
+
 const RapGenieOuGenant = require('../models/RapGenieOuGenant')
 
 exports.createRapGenieOuGenant = (req, res, next) => {
